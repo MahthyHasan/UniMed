@@ -16,6 +16,12 @@
   transform: scale(1.05);
 }
 
+.cardlp .icon {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
 .cardlp h3 {
   margin-bottom: 1rem;
   color: var(--primary-color-dark);
