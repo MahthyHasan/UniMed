@@ -20,7 +20,9 @@ function Header() {
           <br />
           <b>Join with us by creating a new account</b>
         </p>
-        <button className="btnhp">Create Account</button>
+        <a href="/signup">
+          <button className="btnhp">Create Account</button>
+        </a>
       </div>
       <div className="image">
         <span className="image__bg"></span>
