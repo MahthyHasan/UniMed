@@ -5,6 +5,7 @@ import logopath from "../../assets/logo.svg";
 import "./auth.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import backIcon from "../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg";
 
 function LogIn() {
   const [formData, setFormData] = useState({
@@ -52,12 +53,18 @@ function LogIn() {
       navigate("/home");
     } catch (error) {
       console.error("Login failed:", error);
-      setErrors({ username: "Invalid username or password", password: "Invalid username or password" });
+      setErrors({
+        username: "Invalid username or password",
+        password: "Invalid username or password",
+      });
     }
   };
 
   return (
     <div className="sign-in-page">
+      <a href="/logincat" className="back-button">
+        <img src={backIcon} alt="Back" />
+      </a>
       <div className="sign-in-form">
         <div className="row logo-div">
           <img src={logopath} className="logo-pmt" alt="Logo"></img>
@@ -79,7 +86,9 @@ function LogIn() {
                 onChange={handleChange}
               />
             </label>
-            {errors.username && <span className="error-message">{errors.username}</span>}
+            {errors.username && (
+              <span className="error-message">{errors.username}</span>
+            )}
           </div>
           <div className="row mt-2">
             <label htmlFor="password" className="sign-in-form-input-02-lable">
@@ -97,7 +106,9 @@ function LogIn() {
                 onChange={handleChange}
               />
             </label>
-            {errors.password && <span className="error-message">{errors.password}</span>}
+            {errors.password && (
+              <span className="error-message">{errors.password}</span>
+            )}
           </div>
           <div className="row mt-4 logo-div">
             <button className="signin-button" type="submit">
