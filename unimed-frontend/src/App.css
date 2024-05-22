@@ -44,7 +44,7 @@ body {
 .side-menu-active {
   /*color: #5030E5 !important;*/
   color: #040720 !important;
-  background-color: #ebf4fa;
+  background-color: #c1b5fa;
   /*background-color: #EBF8F2;*/
 }
 .side-bg-color {
@@ -973,4 +973,7 @@ body {
   visibility: hidden;
   width: 0px;
   height: 0px;
+}
+.log-out-button-in-side-navbar {
+  margin-top: 80%;
 }
