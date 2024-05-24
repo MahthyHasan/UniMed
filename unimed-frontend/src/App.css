@@ -974,3 +974,359 @@ body {
   width: 0px;
   height: 0px;
 }
+
+/* Component-card styling*/
+
+.card--container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 2rem;
+  justify-content: space-around;
+}
+
+.card {
+  flex: 1 0 25%;
+  max-width: 350px;
+  max-height: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
+.card--title {
+  text-align: center;
+  padding: 5px 0;
+  font-size: 16px;
+  color: #0d062d;
+  font-weight: 600;
+  width: 100%;
+}
+
+.card--icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  margin: 0px 0;
+}
+
+.card--icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card--data {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.card-remaining {
+  background: #ff6b6b !important;
+}
+
+.card-total {
+  background: #6bcb77 !important;
+}
+
+.card-hours {
+  background: #ffd93d !important;
+}
+
+/*Component-scan card style*/
+
+.student-id-card {
+  flex: 1 0 25%;
+  width: 300px;
+  height: 300px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #bdf2d5;
+  margin-top: 50px;
+  margin-left: 200px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-container img {
+  width: 150px;
+  height: 150px;
+}
+
+.action-text {
+  font-size: 16px;
+  color: #0d062d;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.scan-barcode {
+  font-size: 14px;
+  color: #5d13e7;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.student-id-card:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*responsive style for scancard*/
+
+@media (max-width: 768px) {
+  .student-id-card {
+    flex: 1 0 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: 100px;
+  }
+
+  .icon-container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .action-text {
+    font-size: 20px;
+  }
+
+  .scan-barcode {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-id-card {
+    flex: 1 0 100%;
+    width: 250px;
+    height: 250px;
+    margin-left: 50px;
+  }
+
+  .icon-container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .action-text {
+    font-size: 22px;
+  }
+
+  .scan-barcode {
+    font-size: 20px;
+  }
+}
+/*Component -channel card*/
+
+.channelling-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -300px;
+  margin-left: 500px;
+}
+
+.channelling-card1,
+.channelling-card2 {
+  width: 300px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.channelling-card1:hover,
+.channelling-card2:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+}
+
+.channel-text {
+  font-size: 16px;
+  color: #0d062d;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.channel-container img {
+  width: 50px;
+  height: 50px;
+}
+
+.channelling-card1 {
+  background-color: #ff6b6b;
+}
+
+.channelling-card2 {
+  background-color: #4d96ff;
+}
+
+/*responsive-channelling cards*/
+@media (max-width: 768px) {
+  .channelling-container {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .channelling-card1,
+  .channelling-card2 {
+    width: 250px;
+    height: 80px;
+  }
+
+  .channel-text {
+    font-size: 14px;
+  }
+
+  .channel-container img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .channelling-container {
+    margin-top: 10px;
+  }
+
+  .channelling-card1,
+  .channelling-card2 {
+    width: 200px;
+    height: 70px;
+  }
+
+  .channel-text {
+    font-size: 12px;
+  }
+
+  .channel-container img {
+    width: 30px;
+    height: 30px;
+  }
+}
+/*dashboard components*/
+channelling-card1,
+channelling-card2 {
+  margin-top: auto;
+}
+
+/*Component- booked time slots*/
+.booked-slots {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0px;
+  margin-left: 150px;
+  margin-top: 40px;
+}
+
+.text {
+  margin-top: 110px;
+  margin-bottom: 10px;
+  margin-left: -700px;
+  margin-right: 50px;
+  font-weight: 700;
+}
+
+.booked-slots > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.slot {
+  margin-top: 200px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: #1da51c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 100px;
+}
+
+/*responsive-booked slots*/
+@media (max-width: 768px) {
+  .booked-slots {
+    margin-right: 0;
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .text {
+    margin-top: 40px;
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .slot {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booked-slots {
+    justify-content: center;
+  }
+
+  .text {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .slot {
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+  }
+}
