@@ -1,0 +1,70 @@
+.cardlp {
+  background-color: var(--white);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+}
+
+.cardlp:hover {
+  transform: scale(1.05);
+}
+
+.cardlp .icon {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
+.cardlp h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color-dark);
+}
+
+.cardlp p {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.btncrd {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btncrd:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cardlp {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .cardlp h3 {
+    font-size: 1.25rem;
+  }
+
+  .cardlp p {
+    font-size: 0.875rem;
+  }
+
+  .btncrd {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
