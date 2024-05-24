@@ -10,6 +10,11 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
 import logopath from "../assets/logo-white.png";
 
+import clinicicon from "../assets/icons2/clinic-svgrepo-com.svg";
+import Drugs from "../assets/icons2/drugs-pill-svgrepo-com.svg";
+import History from "../assets/icons2/clinic-history-svgrepo-com.svg";
+import chat from "../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
+
 function Layout({ children }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -70,11 +75,14 @@ function Layout({ children }) {
                 to={"/home"}
               >
                 <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="briefcase"
-                    className={!open ? "me-2" : "ms-1"}
+                  <img
+                    src={clinicicon}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
                   />
-                  {!open && <div className={"trans-1"}>Projects</div>}
+                  {!open && <div className={"trans-1"}>clinic</div>}
                 </div>
               </NavLink>
             </div>
@@ -89,11 +97,14 @@ function Layout({ children }) {
                 to={"/tdb"}
               >
                 <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="file-text"
-                    className={!open ? "me-2" : "ms-1"}
+                  <img
+                    src={Drugs}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
                   />
-                  {!open && <div className={""}>Tasks</div>}
+                  {!open && <div className={""}>Drugs</div>}
                 </div>
               </NavLink>
             </div>
@@ -107,16 +118,38 @@ function Layout({ children }) {
                 to={"/members"}
               >
                 <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="user"
-                    className={!open ? "me-2" : "ms-1"}
+                  <img
+                    src={History}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
                   />
-                  {!open && <div className={""}>Members</div>}
+                  {!open && <div className={""}>Analysis</div>}
                 </div>
               </NavLink>
             </div>
-
-            <div className={"w-100 border-bottom-d1d1d1 mb-3"} />
+            <div className={"w-100 px-sm-2"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
+                to={"/members"}
+              >
+                <div className={"d-flex"}>
+                  <img
+                    src={chat}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={""}>Community Chat</div>}
+                </div>
+              </NavLink>
+            </div>
 
             <div className={"w-100 px-sm-2"}>
               <NavLink
@@ -136,16 +169,23 @@ function Layout({ children }) {
                 </div>
               </NavLink>
             </div>
-            <div className=" w-24 px-sm-2 logout-bottom-left  ">
-              <div className={"side-menu-item side-menu-active "}>
-                <div className={"d-flex "}>
+            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
+                to={"/settings"}
+              >
+                <div className={"d-flex"}>
                   <FeatherIcon
                     icon="log-out"
                     className={!open ? "me-2" : "ms-1"}
                   />
-                  {!open && <div className={""}>Logout</div>}
+                  {!open && <div className={""}>log-out</div>}
                 </div>
-              </div>
+              </NavLink>
             </div>
           </div>
         </div>

@@ -40,11 +40,13 @@
   display: flex;
 }
 .sign-in-form-input-02 {
-  width: 100%;
+  text-decoration: none;
+  margin-left: 5px;
+  width: 90%;
   height: 2.8125rem;
   flex-shrink: 0;
-  border-radius: 0.25rem;
   border: none;
+  outline: none; /* Remove the border when focused */
   display: flex;
   background-color: transparent;
   color: #fff;
@@ -53,8 +55,11 @@
   font-style: normal;
   font-weight: 300;
   line-height: 1.25rem;
-
   padding-left: 5px;
+}
+
+.sign-in-form-input-02::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Dark white color for the placeholder */
 }
 
 .sign-in-form-input-02-lable {
@@ -112,4 +117,23 @@
 .form-div {
   justify-content: center; /* Horizontally center the items */
   align-items: center;
+}
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s;
+}
+
+.back-button img {
+  height: 24px;
+  width: 24px;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
 }
