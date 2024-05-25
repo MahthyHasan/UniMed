@@ -15,7 +15,7 @@ function LoginCards() {
 
   return (
     <div className="login-cards">
-      <Link to="/doctor/login" className="card-link">
+      <Link to="/loginDoctor" className="card-link">
         <Card
           title="Doctor"
           description="Login as Doctor"
