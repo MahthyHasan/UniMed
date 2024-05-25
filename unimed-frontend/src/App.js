@@ -10,6 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
 import LoginCategory from "./Components/Pages/Home/LoginTypes/LoginCategory";
+import DoctorLogin from "./Components/Login/Doctor/DoctorLogin";
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
 
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
+        
+        <Route path="/loginDoctor" element={<DoctorLogin />} />
 
       </Routes>
     </div>
