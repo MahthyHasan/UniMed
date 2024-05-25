@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
-import Login from "./Components/Pages/LogIn";
+
 import Home from "./Components/Pages/Home";
 import ProjectSetting from "./Components/Pages/ProjectSetting";
 
@@ -11,6 +11,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "./Components/Pages/Home/LandingPage";
 import LoginCategory from "./Components/Pages/Home/LoginTypes/LoginCategory";
 import DoctorLogin from "./Components/Login/Doctor/DoctorLogin";
+import AdminLogin from "./Components/Login/Admin/AdminLogin";
+import UserLogin from "./Components/Login/User/UserLogin";
+import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 
 
 function App() {
@@ -18,8 +21,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/signup" element={<CreateAccount />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<CreateAccount />} />        
         <Route path="/ps" element={<ProjectSetting />} />
 
         <Route path="/doctordb" element={<Doctordashboard />} />
@@ -28,6 +30,9 @@ function App() {
         <Route path="/logincat" element={<LoginCategory />} />
         
         <Route path="/loginDoctor" element={<DoctorLogin />} />
+        <Route path="/loginAdmin" element={<AdminLogin />} />
+        <Route path="/loginUser" element={<UserLogin />} />
+        <Route path="/loginPharmacist" element={<PharmacistLogin />} />
 
       </Routes>
     </div>
