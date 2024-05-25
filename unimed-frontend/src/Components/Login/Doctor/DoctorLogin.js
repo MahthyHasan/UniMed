@@ -5,6 +5,7 @@ import iconpath1 from '../../../assets/icons/user-icon.svg';
 import iconpath2 from '../../../assets/icons/lock-icon.svg';
 import logopath from '../../../assets/logo.svg';
 import backIcon from '../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg';
+import tickIcon from '../../../assets/Login-icons/tick.svg'
 import './doctorLogin.css';
 
 function DoctorLogin() {
@@ -73,39 +74,31 @@ function DoctorLogin() {
 
   return (
     
-    <div className="sign-in-page">
+    <div className="sign-in-page-doctor">
         {alertVisible && (
         <div className="alert alert-success" role="alert">            
-          <p>{alertMessage}</p>          
-          <button
-            type="button"
-            className="close closeButton"
-            data-dismiss="alert"
-            aria-label="Close"
-            onClick={() => setAlertVisible(false)}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>          
+          <p className='alert-message'>{alertMessage}</p> 
+          <img src={tickIcon} alt="User Icon" className="alert-icon" />
         </div>
       )}
       <a href="/logincat" className="back-button">
         <img src={backIcon} alt="Back" />
       </a>
       
-      <div className="sign-in-form">
-        <div className="row logo-div">
-          <img src={logopath} className="logo-pmt" alt="Logo" />
+      <div className="sign-in-form-doctor">
+        <div className="row logo-div-doctor">
+          <img src={logopath} className="logo-pmt-doctor" alt="Logo" />
         </div>
-        <form onSubmit={handleSubmit} className="form-div">
+        <form onSubmit={handleSubmit} className="form-div-doctor">
           <div className="row mt-4">
             <label
               htmlFor="username"
-              className="justify-content-center align-items-center sign-in-form-input-02-lable"
+              className="justify-content-center align-items-center sign-in-form-input-02-lable-doctor"
             >
-              <img src={iconpath1} alt="User Icon" className="input-lable-icon" />
+              <img src={iconpath1} alt="User Icon" className="input-lable-icon-doctor" />
               <input
                 id="username"
-                className="sign-in-form-input-02"
+                className="sign-in-form-input-02-doctor"
                 type="text"
                 placeholder="USERNAME"
                 value={formData.username}
@@ -115,11 +108,11 @@ function DoctorLogin() {
             {errors.username && <span className="error-message">{errors.username}</span>}
           </div>
           <div className="row mt-2">
-            <label htmlFor="password" className="sign-in-form-input-02-lable">
-              <img src={iconpath2} alt="Password Icon" className="input-lable-icon" />
+            <label htmlFor="password" className="sign-in-form-input-02-lable-doctor">
+              <img src={iconpath2} alt="Password Icon" className="input-lable-icon-doctor" />
               <input
                 id="password"
-                className="sign-in-form-input-02"
+                className="sign-in-form-input-02-doctor"
                 type="password"
                 placeholder="PASSWORD"
                 value={formData.password}
@@ -128,15 +121,15 @@ function DoctorLogin() {
             </label>
             {errors.password && <span className="error-message">{errors.password}</span>}
           </div>
-          <div className="row mt-4 logo-div">
-            <button className="signin-button" type="submit">
+          <div className="row mt-4 logo-div-doctor">
+            <button className="signin-button-doctor" type="submit">
               Login
             </button>
           </div>
           <div className="row mt-1">
             <div className="col-6 d-flex justify-content-start"></div>
             <div className="col-6 d-flex justify-content-end">
-              <p className="sign-in-small-text">Forgot password?</p>
+              <p className="sign-in-small-text-doctor">Forgot password?</p>
             </div>
           </div>
         </form>

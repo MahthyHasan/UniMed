@@ -24,7 +24,7 @@ function LoginCards() {
         />
       </Link>
 
-      <Link to="/login" className="card-link">
+      <Link to="/loginUser" className="card-link">
         <Card
           title="Patient"
           description="Login as Patient"
@@ -33,7 +33,7 @@ function LoginCards() {
         />
       </Link>
 
-      <Link to="/doctor/login" className="card-link">
+      <Link to="/loginPharmacist" className="card-link">
         <Card
           title="Pharmacist"
           description="Login as Pharmacist"
@@ -42,7 +42,7 @@ function LoginCards() {
         />
       </Link>
 
-      <Link to="/doctor/login" className="card-link">
+      <Link to="/loginAdmin" className="card-link">
         <Card
           title="Admin"
           description="Login as Admin"
