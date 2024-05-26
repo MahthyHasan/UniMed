@@ -1,7 +1,7 @@
 import React from "react";
-import patient from "../assets/icons/patient.svg";
-import totalpatient from "../assets/icons/totalpatient.svg";
-import hours from "../assets/icons/hours.svg";
+import patient from "../../../../assets/icons/patient.svg";
+import totalpatient from "../../../../assets/icons/totalpatient.svg";
+import hours from "../../../../assets/icons/hours.svg";
 
 
 

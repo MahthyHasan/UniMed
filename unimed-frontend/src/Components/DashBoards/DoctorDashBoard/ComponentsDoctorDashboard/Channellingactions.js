@@ -1,6 +1,6 @@
 import React from "react";
-import pause from "../assets/icons/pause.svg";
-import continueicon from "../assets/icons/continueicon.svg";
+import pause from "../../../../assets/icons/pause.svg";
+import continueicon from "../../../../assets/icons/continueicon.svg";
 
 export const Channellingactions = () => {
   return (
