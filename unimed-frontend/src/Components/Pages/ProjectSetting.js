@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Layout from "../../layout/Layout";
+import Layout from "../DashBoards/layout/Layout";
 import ProjectForm from "../Widgets/ProjectForm";
 
 function ProjectSetting(props) {
