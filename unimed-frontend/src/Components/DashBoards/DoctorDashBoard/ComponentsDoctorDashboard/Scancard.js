@@ -1,6 +1,6 @@
 import React from "react";
-import patient from "../assets/icons/patient.svg";
-import barcode from "../assets/icons/barcode.svg";
+import patient from "../../../../assets/icons/patient.svg";
+import barcode from "../../../../assets/icons/barcode.svg";
 
 
 export const Scancard = () => {
