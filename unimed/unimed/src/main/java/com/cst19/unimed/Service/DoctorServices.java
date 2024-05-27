@@ -20,4 +20,5 @@ public class DoctorServices {
     public Doctor getUserByUsernameAndPassword(String username, String password) {
         return repo.findByUsernameAndPassword(username, password); // Implement this method in your UserRepo
     }
+    public Iterable<Doctor> listAll(){return this.repo.findAll();}
 }
