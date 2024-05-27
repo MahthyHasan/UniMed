@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Profile from "../../../assets/profile-img.svg";
-import SideClose from "../../../assets/icons/left-arrow.svg";
+import Profile from "../../../../assets/profile-img.svg";
+import SideClose from "../../../../assets/icons/left-arrow.svg";
 import FeatherIcon from "feather-icons-react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeToggle } from "../../../redux/actions";
+import { changeToggle } from "../../../../redux/actions";
 import { EditProfile } from "./EditProfile";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
-import logopath from "../../../assets/logo-white.png";
+import logopath from "../../../../assets/logo-white.png";
 
-import clinicicon from "../../../assets/icons2/clinic-svgrepo-com.svg";
-import Drugs from "../../../assets/icons2/drugs-pill-svgrepo-com.svg";
-import History from "../../../assets/icons2/clinic-history-svgrepo-com.svg";
-import chat from "../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
+import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
+import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
+import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
+import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 
 function Layout({ children }) {
   const dispatch = useDispatch();
