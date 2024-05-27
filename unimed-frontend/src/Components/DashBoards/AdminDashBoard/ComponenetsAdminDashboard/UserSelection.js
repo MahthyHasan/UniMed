@@ -9,46 +9,34 @@ import adminIcon from "../../../../assets/icons2/edit-3-svgrepo-com.svg";
 
 function UserSelection() {
 	return (
-		<div className="user-selection-div-for-admin-page">
+		<div>
+			<div><Link to="/adminSelectUsers"><p className="topNavigation">users</p></Link></div>
+			<div className="user-selection-div-for-admin-page">
 			<div className="col">
 				<div className="row">
-					<Link to="/doctorAllProfiles" className="card-link">
-						<UserCards
-                        cssclass = "user-cards-admin-dashboard-doctor"
-                        text="Doctor"
-                        icon={doctorIcon}
-                        />
+					<Link to="/doctorAllProfiles" className="card-link">						
+							<UserCards text="Doctor" icon={doctorIcon} cssclass="user-cards-admin-dashboard-doctor" iconcc="icon" />						
 					</Link>
 				</div>
-                <div className="row mt-2">
-					<Link to="/pharmacistAllProfiles" className="card-link">
-						<UserCards
-                        cssclass = "user-cards-admin-dashboard-pharmacist"
-                        text="Pharmacist"
-                        icon={pharmesistIcon}
-                        />
+				<div className="row mt-2">
+					<Link to="/pharmacistAllProfiles" className="card-link">						
+							<UserCards text="Pharmacist" icon={pharmesistIcon} cssclass="user-cards-admin-dashboard-pharmacist" iconcc="icon" />						
 					</Link>
 				</div>
-                <div className="row mt-2">
-					<Link to="/patientAllProfiles" className="card-link">
-						<UserCards
-                        cssclass = "user-cards-admin-dashboard-patient"
-                        text="Patient"
-                        icon={patientIcon}
-                        />
+				<div className="row mt-2">
+					<Link to="/patientAllProfiles" className="card-link" >						
+							<UserCards text="Patient" icon={patientIcon} cssclass="user-cards-admin-dashboard-patient" iconcc="icon2" />						
 					</Link>
 				</div>
-                <div className="row mt-2">
-					<Link to="/adminAllProfiles" className="card-link">
-						<UserCards
-                        cssclass = "user-cards-admin-dashboard-doctor"
-                        text="Admin"
-                        icon={adminIcon}
-                        />
+				<div className="row mt-2">
+					<Link to="/adminAllProfiles" className="card-link">						
+							<UserCards text="Admin" icon={adminIcon} cssclass="user-cards-admin-dashboard-admin" iconcc="icon" />						
 					</Link>
 				</div>
 			</div>
 		</div>
+		</div>
+		
 	);
 }
 
