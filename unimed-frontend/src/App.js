@@ -16,6 +16,9 @@ import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/DrugsDoctorPage";
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
+import VerifyEmail from "./Components/Pages/VerifyEmail";
+
+
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/verifyEmail" element={<VerifyEmail />} />
       </Routes>
     </div>
   );
