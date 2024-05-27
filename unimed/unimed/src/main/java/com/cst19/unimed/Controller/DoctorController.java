@@ -33,4 +33,9 @@ public class DoctorController {
         }
     }
 
+    @GetMapping(value = "/getAll")
+    private Iterable<Doctor>getDoctor(){
+        return doctorService.listAll();
+    }
+
 }
