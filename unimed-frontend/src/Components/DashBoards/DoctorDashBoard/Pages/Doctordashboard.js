@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../layout/Layout";
+import Layout from "../../layout/DoctorLayout/DoctorLayouts";
 import Card from "../ComponentsDoctorDashboard/Card";
 import { Scancard } from "../ComponentsDoctorDashboard/Scancard";
 import { Channellingactions } from "../ComponentsDoctorDashboard/Channellingactions";
