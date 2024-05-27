@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
 
-
 import ProjectSetting from "./Components/Pages/ProjectSetting";
 
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
@@ -15,27 +14,29 @@ import AdminLogin from "./Components/Login/Admin/AdminLogin";
 import UserLogin from "./Components/Login/User/UserLogin";
 import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/DrugsDoctorPage";
-
+import AboutUs from "./Components/Pages/Home/AbotUs";
+import ContactUs from "./Components/Pages/Home/ContactUs";
 
 function App() {
   return (
     <div>
       <Routes>
-     
-        <Route path="/signup" element={<CreateAccount />} />        
+        <Route path="/signup" element={<CreateAccount />} />
         <Route path="/ps" element={<ProjectSetting />} />
 
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
 
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
-        
+
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/loginAdmin" element={<AdminLogin />} />
         <Route path="/loginUser" element={<UserLogin />} />
         <Route path="/loginPharmacist" element={<PharmacistLogin />} />
 
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </div>
   );
