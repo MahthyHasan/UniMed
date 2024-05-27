@@ -1,0 +1,30 @@
+.user-cards-admin-dashboard-doctor {
+	display: flex;
+	align-items: center;
+	width: 17.5625rem;
+	height: 8.375rem;
+	flex-shrink: 0;
+	border-radius: 1rem;
+	background: #ff6b6b;
+	color: #0d062d;
+}
+.user-cards-admin-dashboard-patient {
+	display: flex;
+	align-items: center;
+	width: 17.5625rem;
+	height: 8.375rem;
+	flex-shrink: 0;
+	border-radius: 1rem;
+	background: #ffd93d;
+	color: #0d062d;
+}
+.user-cards-admin-dashboard-pharmacist {
+	display: flex;
+	align-items: center;
+	width: 17.5625rem;
+	height: 8.375rem;
+	flex-shrink: 0;
+	border-radius: 1rem;
+	background: #6bcb77;
+	color: #0d062d;
+}
