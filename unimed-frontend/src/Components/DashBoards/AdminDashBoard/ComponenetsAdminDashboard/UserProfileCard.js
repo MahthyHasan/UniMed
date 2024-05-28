@@ -20,7 +20,7 @@ function UserProfileCard({ name, userId, onViewProfile }) {
 					</div>
 					<div className="row mt-4">
 						<Link to={`/showDoctorProfilePage/${userId}`}>
-							<Button className="profilecardButton" onClick={onViewProfile}>
+							<Button className="profilecardButton">
 								View Profile
 							</Button>
 						</Link>
