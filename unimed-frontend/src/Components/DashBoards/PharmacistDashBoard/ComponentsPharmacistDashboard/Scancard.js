@@ -1,27 +1,55 @@
 import React from "react";
-import patient from "../../../../assets/icons/patient.svg";
+import { useNavigate } from "react-router-dom";
 import barcode from "../../../../assets/icons/barcode.svg";
-import "../../../../Css/Pharmacist/DashBoard/ScancardNew.css"; // Import CSS here
+import "../../../../Css/Pharmacist/DashBoard/ScancardNew.css";
 
 export const Scancard = () => {
-  // Define the function to handle the click event
+  const navigate = useNavigate();
+
   const handleCardClick = () => {
     console.log(
       "Card clicked! This will initiate the QR code scanning functionality."
     );
   };
 
+  const handleBookingClick = () => {
+    console.log("Booking time slot button clicked!");
+    // Add functionality for booking time slot
+  };
+
+  const handleMedicineClick = () => {
+    console.log("Provide medicine button clicked!");
+    navigate("/ProvideMedicine");
+  };
+
   return (
-    <div className="student-id-card">
-      <div className="student-id-card1">
-        <div className="action-text1">Attend New Patient</div>
-        <div className="icon-container1">
-          <img src={barcode} alt="patient" className="barcode-icon" />
+    <div className="scancard-container">
+      <div className="left-section">
+        <div className="student-id-card" onClick={handleCardClick}>
+          <div className="action-text">Provide Medicine</div>
+          <div className="icon-container">
+            <img src={barcode} alt="patient" className="input-label-icon" />
+          </div>
+          <div
+            className="scan-barcode provide-medicine"
+            onClick={handleMedicineClick}
+          >
+            Provide Medicine
+          </div>
         </div>
-        <div className="scan-barcode1">
-          <button type="button" className="scan-barcode-button">
-            Scan Barcode
-          </button>
+      </div>
+      <div className="right-section">
+        <div className="student-id-card" onClick={handleCardClick}>
+          <div className="action-text">Book Time Slot</div>
+          <div className="icon-container">
+            <img src={barcode} alt="patient" className="input-label-icon" />
+          </div>
+          <div
+            className="scan-barcode book-time-slot"
+            onClick={handleBookingClick}
+          >
+            Book Time Slot
+          </div>
         </div>
       </div>
     </div>
