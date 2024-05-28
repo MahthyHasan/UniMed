@@ -5,6 +5,7 @@ import CreateAccount from "./Components/Pages/CreateAccount";
 import ProjectSetting from "./Components/Pages/ProjectSetting";
 
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
+import PharmacistDashboard from "./Components/DashBoards//PharmacistDashBoard/Pages/PharmacistDashboard";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
 
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
+        <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
 
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
