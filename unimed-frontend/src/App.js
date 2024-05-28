@@ -40,7 +40,7 @@ function App() {
         <Route path="/verifyEmail" element={<VerifyEmail />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/showDoctorProfilePage" element={<ShowDoctorProfilePage />} />        
+        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />        
       </Routes>
     </div>
   );
