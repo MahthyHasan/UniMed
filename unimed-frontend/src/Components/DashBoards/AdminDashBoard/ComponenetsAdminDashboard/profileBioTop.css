@@ -1,0 +1,17 @@
+.profileImageOnTop {
+	width: 6.25rem;
+	height: 6.25rem;
+	flex-shrink: 0;
+	border-radius: 6.25rem;
+}
+.userIDTextTag {
+	width: 11.75rem;
+	height: 0.9375rem;
+	flex-shrink: 0;
+	color: #787486;
+	font-family: Inter;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}

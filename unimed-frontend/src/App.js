@@ -19,6 +19,7 @@ import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ListAllDoctorsPage";
+import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ShowDoctorProfilePage";
 
 function App() {
   return (
@@ -39,8 +40,7 @@ function App() {
         <Route path="/verifyEmail" element={<VerifyEmail />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-
-
+        <Route path="/showDoctorProfilePage" element={<ShowDoctorProfilePage />} />        
       </Routes>
     </div>
   );
