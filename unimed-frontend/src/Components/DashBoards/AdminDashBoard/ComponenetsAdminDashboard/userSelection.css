@@ -1,0 +1,47 @@
+.user-selection-div-for-admin-page {
+	justify-content: center;
+	align-items: center;
+	width: 17.5625rem;
+	height: 80vh;
+	margin-left: 39%;
+	margin-top: 2%;
+}
+
+@media (max-width: 1024px) {
+	.user-selection-div-for-admin-page {
+		width: 15rem;
+		height: 70vh;
+		margin-left: 30%;
+		margin-top: 5%;
+	}
+}
+
+@media (max-width: 768px) {
+	.user-selection-div-for-admin-page {
+		width: 12rem;
+		height: 60vh;
+		margin-left: 25%;
+		margin-top: 5%;
+	}
+}
+
+@media (max-width: 480px) {
+	.user-selection-div-for-admin-page {
+		width: 10rem;
+		height: 50vh;
+		margin-left: 16%;
+		margin-top: 5%;
+	}
+}
+
+.topNavigation {
+	width: 11.75rem;
+	height: 0.9375rem;
+	flex-shrink: 0;
+	color: #787486;
+	font-family: Inter;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
