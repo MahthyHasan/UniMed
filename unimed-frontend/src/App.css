@@ -975,7 +975,6 @@ body {
   height: 0px;
 }
 
-
 /* Component-card styling*/
 
 .card--container {
@@ -1330,8 +1329,7 @@ channelling-card2 {
     height: 35px;
     padding: 6px;
   }
-.log-out-button-in-side-navbar {
-  margin-top: 80%;
-
-}
+  .log-out-button-in-side-navbar {
+    margin-top: 80%;
+  }
 }
