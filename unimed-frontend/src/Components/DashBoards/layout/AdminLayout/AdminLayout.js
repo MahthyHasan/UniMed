@@ -1,4 +1,23 @@
+
 import React from "react";
+=======
+import React, { useState, useEffect } from "react";
+import Profile from "../../../../assets/profile-img.svg";
+import SideClose from "../../../../assets/icons/left-arrow.svg";
+import FeatherIcon from "feather-icons-react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeToggle } from "../../../../redux/actions";
+import { EditProfile } from "./EditProfile";
+import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
+import logopath from "../../../../assets/logo-white.png";
+
+import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
+import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
+import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
+import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
+
 
 function AdminLayout({ children }) {
   const dispatch = useDispatch();
@@ -71,106 +90,130 @@ function AdminLayout({ children }) {
                 </div>
               </NavLink>
             </div>
-
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/DrugsDoctorPage"}
-              >
-                <div className={"d-flex"}>
-                  <img
-                    src={Drugs}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={""}>Drugs</div>}
-                </div>
-              </NavLink>
-            </div>
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/members"}
-              >
-                <div className={"d-flex"}>
-                  <img
-                    src={History}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={""}>Analysis</div>}
-                </div>
-              </NavLink>
-            </div>
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/members"}
-              >
-                <div className={"d-flex"}>
-                  <img
-                    src={chat}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={""}>Community Chat</div>}
-                </div>
-              </NavLink>
-            </div>
-
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/settings"}
-              >
-                <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="settings"
-                    className={!open ? "me-2" : "ms-1"}
-                  />
-                  {!open && <div className={""}>Settings</div>}
-                </div>
-              </NavLink>
-            </div>
-            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/settings"}
-              >
-                <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="log-out"
-                    className={!open ? "me-2" : "ms-1"}
-                  />
-                  {!open && <div className={""}>log-out</div>}
-                </div>
-              </NavLink>
+ 
+            <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
+              <div className={"w-100 px-sm-2"}>
+                <NavLink
+                  className={({ isActive }) =>  
+                    isActive
+                      ? "side-menu-item side-menu-active "
+                      : "side-menu-item "
+                  }
+                  to={"/doctorDashboard"}
+                >
+                  <div className={"d-flex"}>
+                    <img
+                      src={clinicicon}
+                      alt="avatar"
+                      height="24px"
+                      width="26.4px"
+                      className=" me-2"
+                    />
+                    {!open && <div className={"trans-1"}>clinic</div>}
+                  </div>
+                </NavLink>
+              </div>
+  
+              <div className={"w-100 px-sm-2"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "side-menu-item side-menu-active"
+                      : "side-menu-item"
+                  }
+                  to={"/DrugsDoctorPage"}
+                >
+                  <div className={"d-flex"}>
+                    <img
+                      src={Drugs}
+                      alt="avatar"
+                      height="24px"
+                      width="26.4px"
+                      className=" me-2"
+                    />
+                    {!open && <div className={""}>Drugs</div>}
+                  </div>
+                </NavLink>
+              </div>
+              <div className={"w-100 px-sm-2"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "side-menu-item side-menu-active"
+                      : "side-menu-item"
+                  }
+                  to={"/members"}
+                >
+                  <div className={"d-flex"}>
+                    <img
+                      src={History}
+                      alt="avatar"
+                      height="24px"
+                      width="26.4px"
+                      className=" me-2"
+                    />
+                    {!open && <div className={""}>Analysis</div>}
+                  </div>
+                </NavLink>
+              </div>
+              <div className={"w-100 px-sm-2"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "side-menu-item side-menu-active"
+                      : "side-menu-item"
+                  }
+                  to={"/members"}
+                >
+                  <div className={"d-flex"}>
+                    <img
+                      src={chat}
+                      alt="avatar"
+                      height="24px"
+                      width="26.4px"
+                      className=" me-2"
+                    />
+                    {!open && <div className={""}>Community Chat</div>}
+                  </div>
+                </NavLink>
+              </div>
+  
+              <div className={"w-100 px-sm-2"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "side-menu-item side-menu-active"
+                      : "side-menu-item"
+                  }
+                  to={"/settings"}
+                >
+                  <div className={"d-flex"}>
+                    <FeatherIcon
+                      icon="settings"
+                      className={!open ? "me-2" : "ms-1"}
+                    />
+                    {!open && <div className={""}>Settings</div>}
+                  </div>
+                </NavLink>
+              </div>
+              <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "side-menu-item side-menu-active"
+                      : "side-menu-item"
+                  }
+                  to={"/settings"}
+                >
+                  <div className={"d-flex"}>
+                    <FeatherIcon
+                      icon="log-out"
+                      className={!open ? "me-2" : "ms-1"}
+                    />
+                    {!open && <div className={""}>log-out</div>}
+                  </div>
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>

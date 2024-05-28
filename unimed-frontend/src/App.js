@@ -17,6 +17,10 @@ import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/DrugsDoctorPage";
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
+import VerifyEmail from "./Components/Pages/VerifyEmail";
+import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
+import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ListAllDoctorsPage";
+import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ShowDoctorProfilePage";
 
 function App() {
   return (
@@ -24,21 +28,21 @@ function App() {
       <Routes>
         <Route path="/signup" element={<CreateAccount />} />
         <Route path="/ps" element={<ProjectSetting />} />
-
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
-
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
-
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/loginAdmin" element={<AdminLogin />} />
         <Route path="/loginUser" element={<UserLogin />} />
         <Route path="/loginPharmacist" element={<PharmacistLogin />} />
-
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/verifyEmail" element={<VerifyEmail />} />
+        <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
+        <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />        
       </Routes>
     </div>
   );

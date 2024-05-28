@@ -8,6 +8,7 @@ import logopath from "../../assets/logo.svg";
 import "./auth.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 function CreateAccount() {
   const [formData, setFormData] = useState({
     email: "",
@@ -35,6 +36,7 @@ function CreateAccount() {
     password: "",
     rPassword: "",
   };
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -109,15 +111,15 @@ function CreateAccount() {
         axios
           .post("http://localhost:8088/api/v1/user/save", formData)
           .then(() => {
-            console.log(formData);
-            setFormData(initialFormData);
-            console.log("Account created successfully");
-            alert("Account creation Sucessfully!");
-            // alert("Account created successfully!");
-            navigate("/login");
+            setFormData(initialFormData);            
+            navigate("/verifyEmail");
           })
-          .catch(() => {
-            alert("Account creation failed!");
+          .catch((error) => {
+            if (error.response && error.response.data) {
+              alert(`Account creation failed: ${error.response.data}`);
+            } else {
+              alert("Account creation failed!");
+            }
           });
       } catch (err) {
         alert("Account creation Failed");
@@ -277,7 +279,7 @@ function CreateAccount() {
           </div>
         </form>
         <div className="row mt-2 logo-div">
-          <button type="submit" className="signin-button">
+          <button type="button" className="signin-button" onClick={() => navigate("/login")}>
             Already Have Account ?
           </button>
         </div>

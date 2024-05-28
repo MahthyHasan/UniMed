@@ -1,0 +1,11 @@
+.centered-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .custom-badge {
+    width: 60%;
+    font-size: 1.5rem;
+    height: 60px; /* Adjust height as needed */
+  }
