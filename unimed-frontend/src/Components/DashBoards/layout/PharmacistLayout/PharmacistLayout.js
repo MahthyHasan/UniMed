@@ -1,4 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Profile from "../../../../assets/profile-img.svg";
+import SideClose from "../../../../assets/icons/left-arrow.svg";
+import FeatherIcon from "feather-icons-react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeToggle } from "../../../../redux/actions";
+import { EditProfile } from "./EditProfile";
+import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
+import logopath from "../../../../assets/logo-white.png";
+
+import QrCode from "../../../../assets/icons2/qr-reader-svgrepo-com.svg";
+import Medicine from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
+import Drugs from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
+import Supply from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 
 export default function PharmacistLayout({ children }) {
   const dispatch = useDispatch();
@@ -61,7 +76,7 @@ export default function PharmacistLayout({ children }) {
               >
                 <div className={"d-flex"}>
                   <img
-                    src={clinicicon}
+                    src={QrCode}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
@@ -83,7 +98,7 @@ export default function PharmacistLayout({ children }) {
               >
                 <div className={"d-flex"}>
                   <img
-                    src={Drugs}
+                    src={Medicine}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
@@ -125,7 +140,7 @@ export default function PharmacistLayout({ children }) {
               >
                 <div className={"d-flex"}>
                   <img
-                    src={chat}
+                    src={Supply}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
