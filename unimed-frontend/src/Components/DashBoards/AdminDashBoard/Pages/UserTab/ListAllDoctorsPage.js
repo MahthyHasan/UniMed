@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Layout from "../../../layout/DoctorLayout/DoctorLayouts";
+import AdminLayout from "../../../layout/AdminLayout/AdminLayout";
 import UserProfileCard from "../../ComponenetsAdminDashboard/UserProfileCard";
 import "./listAllDoctorsPage.css"
 
@@ -33,10 +33,10 @@ function ListAllDoctorsPage() {
 	}, [search, doctors]);
 
 	return (
-		<Layout>
+		<AdminLayout>
 			<div className="list-All-Doctors-admin-page">
 				<Form>
-					<InputGroup className="mt-3">
+					<InputGroup className="mt-3 input-group-for-admin-searchbar">
 						{/* onChange for search */}
 						<Form.Control
 							onChange={(e) => setSearch(e.target.value)}
@@ -52,7 +52,7 @@ function ListAllDoctorsPage() {
 					))}
 				</div>
 			</div>
-		</Layout>
+		</AdminLayout>
 	);
 }
 
