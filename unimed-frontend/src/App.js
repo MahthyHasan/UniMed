@@ -17,6 +17,7 @@ import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/Drugs
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
+import ClinicRecords from "./Components/Pages/ClinicRecords"
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
+        <Route path="/ClinicRecords" element={<ClinicRecords />} />
       </Routes>
     </div>
   );
