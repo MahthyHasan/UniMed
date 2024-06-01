@@ -15,7 +15,6 @@ import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
 import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 
-
 function AdminLayout({ children }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
@@ -87,11 +86,11 @@ function AdminLayout({ children }) {
                 </div>
               </NavLink>
             </div>
- 
+
             <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
               <div className={"w-100 px-sm-2"}>
                 <NavLink
-                  className={({ isActive }) =>  
+                  className={({ isActive }) =>
                     isActive
                       ? "side-menu-item side-menu-active "
                       : "side-menu-item "
@@ -110,7 +109,7 @@ function AdminLayout({ children }) {
                   </div>
                 </NavLink>
               </div>
-  
+
               <div className={"w-100 px-sm-2"}>
                 <NavLink
                   className={({ isActive }) =>
@@ -174,7 +173,7 @@ function AdminLayout({ children }) {
                   </div>
                 </NavLink>
               </div>
-  
+
               <div className={"w-100 px-sm-2"}>
                 <NavLink
                   className={({ isActive }) =>
