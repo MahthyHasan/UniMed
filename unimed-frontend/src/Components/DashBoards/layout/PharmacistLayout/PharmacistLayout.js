@@ -72,7 +72,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active "
                     : "side-menu-item "
                 }
-                to={"/doctorDashboard"}
+                to={"/ProvideMedicine"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -94,28 +94,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/DrugsDoctorPage"}
-              >
-                <div className={"d-flex"}>
-                  <img
-                    src={Medicine}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={""}>Prescribed Medicine</div>}
-                </div>
-              </NavLink>
-            </div>
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/members"}
+                to={"/DrugInvestory"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -136,7 +115,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/members"}
+                to={"/supply"}
               >
                 <div className={"d-flex"}>
                   <img
