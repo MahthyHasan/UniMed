@@ -45,6 +45,7 @@ function ShowDoctorProfilePage() {
               height={bioData.height}
               weight={bioData.weight}
               bloodgrp={bioData.bloodGroup}
+              type= "Doctor"
             />
           )}
         </div>

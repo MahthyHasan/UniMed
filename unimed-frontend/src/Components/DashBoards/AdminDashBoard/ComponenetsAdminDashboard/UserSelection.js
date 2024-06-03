@@ -24,12 +24,12 @@ function UserSelection() {
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/patientAllProfiles" className="card-link" >						
+					<Link to="/listAllPatients" className="card-link" >						
 							<UserCards text="Patient" icon={patientIcon} cssclass="user-cards-admin-dashboard-patient" iconcc="icon2" />						
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/adminAllProfiles" className="card-link">						
+					<Link to="/listAllAdmins" className="card-link">						
 							<UserCards text="Admin" icon={adminIcon} cssclass="user-cards-admin-dashboard-admin" iconcc="icon" />						
 					</Link>
 				</div>

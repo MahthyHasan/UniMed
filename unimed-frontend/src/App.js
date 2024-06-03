@@ -25,6 +25,9 @@ import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/Use
 import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ShowDoctorProfilePage";
 import ListAllPharmacistPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Pharmacist/ListAllPharmacistPage";
 import ShowPharmacistProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Pharmacist/ShowPharmacistProfilePage";
+import ListAllAdminsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ListAllAdminsPage";
+import ShowAdminProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ShowAdminProfilePage";
+import ListAllPatientsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ListAllPatientsPage";
 
 function App() {
   return (
@@ -57,6 +60,13 @@ function App() {
           path="/showPharmacistProfilePage/:userId"
           element={<ShowPharmacistProfilePage />}
         />
+        <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
+        <Route
+          path="/showAdminProfilePage/:userId"
+          element={<ShowAdminProfilePage />}
+        />
+        <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
+
       </Routes>
     </div>
   );
