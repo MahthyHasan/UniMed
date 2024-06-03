@@ -21,8 +21,8 @@ import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
-import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ListAllDoctorsPage";
-import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ShowDoctorProfilePage";
+import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
+import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ShowDoctorProfilePage";
 
 function App() {
   return (

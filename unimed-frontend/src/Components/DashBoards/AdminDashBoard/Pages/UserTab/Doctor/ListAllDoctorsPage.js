@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import AdminLayout from "../../../layout/AdminLayout/AdminLayout";
-import UserProfileCard from "../../ComponenetsAdminDashboard/UserProfileCard";
+import AdminLayout from "../../../../layout/AdminLayout/AdminLayout";
+import UserProfileCard from "../../../ComponenetsAdminDashboard/UserProfileCard";
 import "./listAllDoctorsPage.css";
 import { Button } from "react-bootstrap";
-import CreateProfile from "../../ComponenetsAdminDashboard/CreateProfile";
+import CreateProfile from "../../../ComponenetsAdminDashboard/CreateProfile";
 
 function ListAllDoctorsPage() {
 	const [doctors, setDoctors] = useState([]);
