@@ -1,6 +1,8 @@
 package com.cst19.unimed.Service;
 
 import com.cst19.unimed.Entity.User;
+import com.cst19.unimed.Entity.UserBio;
+import com.cst19.unimed.Repo.UserBioRepo;
 import com.cst19.unimed.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -20,6 +22,9 @@ public class UserService {
     @Autowired
     private JavaMailSender mailSender;
 
+    @Autowired
+    private UserBioRepo repobio;
+
     public void saveOrUpdate(User user) throws Exception {
         Optional<User> existingUser = Optional.ofNullable(repo.findByEmail(user.getEmail()));
         if (existingUser.isPresent()) {
@@ -36,18 +41,28 @@ public class UserService {
         String verificationLink = "http://localhost:8088/api/v1/user/verify?token=" + verificationToken;
         sendVerificationEmail(user.getEmail(), verificationLink);
     }
+    public void saveorupdatebyadmin(User users){
+        repo.save(users);
+    }
+
+    public void saveorupdatebio(UserBio userBio){
+        repobio.save(userBio);
+    }
 
     public Iterable<User> listAll() {
         return this.repo.findAll();
     }
 
     public void deleteUser(String id) {
+
         repo.deleteById(id);
+        repobio.deleteById(id);
     }
 
     public User getUserByID(String userid) {
         return repo.findById(userid).orElse(null);
     }
+    public UserBio getUserBiobyID(String userid){return repobio.findById(userid).orElse(null);}
 
     public User getUserByUsernameAndPassword(String username, String password) {
         return repo.findByUsernameAndPassword(username, password);
