@@ -19,7 +19,7 @@ function UserSelection() {
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/pharmacistAllProfiles" className="card-link">						
+					<Link to="/listAllPharmacist" className="card-link">						
 							<UserCards text="Pharmacist" icon={pharmesistIcon} cssclass="user-cards-admin-dashboard-pharmacist" iconcc="icon" />						
 					</Link>
 				</div>

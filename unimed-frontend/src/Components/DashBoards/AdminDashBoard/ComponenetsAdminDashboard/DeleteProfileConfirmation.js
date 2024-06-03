@@ -5,7 +5,7 @@ import "./deleteProfileConfirmation.css"
 
 function DeleteProfileConfirmation(props) {
     const handleDelete = () => {
-        fetch(`http://localhost:8088/api/v1/doctor/${props.userId}`, {
+        fetch(`${props.apiDeleteLink}/${props.userId}`, {
             method: 'DELETE',
         })
         .then(response => {
@@ -19,7 +19,7 @@ function DeleteProfileConfirmation(props) {
         .then(data => {
             console.log("Success:", data);
             props.onHide(); 
-            window.location.replace('http://localhost:3000/listAllDoctors'); 
+            window.location.replace(props.navigationAfterDeleteLink); 
         })
         .catch((error) => {
             console.error("Error:", error);

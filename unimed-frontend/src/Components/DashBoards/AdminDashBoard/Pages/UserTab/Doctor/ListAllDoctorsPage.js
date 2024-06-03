@@ -12,7 +12,7 @@ function ListAllDoctorsPage() {
 	const [doctors, setDoctors] = useState([]);
 	const [search, setSearch] = useState("");
 	const [filterDoctors, setFilterDoctors] = useState([]);
-	const [modalShow, setModalShow] = React.useState(false);
+	const [modalShow, setModalShow] = useState(false);
 
 	useEffect(() => {
 		// Fetch the doctors data from the backend
@@ -50,9 +50,13 @@ function ListAllDoctorsPage() {
 					</InputGroup>
 				</Form>
 				<div className="row">
-					{filterDoctors.map((doctor, index) => (
+					{filterDoctors.map((doctor) => (
 						<div className="col-4 mt-3" key={doctor._id}>
-							<UserProfileCard name={doctor.first_name} userId={doctor._id} />
+							<UserProfileCard 
+								name={doctor.first_name} 
+								userId={doctor._id}
+								profileLink={`/showDoctorProfilePage/${doctor._id}`} // Pass profileLink prop
+							/>
 						</div>
 					))}
 				</div>
@@ -62,9 +66,10 @@ function ListAllDoctorsPage() {
 					</Button>
 				</div>
 				<CreateProfile
-				show={modalShow}
-				onHide={() => setModalShow(false)} 
-				></CreateProfile>
+					show={modalShow}
+					onHide={() => setModalShow(false)}
+					apiSaveLink = "http://localhost:8088/api/v1/doctor/save"
+				/>
 			</div>
 		</AdminLayout>
 	);

@@ -3,7 +3,7 @@ import "./bioFormLeft.css";
 import { Button } from "react-bootstrap";
 import axios from 'axios';
 
-function BioFormLeft({ userId, firstname, lastname, Nic, email, cntcNo, onUpdate }) {
+function BioFormLeft({ userId, firstname, lastname, Nic, email, cntcNo, onUpdate, apiUserLink, apiUserBioLink }) {
   const [formData, setFormData] = useState({
     firstname,
     lastname,
@@ -23,14 +23,14 @@ function BioFormLeft({ userId, firstname, lastname, Nic, email, cntcNo, onUpdate
     e.preventDefault();
     try {
       // Update Doctor
-      await axios.put(`http://localhost:8088/api/v1/doctor/${userId}`, {
+      await axios.put(`${apiUserLink}/${userId}`, {
         first_name: formData.firstname,
         last_name: formData.lastname,
         email: formData.email
       });
 
       // Update DoctorBio
-      await axios.put(`http://localhost:8088/api/v1/doctor/bio/${userId}`, {
+      await axios.put(`${apiUserBioLink}/${userId}`, {
         nic: formData.Nic,
         phoneNo: formData.cntcNo
       });

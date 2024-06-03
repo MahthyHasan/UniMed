@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminLayout from "../../../../layout/AdminLayout/AdminLayout";
 import ProfileBioTop from "../../../ComponenetsAdminDashboard/ProfileBioTop";
-import "./showDoctorProfilePage.css";
+import "./showPharmacistProfilePage.css";
 import { useParams } from "react-router-dom";
 import BioFormLeft from "../../../ComponenetsAdminDashboard/BioFormLeft";
 import CredentialFormRight from "../../../ComponenetsAdminDashboard/CredentialFormRight";
@@ -10,36 +10,35 @@ import { Button } from "react-bootstrap";
 import deleteIcon from "../../../../../../assets/icons2/delete-3-svgrepo-com.svg";
 import DeleteProfileConfirmation from "../../../ComponenetsAdminDashboard/DeleteProfileConfirmation";
 
-function ShowDoctorProfilePage() {
-  const { userId } = useParams();
-  const [doctorData, setDoctorData] = useState(null);
-  const [bioData, setBioData] = useState(null);
-  const [modalShow, setModalShow] = React.useState(false);
-  const fetchData = async () => {
-    try {
-      const [doctorResponse, bioResponse] = await Promise.all([
-        axios.get(`http://localhost:8088/api/v1/doctor/${userId}`),
-        axios.get(`http://localhost:8088/api/v1/doctor/bio/${userId}`)
-      ]);
-      setDoctorData(doctorResponse.data);
-      setBioData(bioResponse.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [userId]);
-
+function ShowPharmacistProfilePage() {
+    const { userId } = useParams();
+    const [pharmacistData, setpharmacistData] = useState(null);
+    const [bioData, setBioData] = useState(null);
+    const [modalShow, setModalShow] = React.useState(false);
+    const fetchData = async () => {
+      try {
+        const [doctorResponse, bioResponse] = await Promise.all([
+          axios.get(`http://localhost:8088/api/v1/pharmacist/${userId}`),
+          axios.get(`http://localhost:8088/api/v1/pharmacist/bio/${userId}`)
+        ]);
+        setpharmacistData(doctorResponse.data);
+        setBioData(bioResponse.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchData();
+    }, [userId]);
   return (
     <AdminLayout>
       <div>
         <div className="row mb-2 show-doctor-profile-page">
-          {doctorData && bioData && (
+          {pharmacistData && bioData && (
             <ProfileBioTop
               id={userId}
-              name={doctorData.first_name}
+              name={pharmacistData.first_name}
               age={bioData.age}
               gender={bioData.gender}
               height={bioData.height}
@@ -50,33 +49,33 @@ function ShowDoctorProfilePage() {
         </div>
         <div className="row">
           <div className="col-6">
-            {doctorData && bioData && (
+            {pharmacistData && bioData && (
               <div className="LeftFormContainDiv">
                 <BioFormLeft
                   userId={userId}
-                  firstname={doctorData.first_name}
-                  lastname={doctorData.last_name}
+                  firstname={pharmacistData.first_name}
+                  lastname={pharmacistData.last_name}
                   Nic={bioData.nic}
-                  email={doctorData.email}
+                  email={pharmacistData.email}
                   cntcNo={bioData.phoneNo}
                   onUpdate={fetchData}
-                  apiUserLink="http://localhost:8088/api/v1/doctor"
-                  apiUserBioLink="http://localhost:8088/api/v1/doctor/bio"
+                  apiUserLink="http://localhost:8088/api/v1/pharmacist"
+                  apiUserBioLink="http://localhost:8088/api/v1/pharmacist/bio"
                 />
               </div>
             )}
           </div>
           <div className="col-6">
             <div className="row">
-            {doctorData && (
+            {pharmacistData && (
               <div className="RightFormContainDiv">
                 <CredentialFormRight
                 userId={userId}
-                username={doctorData.username}
-                password={doctorData.password}
-                email={doctorData.email}
+                username={pharmacistData.username}
+                password={pharmacistData.password}
+                email={pharmacistData.email}
                 onUpdate2={fetchData}
-                credentialSaveApi={"http://localhost:8088/api/v1/doctor"}
+                credentialSaveApi={"http://localhost:8088/api/v1/pharmacist"}
                 />
 
               </div>
@@ -91,8 +90,8 @@ function ShowDoctorProfilePage() {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   userId={userId}
-                  apiDeleteLink = {"http://localhost:8088/api/v1/doctor"}
-                  navigationAfterDeleteLink ={'http://localhost:3000/listAllDoctors'}
+                  apiDeleteLink = {"http://localhost:8088/api/v1/pharmacist"}
+                  navigationAfterDeleteLink ={'http://localhost:3000/listAllPharmacist'}
                   />
             </div>
             
@@ -100,7 +99,7 @@ function ShowDoctorProfilePage() {
         </div>
       </div>
     </AdminLayout>
-  );
+  )
 }
 
-export default ShowDoctorProfilePage;
+export default ShowPharmacistProfilePage
