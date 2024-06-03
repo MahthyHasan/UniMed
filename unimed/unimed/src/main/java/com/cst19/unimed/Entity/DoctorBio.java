@@ -14,6 +14,7 @@ public class DoctorBio {
     private double weight;
     private String bloodGroup;
     private String allergies;
+    private String phoneNo;
 
     public DoctorBio(String _id, String nic, int age, String gender, double height, double weight, String bloodGroup, String allergies) {
         this._id = _id;
@@ -24,6 +25,7 @@ public class DoctorBio {
         this.weight = weight;
         this.bloodGroup = bloodGroup;
         this.allergies = allergies;
+        this.phoneNo = phoneNo;
     }
 
     public DoctorBio() {
@@ -93,6 +95,14 @@ public class DoctorBio {
         this.allergies = allergies;
     }
 
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
     @Override
     public String toString() {
         return "DoctorBio{" +
@@ -104,6 +114,7 @@ public class DoctorBio {
                 ", weight=" + weight +
                 ", bloodGroup='" + bloodGroup + '\'' +
                 ", allergies='" + allergies + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
                 '}';
     }
 }

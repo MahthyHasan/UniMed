@@ -4,7 +4,7 @@ import ProfileIcon from "../../../../assets/images/doctor.png";
 
 function ProfileBioTop({name, id, age, gender, height, weight, bloodgrp}) {
   return (
-    <div className="container">
+    <div>
       <div className="row">
         <div className="col-12 col-md-3">
           <div className="patientBioWithImage text-md-left">
