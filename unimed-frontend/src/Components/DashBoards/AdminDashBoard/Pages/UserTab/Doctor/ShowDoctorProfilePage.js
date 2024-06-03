@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AdminLayout from "../../../layout/AdminLayout/AdminLayout";
-import ProfileBioTop from "../../ComponenetsAdminDashboard/ProfileBioTop";
+import AdminLayout from "../../../../layout/AdminLayout/AdminLayout";
+import ProfileBioTop from "../../../ComponenetsAdminDashboard/ProfileBioTop";
 import "./showDoctorProfilePage.css";
 import { useParams } from "react-router-dom";
-import BioFormLeft from "../../ComponenetsAdminDashboard/BioFormLeft";
-import CredentialFormRight from "../../ComponenetsAdminDashboard/CredentialFormRight";
+import BioFormLeft from "../../../ComponenetsAdminDashboard/BioFormLeft";
+import CredentialFormRight from "../../../ComponenetsAdminDashboard/CredentialFormRight";
 import { Button } from "react-bootstrap";
-import deleteIcon from "../../../../../assets/icons2/delete-3-svgrepo-com.svg";
-import DeleteProfileConfirmation from "../../ComponenetsAdminDashboard/DeleteProfileConfirmation";
+import deleteIcon from "../../../../../../assets/icons2/delete-3-svgrepo-com.svg";
+import DeleteProfileConfirmation from "../../../ComponenetsAdminDashboard/DeleteProfileConfirmation";
 
 function ShowDoctorProfilePage() {
   const { userId } = useParams();
