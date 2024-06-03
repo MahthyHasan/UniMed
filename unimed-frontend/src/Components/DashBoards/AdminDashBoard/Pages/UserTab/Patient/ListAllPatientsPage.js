@@ -4,58 +4,58 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import AdminLayout from "../../../../layout/AdminLayout/AdminLayout";
 import UserProfileCard from "../../../ComponenetsAdminDashboard/UserProfileCard";
-import "./listAllDoctorsPage.css";
+import "./listAllpatientPage.css";
 import { Button } from "react-bootstrap";
 import CreateProfile from "../../../ComponenetsAdminDashboard/CreateProfile";
 
-function ListAllDoctorsPage() {
-	const [doctors, setDoctors] = useState([]);
+function ListAllPatientsPage() {
+    const [user, setuser] = useState([]);
 	const [search, setSearch] = useState("");
-	const [filterDoctors, setFilterDoctors] = useState([]);
+	const [filteruser, setFilteruser] = useState([]);
 	const [modalShow, setModalShow] = useState(false);
 
 	useEffect(() => {
-		// Fetch the doctors data from the backend
+		// Fetch the user data from the backend
 		axios
-			.get("http://localhost:8088/api/v1/doctor/getAll")
+			.get("http://localhost:8088/api/v1/user/getAll")
 			.then((response) => {
-				setDoctors(response.data);
-				setFilterDoctors(response.data); // Initialize filtered doctors with all doctors
+				setuser(response.data);
+				setFilteruser(response.data); // Initialize filtered user with all user
 			})
 			.catch((error) => {
-				console.error("There was an error fetching the doctors data!", error);
+				console.error("There was an error fetching the user data!", error);
 			});
 	}, []);
 
 	useEffect(() => {
-		// Filter doctors based on search term
-		const filtered = doctors.filter(
-			(doctor) =>
-				doctor.first_name &&
-				doctor.first_name.toLowerCase().includes(search.toLowerCase())
+		// Filter user based on search term
+		const filtered = user.filter(
+			(user) =>
+				user.first_name &&
+				user.first_name.toLowerCase().includes(search.toLowerCase())
 		);
-		setFilterDoctors(filtered);
-	}, [search, doctors]);
-
-	return (
-		<AdminLayout>
-			<div className="list-All-Doctors-admin-page">
+		setFilteruser(filtered);
+	}, [search, user]);
+  return (
+    <div>
+        <AdminLayout>
+			<div className="list-All-users-admin-page">
 				<Form>
 					<InputGroup className="mt-3 input-group-for-admin-searchbar">
 						{/* onChange for search */}
 						<Form.Control
 							onChange={(e) => setSearch(e.target.value)}
-							placeholder="Search doctors by name"
+							placeholder="Search users by name"
 						/>
 					</InputGroup>
 				</Form>
 				<div className="row">
-					{filterDoctors.map((doctor) => (
-						<div className="col-4 mt-3" key={doctor._id}>
+					{filteruser.map((user) => (
+						<div className="col-4 mt-3" key={user._id}>
 							<UserProfileCard 
-								name={doctor.first_name} 
-								userId={doctor._id}
-								profileLink={`/showDoctorProfilePage/${doctor._id}`} // Pass profileLink prop
+								name={user.first_name} 
+								userId={user._id}
+								profileLink={`/showuserProfilePage/${user._id}`} // Pass profileLink prop
 							/>
 						</div>
 					))}
@@ -68,12 +68,14 @@ function ListAllDoctorsPage() {
 				<CreateProfile
 					show={modalShow}
 					onHide={() => setModalShow(false)}
-					apiSaveLink = "http://localhost:8088/api/v1/doctor/save"
-					navigationLink = "/listAllDoctors"
+					apiSaveLink = "http://localhost:8088/api/v1/user/savebyadmin"
+					navigationLink = "/listAllusers"
 				/>
 			</div>
 		</AdminLayout>
-	);
+      
+    </div>
+  )
 }
 
-export default ListAllDoctorsPage;
+export default ListAllPatientsPage
