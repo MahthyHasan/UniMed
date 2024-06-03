@@ -87,6 +87,7 @@ function ShowDoctorProfilePage() {
                   <DeleteProfileConfirmation
                   show={modalShow}
                   onHide={() => setModalShow(false)}
+                  userId={userId}
                   />
             </div>
             
