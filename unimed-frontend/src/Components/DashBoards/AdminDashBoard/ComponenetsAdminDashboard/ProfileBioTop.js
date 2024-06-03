@@ -2,7 +2,7 @@ import React from "react";
 import "./profileBioTop.css";
 import ProfileIcon from "../../../../assets/images/doctor.png";
 
-function ProfileBioTop({name, id, age, gender, height, weight, bloodgrp}) {
+function ProfileBioTop({name, id, age, gender, height, weight, bloodgrp, type}) {
   return (
     <div>
       <div className="row">
@@ -15,8 +15,8 @@ function ProfileBioTop({name, id, age, gender, height, weight, bloodgrp}) {
                 alt="profileImage"
               />
             </div>
-            <p className="userIDTextTag">DoctorID : {id}</p>
-            <p className="userNameTextTag">Dr. Mrs. {name}</p>
+            <p className="userIDTextTag">{type}ID : {id}</p>
+            <p className="userNameTextTag">Mrs. {name}</p>
           </div>
         </div>
         <div className="col-12 col-md-3">
