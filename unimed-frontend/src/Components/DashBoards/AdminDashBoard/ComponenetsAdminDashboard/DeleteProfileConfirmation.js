@@ -4,6 +4,28 @@ import Button from 'react-bootstrap/Button';
 import "./deleteProfileConfirmation.css"
 
 function DeleteProfileConfirmation(props) {
+    const handleDelete = () => {
+        fetch(`http://localhost:8088/api/v1/doctor/${props.userId}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Delete request successful");
+                return response.text(); // Read response as text
+            } else {
+                throw new Error('Failed to delete profile');
+            }
+        })
+        .then(data => {
+            console.log("Success:", data);
+            props.onHide(); 
+            window.location.replace('http://localhost:3000/listAllDoctors'); 
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+    };
+
     return (
         <div>
             <Modal
@@ -18,12 +40,13 @@ function DeleteProfileConfirmation(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h5 className="deleteProfileModelBodyText">Are you sure you want to delete this profile</h5>
+                    <h5 className="deleteProfileModelBodyTextHeading">Are you sure you want to delete this profile</h5>
                     <p className="deleteProfileModelBodyText">
-                        By deleting this profile the all the user Data of this account and related Medical Records will be deleted.
+                        By deleting this profile, all the user data of this account and related medical records will be deleted.
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button className="Danger" onClick={handleDelete}>Delete Profile</Button>
                     <Button onClick={props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>

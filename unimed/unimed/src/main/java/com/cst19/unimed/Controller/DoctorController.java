@@ -16,10 +16,16 @@ public class DoctorController {
     private DoctorServices doctorService;
 
     @PostMapping(value = "/save")
-    private String registerDoctor(@RequestBody Doctor doctors) {
+    private ResponseEntity<?> registerDoctor(@RequestBody Doctor doctors) {
         doctorService.saveorupdate(doctors);
-        return doctors.get_id();
+        DoctorBio doctorBio = new DoctorBio();
+        doctorBio.set_id(doctors.get_id());
+        doctorService.saveorupdatebio(doctorBio);
+
+
+        return ResponseEntity.ok("Doctor and DoctorBio registered successfully.");
     }
+
 
     @PostMapping(value = "/save/bio")
     private String registerDoctorBio(@RequestBody DoctorBio doctorBio) {

@@ -4,12 +4,15 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import AdminLayout from "../../../layout/AdminLayout/AdminLayout";
 import UserProfileCard from "../../ComponenetsAdminDashboard/UserProfileCard";
-import "./listAllDoctorsPage.css"
+import "./listAllDoctorsPage.css";
+import { Button } from "react-bootstrap";
+import CreateProfile from "../../ComponenetsAdminDashboard/CreateProfile";
 
 function ListAllDoctorsPage() {
 	const [doctors, setDoctors] = useState([]);
 	const [search, setSearch] = useState("");
 	const [filterDoctors, setFilterDoctors] = useState([]);
+	const [modalShow, setModalShow] = React.useState(false);
 
 	useEffect(() => {
 		// Fetch the doctors data from the backend
@@ -26,8 +29,10 @@ function ListAllDoctorsPage() {
 
 	useEffect(() => {
 		// Filter doctors based on search term
-		const filtered = doctors.filter((doctor) =>
-			doctor.first_name && doctor.first_name.toLowerCase().includes(search.toLowerCase())
+		const filtered = doctors.filter(
+			(doctor) =>
+				doctor.first_name &&
+				doctor.first_name.toLowerCase().includes(search.toLowerCase())
 		);
 		setFilterDoctors(filtered);
 	}, [search, doctors]);
@@ -51,6 +56,15 @@ function ListAllDoctorsPage() {
 						</div>
 					))}
 				</div>
+				<div className="row">
+					<Button className="addProfileButton" onClick={() => setModalShow(true)}>
+						<p className="mt-1">Add Profile</p>
+					</Button>
+				</div>
+				<CreateProfile
+				show={modalShow}
+				onHide={() => setModalShow(false)} 
+				></CreateProfile>
 			</div>
 		</AdminLayout>
 	);
