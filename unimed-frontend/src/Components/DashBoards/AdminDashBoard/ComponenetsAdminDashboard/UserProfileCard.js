@@ -4,7 +4,7 @@ import "./userProfileCard.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function UserProfileCard({ name, userId, onViewProfile }) {
+function UserProfileCard({ name, userId, onViewProfile, profileLink }) {
 	return (
 		<div className="userProfileCards">
 			<div className="row">
@@ -19,7 +19,7 @@ function UserProfileCard({ name, userId, onViewProfile }) {
 						<p className="userId">{userId}</p>
 					</div>
 					<div className="row mt-4">
-						<Link to={`/showDoctorProfilePage/${userId}`}>
+						<Link to={profileLink}>
 							<Button className="profilecardButton">
 								View Profile
 							</Button>

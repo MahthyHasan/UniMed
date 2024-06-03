@@ -104,10 +104,10 @@ function CreateProfile(props) {
 		} else {
 			try {
 				axios
-					.post("http://localhost:8088/api/v1/doctor/save", formData)
+					.post(props.apiSaveLink, formData)
 					.then(() => {
 						setFormData(initialFormData);
-                        navigate("/listAllDoctors");
+                        navigate(props.navigationLink);
 					})
 					.catch((error) => {
 						if (error.response && error.response.data) {

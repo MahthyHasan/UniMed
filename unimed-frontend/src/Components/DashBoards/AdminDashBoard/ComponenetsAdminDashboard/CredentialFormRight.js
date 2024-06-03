@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import sPIcon from "../../../../assets/icons2/showpass.svg";
 
-function CredentialFormRight({ userId, username, password, email, onUpdate2 }) {
+function CredentialFormRight({ userId, username, password, email, onUpdate2, credentialSaveApi }) {
 	const [formData2, setFormData2] = useState({
 		username,
 		password,
@@ -27,7 +27,7 @@ function CredentialFormRight({ userId, username, password, email, onUpdate2 }) {
 	const handleSubmit2 = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.put(`http://localhost:8088/api/v1/doctor/${userId}`, {
+			await axios.put(`${credentialSaveApi}/${userId}`, {
 				username: formData2.username,
 				password: formData2.password,
 				email: formData2.email,
