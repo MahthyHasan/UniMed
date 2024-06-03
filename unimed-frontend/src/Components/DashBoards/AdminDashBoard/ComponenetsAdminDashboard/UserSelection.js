@@ -14,7 +14,7 @@ function UserSelection() {
 			<div className="user-selection-div-for-admin-page">
 			<div className="col">
 				<div className="row">
-					<Link to="/doctorAllProfiles" className="card-link">						
+					<Link to="/listAllDoctors" className="card-link">						
 							<UserCards text="Doctor" icon={doctorIcon} cssclass="user-cards-admin-dashboard-doctor" iconcc="icon" />						
 					</Link>
 				</div>
