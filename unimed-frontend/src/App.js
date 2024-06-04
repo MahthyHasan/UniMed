@@ -28,6 +28,7 @@ import ShowPharmacistProfilePage from "./Components/DashBoards/AdminDashBoard/Pa
 import ListAllAdminsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ListAllAdminsPage";
 import ShowAdminProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ShowAdminProfilePage";
 import ListAllPatientsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ListAllPatientsPage";
+import ShowPatientProfile from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ShowPatientProfile";
 
 function App() {
   return (
@@ -66,6 +67,10 @@ function App() {
           element={<ShowAdminProfilePage />}
         />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
+        <Route
+          path="/showPatientProfilePage/:userId"
+          element={<ShowPatientProfile />}
+        />
 
       </Routes>
     </div>

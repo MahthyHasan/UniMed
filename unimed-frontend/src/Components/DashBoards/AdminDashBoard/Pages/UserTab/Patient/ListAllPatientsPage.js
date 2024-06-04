@@ -6,12 +6,12 @@ import AdminLayout from "../../../../layout/AdminLayout/AdminLayout";
 import UserProfileCard from "../../../ComponenetsAdminDashboard/UserProfileCard";
 import "./listAllpatientPage.css";
 import { Button } from "react-bootstrap";
-import CreateProfile from "../../../ComponenetsAdminDashboard/CreateProfile";
+import CreateUserProfile from "../../../ComponenetsAdminDashboard/CreateUserProfile";
 
 function ListAllPatientsPage() {
-    const [user, setuser] = useState([]);
+    const [user, setUser] = useState([]);
 	const [search, setSearch] = useState("");
-	const [filteruser, setFilteruser] = useState([]);
+	const [filteruser, setFilterUser] = useState([]);
 	const [modalShow, setModalShow] = useState(false);
 
 	useEffect(() => {
@@ -19,8 +19,8 @@ function ListAllPatientsPage() {
 		axios
 			.get("http://localhost:8088/api/v1/user/getAll")
 			.then((response) => {
-				setuser(response.data);
-				setFilteruser(response.data); // Initialize filtered user with all user
+				setUser(response.data);
+				setFilterUser(response.data); // Initialize filtered user with all user
 			})
 			.catch((error) => {
 				console.error("There was an error fetching the user data!", error);
@@ -31,10 +31,10 @@ function ListAllPatientsPage() {
 		// Filter user based on search term
 		const filtered = user.filter(
 			(user) =>
-				user.first_name &&
-				user.first_name.toLowerCase().includes(search.toLowerCase())
+				user.firstName &&
+				user.firstName.toLowerCase().includes(search.toLowerCase())
 		);
-		setFilteruser(filtered);
+		setFilterUser(filtered);
 	}, [search, user]);
   return (
     <div>
@@ -51,11 +51,11 @@ function ListAllPatientsPage() {
 				</Form>
 				<div className="row">
 					{filteruser.map((user) => (
-						<div className="col-4 mt-3" key={user._id}>
+						<div className="col-4 mt-3" key={user.id}>
 							<UserProfileCard 
-								name={user.first_name} 
-								userId={user._id}
-								profileLink={`/showuserProfilePage/${user._id}`} // Pass profileLink prop
+								name={user.firstName} 
+								userId={user.id}
+								profileLink={`/showPatientProfilePage/${user.id}`} // Pass profileLink prop
 							/>
 						</div>
 					))}
@@ -65,12 +65,12 @@ function ListAllPatientsPage() {
 						<p className="mt-1">Add Profile</p>
 					</Button>
 				</div>
-				<CreateProfile
-					show={modalShow}
-					onHide={() => setModalShow(false)}
-					apiSaveLink = "http://localhost:8088/api/v1/user/savebyadmin"
-					navigationLink = "/listAllusers"
-				/>
+				<CreateUserProfile
+				show={modalShow}
+				onHide={() => setModalShow(false)}
+				apiSaveLink = "http://localhost:8088/api/v1/user/savebyadmin"
+				navigationLink = "/listAllPatients"
+				/>				
 			</div>
 		</AdminLayout>
       
