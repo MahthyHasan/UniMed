@@ -52,26 +52,13 @@ function App() {
         <Route path="/verifyEmail" element={<VerifyEmail />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route
-          path="/showDoctorProfilePage/:userId"
-          element={<ShowDoctorProfilePage />}
-        />
+        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route
-          path="/showPharmacistProfilePage/:userId"
-          element={<ShowPharmacistProfilePage />}
-        />
+        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route
-          path="/showAdminProfilePage/:userId"
-          element={<ShowAdminProfilePage />}
-        />
+        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route
-          path="/showPatientProfilePage/:userId"
-          element={<ShowPatientProfile />}
-        />
-
+        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
       </Routes>
     </div>
   );
