@@ -17,27 +17,15 @@ export default function Doctordashboard() {
 	}, []);
 
 	return (
-		<Layout>
-			<div className="container">
-				<div className="row">
+		<div>
+			<Layout>
+				<h1>{username}</h1>{" "}
+				{/* Replace 'Doctor Name' with the retrieved username */}
 				<Card />
-				</div>				
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<div>
-							<Scancard />
-						</div>
-					</div>
-					<div class="col-12 col-md-6">
-						<div>
-							<Channellingactions />
-						</div>
-					</div>
-				</div>
-				<div className="row">
-				    <Bookedslots />
-				</div>
-			</div>			
-		</Layout>
+				<Scancard />
+				<Channellingactions />
+				<Bookedslots />
+			</Layout>
+		</div>
 	);
 }
