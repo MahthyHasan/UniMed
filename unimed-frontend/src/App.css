@@ -1145,8 +1145,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -300px;
-  margin-left: 500px;
+  padding: 15%; 
 }
 
 .channelling-card1,
@@ -1247,16 +1246,11 @@ channelling-card2 {
 }
 
 /*Component- booked time slots*/
-.booked-slots {
-  margin-right: 50px;
-  display: flex;
-  flex-direction: row;
+.booked-slots {  
+  display: flex;  
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-top: 0px;
-  margin-left: 150px;
-  margin-top: 40px;
+  width: 100%; 
 }
 
 .text {
