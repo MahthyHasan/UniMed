@@ -29,6 +29,8 @@ import ListAllAdminsPage from "./Components/DashBoards/AdminDashBoard/Pages/User
 import ShowAdminProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ShowAdminProfilePage";
 import ListAllPatientsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ListAllPatientsPage";
 import ShowPatientProfile from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ShowPatientProfile";
+import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode";
+import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
 
 function App() {
   return (
@@ -59,6 +61,8 @@ function App() {
         <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
         <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+        <Route path="/testqr" element={<GenerateQRCode />} />
+        <Route path="/testqr2" element={<QRCodeScanner />} />
       </Routes>
     </div>
   );
