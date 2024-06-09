@@ -18,7 +18,7 @@ export const Scancard = () => {
       <div className="icon-container">
         <img src={barcode} alt="patient" className="input-lable-icon" />
       </div>
-      <div className="scan-barcode">Scan QR Code</div>
+      <div className="scan-barcode">Scan Barcode</div>
     </div>
   );
 };
