@@ -1,62 +1,81 @@
 import React, { useState } from "react";
 import { QrReader } from "react-qr-reader";
+import axios from "axios";
 import "./qrCodeScanner.css";
 
-const QRCodeScanner = () => {
-	const [data, setData] = useState("No result");
-	const [scanning, setScanning] = useState(true);
+const QRCodeScanner = ({ setShowQrDiv }) => {
+    const [data, setData] = useState("No result");
+    const [scanning, setScanning] = useState(true);
+    const [alert, setAlert] = useState(null);
 
-	const handleScan = (result) => {
-		if (result?.text) {
-			setData(result.text);
-			setScanning(false);
-		}
-	};
+    const handleScan = async (result) => {
+        if (result?.text) {
+            setData(result.text);
+            setScanning(false);
 
-	const handleError = (err) => {
-		console.error(err);
-	};
+            try {
+                const response = await axios.get(`http://localhost:8088/api/v1/user/checkNic/${result.text}`);
+                if (response.status === 200) {
+                    const userBio = response.data;
+                    // Redirect to another page (assuming you have a user details page)
+                    window.location.href = `/patientClinicProfile/${userBio._id}`;
+                }
+            } catch (error) {
+                if (error.response && error.response.status === 404) {
+                    setAlert("User profile not found");
+                } else {
+                    console.error(error);
+                    setAlert("An error occurred while checking the user profile");
+                }
+            }
+        }
+    };
 
-	const startScanning = () => {
-		setData("No result");
-		setScanning(true);
-	};
+    const handleError = (err) => {
+        console.error(err);
+    };
 
-	const stopScanning = () => {
-		setScanning(false);
-	};
+    const startScanning = () => {
+        setData("No result");
+        setScanning(true);
+        setAlert(null);
+    };
 
-	return (
-		<div className="qrCodeScanner col">
+    const stopScanning = () => {
+        setScanning(false);
+        setShowQrDiv(false);
+    };
+
+    return (
+        <div className="qrCodeScanner col">
             <div>
-            <p className="qrCodeScannerIntroduction" >Please place The Qr Code inside the camera range.</p>
-            </div>			
-            <div className="qrCodeReader row">
-            {scanning ? (
-				<>
-                    
-					<QrReader
-                        className="ScanerPart"
-						onResult={handleScan}
-						onError={handleError}
-						constraints={{ facingMode: "environment" }}                        						
-					/>
-					<button onClick={stopScanning} className="btn btn-danger">
-						Stop Scanning
-					</button>
-				</>
-			) : (
-				<button onClick={startScanning} className="btn btn-success">
-					Start Scanning
-				</button>
-			)}
+                <p className="qrCodeScannerIntroduction">Please place the QR Code inside the camera range.</p>
             </div>
-            <div className="qrCodeResuts row">
-            <p>{data}</p>
-            </div>			
-			
-		</div>
-	);
+            <div className="qrCodeReader row">
+                {scanning ? (
+                    <>
+                        <QrReader
+                            className="ScanerPart"
+                            onResult={handleScan}
+                            onError={handleError}
+                            constraints={{ facingMode: "environment" }}
+                        />
+                        <button onClick={stopScanning} className="btn btn-danger">
+                            Stop Scanning
+                        </button>
+                    </>
+                ) : (
+                    <button onClick={startScanning} className="btn btn-success">
+                        Start Scan again
+                    </button>
+                )}
+            </div>
+            <div className="qrCodeResults row">
+                <p>{data}</p>
+                {alert && <div className="alert alert-danger" role="alert">{alert}</div>}
+            </div>
+        </div>
+    );
 };
 
 export default QRCodeScanner;
