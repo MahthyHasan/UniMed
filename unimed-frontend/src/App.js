@@ -31,6 +31,7 @@ import ListAllPatientsPage from "./Components/DashBoards/AdminDashBoard/Pages/Us
 import ShowPatientProfile from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ShowPatientProfile";
 import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode";
 import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
+import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
         <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
         <Route path="/testqr" element={<GenerateQRCode />} />
         <Route path="/testqr2" element={<QRCodeScanner />} />
+        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
       </Routes>
     </div>
   );

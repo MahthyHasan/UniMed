@@ -89,4 +89,7 @@ public class UserService {
         message.setText("Please verify your email by clicking on the following link: " + verificationLink);
         mailSender.send(message);
     }
+    public UserBio getUserByNic(String nic) {
+        return repobio.findByNic(nic);
+    }
 }
