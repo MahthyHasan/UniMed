@@ -168,4 +168,14 @@ public class UserController {
         }
     }
 
+    @GetMapping("/checkNic/{nic}")
+    public ResponseEntity<?> checkNic(@PathVariable String nic) {
+        UserBio userBio = userService.getUserByNic(nic);
+        if (userBio != null) {
+            return ResponseEntity.ok(userBio);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User profile not found");
+        }
+    }
+
 }
