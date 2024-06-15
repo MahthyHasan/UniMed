@@ -5,21 +5,29 @@ const MainDescriptionContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 1.5rem;
-  width: 680px;
-  height:150px;
-  padding-top:0.5rem;
-  margin-top:0.10rem;
-  padding-bottom:0.25rem;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  padding-top: 0.5rem;
+  margin-top: 0.1rem;
+  padding-bottom: 0.25rem;
   
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 1rem;
+  }
 `;
 
 const MainDescriptionBox = styled.div`
   width: 100%;
   border: 0.25px solid #d9d9d9;
   border-radius: 8px;
-  margin-bottom:0.5rem;
-  padding:0.20rem 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 1rem;
+  border:none;
 `;
+
 
 const DescriptionItem = styled.div`
   display: flex;
@@ -45,6 +53,10 @@ const DescriptionItem = styled.div`
     background-color: #d9d9d9;
     border-radius: 4px;
     width: 100px;
+
+    @media (max-width: 767px) {
+      width: auto;
+    }
   }
 `;
 
@@ -57,51 +69,49 @@ export default function MainDescription({
   bmi,
 }) {
   return (
-    <div className="col-md-6 col-md-6-right">
-      <MainDescriptionContainer>
-        <MainDescriptionBox>
-          <div className="row">
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">Age</span>
-                <span className="value">{age}</span>
-              </DescriptionItem>
-            </div>
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">Gender</span>
-                <span className="value">{gender}</span>
-              </DescriptionItem>
-            </div>
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">Blood Group</span>
-                <span className="value">{blood}</span>
-              </DescriptionItem>
-            </div>
+    <MainDescriptionContainer>
+      <MainDescriptionBox>
+        <div className="row">
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">Age</span>
+              <span className="value">{age}</span>
+            </DescriptionItem>
           </div>
-          <div className="row">
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">Height</span>
-                <span className="value">{height}</span>
-              </DescriptionItem>
-            </div>
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">Weight</span>
-                <span className="value">{weight}</span>
-              </DescriptionItem>
-            </div>
-            <div className="col-4">
-              <DescriptionItem>
-                <span className="label">BMI</span>
-                <span className="value">{bmi}</span>
-              </DescriptionItem>
-            </div>
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">Gender</span>
+              <span className="value">{gender}</span>
+            </DescriptionItem>
           </div>
-        </MainDescriptionBox>
-      </MainDescriptionContainer>
-    </div>
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">Blood Group</span>
+              <span className="value">{blood}</span>
+            </DescriptionItem>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">Height</span>
+              <span className="value">{height}</span>
+            </DescriptionItem>
+          </div>
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">Weight</span>
+              <span className="value">{weight}</span>
+            </DescriptionItem>
+          </div>
+          <div className="col-md-4 col-12">
+            <DescriptionItem>
+              <span className="label">BMI</span>
+              <span className="value">{bmi}</span>
+            </DescriptionItem>
+          </div>
+        </div>
+      </MainDescriptionBox>
+    </MainDescriptionContainer>
   );
 }

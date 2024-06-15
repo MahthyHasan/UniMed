@@ -23,6 +23,8 @@ const PreviousRecordsContainer = styled.div`
     color: #000000;
     margin-bottom: 0;
   }
+
+  
 `;
 
 export default function PreviousRecords({RecId,Date,Time,DaySinceLast}) {
