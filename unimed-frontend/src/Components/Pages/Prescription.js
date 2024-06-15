@@ -7,6 +7,11 @@ import Allergies from "./Allergies";
 import LastDiagnosis from "./LastDiagnosis";
 import PreviousRecords from "./PreviousRecords";
 import NewRecordButton from "./NewRecordButton";
+import CurrentRecord from "./CurrentRecord";
+import IssuedButton from "./IssuedButton";
+import  SymptomsCheckbox from "./SymptomsCheckbox";
+import DiagnosisTextbox from "./DiagnosisTextbox";
+import DrugsPrescription from "./DrugsPrescription";
 
 export default function ClinicRecords() {
   return (
@@ -50,9 +55,36 @@ export default function ClinicRecords() {
 
         {/* Third Section */}
         <div className="row">
+          <div className="col-md-4">
+            {/* Symptoms Section */}
+            <div>
+              
+              {/* Symptoms Checkboxes */}
+              <SymptomsCheckbox/>
+            </div>
+          </div>
+          <div className="col-md-4">
+            {/* Diagnosis Section */}
+            <div>
+             
+              {/* Diagnosis Textbox */}
+              <DiagnosisTextbox/>
+            </div>
+          </div>
+          <div className="col-md-4">
+            {/* Drugs Prescription Section */}
+            <div>
+              
+              {/* Drugs, Dosage, and No. of Days Dropdowns */}
+              <DrugsPrescription/>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
           <div className="col">
             {/* Lastdiagnosis component goes here */}
-            <LastDiagnosis
+            <CurrentRecord
               symptom1="Cough"
               symptom2="Runny Nose"
               symptom3="Tonsils"
@@ -62,23 +94,10 @@ export default function ClinicRecords() {
             />
           </div>
         </div>
-
-        {/* Fourth Section */}
-        <div className="row">
-          <div className="col">
-            {/* Previous record component goes here */}
-            <PreviousRecords
-              RecId="RID: 789564"
-              Date="10.42 a.m"
-              Time="26/05/2024"
-              DaySinceLast="4 days ago"
-            />
-          </div>
-        </div>
         {/* Add the new Button component */}
         <div className="row">
           <div className="col d-flex justify-content-end mt-3">
-            <NewRecordButton />
+            <IssuedButton />
           </div>
         </div>
       </div>

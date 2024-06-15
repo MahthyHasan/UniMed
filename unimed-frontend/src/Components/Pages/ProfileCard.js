@@ -10,6 +10,7 @@ const ProfileCardContainer = styled.div`
   border-radius: 8px;
   padding: 10px 20px;
   margin-top: 9px;
+  border:none;
 `;
 
 const ProfileIcon = styled.div`
