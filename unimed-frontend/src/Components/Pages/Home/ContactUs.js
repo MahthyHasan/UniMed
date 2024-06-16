@@ -2,9 +2,12 @@ import React from "react";
 import "./ContactUs.css";
 
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
+import NavBar from "./navbar";
 
 const ContactUs = () => {
   return (
+    <>
+    <NavBar />
     <section className="contact-form">
       <h1 className="heading">Get In Touch!</h1>
       <p className="para">
@@ -73,6 +76,7 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
