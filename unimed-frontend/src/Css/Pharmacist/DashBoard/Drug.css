@@ -1,5 +1,20 @@
 /* EmployeeManagement.css */
 
+/* Apply blue color to the table header cells */
+.table2 thead th {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff; /* White text */
+  text-align: center; /* Center align text */
+}
+
+/* Additional styles for table header cells */
+.table2 thead th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Rest of your CSS remains unchanged */
 body {
   color: #566787;
   background: #f5f5f5;
@@ -7,11 +22,11 @@ body {
   font-size: 13px;
 }
 
-.table-responsive {
+.table2-responsive {
   margin: 30px 0;
 }
 
-.table-wrapper {
+.table2-wrapper {
   background: #fff;
   padding: 20px 25px;
   border-radius: 3px;
@@ -19,7 +34,7 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-.table-title {
+.table2-title {
   padding-bottom: 15px;
   background: #435d7d;
   color: #fff;
@@ -29,16 +44,16 @@ body {
   border-radius: 3px 3px 0 0;
 }
 
-.table-title h2 {
+.table2-title h2 {
   margin: 5px 0 0;
   font-size: 24px;
 }
 
-.table-title .btn-group {
+.table2-title .btn-group {
   float: right;
 }
 
-.table-title .btn {
+.table2-title .btn {
   color: #fff;
   float: right;
   font-size: 13px;
@@ -50,15 +65,83 @@ body {
   margin-left: 10px;
 }
 
-.table-title .btn i {
+.table2-title .btn i {
   float: left;
   font-size: 21px;
   margin-right: 5px;
 }
 
-.table-title .btn span {
+.table2-title .btn span {
   float: left;
   margin-top: 2px;
 }
 
-/* Add more CSS styles as needed */
+.add-button-container {
+  position: fixed;
+  top: 10px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+.table2-container {
+  margin-top: 60px; /* Adjust this value as needed to add space */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(14, 13, 13);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  padding: 16px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cancelbtn {
+  float: left;
+}
+
+.deletebtn {
+  float: right;
+}
+
+.issue-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; /* Ensure it's above other content */
+}
