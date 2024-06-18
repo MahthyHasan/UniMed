@@ -5,9 +5,11 @@ import FeatherIcon from 'feather-icons-react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { EditProfile } from "./EditProfile";
 import { changeToggle } from "../../../../redux/actions";
-import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
+import home from "../../../../assets/icons2/home-p.svg";
 import SideClose from "../../../../assets/icons/left-arrow.svg";
-import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
+import appointment from "../../../../assets/icons2/appointment.svg";
+import Myrecords from "../../../../assets/icons2/Myrecords.svg";
+import medcetificate from "../../../../assets/icons2/med-cetificate.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 import Profile from "../../../../assets/profile-img.svg";
 import logopath from "../../../../assets/logo-white.png";
@@ -69,17 +71,17 @@ export default function PatientLayout({ children }) {
                     ? 'side-menu-item side-menu-active '
                     : 'side-menu-item '
                 }
-                to={'/doctorDashboard'}
+                to={'/PatientDashboard'}
               >
                 <div className={'d-flex'}>
                   <img
-                    src={clinicicon}
+                    src={home}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={'trans-1'}>clinic</div>}
+                  {!open && <div className={'trans-1'}>Home</div>}
                 </div>
               </NavLink>
             </div>
@@ -91,17 +93,17 @@ export default function PatientLayout({ children }) {
                     ? 'side-menu-item side-menu-active'
                     : 'side-menu-item'
                 }
-                to={'/DrugsDoctorPage'}
+                to={'/Appointment'}
               >
                 <div className={'d-flex'}>
                   <img
-                    src={Drugs}
+                    src={appointment}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={''}>Drugs</div>}
+                  {!open && <div className={''}>Appointment</div>}
                 </div>
               </NavLink>
             </div>
@@ -116,18 +118,40 @@ export default function PatientLayout({ children }) {
               >
                 <div className={'d-flex'}>
                   <img
-                    src={History}
+                    src={Myrecords}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={''}>Analysis</div>}
+                  {!open && <div className={''}>My Records</div>}
                 </div>
               </NavLink>
             </div>
             <div className={'w-100 px-sm-2'}>
               <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'side-menu-item side-menu-active'
+                    : 'side-menu-item'
+                }
+                to={'/members'}
+              >
+                <div className={'d-flex'}>
+                  <img
+                    src={medcetificate}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={''}>Medical Certificates</div>}
+                </div>
+              </NavLink>
+            </div>
+
+            <div className={'w-100 px-sm-2'}>
+            <NavLink
                 className={({ isActive }) =>
                   isActive
                     ? 'side-menu-item side-menu-active'
@@ -145,26 +169,7 @@ export default function PatientLayout({ children }) {
                   />
                   {!open && <div className={''}>Community Chat</div>}
                 </div>
-              </NavLink>
-            </div>
-
-            <div className={'w-100 px-sm-2'}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
-                }
-                to={'/settings'}
-              >
-                <div className={'d-flex'}>
-                  <FeatherIcon
-                    icon="settings"
-                    className={!open ? 'me-2' : 'ms-1'}
-                  />
-                  {!open && <div className={''}>Settings</div>}
-                </div>
-              </NavLink>
+              </NavLink>  
             </div>
             <div className={'w-100 px-sm-2 log-out-button-in-side-navbar'}>
               <NavLink
