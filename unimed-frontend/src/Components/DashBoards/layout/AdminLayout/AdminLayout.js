@@ -72,7 +72,7 @@ function AdminLayout({ children }) {
                     ? "side-menu-item side-menu-active "
                     : "side-menu-item "
                 }
-                to={"/doctorDashboard"}
+                to={"/adminSelectUser"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -88,110 +88,7 @@ function AdminLayout({ children }) {
             </div>
 
             <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
-              <div className={"w-100 px-sm-2"}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "side-menu-item side-menu-active "
-                      : "side-menu-item "
-                  }
-                  to={"/doctorDashboard"}
-                >
-                  <div className={"d-flex"}>
-                    <img
-                      src={clinicicon}
-                      alt="avatar"
-                      height="24px"
-                      width="26.4px"
-                      className=" me-2"
-                    />
-                    {!open && <div className={"trans-1"}>clinic</div>}
-                  </div>
-                </NavLink>
-              </div>
-
-              <div className={"w-100 px-sm-2"}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "side-menu-item side-menu-active"
-                      : "side-menu-item"
-                  }
-                  to={"/DrugsDoctorPage"}
-                >
-                  <div className={"d-flex"}>
-                    <img
-                      src={Drugs}
-                      alt="avatar"
-                      height="24px"
-                      width="26.4px"
-                      className=" me-2"
-                    />
-                    {!open && <div className={""}>Drugs</div>}
-                  </div>
-                </NavLink>
-              </div>
-              <div className={"w-100 px-sm-2"}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "side-menu-item side-menu-active"
-                      : "side-menu-item"
-                  }
-                  to={"/members"}
-                >
-                  <div className={"d-flex"}>
-                    <img
-                      src={History}
-                      alt="avatar"
-                      height="24px"
-                      width="26.4px"
-                      className=" me-2"
-                    />
-                    {!open && <div className={""}>Analysis</div>}
-                  </div>
-                </NavLink>
-              </div>
-              <div className={"w-100 px-sm-2"}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "side-menu-item side-menu-active"
-                      : "side-menu-item"
-                  }
-                  to={"/members"}
-                >
-                  <div className={"d-flex"}>
-                    <img
-                      src={chat}
-                      alt="avatar"
-                      height="24px"
-                      width="26.4px"
-                      className=" me-2"
-                    />
-                    {!open && <div className={""}>Community Chat</div>}
-                  </div>
-                </NavLink>
-              </div>
-
-              <div className={"w-100 px-sm-2"}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "side-menu-item side-menu-active"
-                      : "side-menu-item"
-                  }
-                  to={"/settings"}
-                >
-                  <div className={"d-flex"}>
-                    <FeatherIcon
-                      icon="settings"
-                      className={!open ? "me-2" : "ms-1"}
-                    />
-                    {!open && <div className={""}>Settings</div>}
-                  </div>
-                </NavLink>
-              </div>
+              
               <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
                 <NavLink
                   className={({ isActive }) =>
