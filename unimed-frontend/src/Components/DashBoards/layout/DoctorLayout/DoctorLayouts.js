@@ -9,7 +9,6 @@ import { EditProfile } from "./EditProfile";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
 import logopath from "../../../../assets/logo-white.png";
-
 import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
 import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
 import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
