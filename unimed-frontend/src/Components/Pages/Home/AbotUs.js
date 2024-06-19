@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./About.css"; // Import your CSS file
 import userImage from "../../../assets/images/doc2.jpg"; // Import the image file
+import NavBar from "./navbar";
 
 const AboutUs = () => {
   const [animate, setAnimate] = useState(true);
@@ -28,7 +29,10 @@ const AboutUs = () => {
   }, []); // Empty dependency array to run only once on component mount
 
   return (
+    <>
+    <NavBar />
     <section className="about-us">
+      
       <div className="about">
         <br></br>
         <br></br>
@@ -64,6 +68,8 @@ const AboutUs = () => {
         </div>
       </div>
     </section>
+    </>
+    
   );
 };
 

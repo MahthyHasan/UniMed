@@ -7,16 +7,16 @@ function NavBar() {
       <div className="nav__logo">UniMed</div>
       <ul className="nav__links">
         <li className="link">
-          <a href="#">Home</a>
+          <a href="./">Home</a>
         </li>
         <li className="link">
-          <a href="#">About Us</a>
+          <a href="/AboutUs">About Us</a>
         </li>
         <li className="link">
           <a href="#">Blog</a>
         </li>
         <li className="link">
-          <a href="#">Contact</a>
+          <a href="/ContactUs">Contact</a>
         </li>
       </ul>
       <div className="nav__buttons">
