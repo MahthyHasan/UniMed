@@ -6,16 +6,19 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9; 
+    color: black; /* Added */
 }
 
 .form-group {
     margin-bottom: 1.5rem;
+    color: black; /* Added */
 }
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold; 
+    color: black; /* Added */
 }
 
 .form-group input, 
@@ -25,12 +28,14 @@
     box-sizing: border-box;
     border: 1px solid #ccc; 
     border-radius: 4px;     
+    color: black; /* Added */
 }
 
 .form-check {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    color: black; /* Added */
 }
 
 .form-check-input {
@@ -40,6 +45,7 @@
 .form-check-label {
     margin-right: 1rem;
     font-weight: normal; 
+    color: black; /* Added */
 }
 
 .form-group.row {
@@ -47,6 +53,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px; 
+    color: black; /* Added */
 }
 
 .btn {
