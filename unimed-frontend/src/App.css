@@ -975,7 +975,6 @@ body {
   height: 0px;
 }
 
-
 /* Component-card styling*/
 
 .card--container {
@@ -1146,8 +1145,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -300px;
-  margin-left: 500px;
+  padding: 15%;
 }
 
 .channelling-card1,
@@ -1330,10 +1328,9 @@ channelling-card2 {
     height: 35px;
     padding: 6px;
   }
-.log-out-button-in-side-navbar {
-  margin-top: 80%;
-
-}
+  .log-out-button-in-side-navbar {
+    margin-top: 80%;
+  }
 }
 
 

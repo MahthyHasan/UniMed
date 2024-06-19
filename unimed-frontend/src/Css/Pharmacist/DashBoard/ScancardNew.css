@@ -1,0 +1,74 @@
+/* Component-scan card style */
+
+.scancard-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px; /* Add margin to ensure equal spacing on both sides */
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-id-card {
+  width: 300px;
+  height: 300px;
+  background-color: #f3eeee;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #bdf2d5;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-container img {
+  width: 150px;
+  height: 150px;
+}
+
+.action-text {
+  font-size: 16px;
+  color: #0d062d;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.scan-barcode {
+  font-size: 14px;
+  color: #5d13e7;
+  font-weight: 700;
+  font-size: 25px;
+  background-color: #ffffff;
+  border: 2px solid #5d13e7;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.student-id-card:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.left-section .student-id-card {
+  background-color: #bdf2d5; /* Background color for the "Provide Medicine" container */
+}
+
+.right-section .student-id-card {
+  background-color: #dbdbdb; /* Background color for the "Book Time Slot" container */
+}
+
+.scan-barcode:hover {
+  background-color: #5d13e7;
+  color: #ffffff;
+}
