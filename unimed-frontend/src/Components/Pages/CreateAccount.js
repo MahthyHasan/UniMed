@@ -111,9 +111,7 @@ function CreateAccount() {
         axios
           .post("http://localhost:8088/api/v1/user/save", formData)
           .then(() => {
-            setFormData(initialFormData);
-            console.log("Account created successfully");
-            alert("Account created successfully! Please check your email to verify your account.");
+            setFormData(initialFormData);            
             navigate("/verifyEmail");
           })
           .catch((error) => {

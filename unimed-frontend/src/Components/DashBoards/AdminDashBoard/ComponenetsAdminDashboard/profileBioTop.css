@@ -1,0 +1,67 @@
+.profileImageOnTop {
+	width: 7.25rem;
+height: 6.25rem;
+	flex-shrink: 0;
+	border-radius: 6.25rem;
+	
+}
+.userIDTextTag {
+	width: 11.75rem;
+	height: 0.9375rem;
+	flex-shrink: 0;
+	color: #787486;
+	font-family: Inter;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin-top: 4.5rem;
+}
+.profileImageFile{
+	width: 7.73025rem;
+height: 7.73025rem;
+flex-shrink: 0;
+margin-top: 3rem;
+}
+.userNameTextTag{
+	width: 13.25rem;
+height: 1.3125rem;
+flex-shrink: 0;
+color: #0D062D;
+font-family: Inter;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-top: -0.5rem;
+}
+.bioDataTitleTag{
+	width: 8.6875rem;
+height: 1.3125rem;
+flex-shrink: 0;
+color: #0D062D;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.inputTagForBioData {
+    width: 11.5rem;
+    height: 2.625rem;
+    flex-shrink: 0;
+    border: 5px solid #D9D9D9;
+    margin-top: -1rem;
+    text-align: center; 
+}
+.inputTagForBioData::placeholder {
+    text-align: center; 
+}
+.patientBioWithImage{
+	margin-left: 5rem;
+	margin-top: -1.25rem;
+}
+
+.bioDataSingleDiv{
+	margin-top: 2rem;
+}
