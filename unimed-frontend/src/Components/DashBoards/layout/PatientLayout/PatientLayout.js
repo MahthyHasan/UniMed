@@ -114,7 +114,7 @@ export default function PatientLayout({ children }) {
                     ? 'side-menu-item side-menu-active'
                     : 'side-menu-item'
                 }
-                to={'/members'}
+                to={'/Myrecords'}
               >
                 <div className={'d-flex'}>
                   <img
