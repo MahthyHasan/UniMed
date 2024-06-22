@@ -1,4 +1,6 @@
 
+import React from "react";
+=======
 import React, { useState, useEffect } from "react";
 import Profile from "../../../../assets/profile-img.svg";
 import SideClose from "../../../../assets/icons/left-arrow.svg";
