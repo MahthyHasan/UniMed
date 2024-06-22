@@ -1,0 +1,40 @@
+.my-custom-container .row.mb-2 {
+	margin-bottom: 0.5rem !important; /* Adjust this value as needed */
+}
+.LeftFormContainDiv {
+	margin-left: 5rem;
+	margin-top: -1.5rem;
+}
+.RightFormContainDiv {
+	margin-left: 2rem;
+	margin-top: -1.5rem;
+}
+.deleteUserProfileButton {
+	width: 17.5625rem;
+	height: 3.4375rem;
+	flex-shrink: 0;
+	border-radius: 1rem;
+	background: #ff6b6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0D062D;
+text-align: center;
+font-family: Inter;
+font-size: 1rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.deleteUserIcon{
+    width: 1.33331rem;
+height: 1.5rem;
+flex-shrink: 0;
+}
+.deleteUserProfileButtondiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -7rem;
+    margin-left: -5.5rem;
+}

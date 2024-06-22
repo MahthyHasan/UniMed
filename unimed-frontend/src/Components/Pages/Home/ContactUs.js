@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ContactUs.css";
 import axios from "axios";
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
+import NavBar from "./navbar";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -45,6 +46,8 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+    <NavBar />
     <section className="contact-form">
       <h1 className="heading">Get In Touch!</h1>
       <p className="para">
@@ -132,6 +135,7 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
