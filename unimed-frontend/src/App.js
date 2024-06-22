@@ -7,8 +7,6 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards//PharmacistDashBoard/Pages/PharmacistDashboard";
 import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
-import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
@@ -34,7 +32,6 @@ function App() {
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
-        <Route path="/Appointment" element={<Appointment />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
