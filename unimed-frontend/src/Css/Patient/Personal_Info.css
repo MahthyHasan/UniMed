@@ -1,94 +1,67 @@
 /* Overall container styles */
 .details-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #8a8585b4;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  width: 800px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
-
-.left-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Styles for student information section */
-.student-info {
-  display: flex;
-  align-items: center;
-}
-
-.photo-placeholder {
-  width: 150px;
-  height: 150px;
-  background-color: #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 18px;
-  margin-right: 20px;
-}
-
-.student-id {
-  display: flex;
-  flex-direction: column;
-}
-
-.student-id p, .student-id input {
-  margin: 5px 0;
-}
-
-/* Styles for additional information section */
-.additional-info {
-  display: flex;
-  flex-wrap: wrap;
-  width: 500px;
-}
-
-.info-box {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  width: 120px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-
-.info-box p, .info-box input {
-  margin: 5px 0;
-}
-
-/* Adjust input width */
-input {
-  width: 100px;
-  text-align: center;
-}
-
-/* Set fonts to black */
-body,
-p,
-span,
-h1, h2, h3, /* Add more element tags if needed */
-.photo-placeholder,
-.info-box p {
-  color: black;
-}
-
-/* Styles for the edit button */
-.edit-button-container {
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 15px;
-  font-size: 14px;
-  cursor: pointer;
-}
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #8a8585b4;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styles for student information section */
+  .student-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .photo-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  .student-id p {
+    margin: 0;
+  }
+  
+  /* Styles for additional information section */
+  .additional-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 300px;
+  }
+  
+  .info-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .info-box p {
+    margin: 5px 0;
+  }
+  
+  /* Set fonts to black */
+  body,
+  p,
+  span,
+  h1, h2, h3, /* Add more element tags if needed */
+  .photo-placeholder,
+  .info-box p {
+    color: black;
+  }
+  
