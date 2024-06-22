@@ -1,9 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ContactUs.css";
-
+import axios from "axios";
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const { name, email, message } = formData;
+
+  const onInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Form data being submitted:", formData); // Log the form data
+    try {
+      const response = await axios.post(
+        "http://localhost:8088/contactus",
+        formData
+      );
+      console.log("Form submitted successfully:", response.data);
+      alert("Form successfully submitted. Thank you!");
+    } catch (error) {
+      console.error("There was an error submitting the form:", error.message);
+      if (error.response) {
+        console.error("Server responded with an error:", error.response.data);
+        alert("Error: " + error.response.data.message);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+        alert("Error: No response received from the server.");
+      } else {
+        console.error("Error setting up the request:", error.message);
+        alert("Error: " + error.message);
+      }
+    }
+  };
+
   return (
     <section className="contact-form">
       <h1 className="heading">Get In Touch!</h1>
@@ -15,18 +55,37 @@ const ContactUs = () => {
       </p>
 
       <div className="contactForm">
-        <form action="#">
+        <form onSubmit={onSubmit}>
           <h1 className="sub-heading">Need Support!</h1>
-          <input type="text" className="input" placeholder="your name" />
-          <input type="text" className="input" placeholder="your email" />
-          <input type="text" className="input" placeholder="your Subject" />
+          <input
+            type="text"
+            className="input"
+            id="name"
+            placeholder="your name"
+            value={formData.name}
+            onChange={onInputChange}
+          />
+          <input
+            type="email"
+            className="input"
+            id="email"
+            placeholder="your email"
+            value={formData.email}
+            onChange={onInputChange}
+          />
+
           <textarea
             className="input"
             cols="30"
             rows="5"
+            id="message"
             placeholder="Your message..."
+            value={formData.message}
+            onChange={onInputChange}
           ></textarea>
-          <input type="submit" className="input submit" value="Send Message" />
+          <button type="submit" className="input submit">
+            Send Message
+          </button>
         </form>
 
         <div className="map-container">
