@@ -23,9 +23,25 @@ import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/Drugs
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
+
+import ClinicRecords from "./Components/Pages/ClinicRecords"
+import Prescription from "./Components/Pages/Prescription"
+
+
+
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
-import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ListAllDoctorsPage";
-import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/ShowDoctorProfilePage";
+import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
+import ShowDoctorProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ShowDoctorProfilePage";
+import ListAllPharmacistPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Pharmacist/ListAllPharmacistPage";
+import ShowPharmacistProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Pharmacist/ShowPharmacistProfilePage";
+import ListAllAdminsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ListAllAdminsPage";
+import ShowAdminProfilePage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Admin/ShowAdminProfilePage";
+import ListAllPatientsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ListAllPatientsPage";
+import ShowPatientProfile from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Patient/ShowPatientProfile";
+import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode";
+import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
+import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
+
 
 function App() {
   return (
@@ -50,12 +66,23 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
+
+        <Route path="/ClinicRecords" element={<ClinicRecords />} />
+        <Route path="/Prescription" element={<Prescription />} />
+
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route
-          path="/showDoctorProfilePage/:userId"
-          element={<ShowDoctorProfilePage />}
-        />
+        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
+        <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
+        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
+        <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
+        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
+        <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
+        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+        <Route path="/testqr" element={<GenerateQRCode />} />
+        <Route path="/testqr2" element={<QRCodeScanner />} />
+        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
+
       </Routes>
     </div>
   );
