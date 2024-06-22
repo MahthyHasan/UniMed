@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
+
 import Layout from "../../layout/PatientLayout/PatientLayout";
 
 
@@ -20,7 +20,7 @@ export default function PatientDashboard() {
       <Layout>
         <h1>{username}</h1>{" "}
         {/* Replace 'Patient' Name' with the retrieved username */}
-        <Personal_Info />
+      
       </Layout>
     </div>
   );
