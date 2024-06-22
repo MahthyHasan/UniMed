@@ -1,44 +1,44 @@
 import React from 'react';
-import styled from 'styled-components';
-import LastDiagnosis from '../ComponentsPatientDashboard/LastDiagnosis';
-
-const ModalBackdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ModalContent = styled.div`
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-`;
+import "../../../../Css/Patient/Modal.css";
 
 const Modal = ({ show, onClose, record }) => {
   if (!show) return null;
 
   return (
-    <ModalBackdrop>
-      <ModalContent>
-        <LastDiagnosis
-          symptom1={record.symptoms[0]}
-          symptom2={record.symptoms[1]}
-          symptom3={record.symptoms[2]}
-          diagnosis1={record.diagnoses[0]}
-          presmed1={record.medicines[0]}
-          presmed2={record.medicines[1]}
-        />
-        <button onClick={onClose}>Close</button>
-      </ModalContent>
-    </ModalBackdrop>
+    <div className="modal-overlay">
+      <div className="modal">
+        <div className="modal-header">
+          <h2>Last Diagnose</h2>
+          <button className="close-btn" onClick={onClose}>&times;</button>
+        </div>
+        <div className="modal-content">
+          <div className="modal-section">
+            <h3>Symptoms</h3>
+            <ul>
+              {record.symptoms.map((symptom, index) => (
+                <li key={index}>{symptom}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="modal-section">
+            <h3>Diagnose</h3>
+            <ul>
+              {record.diagnoses.map((diagnose, index) => (
+                <li key={index}>{diagnose}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="modal-section">
+            <h3>Prescribed Medicine</h3>
+            <ul>
+              {record.medicines.map((medicine, index) => (
+                <li key={index}>{medicine}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
