@@ -14,22 +14,22 @@ function UserSelection() {
 			<div className="user-selection-div-for-admin-page">
 			<div className="col">
 				<div className="row">
-					<Link to="/doctorAllProfiles" className="card-link">						
+					<Link to="/listAllDoctors" className="card-link">						
 							<UserCards text="Doctor" icon={doctorIcon} cssclass="user-cards-admin-dashboard-doctor" iconcc="icon" />						
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/pharmacistAllProfiles" className="card-link">						
+					<Link to="/listAllPharmacist" className="card-link">						
 							<UserCards text="Pharmacist" icon={pharmesistIcon} cssclass="user-cards-admin-dashboard-pharmacist" iconcc="icon" />						
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/patientAllProfiles" className="card-link" >						
+					<Link to="/listAllPatients" className="card-link" >						
 							<UserCards text="Patient" icon={patientIcon} cssclass="user-cards-admin-dashboard-patient" iconcc="icon2" />						
 					</Link>
 				</div>
 				<div className="row mt-2">
-					<Link to="/adminAllProfiles" className="card-link">						
+					<Link to="/listAllAdmins" className="card-link">						
 							<UserCards text="Admin" icon={adminIcon} cssclass="user-cards-admin-dashboard-admin" iconcc="icon" />						
 					</Link>
 				</div>
