@@ -1,31 +1,39 @@
-.table {
-  width: 100%;
-  border-collapse: separate; 
-  border-spacing: 0 10px; 
-  font-family: Arial, sans-serif;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
-.table th,
-.table td {
-  padding: 12px 16px;
-  text-align: left;
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  width: 300px;
 }
 
-.table th {
-  background-color: #f2f2f2;
+.card:hover {
+  transform: translateY(-10px);
 }
 
-.table-row {
-  background-color: #d3d3d3; 
-  border-bottom: none; 
+.card-header {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 16px;
+  text-align: center;
 }
 
-.table-row.ash {
-  background-color: #b2beb5; 
+.card-footer {
+  background: #f2f2f2;
+  padding: 16px;
+  text-align: center;
 }
 
 .details-btn {
-  background-color: #b2beb5; 
+  background-color: #6e8efb;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -36,14 +44,17 @@
   font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .details-btn:hover {
-  background-color: #a9a9a9; 
+  background-color: #a777e3;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .details-icon {
   margin-right: 8px;
-  width: 16px;  
-  height: 16px; 
+  width: 16px;
+  height: 16px;
 }
