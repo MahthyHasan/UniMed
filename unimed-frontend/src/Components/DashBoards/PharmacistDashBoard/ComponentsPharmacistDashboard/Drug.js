@@ -29,6 +29,35 @@ const Drug = () => {
       quantity: "50",
       expiryDate: "2025-06-30",
     },
+    {
+      drugId: "3",
+      name: "Drug 2",
+      doseStrength: "20mg",
+      quantity: "50",
+      expiryDate: "2025-06-30",
+    },
+
+    {
+      drugId: "4",
+      name: "Drug 2",
+      doseStrength: "20mg",
+      quantity: "50",
+      expiryDate: "2025-06-30",
+    },
+    {
+      drugId: "5",
+      name: "Drug 2",
+      doseStrength: "20mg",
+      quantity: "50",
+      expiryDate: "2025-06-30",
+    },
+    {
+      drugId: "6",
+      name: "Drug 2",
+      doseStrength: "20mg",
+      quantity: "50",
+      expiryDate: "2025-06-30",
+    },
   ]);
 
   // Event handlers for showing/hiding modals and form data management
@@ -69,6 +98,15 @@ const Drug = () => {
     <Modal show={showDeleteModal} onHide={handleModalClose}>
       <Modal.Header closeButton>
         <Modal.Title>Delete Drug</Modal.Title>
+        <h1
+          style={{
+            color: "BLACK",
+            fontFamily: "revert-layer",
+            fontSize: "30px",
+          }}
+        >
+          Do you want to Delete?
+        </h1>
       </Modal.Header>
       <Modal.Body>
         <p>Are you sure you want to delete this drug?</p>
@@ -86,105 +124,128 @@ const Drug = () => {
 
   return (
     <div className="container-xl">
-      {/* Button to add drug */}
-      <Button variant="primary" onClick={handleAddModalShow}>
-        Add Drug
-      </Button>
+      <div>
+        {/* Button to add drug */}
+        <Button variant="primary" onClick={handleAddModalShow}>
+          Add Drug
+        </Button>
 
-      {/* Render modal */}
-      <Modal show={showAddModal} onHide={handleModalClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add Drug</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formDoseStrength">
-              <Form.Label>Dose Strength</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter dose strength"
-                name="doseStrength"
-                value={formData.doseStrength}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formQuantity">
-              <Form.Label>Quantity</Form.Label>
-              <Form.Control
-                type="number"
-                placeholder="Enter quantity"
-                name="quantity"
-                value={formData.quantity}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formExpiryDate">
-              <Form.Label>Expiry Date</Form.Label>
-              <Form.Control
-                type="date"
-                name="expiryDate"
-                value={formData.expiryDate}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleModalClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleModalClose}>
-            Add
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        {/* Render modal */}
+        <Modal show={showAddModal} onHide={handleModalClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Drug</Modal.Title>
+            <h1
+              style={{
+                color: "BLACK",
+                fontFamily: "revert-layer",
+                fontSize: "30px",
+              }}
+            >
+              Add Drug Inventory
+            </h1>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group controlId="formName">
+                <Form.Label>Drug ID</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Drug ID"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formDoseStrength">
+                <Form.Label>Dose Strength</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter dose strength"
+                  name="doseStrength"
+                  value={formData.doseStrength}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formQuantity">
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter quantity"
+                  name="quantity"
+                  value={formData.quantity}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formExpiryDate">
+                <Form.Label>Expiry Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="expiryDate"
+                  value={formData.expiryDate}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleModalClose}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleModalClose}>
+              Add
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
-      {/* Table to display drugs */}
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Drug ID</th>
-            <th>Name</th>
-            <th>Dose Strength</th>
-            <th>Quantity</th>
-            <th>Expiry Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {drugs.map((drug, index) => (
-            <tr key={index}>
-              <td>{drug.drugId}</td>
-              <td>{drug.name}</td>
-              <td>{drug.doseStrength}</td>
-              <td>{drug.quantity}</td>
-              <td>{drug.expiryDate}</td>
-              <td>
-                <Button
-                  variant="danger"
-                  onClick={() => handleDeleteModalShow(drug.drugId)}
-                >
-                  Delete
-                </Button>
-                {/* You can add an edit button here to edit drug details */}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+        {/* Table to display drugs */}
+        <div className="table-container">
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Drug ID</th>
+                <th>Name</th>
+                <th>Dose Strength</th>
+                <th>Quantity</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {drugs.map((drug, index) => (
+                <tr key={index}>
+                  <td>{drug.drugId}</td>
+                  <td>{drug.name}</td>
+                  <td>{drug.doseStrength}</td>
+                  <td>{drug.quantity}</td>
+                  <td>{drug.expiryDate}</td>
+                  <td>
+                    <Button
+                      variant="danger"
+                      onClick={() => handleDeleteModalShow(drug.drugId)}
+                    >
+                      Delete
+                    </Button>
+                    {/* You can add an edit button here to edit drug details */}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>
 
-      {/* Render modal for deletion */}
-      {modalContent}
+        {/* Render modal for deletion */}
+        {modalContent}
+      </div>
     </div>
   );
 };
