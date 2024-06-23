@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Drug from "../ComponentsPharmacistDashboard/Drug";
+import React from "react";
+import Drug from "../ComponentsPharmacistDashboard/Drug.js"; // Make sure this path is correct
 import Layout from "../../layout/PharmacistLayout/PharmacistLayout";
 
 export default function DrugInvestory() {
@@ -10,9 +10,15 @@ export default function DrugInvestory() {
           {/* Table structure */}
         </table>
         <h1
-          style={{ color: "#5d13e7", textAlign: "center", fontWeight: "bold" }}
+          style={{
+            color: "#5d13e7",
+
+            fontWeight: "bold",
+            fontFamily: "fantasy",
+            fontSize: "40px",
+          }}
         >
-          Drug Investory Details
+          Drug Inventory Details {/* Corrected typo */}
         </h1>
 
         <Drug />
