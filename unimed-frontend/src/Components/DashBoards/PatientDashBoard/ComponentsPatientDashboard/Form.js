@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import "../../../../Css/Patient/Form.css";
+import $ from 'jquery';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap-validator/dist/validator.min.js';
+
 function Form() {
     useEffect(() => {
-        // jQuery and Bootstrap Validator setup
         if (typeof window !== 'undefined') {
-            // Ensure jQuery and Bootstrap are loaded before using them
-            const $ = window.jQuery;
-            require('bootstrap');
-            require('bootstrap-validator');
+            window.jQuery = $;
 
-            $('#appointment_form').bootstrapValidator({
+            // Ensure Bootstrap and Bootstrap Validator are loaded
+            window.jQuery('#appointment_form').bootstrapValidator({
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
@@ -48,19 +50,6 @@ function Form() {
                         }
                     }
                 }
-            })
-            .on('success.form.bv', function(e) {
-                $('#success_message').slideDown({ opacity: "show" }, "slow");
-                $('#appointment_form').data('bootstrapValidator').resetForm();
-
-                e.preventDefault();
-
-                var $form = $(e.target);
-                var bv = $form.data('bootstrapValidator');
-
-                $.post($form.attr('action'), $form.serialize(), function(result) {
-                    console.log(result);
-                }, 'json');
             });
         }
     }, []);
