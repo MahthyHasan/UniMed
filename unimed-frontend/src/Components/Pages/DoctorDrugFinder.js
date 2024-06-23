@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Layout from "../../layout/DoctorLayout/DoctorLayouts";
+import React, { useState } from "react";
+import Layout from "../DashBoards/layout/DoctorLayout/DoctorLayouts";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 import styled from "styled-components";
 import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 const StyledInputGroup = styled(InputGroup)`
   margin-bottom: 20px;
@@ -33,36 +33,13 @@ const SearchBox = ({ searchTerm, setSearchTerm }) => {
 };
 
 export default function DoctorDrugFinder() {
-  const [drugs, setDrugs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredDrugs, setFilteredDrugs] = useState([]);
-
-  useEffect(() => {
-    // Fetch the drugs data from the backend
-    axios
-      .get("http://localhost:8088/api/v1/drug/getAll")
-      .then((response) => {
-        setDrugs(response.data);
-        setFilteredDrugs(response.data); // Initialize filtered drugs with all drugs
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the drugs data!", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    // Filter drugs based on search term
-    const filtered = drugs.filter((drug) =>
-      drug.drug_name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredDrugs(filtered);
-  }, [searchTerm, drugs]);
 
   return (
     <Layout>
       <div className="container">
         <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <table className="table table-hover">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Code</th>
@@ -73,15 +50,27 @@ export default function DoctorDrugFinder() {
             </tr>
           </thead>
           <tbody>
-            {filteredDrugs.map((drug, index) => (
-              <tr key={drug._id}>
-                <th scope="row">{`MED${index + 1}`.padStart(6, "0")}</th>
-                <td>{drug.drug_name}</td>
-                <td>{drug.strength}</td>
-                <td>{drug.quantity}</td>
-                <td>{drug.expiry_date}</td>
-              </tr>
-            ))}
+            <tr>
+              <th scope="row">MED001</th>
+              <td>Amoxeline</td>
+              <td>50mg</td>
+              <td>3 Boxes</td>
+              <td>25/01/2026</td>
+            </tr>
+            <tr>
+              <th scope="row">MED002</th>
+              <td>Vitamin C</td>
+              <td>50mg</td>
+              <td>3 Boxes</td>
+              <td>25/05/2025</td>
+            </tr>
+            <tr>
+              <th scope="row">MED003</th>
+              <td>Prititon</td>
+              <td>50mg</td>
+              <td>1 Boxes</td>
+              <td>25/05/2027</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Drug from "../ComponentsPharmacistDashboard/Drug";
 import Layout from "../../layout/PharmacistLayout/PharmacistLayout";
 
-export default function DrugInvestory() {
+export default function DrugInventory() {
   return (
     <div>
       <Layout>
@@ -12,7 +12,7 @@ export default function DrugInvestory() {
         <h1
           style={{ color: "#5d13e7", textAlign: "center", fontWeight: "bold" }}
         >
-          Drug Investory Details
+          Drug Inventory Details
         </h1>
 
         <Drug />

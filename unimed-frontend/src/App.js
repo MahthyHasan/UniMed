@@ -7,8 +7,9 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
-import DrugInvestory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInvestory";
+import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
 import LoginCategory from "./Components/Pages/Home/LoginTypes/LoginCategory";
@@ -23,7 +24,7 @@ import VerifyEmail from "./Components/Pages/VerifyEmail";
 
 import ClinicRecords from "./Components/Pages/ClinicRecords"
 import Prescription from "./Components/Pages/Prescription"
-
+import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder"
 
 
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
@@ -48,7 +49,7 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
-        <Route path="/DrugInvestory" element={<DrugInvestory />} />
+        <Route path="/DrugInventory" element={<DrugInventory />} />
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
@@ -63,20 +64,38 @@ function App() {
 
         <Route path="/ClinicRecords" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
-
+        <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
+        <Route
+          path="/showDoctorProfilePage/:userId"
+          element={<ShowDoctorProfilePage />}
+        />
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
+        <Route
+          path="/showPharmacistProfilePage/:userId"
+          element={<ShowPharmacistProfilePage />}
+        />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
+        <Route
+          path="/showAdminProfilePage/:userId"
+          element={<ShowAdminProfilePage />}
+        />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+        <Route
+          path="/showPatientProfilePage/:userId"
+          element={<ShowPatientProfile />}
+        />
         <Route path="/testqr" element={<GenerateQRCode />} />
         <Route path="/testqr2" element={<QRCodeScanner />} />
-        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
-
+        <Route
+          path="/patientClinicProfile/:userId"
+          element={<PatientClinicProfile />}
+        />
+        <Route
+          path="/patientClinicProfile/:userId"
+          element={<PatientClinicProfile />}
+        />
       </Routes>
     </div>
   );

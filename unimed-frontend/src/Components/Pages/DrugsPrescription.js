@@ -37,16 +37,25 @@ const AddDrugButton = styled.button`
 `;
 
 const DrugsPrescription = () => {
-  const [drugs, setDrugs] = useState([{ drug: "", dosage: "", days: "" }]);
+  const [currentDrug, setCurrentDrug] = useState({
+    drug: "",
+    dosage: "",
+    days: "",
+  });
+  const [prescribedDrugs, setPrescribedDrugs] = useState([]);
 
   const handleAddDrug = () => {
-    setDrugs([...drugs, { drug: "", dosage: "", days: "" }]);
+    if (currentDrug.drug && currentDrug.dosage && currentDrug.days) {
+      setPrescribedDrugs([...prescribedDrugs, currentDrug]);
+      setCurrentDrug({ drug: "", dosage: "", days: "" });
+    }
   };
 
-  const handleDrugChange = (index, field, value) => {
-    const updatedDrugs = [...drugs];
-    updatedDrugs[index][field] = value;
-    setDrugs(updatedDrugs);
+  const handleInputChange = (field, value) => {
+    setCurrentDrug({
+      ...currentDrug,
+      [field]: value,
+    });
   };
 
   const drugOptions = [
@@ -63,66 +72,56 @@ const DrugsPrescription = () => {
       <div className="row">
         <div className="col-md-4">
           <StyledH5>Drugs</StyledH5>
-          {drugs.map((drug, index) => (
-            <div className="form-group" key={index}>
-              <select
-                className="form-control custom-select"
-                value={drug.drug}
-                onChange={(e) =>
-                  handleDrugChange(index, "drug", e.target.value)
-                }
-              >
-                <option value="">Select Drug</option>
-                {drugOptions.map((option, index) => (
-                  <option key={index} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
+          <div className="form-group">
+            <select
+              className="form-control custom-select"
+              value={currentDrug.drug}
+              onChange={(e) => handleInputChange("drug", e.target.value)}
+            >
+              <option value="">Select Drug</option>
+              {drugOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="col-md-4">
           <StyledH5>Dosage</StyledH5>
-          {drugs.map((drug, index) => (
-            <div className="form-group" key={index}>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Dosage"
-                value={drug.dosage}
-                onChange={(e) =>
-                  handleDrugChange(index, "dosage", e.target.value)
-                }
-              />
-            </div>
-          ))}
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Dosage"
+              value={currentDrug.dosage}
+              onChange={(e) => handleInputChange("dosage", e.target.value)}
+            />
+          </div>
         </div>
         <div className="col-md-4">
           <StyledH5>No. of Days</StyledH5>
-          {drugs.map((drug, index) => (
-            <div className="form-group" key={index}>
-              <select
-                className="form-control custom-select"
-                value={drug.days}
-                onChange={(e) =>
-                  handleDrugChange(index, "days", e.target.value)
-                }
-              >
-                <option value="">Select Days</option>
-                {dayOptions.map((option, index) => (
-                  <option key={index} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
+          <div className="form-group">
+            <select
+              className="form-control custom-select"
+              value={currentDrug.days}
+              onChange={(e) => handleInputChange("days", e.target.value)}
+            >
+              <option value="">Select Days</option>
+              {dayOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="text-right">
             <AddDrugButton onClick={handleAddDrug}>Add Drug</AddDrugButton>
           </div>
         </div>
       </div>
+
+      
     </div>
   );
 };
