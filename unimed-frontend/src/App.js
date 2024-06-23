@@ -6,8 +6,14 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
+import PatientDashBoard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
+import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
+import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInvestory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInvestory";
+import PrescribedMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/PrescribedMedicine ";
+import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
@@ -48,7 +54,12 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
+        <Route path="/PatientDashBoard" element={<PatientDashBoard />} />
+        <Route path="/Appointment" element={<Appointment />} />
+        <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/DrugInvestory" element={<DrugInvestory />} />
+        <Route path="/Mali" element={<Mali />} />
+
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
@@ -57,6 +68,7 @@ function App() {
         <Route path="/loginUser" element={<UserLogin />} />
         <Route path="/loginPharmacist" element={<PharmacistLogin />} />
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
+        <Route path="/PrescribedMedicine" element={<PrescribedMedicine />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
