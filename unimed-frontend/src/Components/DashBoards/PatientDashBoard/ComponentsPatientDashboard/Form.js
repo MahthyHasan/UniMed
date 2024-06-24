@@ -11,7 +11,7 @@ function Form() {
             window.jQuery = $;
 
             // Ensure Bootstrap and Bootstrap Validator are loaded
-            window.jQuery('#appointment_form').bootstrapValidator({
+            $('#appointment_form').bootstrapValidator({
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
