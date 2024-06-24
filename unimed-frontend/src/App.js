@@ -8,6 +8,7 @@ import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Docto
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
 import PatientDashBoard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
 import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
+import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
 import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInvestory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInvestory";
@@ -27,10 +28,8 @@ import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 
-import ClinicRecords from "./Components/Pages/ClinicRecords"
-import Prescription from "./Components/Pages/Prescription"
-
-
+import ClinicRecords from "./Components/Pages/ClinicRecords";
+import Prescription from "./Components/Pages/Prescription";
 
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
@@ -45,7 +44,6 @@ import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDo
 import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
 import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
 
-
 function App() {
   return (
     <div>
@@ -55,6 +53,7 @@ function App() {
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
         <Route path="/PatientDashBoard" element={<PatientDashBoard />} />
+        <Route path="/Feedback" element={<Feedback />} />
         <Route path="/Appointment" element={<Appointment />} />
         <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/DrugInvestory" element={<DrugInvestory />} />
@@ -78,17 +77,31 @@ function App() {
 
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
+        <Route
+          path="/showDoctorProfilePage/:userId"
+          element={<ShowDoctorProfilePage />}
+        />
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
+        <Route
+          path="/showPharmacistProfilePage/:userId"
+          element={<ShowPharmacistProfilePage />}
+        />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
+        <Route
+          path="/showAdminProfilePage/:userId"
+          element={<ShowAdminProfilePage />}
+        />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+        <Route
+          path="/showPatientProfilePage/:userId"
+          element={<ShowPatientProfile />}
+        />
         <Route path="/testqr" element={<GenerateQRCode />} />
         <Route path="/testqr2" element={<QRCodeScanner />} />
-        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
-
+        <Route
+          path="/patientClinicProfile/:userId"
+          element={<PatientClinicProfile />}
+        />
       </Routes>
     </div>
   );
