@@ -289,7 +289,9 @@ function CreateAccount() {
         </div>
       </div>
     </div>
+    <div className="footerForCreateAccount">
     <Footer />
+    </div>    
     </>
     
   );

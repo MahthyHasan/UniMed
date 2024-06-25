@@ -126,11 +126,10 @@ body {
   background-color: #18CDCA;
   border-radius: 100%;
   align-items: center;
-  width: auto;
+  width: 17rem  ;
   height: 17rem;
   padding: 43px 28px 8px 9px;
-  text-align: center;
-  
+  text-align: center;  
   }
 
 .image__content__2 ul {
@@ -168,4 +167,16 @@ body {
   .image {
     grid-area: 1/1/2/2;
   }
+}
+.image__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.toolIcon{
+  background: none;
+  height: fit-content;
+  width: fit-content;
 }
