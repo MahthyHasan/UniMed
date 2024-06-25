@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import AddSymptomModal from "./AddSymptomModal";
 
-const SymptomsCheckbox = () => {
-  const [symptoms, setSymptoms] = useState([]);
+const SymptomsCheckbox = ({ symptoms, setSymptoms }) => {
+  const [showModal, setShowModal] = useState(false);
 
   const handleSymptomChange = (symptom, isChecked) => {
     if (isChecked) {
@@ -13,7 +14,18 @@ const SymptomsCheckbox = () => {
   };
 
   const handleAddSymptom = () => {
-    // Add logic to add a new symptom
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSaveSymptom = (newSymptom) => {
+    if (newSymptom) {
+      setSymptoms([...symptoms, newSymptom]);
+    }
+    handleCloseModal();
   };
 
   return (
@@ -60,6 +72,13 @@ const SymptomsCheckbox = () => {
           </AddButtonContainer>
         </Col>
       </Row>
+
+      {/* Add the modal component */}
+      <AddSymptomModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        handleSave={handleSaveSymptom}
+      />
     </Container>
   );
 };
@@ -68,11 +87,11 @@ export default SymptomsCheckbox;
 
 const Container = styled.div`
   font-family: Arial, sans-serif;
-  padding:-5px;
+  padding: -5px;
   width: 400px;
 
   @media (max-width: 768px) {
-    padding: 10px;    
+    padding: 10px;
   }
 `;
 
@@ -139,12 +158,11 @@ const AddButton = styled.button`
   background-color: #6bcb77;
   color: #fff;
   border: none;
-  padding: 8px 20px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
   border-radius: 4px;
-  margin-top:42px;
 
   @media (max-width: 768px) {
     font-size: 12px;
