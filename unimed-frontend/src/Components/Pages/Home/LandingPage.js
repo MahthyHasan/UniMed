@@ -9,7 +9,13 @@ function LandingPage() {
     <div className='container'>
         <NavBar />
         <Header />
-        <Footer />      
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Footer className='footerOnLandingPage1' />      
     </div>
   )
 }
