@@ -16,8 +16,8 @@ footer {
   color: var(--white);
   text-align: center;
   bottom: 0;
-  width: 100%;
-  
+  width: 100%; 
+  position: relative;
 }
 
 .footer__content {
