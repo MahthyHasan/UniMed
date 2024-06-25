@@ -1,16 +1,17 @@
 .sign-in-page {
-  background-image: url(../../assets/bg-sign-in.png);
+  background-image: url(../../assets/createaccountbackgrount.svg);
   width: 100%;
   height: fit-content;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
+ background-attachment: fixed;
   display: flex; /* Use flexbox */
   justify-content: center; /* Horizontally center the items */
   align-items: center;
 }
 .sign-in-form {
   padding-left: 40%;
-  padding-top: 15%;
+  padding-top: 3%;
   padding-right: 40%;
   padding-bottom: 15%;
 }
@@ -22,7 +23,7 @@
   border: none;
   display: flex;
   background-color: transparent;
-  color: #fff;
+  color: #18CDCA;
   font-family: Montserrat;
   font-size: 20px;
   font-style: normal;
@@ -32,11 +33,11 @@
   padding-left: 5px;
 }
 
-.sign-in-form-input-lable {
+.sign-in-form-input-lable2 {
   padding: 1%;
   flex-shrink: 0;
   border-radius: 0.25rem;
-  border: 1px solid #fff;
+  border: 3px solid #18CDCA;;
   display: flex;
 }
 .sign-in-form-input-02 {
@@ -59,7 +60,8 @@
 }
 
 .sign-in-form-input-02::placeholder {
-  color: rgba(255, 255, 255, 0.7); /* Dark white color for the placeholder */
+  color: #18CDCA; 
+  align-items: center;
 }
 
 .sign-in-form-input-02-lable {
@@ -69,11 +71,12 @@
   border: 1px solid #fff;
   display: flex;
 }
-.input-lable-icon {
+.input-lable-icon2 {
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
   margin-top: 0.6rem;
+  color: #18CDCA;
 }
 .signin-button {
   width: 18.75rem;
@@ -81,7 +84,7 @@
   flex-shrink: 0;
   border: none;
   border-radius: 0.25rem;
-  background: #fff;
+  background: #18CDCA;
   color: #2148c0;
   text-align: center;
   font-family: Montserrat;

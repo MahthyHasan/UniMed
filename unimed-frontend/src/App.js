@@ -22,9 +22,14 @@ import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 
+
 import ClinicRecords from "./Components/Pages/ClinicRecords"
 import Prescription from "./Components/Pages/Prescription"
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder"
+
+
+import ClinicRecords from "./Components/Pages/ClinicRecords";
+import Prescription from "./Components/Pages/Prescription";
 
 
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
@@ -40,7 +45,6 @@ import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDo
 import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
 import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
 
-
 function App() {
   return (
     <div>
@@ -49,7 +53,13 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
+
         <Route path="/DrugInventory" element={<DrugInventory />} />
+
+        <Route path="/DrugInvestory" element={<DrugInvestory />} />
+        <Route path="/Mali" element={<Mali />} />
+
+
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
@@ -92,10 +102,13 @@ function App() {
           path="/patientClinicProfile/:userId"
           element={<PatientClinicProfile />}
         />
+
         <Route
           path="/patientClinicProfile/:userId"
           element={<PatientClinicProfile />}
         />
+
+f0310dc70cdd0e7dc7256a05c44d1c16121cc6f6
       </Routes>
     </div>
   );
