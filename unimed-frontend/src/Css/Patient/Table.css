@@ -8,7 +8,8 @@
 .table th,
 .table td {
   padding: 12px 16px;
-  text-align: left;
+  text-align: center;
+  width: calc(100% / 3); /* Divide the table width equally among three columns */
 }
 
 .table th {
