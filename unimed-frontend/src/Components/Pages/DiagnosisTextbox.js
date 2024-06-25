@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -54,9 +54,7 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const DiagnosisTextbox = () => {
-  const [diagnosis, setDiagnosis] = useState("");
-
+const DiagnosisTextbox = ({ diagnosis, setDiagnosis }) => {
   const handleDiagnosisChange = (e) => {
     setDiagnosis(e.target.value);
   };
