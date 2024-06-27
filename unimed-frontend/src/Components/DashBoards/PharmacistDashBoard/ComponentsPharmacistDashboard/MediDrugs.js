@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Button, Form, Table } from "react-bootstrap";
+import { Modal, Button, Form, Table, Alert } from "react-bootstrap";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -11,29 +11,34 @@ const MediDrugs = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedDrug, setSelectedDrug] = useState(null);
-  const [updatedDrug, setUpdatedDrug] = useState(null);
+  const [alert, setAlert] = useState({ show: false, message: "", variant: "" });
 
   // Fetch all drugs on component mount
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/v1/drug/getAll")
+      .get("http://localhost:8088/api/v1/drug/getAll")
       .then((response) => setDrugs(response.data))
       .catch((error) => console.error("Error fetching drugs:", error));
   }, []);
 
   const handleAdd = (newDrug) => {
     axios
-      .post("http://localhost:8080/api/v1/drug/save", newDrug)
+      .post("http://localhost:8088/api/v1/drug/save", newDrug)
       .then((response) => {
         setDrugs([...drugs, { ...newDrug, _id: response.data }]);
         setShowAddModal(false);
+        showAlert("Drug added successfully!", "success");
       })
-      .catch((error) => console.error("Error adding drug:", error));
+      .catch((error) => {
+        console.error("Error adding drug:", error);
+        showAlert("Failed to add drug.", "danger");
+      });
   };
+
   const handleEdit = (updatedDrug) => {
     axios
       .put(
-        `http://localhost:8080/api/v1/drug/edit/${updatedDrug._id}`,
+        `http://localhost:8088/api/v1/drug/edit/${updatedDrug._id}`,
         updatedDrug
       )
       .then((response) => {
@@ -43,22 +48,44 @@ const MediDrugs = () => {
           )
         );
         setShowEditModal(false);
+        console.log("Drug updated successfully!", "success");
       })
-      .catch((error) => console.error("Error editing drug:", error));
+      .catch((error) => {
+        console.error("Error editing drug:", error);
+        showAlert("Failed to update drug.", "danger");
+      });
   };
 
   const handleDelete = (_id) => {
     axios
-      .delete(`http://localhost:8080/api/v1/drug/delete/${_id}`)
+      .delete(`http://localhost:8088/api/v1/drug/delete/${_id}`)
       .then(() => {
         setDrugs(drugs.filter((drug) => drug._id !== _id));
         setShowDeleteModal(false);
+        showAlert("Drug deleted successfully!", "success");
       })
-      .catch((error) => console.error("Error deleting drug:", error));
+      .catch((error) => {
+        console.error("Error deleting drug:", error);
+        showAlert("Failed to delete drug.", "danger");
+      });
+  };
+
+  const showAlert = (message, variant) => {
+    setAlert({ show: true, message, variant });
+    setTimeout(() => setAlert({ show: false, message: "", variant: "" }), 3000);
   };
 
   return (
     <div className="container-xl">
+      {alert.show && (
+        <Alert
+          variant={alert.variant}
+          onClose={() => setAlert({ show: false, message: "", variant: "" })}
+          dismissible
+        >
+          {alert.message}
+        </Alert>
+      )}
       <div className="table-responsive">
         <div className="table-wrapper">
           <div className="table-title">
@@ -83,38 +110,38 @@ const MediDrugs = () => {
                   <input type="checkbox" />
                 </th>
                 <th>Drug ID</th>
-                <th> Standard Drug ID</th>
+                <th>Standard Drug ID</th>
                 <th>Name</th>
                 <th>Dose Form</th>
                 <th>Dose Strength</th>
                 <th>Quantity</th>
-                <th>Manufacturer </th>
+                <th>Manufacturer</th>
                 <th>Expiry Date</th>
-                <th>Avalibilty staus</th>
+                <th>Availability Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {drugs.map((drugs) => (
-                <tr key={drugs._id}>
+              {drugs.map((drug) => (
+                <tr key={drug._id}>
                   <td>
                     <input type="checkbox" />
                   </td>
-                  <td>{drugs.drugId}</td>
-                  <td>{drugs.srId}</td>
-                  <td>{drugs.name}</td>
-                  <td>{drugs.doseForm}</td>
-                  <td>{drugs.doseStrength}</td>
-                  <td>{drugs.quantity}</td>
-                  <td>{drugs.manufacturer}</td>
-                  <td>{drugs.expiryDate}</td>
-                  <td>{drugs.avalibilty_staus}</td>
+                  <td>{drug._id}</td>
+                  <td>{drug.srid}</td>
+                  <td>{drug.drug_name}</td>
+                  <td>{drug.dosage_forms}</td>
+                  <td>{drug.strength}</td>
+                  <td>{drug.quantity}</td>
+                  <td>{drug.manufacturer}</td>
+                  <td>{drug.exp_date}</td>
+                  <td>{drug.availability_status}</td>
                   <td>
                     <a
                       href="#editDrugModal"
                       className="edit"
                       onClick={() => {
-                        setSelectedDrug(drugs);
+                        setSelectedDrug(drug);
                         setShowEditModal(true);
                       }}
                     >
@@ -130,7 +157,7 @@ const MediDrugs = () => {
                       href="#deleteDrugModal"
                       className="delete"
                       onClick={() => {
-                        setSelectedDrug(drugs);
+                        setSelectedDrug(drug);
                         setShowDeleteModal(true);
                       }}
                     >
@@ -171,8 +198,7 @@ const MediDrugs = () => {
 };
 
 const AddDrugsModal = ({ show, onHide, onAdd }) => {
-  const [drugs, setDrugs] = useState({
-    _id: "",
+  const [drug, setDrug] = useState({
     srid: "",
     drug_name: "",
     dosage_forms: "",
@@ -185,14 +211,13 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDrugs({ ...drugs, [name]: value });
+    setDrug({ ...drug, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd(drugs);
-    setDrugs({
-      _id: "",
+    onAdd(drug);
+    setDrug({
       srid: "",
       drug_name: "",
       dosage_forms: "",
@@ -223,11 +248,11 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
       <Modal.Body>
         <Form onSubmit={handleSubmit} className="drug-form">
           <Form.Group>
-            <Form.Label> Standard Drugs ID</Form.Label>
+            <Form.Label>Standard Drugs ID</Form.Label>
             <Form.Control
               type="text"
               name="srid"
-              value={drugs.srid}
+              value={drug.srid}
               onChange={handleChange}
               required
             />
@@ -237,7 +262,7 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="text"
               name="drug_name"
-              value={drugs.drug_name}
+              value={drug.drug_name}
               onChange={handleChange}
               required
             />
@@ -247,7 +272,7 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="text"
               name="dosage_forms"
-              value={drugs.dosage_forms}
+              value={drug.dosage_forms}
               onChange={handleChange}
               required
             />
@@ -257,7 +282,7 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="text"
               name="strength"
-              value={drugs.strength}
+              value={drug.strength}
               onChange={handleChange}
               required
             />
@@ -267,7 +292,7 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="number"
               name="quantity"
-              value={drugs.quantity}
+              value={drug.quantity}
               onChange={handleChange}
               required
             />
@@ -277,7 +302,7 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="text"
               name="manufacturer"
-              value={drugs.manufacturer}
+              value={drug.manufacturer}
               onChange={handleChange}
               required
             />
@@ -287,17 +312,17 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
             <Form.Control
               type="date"
               name="exp_date"
-              value={drugs.exp_date}
+              value={drug.exp_date}
               onChange={handleChange}
               required
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Avalibilty Status</Form.Label>
+            <Form.Label>Availability Status</Form.Label>
             <Form.Control
               type="text"
               name="availability_status"
-              value={drugs.availability_status}
+              value={drug.availability_status}
               onChange={handleChange}
               required
             />
@@ -311,21 +336,23 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
   );
 };
 
-const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
-  const [updatedDrugs, setUpdatedDrugs] = useState(drugs);
+const EditDrugsModal = ({ show, onHide, drug, onEdit }) => {
+  const [editedDrug, setEditedDrug] = useState({ ...drug });
 
-  React.useEffect(() => {
-    setUpdatedDrugs(drugs);
-  }, [drugs]);
+  useEffect(() => {
+    if (drug) {
+      setEditedDrug({ ...drug });
+    }
+  }, [drug]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUpdatedDrugs({ ...updatedDrugs, [name]: value });
+    setEditedDrug({ ...editedDrug, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onEdit(updatedDrugs);
+    onEdit(editedDrug);
   };
 
   return (
@@ -345,23 +372,13 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handleSubmit} className="edit-drug-form">
-          <Form.Group>
-            <Form.Label>Drugs ID</Form.Label>
-            <Form.Control
-              type="text"
-              name="_id"
-              value={updatedDrugs?._id || ""}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
+        <Form onSubmit={handleSubmit} className="drug-form">
           <Form.Group>
             <Form.Label>Standard Drugs ID</Form.Label>
             <Form.Control
               type="text"
               name="srid"
-              value={updatedDrugs?.srid || ""}
+              value={editedDrug.srid}
               onChange={handleChange}
               required
             />
@@ -371,7 +388,7 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
             <Form.Control
               type="text"
               name="drug_name"
-              value={updatedDrugs?.drug_name || ""}
+              value={editedDrug.drug_name}
               onChange={handleChange}
               required
             />
@@ -381,7 +398,7 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
             <Form.Control
               type="text"
               name="dosage_forms"
-              value={updatedDrugs?.dosage_forms || ""}
+              value={editedDrug.dosage_forms}
               onChange={handleChange}
               required
             />
@@ -391,7 +408,7 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
             <Form.Control
               type="text"
               name="strength"
-              value={updatedDrugs?.strength || ""}
+              value={editedDrug.strength}
               onChange={handleChange}
               required
             />
@@ -399,19 +416,19 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
           <Form.Group>
             <Form.Label>Quantity</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               name="quantity"
-              value={updatedDrugs?.quantity || ""}
+              value={editedDrug.quantity}
               onChange={handleChange}
               required
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Manufacturer Date</Form.Label>
+            <Form.Label>Manufacturer</Form.Label>
             <Form.Control
-              type="date"
+              type="text"
               name="manufacturer"
-              value={updatedDrugs?.manufacturer || ""}
+              value={editedDrug.manufacturer}
               onChange={handleChange}
               required
             />
@@ -421,23 +438,23 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
             <Form.Control
               type="date"
               name="exp_date"
-              value={updatedDrugs?.exp_date || ""}
+              value={editedDrug.exp_date}
               onChange={handleChange}
               required
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Avalibilty Status</Form.Label>
+            <Form.Label>Availability Status</Form.Label>
             <Form.Control
               type="text"
-              name=" availability_status"
-              value={updatedDrugs?.availability_status || ""}
+              name="availability_status"
+              value={editedDrug.availability_status}
               onChange={handleChange}
               required
             />
           </Form.Group>
-          <Button type="submit" className="btn btn-info">
-            Save
+          <Button type="submit" className="btn btn-primary">
+            Save Changes
           </Button>
         </Form>
       </Modal.Body>
@@ -445,7 +462,7 @@ const EditDrugsModal = ({ show, onHide, drugs, onEdit }) => {
   );
 };
 
-const DeleteDrugsModal = ({ show, onHide, drugs, onDelete }) => {
+const DeleteDrugsModal = ({ show, onHide, drug, onDelete }) => {
   return (
     <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
@@ -463,26 +480,32 @@ const DeleteDrugsModal = ({ show, onHide, drugs, onDelete }) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h3
+        <h4
           style={{
-            color: " rgb(14, 13, 13)",
+            color: "black",
             fontWeight: "bold",
+            fontFamily: "inherit",
+            fontSize: "40px",
           }}
         >
-          Are you sure you want to delete this Drug?
-        </h3>
-        <p>
-          <strong>{drugs?.name}</strong>
-        </p>
+          Are you sure you want to delete this drug?
+        </h4>
+        <h2>
+          <strong>{drug?.drug_name}</strong>
+        </h2>
+        <div className="d-flex justify-content-end">
+          <Button
+            variant="secondary"
+            onClick={onHide}
+            style={{ marginRight: "10px" }}
+          >
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={() => onDelete(drug._id)}>
+            Delete
+          </Button>
+        </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onHide}>
-          Cancel
-        </Button>
-        <Button variant="danger" onClick={() => onDelete(drugs._id)}>
-          Delete
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };
