@@ -1,85 +1,98 @@
+/* Global styles */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-body {
-  color: #566787;
-  background: #f5f5f5;
-  font-family: "Varela Round", sans-serif;
-  font-size: 13px;
-}
+/* Adjusted styles to decrease table size */
 .table-responsive {
   margin: 30px 0;
+  overflow-x: auto;
+  transform: scale(1); /* Scale down the table */
+  transform-origin: top left; /* Ensure scaling starts from the top left */
 }
+
 .table-wrapper {
   background: #fff;
-  padding: 20px 25px;
+  padding: 15px 20px; /* Decrease padding */
   border-radius: 3px;
-  min-width: 1000px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+
 .table-title {
-  padding-bottom: 15px;
+  padding-bottom: 12px; /* Decrease padding */
   background: #435d7d;
   color: #fff;
-  padding: 16px 30px;
+  padding: 12px 20px; /* Decrease padding */
   min-width: 100%;
   margin: -20px -25px 10px;
   border-radius: 3px 3px 0 0;
 }
+
 .table-title h2 {
   margin: 5px 0 0;
-  font-size: 24px;
+  font-size: 24px; /* Decrease font size */
 }
+
 .table-title .btn-group {
   float: right;
 }
+
 .table-title .btn {
   color: #fff;
   float: right;
-  font-size: 13px;
+  font-size: 14px; /* Decrease font size */
   border: none;
-  min-width: 50px;
+  min-width: 46px; /* Decrease min-width */
   border-radius: 2px;
-  border: none;
   outline: none !important;
-  margin-left: 10px;
+  margin-left: 8px; /* Decrease margin */
 }
+
 .table-title .btn i {
   float: left;
-  font-size: 21px;
-  margin-right: 5px;
+  font-size: 24px; /* Decrease font size */
+  margin-right: 4px; /* Decrease margin */
 }
+
 .table-title .btn span {
   float: left;
-  margin-top: 2px;
+  margin-top: 1px; /* Decrease margin */
 }
+
 table.table tr th,
 table.table tr td {
   border-color: #e9e9e9;
-  padding: 12px 15px;
+  padding: 10px 12px; /* Decrease padding */
   vertical-align: middle;
+  font-size: 15px; /* Decrease font size */
 }
+
 table.table tr th:first-child {
-  width: 60px;
+  width: 50px; /* Decrease width */
 }
+
 table.table tr th:last-child {
-  width: 100px;
+  width: 90px; /* Decrease width */
 }
+
 table.table-striped tbody tr:nth-of-type(odd) {
   background-color: #fcfcfc;
 }
+
 table.table-striped.table-hover tbody tr:hover {
   background: #f5f5f5;
 }
+
 table.table th i {
-  font-size: 13px;
-  margin: 0 5px;
+  font-size: 12px; /* Decrease font size */
+  margin: 0 4px; /* Decrease margin */
   cursor: pointer;
 }
+
 table.table td:last-child i {
   opacity: 0.9;
-  font-size: 22px;
-  margin: 0 5px;
+  font-size: 20px; /* Decrease font size */
+  margin: 0 4px; /* Decrease margin */
 }
+
 table.table td a {
   font-weight: bold;
   color: #566787;
@@ -87,77 +100,94 @@ table.table td a {
   text-decoration: none;
   outline: none !important;
 }
+
 table.table td a:hover {
   color: #2196f3;
 }
+
 table.table td a.edit {
   color: #ffc107;
 }
+
 table.table td a.delete {
   color: #f44336;
 }
+
 table.table td i {
-  font-size: 19px;
+  font-size: 18px; /* Decrease font size */
 }
+
 table.table .avatar {
   border-radius: 50%;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 8px; /* Decrease margin */
 }
+
 .pagination {
   float: right;
   margin: 0 0 5px;
 }
+
 .pagination li a {
   border: none;
-  font-size: 13px;
-  min-width: 30px;
-  min-height: 30px;
+  font-size: 12px; /* Decrease font size */
+  min-width: 28px; /* Decrease min-width */
+  min-height: 28px; /* Decrease min-height */
   color: #999;
-  margin: 0 2px;
-  line-height: 30px;
+  margin: 0 1px; /* Decrease margin */
+  line-height: 28px; /* Decrease line-height */
   border-radius: 2px !important;
   text-align: center;
-  padding: 0 6px;
+  padding: 0 5px; /* Decrease padding */
 }
+
 .pagination li a:hover {
   color: #666;
 }
+
 .pagination li.active a,
 .pagination li.active a.page-link {
   background: #03a9f4;
 }
+
 .pagination li.active a:hover {
   background: #0397d6;
 }
+
 .pagination li.disabled i {
   color: #ccc;
 }
+
 .pagination li i {
-  font-size: 16px;
-  padding-top: 6px;
+  font-size: 15px; /* Decrease font size */
+  padding-top: 5px; /* Decrease padding */
 }
+
 .hint-text {
   float: left;
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 12px; /* Decrease font size */
 }
+
 .custom-checkbox {
   position: relative;
 }
+
 .custom-checkbox input[type="checkbox"] {
   opacity: 0;
   position: absolute;
   margin: 5px 0 0 3px;
   z-index: 9;
 }
+
 .custom-checkbox label:before {
-  width: 18px;
-  height: 18px;
+  width: 16px; /* Decrease size */
+  height: 16px; /* Decrease size */
 }
+
 .custom-checkbox label:before {
   content: "";
-  margin-right: 10px;
+  margin-right: 8px; /* Decrease margin */
   display: inline-block;
   vertical-align: text-top;
   background: white;
@@ -166,87 +196,132 @@ table.table .avatar {
   box-sizing: border-box;
   z-index: 2;
 }
+
 .custom-checkbox input[type="checkbox"]:checked + label:after {
   content: "";
   position: absolute;
-  left: 6px;
+  left: 5px;
   top: 3px;
-  width: 6px;
-  height: 11px;
+  width: 5px;
+  height: 9px;
   border: solid #000;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0; /* Adjust border width */
   transform: inherit;
   z-index: 3;
   transform: rotate(45deg);
 }
+
 .custom-checkbox input[type="checkbox"]:checked + label:before {
   border-color: #03a9f4;
   background: #03a9f4;
 }
+
 .custom-checkbox input[type="checkbox"]:checked + label:after {
   border-color: #fff;
 }
+
 .custom-checkbox input[type="checkbox"]:disabled + label:before {
   color: #b8b8b8;
   cursor: auto;
   box-shadow: none;
   background: #ddd;
 }
+
 .modal .modal-dialog {
   max-width: 400px;
 }
+
 .modal .modal-header,
 .modal .modal-body,
 .modal .modal-footer {
-  padding: 20px 30px;
+  padding: 15px 20px; /* Decrease padding */
 }
+
 .modal .modal-content {
   border-radius: 3px;
 }
+
 .modal .modal-footer {
   background: #ecf0f1;
   border-radius: 0 0 3px 3px;
 }
+
 .modal .modal-title {
   display: inline-block;
 }
+
 .modal .form-control {
   border-radius: 2px;
   box-shadow: none;
   border-color: #dddddd;
 }
+
 .modal textarea.form-control {
   resize: vertical;
 }
+
 .modal .btn {
   border-radius: 2px;
-  min-width: 100px;
+  min-width: 90px; /* Decrease min-width */
 }
+
 .modal form label {
   font-weight: normal;
 }
 
-.drug-form .form-control {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-/* New CSS for black text color */
+/* Specific styles for form controls and labels */
 .drug-form .form-control,
-.drug-form .form-label {
-  color: black;
-}
-/* New CSS for black text color in Edit form */
+.drug-form .form-label,
 .edit-drug-form .form-control,
 .edit-drug-form .form-label {
-  color: black;
+  color: black; /* Black text color */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .table-wrapper {
+    padding: 10px 15px;
+  }
+
+  .table-title h2 {
+    font-size: 18px; /* Decrease font size */
+  }
+
+  table.table th,
+  table.table td {
+    padding: 12px 10px; /* Decrease padding */
+  }
+}
+
+@media (max-width: 576px) {
+  .table-title {
+    padding: 12px 15px; /* Decrease padding */
+  }
+
+  .table-title h2 {
+    font-size: 16px; /* Decrease font size */
+  }
+
+  table.table th,
+  table.table td {
+    padding: 8px 8px; /* Decrease padding */
+  }
+
+  .modal .modal-dialog {
+    max-width: 100%;
+    margin: 10px;
+  }
+
+  .modal .modal-header,
+  .modal .modal-body,
+  .modal .modal-footer {
+    padding: 10px; /* Decrease padding */
+  }
 }
