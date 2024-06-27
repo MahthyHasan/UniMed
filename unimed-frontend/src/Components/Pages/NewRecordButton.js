@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewRecordButton = () => {
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleClick = () => {
+    navigate("/Prescription"); // Navigate to the /Prescription page
+  };
+
   return (
     <button
+      onClick={handleClick}
       style={{
         backgroundColor: "#6BCB77",
         color: "#ffffff",
