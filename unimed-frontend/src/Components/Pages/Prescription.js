@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../DashBoards/layout/DoctorLayout/DoctorLayouts";
 import ProfileCard from "./ProfileCard";
 import { Backbutton } from "./Backbutton";
 import MainDescription from "./MainDescription";
 import Allergies from "./Allergies";
-import LastDiagnosis from "./LastDiagnosis";
 import PreviousRecords from "./PreviousRecords";
 import NewRecordButton from "./NewRecordButton";
 import CurrentRecord from "./CurrentRecord";
 import IssuedButton from "./IssuedButton";
-import  SymptomsCheckbox from "./SymptomsCheckbox";
+import SymptomsCheckbox from "./SymptomsCheckbox";
 import DiagnosisTextbox from "./DiagnosisTextbox";
 import DrugsPrescription from "./DrugsPrescription";
 
-export default function ClinicRecords() {
+export default function Prescription() {
+  const [symptoms, setSymptoms] = useState([]);
+  const [diagnosis, setDiagnosis] = useState("");
+  const [prescribedDrugs, setPrescribedDrugs] = useState([]);
+
   return (
     <Layout>
       <div className="row">
@@ -48,7 +51,7 @@ export default function ClinicRecords() {
         {/* Second Section */}
         <div className="row">
           <div className="col">
-            {/* Allergieitem component goes here */}
+            {/* Allergies component goes here */}
             <Allergies item1="Tomato" item2="Amoxiline" />
           </div>
         </div>
@@ -58,39 +61,36 @@ export default function ClinicRecords() {
           <div className="col-md-4">
             {/* Symptoms Section */}
             <div>
-              
               {/* Symptoms Checkboxes */}
-              <SymptomsCheckbox/>
+              <SymptomsCheckbox symptoms={symptoms} setSymptoms={setSymptoms} />
             </div>
           </div>
           <div className="col-md-4">
             {/* Diagnosis Section */}
             <div>
-             
               {/* Diagnosis Textbox */}
-              <DiagnosisTextbox/>
+              <DiagnosisTextbox
+                diagnosis={diagnosis}
+                setDiagnosis={setDiagnosis}
+              />
             </div>
           </div>
           <div className="col-md-4">
             {/* Drugs Prescription Section */}
             <div>
-              
               {/* Drugs, Dosage, and No. of Days Dropdowns */}
-              <DrugsPrescription/>
+              <DrugsPrescription setPrescribedDrugs={setPrescribedDrugs} />
             </div>
           </div>
         </div>
 
         <div className="row">
           <div className="col">
-            {/* Lastdiagnosis component goes here */}
+            {/* CurrentRecord component goes here */}
             <CurrentRecord
-              symptom1="Cough"
-              symptom2="Runny Nose"
-              symptom3="Tonsils"
-              diagnosis1="Viral Fever"
-              presmed1="Paracetamol"
-              presmed2="citrecine"
+              symptoms={symptoms}
+              diagnosis={diagnosis}
+              prescribedDrugs={prescribedDrugs}
             />
           </div>
         </div>
