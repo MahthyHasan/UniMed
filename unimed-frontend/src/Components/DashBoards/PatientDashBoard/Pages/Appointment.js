@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import { Card } from "../ComponentsPatientDashboard/Card";
-import Form from "../ComponentsPatientDashboard/Form"; 
+// import Form from "../ComponentsPatientDashboard/Form"; 
 
 export default function PatientDashboard() {
     const [username, setUsername] = useState("");
@@ -21,7 +21,7 @@ export default function PatientDashboard() {
           {/* Replace 'Patient' Name' with the retrieved username */}
           <Card />
          
-          <Form /> 
+          {/* <Form />   */}
         </Layout>
       </div>
     );
