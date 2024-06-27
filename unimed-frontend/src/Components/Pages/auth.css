@@ -1,18 +1,34 @@
 .sign-in-page {
-  background-image: url(../../assets/bg-sign-in.png);
+  background-image: url(../../assets/createaccountbackgrount.svg);
   width: 100%;
   height: fit-content;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
+ background-attachment: fixed;
   display: flex; /* Use flexbox */
   justify-content: center; /* Horizontally center the items */
   align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 100px; 
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .sign-in-form {
   padding-left: 40%;
-  padding-top: 15%;
+  padding-top: 2%;
   padding-right: 40%;
   padding-bottom: 15%;
+  background-color: transparent;
 }
 .sign-in-form-input {
   width: 90%;
@@ -22,7 +38,7 @@
   border: none;
   display: flex;
   background-color: transparent;
-  color: #fff;
+  color: #18CDCA;
   font-family: Montserrat;
   font-size: 20px;
   font-style: normal;
@@ -31,12 +47,34 @@
 
   padding-left: 5px;
 }
+.sign-in-form-input::placeholder {
+  width: 90%;
+  height: 2.8125rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  border: none;
+  display: flex;
+  background-color: transparent;
+  color: #18CDCA;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.25rem;
+  padding-left: 5px;
+}
+.sign-in-form-input:focus {
+  outline: none;
+  border: none;
+  color: #18CDCA;
+  text-align: center;
+}
 
-.sign-in-form-input-lable {
+.sign-in-form-input-lable2 {
   padding: 1%;
   flex-shrink: 0;
   border-radius: 0.25rem;
-  border: 1px solid #fff;
+  border: 3px solid #18CDCA;;
   display: flex;
 }
 .sign-in-form-input-02 {
@@ -59,7 +97,8 @@
 }
 
 .sign-in-form-input-02::placeholder {
-  color: rgba(255, 255, 255, 0.7); /* Dark white color for the placeholder */
+  color: #18CDCA; 
+  align-items: center;
 }
 
 .sign-in-form-input-02-lable {
@@ -69,20 +108,20 @@
   border: 1px solid #fff;
   display: flex;
 }
-.input-lable-icon {
+.input-lable-icon2 {
   width: 1.5rem;
   height: 1.5rem;
   flex-shrink: 0;
   margin-top: 0.6rem;
+  color: #18CDCA;
 }
-.signin-button {
+.createAccountButton{
   width: 18.75rem;
   height: 2.8125rem;
-  flex-shrink: 0;
-  border: none;
+   border: none;
   border-radius: 0.25rem;
-  background: #fff;
-  color: #2148c0;
+  background-color: #18CDCA;
+  color: #f8f8f8;
   text-align: center;
   font-family: Montserrat;
   font-size: 1rem;
@@ -100,14 +139,15 @@
   line-height: normal;
 }
 .logo-pmt {
-  width: 10rem;
+  width: 25rem;
   height: 10rem;
 }
-.create-account-form {
+.create-account-form-new {
   padding-left: 20%;
-  padding-top: 15%;
+  padding-top: 2%;
   padding-right: 20%;
   padding-bottom: 15%;
+  background-color: transparent;
 }
 .logo-div {
   display: flex; /* Use flexbox */
@@ -136,4 +176,20 @@
 
 .back-button:hover {
   transform: scale(1.1);
+}
+.signinButtonLinkincreateAccount{
+  width: 9.58125rem;
+  border: none;
+  background-color: transparent;
+  color: #18CDCA;
+text-align: center;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+}
+.footerForCreateAccount{
+  margin-top: -15rem;  
 }

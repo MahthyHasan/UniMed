@@ -6,10 +6,6 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
-import PatientDashBoard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
-import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
-import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
-import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInvestory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInvestory";
 import PrescribedMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/PrescribedMedicine ";
@@ -52,10 +48,6 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
-        <Route path="/PatientDashBoard" element={<PatientDashBoard />} />
-        <Route path="/Feedback" element={<Feedback />} />
-        <Route path="/Appointment" element={<Appointment />} />
-        <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/DrugInvestory" element={<DrugInvestory />} />
         <Route path="/Mali" element={<Mali />} />
 
