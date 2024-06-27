@@ -39,6 +39,7 @@ import ShowPatientProfile from "./Components/DashBoards/AdminDashBoard/Pages/Use
 import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode";
 import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
 import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
+import LoginPageUser from "./Components/Pages/Home/OtherPages/LoginPageUser";
 
 function App() {
   return (
@@ -94,7 +95,9 @@ function App() {
           path="/patientClinicProfile/:userId"
           element={<PatientClinicProfile />}
         />
+        <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
       </Routes>
+      
     </div>
   );
 }
