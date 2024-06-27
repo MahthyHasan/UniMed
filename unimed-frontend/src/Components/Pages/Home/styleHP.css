@@ -30,3 +30,6 @@ body {
   display: flex;
   flex-direction: column;
 }
+.footerOnLandingPage1{
+  margin-top: 10rem;
+}
