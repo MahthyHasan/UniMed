@@ -7,11 +7,9 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
-import DrugInvestory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInvestory";
-import PrescribedMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/PrescribedMedicine ";
-import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
-
+import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import LandingPage from "./Components/Pages/Home/LandingPage";
 import LoginCategory from "./Components/Pages/Home/LoginTypes/LoginCategory";
@@ -24,8 +22,15 @@ import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 
+
+import ClinicRecords from "./Components/Pages/ClinicRecords"
+import Prescription from "./Components/Pages/Prescription"
+import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder"
+
+
 import ClinicRecords from "./Components/Pages/ClinicRecords";
 import Prescription from "./Components/Pages/Prescription";
+
 
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
@@ -49,8 +54,12 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
+
+        <Route path="/DrugInventory" element={<DrugInventory />} />
+
         <Route path="/DrugInvestory" element={<DrugInvestory />} />
         <Route path="/Mali" element={<Mali />} />
+
 
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
@@ -60,14 +69,13 @@ function App() {
         <Route path="/loginUser" element={<UserLogin />} />
         <Route path="/loginPharmacist" element={<PharmacistLogin />} />
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
-        <Route path="/PrescribedMedicine" element={<PrescribedMedicine />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
 
         <Route path="/ClinicRecords" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
-
+        <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
         <Route
@@ -95,8 +103,8 @@ function App() {
           path="/patientClinicProfile/:userId"
           element={<PatientClinicProfile />}
         />
-        <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
-      </Routes>
+<Route path="/LoginUserPageNew" element={<LoginPageUser />} />
+</Routes>
       
     </div>
   );
