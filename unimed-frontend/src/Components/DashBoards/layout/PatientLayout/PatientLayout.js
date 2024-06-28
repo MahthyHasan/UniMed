@@ -128,7 +128,7 @@ export default function PatientLayout({ children }) {
                 </div>
               </NavLink>
             </div>
-            <div className={'w-100 px-sm-2'}>
+            {/* <div className={'w-100 px-sm-2'}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
@@ -148,7 +148,7 @@ export default function PatientLayout({ children }) {
                   {!open && <div className={''}>Medical Certificates</div>}
                 </div>
               </NavLink>
-            </div>
+            </div> */}
 
             <div className={'w-100 px-sm-2'}>
             <NavLink
