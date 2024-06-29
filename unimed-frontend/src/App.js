@@ -6,6 +6,9 @@ import ProjectSetting from "./Components/Pages/ProjectSetting";
 
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
 import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
+import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
+import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
+import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -51,8 +54,10 @@ function App() {
 				<Route path="/ps" element={<ProjectSetting />} />
 				<Route path="/doctorDashboard" element={<Doctordashboard />} />
 				<Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
-
-        <Route path="/DrugInventory" element={<DrugInventory />} />
+				<Route path="/Myrecords" element={<Myrecords />} />
+				<Route path="/PatientDashboard" element={<PatientDashboard />} />
+				<Route path="/Appointment" element={<Appointment />} />
+        		<Route path="/DrugInventory" element={<DrugInventory />} />
 
 				<Route path="/DrugInventory" element={<DrugInventory />} />
 				<Route path="/Mali" element={<Mali />} />
