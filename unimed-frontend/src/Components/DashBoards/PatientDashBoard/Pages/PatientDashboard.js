@@ -33,6 +33,7 @@ export default function PatientDashboard() {
         <br></br>
         <Personal_Info {...studentInfo} />
       </Layout>
+
     </div>
   );
 }
