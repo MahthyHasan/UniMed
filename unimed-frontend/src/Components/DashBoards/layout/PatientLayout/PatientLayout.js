@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, NavLink } from 'react-router-dom';
 import FeatherIcon from 'feather-icons-react';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
 import { EditProfile } from "./EditProfile";
 import { changeToggle } from "../../../../redux/actions";
 import home from "../../../../assets/icons2/home-p.svg";
@@ -13,6 +14,7 @@ import medcetificate from "../../../../assets/icons2/med-cetificate.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 import Profile from "../../../../assets/profile-img.svg";
 import logopath from "../../../../assets/logo-white.png";
+import './styles.css';
 
 export default function PatientLayout({ children }) {
   const dispatch = useDispatch();
@@ -34,6 +36,10 @@ export default function PatientLayout({ children }) {
   };
 
   const navigate = useNavigate();
+
+  const handlePersonalDetailsClick = () => {
+    navigate('/personal-details');
+  };
 
   return (
     <div className="container-fluid">
@@ -128,28 +134,6 @@ export default function PatientLayout({ children }) {
                 </div>
               </NavLink>
             </div>
-            {/* <div className={'w-100 px-sm-2'}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
-                }
-                to={'/members'}
-              >
-                <div className={'d-flex'}>
-                  <img
-                    src={medcetificate}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={''}>Medical Certificates</div>}
-                </div>
-              </NavLink>
-            </div> */}
-
             <div className={'w-100 px-sm-2'}>
             <NavLink
                 className={({ isActive }) =>
@@ -203,6 +187,15 @@ export default function PatientLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse " id="">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
+                  <button
+                    type="button"
+                    className={
+                      'btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items'
+                    }
+                    onClick={handlePersonalDetailsClick} // Navigate to PersonalDetails page
+                  >
+                    Personal Details
+                  </button>
                   <Dropdown className="bg-white">
                     <Dropdown.Toggle variant="white" id="dropdown-basic">
                       <div
