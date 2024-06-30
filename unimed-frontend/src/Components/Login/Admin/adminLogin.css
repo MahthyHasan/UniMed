@@ -1,5 +1,5 @@
 .sign-in-page-admin {
-    background-image: url(../../../assets/LoginBackgrounds/adminBG.jpg);
+    background-image: url(../../../assets/createaccountbackgrount.svg);
     width: 100%;
     height: fit-content;
     background-repeat: no-repeat;
@@ -15,6 +15,7 @@
   padding-top: 8%;
   padding-right: 40%;
   padding-bottom: 15%;
+  background: transparent;
   }
   .sign-in-form-input {
     width: 90%;
@@ -24,7 +25,7 @@
     border: none;
     display: flex;
     background-color: transparent;
-    color: #7D98EC;
+    color: #18CDCA;
     font-family: Montserrat;
     font-size: 20px;
     font-style: normal;
@@ -38,7 +39,7 @@
     padding: 1%;
     flex-shrink: 0;
     border-radius: 0.25rem;
-    border: 1px solid #7D98EC;
+    border: 1px solid #18CDCA;
     display: flex;
   }
   .sign-in-form-input-02 {
@@ -51,7 +52,7 @@
     outline: none; /* Remove the border when focused */
     display: flex;
     background-color: transparent;
-    color: #7D98EC;
+    color: #18CDCA;
     font-family: Montserrat;  
     font-style: normal;
     font-weight: 300;
@@ -61,7 +62,7 @@
   }
   
   .sign-in-form-input-02::placeholder {
-    color: #7D98EC; /* Dark white color for the placeholder */
+    color: #18CDCA; /* Dark white color for the placeholder */
     text-align: center;
   }
   .sign-in-form-input-02:focus::placeholder {
@@ -72,7 +73,7 @@
     padding: 5%;
     flex-shrink: 0;
     border-radius: 0.25rem;
-    border: 4px solid #7D98EC;
+    border: 4px solid #18CDCA;
     display: flex;
     justify-content: center;
       align-content: stretch;
@@ -85,7 +86,7 @@
     height: 1.5rem;
     flex-shrink: 0;
     margin-top: 0.6rem;
-    color: #7D98EC;
+    color: #18CDCA;
   }
   .signin-button {
     width: 18.75rem;
@@ -93,7 +94,7 @@
     flex-shrink: 0;
     border: none;
     border-radius: 0.25rem;
-    background: #7D98EC;
+    background: #18CDCA;
     color: #5030e5;
     text-align: center;
     font-family: Montserrat;
@@ -103,7 +104,7 @@
     line-height: 1.25rem;
   }
   .sign-in-small-text {
-    color: #7D98EC;
+    color: #18CDCA;
     text-align: center;
     font-family: Montserrat;
     font-size: 0.9125rem;
@@ -151,15 +152,15 @@
   }
   .alert-success {
       background: transparent;
-      color: #7D98EC;
+      color: #18CDCA;
       border-radius: 10px;
-      border-color: #7D98EC;
+      border-color: #18CDCA;
       justify-content: center;
       align-items: center;
       text-align: center;   
   }
   .alert-message{
-    color: #7D98EC;
+    color: #18CDCA;
     font-size: 30px;
   
   }
@@ -181,7 +182,7 @@
       margin-right: 5px;
     }
     .alert .close, .alert .open {
-      color: #7D98EC;
+      color: #18CDCA;
       transition: transform 1s;
       font-size: 18px;
       cursor: pointer;
@@ -198,7 +199,7 @@
    .alert-icon::before {
     width: 100px;
     height: 100px;  
-    color: #7D98EC;
+    color: #18CDCA;
     animation: fadeIn 0.5s ease-in-out;
   }
   
