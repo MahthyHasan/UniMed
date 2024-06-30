@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import { Card } from "../ComponentsPatientDashboard/Card";
+import Appointment from "../ComponentsPatientDashboard/Appointment";
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
@@ -30,10 +31,11 @@ export default function PatientDashboard() {
       <Layout>
         <h1>{username}</h1> {/* Replace 'Patient Name' with the retrieved username */}
         <Card />
-        <br></br>
+        <br />
         <Personal_Info {...studentInfo} />
+        <br />
+        {/* <Appointment /> */}
       </Layout>
-
     </div>
   );
 }

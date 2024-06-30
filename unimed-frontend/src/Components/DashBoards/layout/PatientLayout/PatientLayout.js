@@ -162,7 +162,28 @@ export default function PatientLayout({ children }) {
                     ? 'side-menu-item side-menu-active'
                     : 'side-menu-item'
                 }
-                to={'/settings'}
+                to={'/Feedback'}
+              >
+                <div className={'d-flex'}>
+                  <img
+                    src={medcetificate}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={''}>Feedback</div>}
+                </div>
+              </NavLink>  
+            </div>
+            <div className={'w-100 px-sm-2 log-out-button-in-side-navbar'}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'side-menu-item side-menu-active'
+                    : 'side-menu-item'
+                }
+                to={'/Feedback'}
               >
                 <div className={'d-flex'}>
                   <FeatherIcon
