@@ -1,6 +1,7 @@
 import React from "react";
-import backIcon from "../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg";
+import backIcon from "../../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg";
 import styled from "styled-components";
+
 
 const BackButtonWrapper = styled.div`
   display: flex;

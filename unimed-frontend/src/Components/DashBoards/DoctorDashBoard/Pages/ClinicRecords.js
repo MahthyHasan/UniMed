@@ -1,12 +1,12 @@
 import React from "react";
-import Layout from "../DashBoards/layout/DoctorLayout/DoctorLayouts";
-import ProfileCard from "./ProfileCard";
-import { Backbutton } from "./Backbutton";
-import MainDescription from "./MainDescription";
-import Allergies from "./Allergies";
-import LastDiagnosis from "./LastDiagnosis";
-import PreviousRecords from "./PreviousRecords";
-import NewRecordButton from "./NewRecordButton";
+import Layout from "../../layout/DoctorLayout/DoctorLayouts";
+import ProfileCard from "../../../Pages/ProfileCard";
+import { Backbutton } from "../ComponentsDoctorDashboard/Backbutton";
+import MainDescription from "../ComponentsDoctorDashboard/MainDescription";
+import Allergies from "../../../Pages/Allergies";
+import LastDiagnosis from "../ComponentsDoctorDashboard/LastDiagnosis";
+import PreviousRecords from "../ComponentsDoctorDashboard/PreviousRecords";
+import NewRecordButton from "../ComponentsDoctorDashboard/NewRecordButton";
 
 export default function ClinicRecords() {
   return (
