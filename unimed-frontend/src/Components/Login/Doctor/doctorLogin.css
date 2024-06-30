@@ -1,5 +1,5 @@
 .sign-in-page-doctor {
-  background-image: url(../../../assets/createaccountbackgrount.svg);
+  background-image: url(../../../assets/LoginBackgrounds/doctorBG.jpg);
   width: 100%;
   height: fit-content;
   background-repeat: no-repeat;
@@ -15,7 +15,6 @@
   padding-top: 8%;
   padding-right: 40%;
   padding-bottom: 15%;
-  background: transparent;
 }
 .sign-in-form-input-doctor {
   width: 90%;
