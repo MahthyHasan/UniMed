@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import iconpath1 from '../../../assets/icons/user-icon.svg';
-import iconpath2 from '../../../assets/icons/lock-icon.svg';
-import logopath from '../../../assets/logo.png';
-import backIcon from '../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg';
-import tickIcon from '../../../assets/Login-icons/tick.svg'
-import "./adminLogin.css"
+import iconpath1 from '../../../../assets/icons/user-icon.svg';
+import iconpath2 from '../../../../assets/icons/lock-icon.svg';
+import logopath from '../../../../assets/logo.png';
+import backIcon from '../../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg';
+import tickIcon from '../../../../assets/Login-icons/tick.svg'
+import './styleNew.css';
+import NavBar from '../navbar';
+import Footer from '../footer';
 
 
-
-
-function AdminLogin() {
+function LoginPageUser() {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -42,7 +42,7 @@ function AdminLogin() {
     
         try {
           const response = await axios.post(
-            'http://localhost:8088/api/v1/admin/login',
+            'http://localhost:8088/api/v1/user/login',
             formData
           );
           const { token, user } = response.data;
@@ -64,7 +64,7 @@ function AdminLogin() {
           // Automatically dismiss the alert after 3 seconds and navigate to home page
           setTimeout(() => {
             setAlertVisible(false);
-            navigate('/adminSelectUser');
+            navigate('/home');
           }, 3000);
         } catch (error) {
           console.error('Login failed:', error);
@@ -75,9 +75,10 @@ function AdminLogin() {
         }
       };
     
-      return (
-        
-        <div className="sign-in-page-admin">
+  return (
+    <>
+    <NavBar />
+    <div className="sign-in-page-user">
             {alertVisible && (
             <div className="alert alert-success" role="alert">            
               <p className='alert-message'>{alertMessage}</p> 
@@ -88,20 +89,20 @@ function AdminLogin() {
             <img src={backIcon} alt="Back" />
           </a>
           
-          <div className="sign-in-form-admin">
-            <div className="row logo-div">
-              <img src={logopath} className="logo-pmt" alt="Logo" />
+          <div className="sign-in-form-user">
+            <div className="row logo-div-user">
+              <img src={logopath} className="logo-pmt-user" alt="Logo" />
             </div>
-            <form onSubmit={handleSubmit} className="form-div">
+            <form onSubmit={handleSubmit} className="form-div-user">
               <div className="row mt-4">
                 <label
                   htmlFor="username"
-                  className="justify-content-center align-items-center sign-in-form-input-02-lable"
+                  className="justify-content-center align-items-center sign-in-form-input-02-lable-user"
                 >
-                  <img src={iconpath1} alt="User Icon" className="input-lable-icon" />
+                  <img src={iconpath1} alt="User Icon" className="input-lable-icon-user" />
                   <input
                     id="username"
-                    className="sign-in-form-input-02"
+                    className="sign-in-form-input-02-user"
                     type="text"
                     placeholder="USERNAME"
                     value={formData.username}
@@ -111,11 +112,11 @@ function AdminLogin() {
                 {errors.username && <span className="error-message">{errors.username}</span>}
               </div>
               <div className="row mt-2">
-                <label htmlFor="password" className="sign-in-form-input-02-lable">
-                  <img src={iconpath2} alt="Password Icon" className="input-lable-icon" />
+                <label htmlFor="password" className="sign-in-form-input-02-lable-user">
+                  <img src={iconpath2} alt="Password Icon" className="input-lable-icon-user" />
                   <input
                     id="password"
-                    className="sign-in-form-input-02"
+                    className="sign-in-form-input-02-user"
                     type="password"
                     placeholder="PASSWORD"
                     value={formData.password}
@@ -124,21 +125,25 @@ function AdminLogin() {
                 </label>
                 {errors.password && <span className="error-message">{errors.password}</span>}
               </div>
-              <div className="row mt-4 logo-div">
-                <button className="signin-button" type="submit">
+              <div className="row mt-4 logo-div-user">
+                <button className="signin-button-user" type="submit">
                   Login
                 </button>
               </div>
               <div className="row mt-1">
                 <div className="col-6 d-flex justify-content-start"></div>
                 <div className="col-6 d-flex justify-content-end">
-                  <p className="sign-in-small-text">Forgot password?</p>
+                  <p className="sign-in-small-text-user">Forgot password?</p>
                 </div>
               </div>
             </form>
           </div>      
-        </div>
-      );
-    }
+        </div>    
+    <div className="footerForCreateAccount">
+    <Footer />
+    </div>    
+    </>
+  )
+}
 
-export default AdminLogin;
+export default LoginPageUser
