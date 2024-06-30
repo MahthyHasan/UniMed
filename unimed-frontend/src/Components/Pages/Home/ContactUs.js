@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./ContactUs.css";
-
-import "./footer.js";
 import axios from "axios";
+import { Alert } from "react-bootstrap";
+import "./ContactUs.css";
+import "./footer.js";
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
 import NavBar from "./navbar";
 
@@ -10,6 +10,11 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    message: "",
+  });
+  const [alert, setAlert] = useState({
+    show: false,
+    variant: "",
     message: "",
   });
 
@@ -31,18 +36,39 @@ const ContactUs = () => {
         formData
       );
 
-      alert("Form successfully submitted. Thank you!");
+      setAlert({
+        show: true,
+        variant: "success",
+        message: "Successfully submitted. Thank you!",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
       console.error("There was an error submitting the form:", error.message);
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
-        alert("Error: " + error.response.data.message);
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: error.response.data.message || "An error occurred.",
+        });
       } else if (error.request) {
         console.error("No response received:", error.request);
-        alert("Error: No response received from the server.");
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: "No response received from the server.",
+        });
       } else {
         console.error("Error setting up the request:", error.message);
-        alert("Error: " + error.message);
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: error.message,
+        });
       }
     }
   };
@@ -62,6 +88,15 @@ const ContactUs = () => {
         </p>
 
         <div className="contactForm">
+          {alert.show && (
+            <Alert
+              variant={alert.variant}
+              onClose={() => setAlert({ ...alert, show: false })}
+              dismissible
+            >
+              {alert.message}
+            </Alert>
+          )}
           <form onSubmit={onSubmit}>
             <h1 className="sub-heading" style={{ color: "#18cdca" }}>
               Need Support!
@@ -70,7 +105,7 @@ const ContactUs = () => {
               type="text"
               className="input"
               id="name"
-              placeholder="your name"
+              placeholder="Your Name"
               value={formData.name}
               onChange={onInputChange}
               required
@@ -79,7 +114,7 @@ const ContactUs = () => {
               type="email"
               className="input"
               id="email"
-              placeholder="your email"
+              placeholder="Your Email"
               value={formData.email}
               onChange={onInputChange}
               required
@@ -90,7 +125,7 @@ const ContactUs = () => {
               cols="30"
               rows="5"
               id="message"
-              placeholder="Your message..."
+              placeholder="Your Message..."
               value={formData.message}
               onChange={onInputChange}
               required
