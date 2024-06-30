@@ -3,24 +3,26 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   background-color: #6bcb77;
-  color: #fff;
+  color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
   font-weight: 400;
-  margin-top: 42px;
+  margin-top: 16px;
   display: block;
   margin-left: auto;
 
-  &:hover {
-    background-color: #5ab665;
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin: 16px auto 0;
   }
 
-  &:focus {
-    background-color: #5ab665;
-    box-shadow: none;
+  @media (max-width: 480px) {
+    font-size: 10px;
+    padding: 4px 8px;
   }
 `;
 
@@ -29,6 +31,14 @@ const StyledH5 = styled.h5`
   font-size: 20px;
   margin-bottom: 8px;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 const StyledTextarea = styled.textarea`
@@ -44,17 +54,13 @@ const StyledTextarea = styled.textarea`
   }
 `;
 
-const DiagnosisTextbox = ({
-  diagnoses,
-  setDiagnoses,
-  currentDiagnosis,
-  setCurrentDiagnosis,
-}) => {
+const DiagnosisTextbox = ({ diagnosis, setDiagnosis }) => {
+  const handleDiagnosisChange = (e) => {
+    setDiagnosis(e.target.value);
+  };
+
   const handleAddDiagnosis = () => {
-    if (currentDiagnosis.trim() !== "") {
-      setDiagnoses([...diagnoses, currentDiagnosis]);
-      setCurrentDiagnosis(""); // Clear current diagnosis text box
-    }
+    console.log("Diagnosis:", diagnosis);
   };
 
   return (
@@ -63,8 +69,8 @@ const DiagnosisTextbox = ({
       <StyledTextarea
         className="form-control"
         rows="3"
-        value={currentDiagnosis}
-        onChange={(e) => setCurrentDiagnosis(e.target.value)}
+        value={diagnosis}
+        onChange={handleDiagnosisChange}
         placeholder="Enter diagnosis..."
       ></StyledTextarea>
       <StyledButton onClick={handleAddDiagnosis}>Add diagnosis</StyledButton>
