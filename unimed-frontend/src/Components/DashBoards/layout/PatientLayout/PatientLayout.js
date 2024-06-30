@@ -14,6 +14,7 @@ import medcetificate from "../../../../assets/icons2/med-cetificate.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 import Profile from "../../../../assets/profile-img.svg";
 import logopath from "../../../../assets/logo-white.png";
+import Appointment from '../../PatientDashBoard/ComponentsPatientDashboard/Appointment';
 import './styles.css';
 
 export default function PatientLayout({ children }) {
@@ -208,6 +209,7 @@ export default function PatientLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse " id="">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
+                  {/* <Appointment /> */}
                   <button
                     type="button"
                     className={

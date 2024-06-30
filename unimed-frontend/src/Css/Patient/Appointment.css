@@ -1,26 +1,46 @@
-.appointment-container {
+/* styles.css or AvailabilityCard.css */
+
+.availability-card {
+  background-color: #18CDCA;
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px;
 }
 
-.modal-title {
-  color: #333;
-  margin-bottom: 20px !important;
-}
-
-.appointment-details {
-  margin-bottom: 20px;
-}
-
-.appointment-info {
-  margin-bottom: 10px !important;
-}
-
-.info-label {
+.availability-header {
+  font-size: 18px;
   font-weight: bold;
-  margin-right: 10px;
+  color: #002222;
+  margin-bottom: 10px;
 }
 
-.close-button {
-  display: block !important;
-  margin-left: auto !important;
+.availability-body {
+  color: #003333;
+}
+
+.availability-body p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.availability-status {
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.availability-status.available {
+  background-color: #1BFD9C; /* Green */
+  color: #003333; /* Dark text color */
+}
+
+.availability-status.unavailable {
+  background-color: #FF7070; /* Red */
+  color: #003333; /* Dark text color */
 }
