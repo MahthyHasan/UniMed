@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import iconpath1 from '../../../assets/icons/user-icon.svg';
 import iconpath2 from '../../../assets/icons/lock-icon.svg';
-import logopath from '../../../assets/logo.svg';
+import logopath from '../../../assets/logo.png';
 import backIcon from '../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg';
 import tickIcon from '../../../assets/Login-icons/tick.svg'
 import './doctorLogin.css';

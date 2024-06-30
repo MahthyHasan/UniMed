@@ -41,6 +41,7 @@ import LoginPageUser from "./Components/Pages/Home/OtherPages/LoginPageUser";
 
 import PatientLayout from './Components/DashBoards/layout/PatientLayout/PatientLayout';
 import PersonalDetails from './Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails';
+import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 
 function App() {
   return (
@@ -83,9 +84,9 @@ function App() {
         <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
         <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
         <Route path="/personal-details" element={<PersonalDetails />} />
-          
-        
-      </Routes>
+        <Route path="/loginDoctor" element={<DoctorLogin />} /> 
+        <Route path="/CommonLogin" element={<CommonLogin />} />
+        </Routes>
     </div>
   );
 }
