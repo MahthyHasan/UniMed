@@ -8,8 +8,6 @@ import logopath from "../../assets/logo.png";
 import "./auth.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./Home/navbar";
-import Footer from "./Home/footer";
 
 function CreateAccount() {
   const [formData, setFormData] = useState({
@@ -53,7 +51,7 @@ function CreateAccount() {
     const newErrors = { ...errors };
 
     // Validate email
-    if (!formData.email || !formData.email.includes("@std.uwu.ac.lk")) {
+    if (!formData.email || !formData.email.includes("@")) {
       newErrors.email = "Please enter a valid email address";
       hasErrors = true;
     } else {
@@ -130,10 +128,8 @@ function CreateAccount() {
   };
 
   return (
-    <>
-    <NavBar />
-    <div className="sign-in-page">      
-      <div className="create-account-form-new">
+    <div className="sign-in-page">
+      <div className="create-account-form ">
         <div className="row logo-div">
           <img src={logopath} className="logo-pmt" alt="Logo"></img>
         </div>
@@ -276,24 +272,19 @@ function CreateAccount() {
               )}
             </div>
           </div>
-          <div className="d-flex justify-content-center mt-4 createButtonDiv">
-            <button type="submit" className="createAccountButton">
+          <div className="row mt-4 logo-div">
+            <button type="submit" className="signin-button">
               Create Account
             </button>
           </div>
         </form>
         <div className="row mt-2 logo-div">
-          <button type="button" className="signinButtonLinkincreateAccount" onClick={() => navigate("/login")}>
+          <button type="button" className="signin-button" onClick={() => navigate("/login")}>
             Already Have Account ?
           </button>
         </div>
       </div>
     </div>
-    <div className="footerForCreateAccount">
-    <Footer />
-    </div>    
-    </>
-    
   );
 }
 
