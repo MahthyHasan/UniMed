@@ -31,7 +31,7 @@ const LastDiagnosisContainer = styled.div`
 
 export default function CurrentRecord({
   symptoms,
-  diagnosis,
+  diagnoses,
   prescribedDrugs,
 }) {
   return (
@@ -51,14 +51,21 @@ export default function CurrentRecord({
         </div>
         <div className="last-diagnosis-box">
           <h5 className="mb-2">Diagnosis</h5>
-          <p className="text-start mb-0">- {diagnosis}</p>
+          <p className="text-start mb-0">
+            {diagnoses.map((diagnosis, index) => (
+              <React.Fragment key={index}>
+                - {diagnosis}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
         </div>
         <div className="last-diagnosis-box">
           <h5 className="mb-2">Prescribed Medicine</h5>
           <p className="text-start mb-0">
             {prescribedDrugs.map((drug, index) => (
               <React.Fragment key={index}>
-                - {drug.drug}, {drug.dosage}, {drug.days}
+                - {drug.drug}, {drug.dosage} times per day, {drug.days} days
                 <br />
               </React.Fragment>
             ))}
