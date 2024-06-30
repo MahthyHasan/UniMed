@@ -23,7 +23,7 @@ const AddSymptomModal = ({ show, handleClose, handleSave }) => {
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group controlId="formSymptom">
+          <Form.Group controlId="formSymptom" className="mb-4">
             <Form.Label>Symptom</Form.Label>
             <Form.Control
               type="text"
@@ -34,9 +34,10 @@ const AddSymptomModal = ({ show, handleClose, handleSave }) => {
           </Form.Group>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="justify-content-between">
         <CloseButton onClick={handleClose}>Cancel</CloseButton>
-        <SaveButton onClick={handleSubmit}>Save Symptom</SaveButton>
+        <Spacer />
+        <SaveButton onClick={handleSubmit}>Add</SaveButton>
       </Modal.Footer>
     </Modal>
   );
@@ -48,6 +49,8 @@ const ModalTitle = styled.h5`
   font-weight: 500;
 `;
 
+const buttonWidth = "100px";
+
 const SaveButton = styled.button`
   background-color: #6bcb77;
   border: none;
@@ -55,6 +58,7 @@ const SaveButton = styled.button`
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  width: ${buttonWidth};
 
   &:hover {
     background-color: #5ab665;
@@ -73,6 +77,7 @@ const CloseButton = styled.button`
   color: #333;
   cursor: pointer;
   border-radius: 4px;
+  width: ${buttonWidth};
 
   &:hover {
     background-color: #c4c4c4;
@@ -82,6 +87,10 @@ const CloseButton = styled.button`
     background-color: #c4c4c4;
     box-shadow: none;
   }
+`;
+
+const Spacer = styled.div`
+  flex: 1;
 `;
 
 export default AddSymptomModal;
