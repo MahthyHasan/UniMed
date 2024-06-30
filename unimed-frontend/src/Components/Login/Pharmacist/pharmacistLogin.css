@@ -1,5 +1,5 @@
 .sign-in-page-pharmacist {
-    background-image: url(../../../assets/createaccountbackgrount.svg);
+    background-image: url(../../../assets/LoginBackgrounds/pharmacistBG.jpg);
     width: 100%;
     height: fit-content;
     background-repeat: no-repeat;
@@ -15,7 +15,6 @@
     padding-top: 8%;
     padding-right: 40%;
     padding-bottom: 15%;
-    background: transparent;
   }
   .sign-in-form-input-pharmacist {
     width: 90%;
@@ -25,7 +24,7 @@
     border: none;
     display: flex;
     background-color: transparent;
-    color: #18CDCA;
+    color: #FEEEAF;
     font-family: Montserrat;
     font-size: 20px;
     font-style: normal;
@@ -39,7 +38,7 @@
     padding: 1%;
     flex-shrink: 0;
     border-radius: 0.25rem;
-    border: 4px solid #18CDCA;
+    border: 4px solid #FEEEAF;
     display: flex;
   }
   .sign-in-form-input-02-pharmacist {
@@ -52,7 +51,7 @@
     outline: none; /* Remove the border when focused */
     display: flex;
     background-color: transparent;
-    color: #18CDCA;
+    color: #FEEEAF;
     font-family: Montserrat;  
     font-style: normal;
     font-weight: 300;
@@ -62,7 +61,7 @@
   }
   
   .sign-in-form-input-02-pharmacist::placeholder {
-    color: #18CDCA; /* Dark white color for the placeholder */
+    color: #FEEEAF; /* Dark white color for the placeholder */
     text-align: center;
   }
   .sign-in-form-input-02-pharmacist:focus::placeholder {
@@ -73,7 +72,7 @@
     padding: 5%;
     flex-shrink: 0;
     border-radius: 0.25rem;
-    border: 4px solid #18CDCA;
+    border: 4px solid #FEEEAF;
     display: flex;
     justify-content: center;
       align-content: stretch;
@@ -86,7 +85,7 @@
     height: 1.5rem;
     flex-shrink: 0;
     margin-top: 0.6rem;
-    color: #18CDCA;
+    color: #FEEEAF;
   }
   .signin-button-pharmacist {
     width: 18.75rem;
@@ -94,7 +93,7 @@
     flex-shrink: 0;
     border: none;
     border-radius: 0.25rem;
-    background: #18CDCA;
+    background: #FEEEAF;
     color: #0c0b0b;
     text-align: center;
     font-family: Montserrat;
@@ -152,15 +151,15 @@
   }
   .alert-success {
       background: transparent;
-      color: #18CDCA;
+      color: #FEEEAF;
       border-radius: 10px;
-      border-color: #18CDCA;
+      border-color: #FEEEAF;
       justify-content: center;
       align-items: center;
       text-align: center;   
   }
   .alert-message{
-    color: #18CDCA;
+    color: #FEEEAF;
     font-size: 30px;
   
   }

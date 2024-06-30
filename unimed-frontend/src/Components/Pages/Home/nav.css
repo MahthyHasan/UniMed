@@ -4,10 +4,9 @@
 /* Root variables for colors */
 :root {
   --primary-color: #5030e5;
-  --primary-color2: #18CDCA;
   --primary-color-dark: #4329b7;
   --text-light: #6b7280;
-  --white: #2d9795;
+  --white: #ffffff;
 }
 
 /* Resetting margin and padding, and setting box-sizing */
@@ -15,7 +14,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: var(--white);
 }
 
 /* General button styles */
@@ -25,7 +23,7 @@
   border: none;
   font-size: 1rem;
   color: var(--white);
-  background-color: var(--primary-color2);
+  background-color: var(--primary-color);
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -52,7 +50,7 @@ nav {
 .nav__logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-color2);
+  color: var(--primary-color);
 }
 
 .nav__links {
@@ -70,7 +68,7 @@ nav {
 }
 
 .link a:hover {
-  color: var(--primary-color2);
+  color: var(--primary-color);
 }
 
 /* New styles for button container */
