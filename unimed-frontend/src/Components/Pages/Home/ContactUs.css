@@ -10,7 +10,7 @@
   --bodyBg: #303841;
   --formBg: #edf0f3;
   --textColor: #fff;
-  --primaryColor: #5030e5;
+  --primaryColor: #18cdca;
   --paraColor: #74828f;
 }
 
@@ -35,7 +35,7 @@ section {
   text-transform: capitalize;
   font-weight: bold;
   font-size: 1.1rem;
-  color: var(--primaryColor);
+  color: #18cdca;
   margin-bottom: 0.5em;
 }
 
