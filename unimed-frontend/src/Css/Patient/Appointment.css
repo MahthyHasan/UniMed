@@ -1,0 +1,26 @@
+.appointment-container {
+  padding: 20px;
+}
+
+.modal-title {
+  color: #333;
+  margin-bottom: 20px !important;
+}
+
+.appointment-details {
+  margin-bottom: 20px;
+}
+
+.appointment-info {
+  margin-bottom: 10px !important;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.close-button {
+  display: block !important;
+  margin-left: auto !important;
+}
