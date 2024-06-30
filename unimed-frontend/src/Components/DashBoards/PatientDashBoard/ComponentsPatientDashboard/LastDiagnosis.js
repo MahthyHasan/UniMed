@@ -29,49 +29,32 @@ const LastDiagnosisContainer = styled.div`
   }
 `;
 
-export default function CurrentRecord({
-  symptoms,
-  diagnoses,
-  prescribedDrugs,
-}) {
+const  LastDiagnosis=({symptom1,symptom2,symptom3,diagnosis1,presmed1,presmed2})  => {
   return (
     <LastDiagnosisContainer>
-      <h4>Record ID: UWUCST20109M004</h4>
+      <h4>Last Diagnosis</h4>
       <div className="d-flex flex-wrap justify-content-between gap-3">
         <div className="last-diagnosis-box">
           <h5 className="mb-2">Symptoms</h5>
           <p className="text-start mb-0">
-            {symptoms.map((symptom, index) => (
-              <React.Fragment key={index}>
-                - {symptom}
-                <br />
-              </React.Fragment>
-            ))}
+            - {symptom1}
+            <br />- {symptom2}
+            <br />- {symptom3}
           </p>
         </div>
         <div className="last-diagnosis-box">
           <h5 className="mb-2">Diagnosis</h5>
-          <p className="text-start mb-0">
-            {diagnoses.map((diagnosis, index) => (
-              <React.Fragment key={index}>
-                - {diagnosis}
-                <br />
-              </React.Fragment>
-            ))}
-          </p>
+          <p className="text-start mb-0">- {diagnosis1}</p>
         </div>
         <div className="last-diagnosis-box">
           <h5 className="mb-2">Prescribed Medicine</h5>
           <p className="text-start mb-0">
-            {prescribedDrugs.map((drug, index) => (
-              <React.Fragment key={index}>
-                - {drug.drug}, {drug.dosage} times per day, {drug.days} days
-                <br />
-              </React.Fragment>
-            ))}
+            - {presmed1}
+            <br />- {presmed2}
           </p>
         </div>
       </div>
     </LastDiagnosisContainer>
   );
-}
+};
+export default LastDiagnosis;
