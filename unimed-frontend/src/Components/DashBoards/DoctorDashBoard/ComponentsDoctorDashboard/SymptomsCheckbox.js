@@ -53,8 +53,6 @@ const SymptomsCheckbox = ({ symptoms, setSymptoms }) => {
             />
             <Label htmlFor="symptom2">Fever</Label>
           </CheckboxItem>
-        </Col>
-        <Col>
           <CheckboxItem>
             <Checkbox
               type="checkbox"
@@ -66,6 +64,42 @@ const SymptomsCheckbox = ({ symptoms, setSymptoms }) => {
               }
             />
             <Label htmlFor="symptom3">Headache</Label>
+          </CheckboxItem>
+        </Col>
+        <Col>
+          <CheckboxItem>
+            <Checkbox
+              type="checkbox"
+              value="Muscle"
+              id="symptom4"
+              checked={symptoms.includes("Muscle")}
+              onChange={(e) => handleSymptomChange("Muscle", e.target.checked)}
+            />
+            <Label htmlFor="symptom4">Muscle Pain</Label>
+          </CheckboxItem>
+          <CheckboxItem>
+            <Checkbox
+              type="checkbox"
+              value="Vomiting"
+              id="symptom5"
+              checked={symptoms.includes("Vomiting")}
+              onChange={(e) =>
+                handleSymptomChange("Vomiting", e.target.checked)
+              }
+            />
+            <Label htmlFor="symptom5">Vomiting</Label>
+          </CheckboxItem>
+          <CheckboxItem>
+            <Checkbox
+              type="checkbox"
+              value="Stomachache"
+              id="symptom6"
+              checked={symptoms.includes("Stomachache")}
+              onChange={(e) =>
+                handleSymptomChange("Stomachache", e.target.checked)
+              }
+            />
+            <Label htmlFor="symptom6">Stomachache</Label>
           </CheckboxItem>
           <AddButtonContainer>
             <AddButton onClick={handleAddSymptom}>Add Symptom</AddButton>
@@ -158,7 +192,7 @@ const AddButton = styled.button`
   background-color: #6bcb77;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
