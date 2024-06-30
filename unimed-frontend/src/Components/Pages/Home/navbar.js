@@ -20,7 +20,7 @@ function NavBar() {
         </li>
       </ul>
       <div className="nav__buttons">
-        <a href="/logincat">
+        <a href="/CommonLogin">
           <button className="btnhp">Sign In</button>
         </a>
       </div>
