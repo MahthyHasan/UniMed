@@ -1,0 +1,206 @@
+.sign-in-page-user {
+    background-image: url(../../../assets/createaccountbackgrount.svg);
+    width: 100%;
+    height: fit-content;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex; /* Use flexbox */
+    justify-content: center; 
+    align-items: center;
+    padding: 0 1rem;
+    flex: 1;
+  }
+  .sign-in-form-user {
+    padding-left: 40%;
+    padding-top: 8%;
+    padding-right: 40%;
+    padding-bottom: 15%;
+    background: transparent;
+  }
+  .sign-in-form-input-user {
+    width: 90%;
+    height: 2.8125rem;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    border: none;
+    display: flex;
+    background-color: transparent;
+    color: #18CDCA;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.25rem;
+  
+    padding-left: 5px;
+  }
+  
+  .sign-in-form-input-lable-user {
+    padding: 1%;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    border: 4px solid #18CDCA;
+    display: flex;
+  }
+  .sign-in-form-input-02-user {
+    text-decoration: none;
+    margin-left: 5px;
+    width: 90%;
+    height: 2.8125rem;
+    flex-shrink: 0;
+    border: none;
+    outline: none; /* Remove the border when focused */
+    display: flex;
+    background-color: transparent;
+    color: #18CDCA;
+    font-family: Montserrat;  
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.25rem;
+    padding-left: 5px;
+    text-align: center;
+  }
+  
+  .sign-in-form-input-02-user::placeholder {
+    color: #18CDCA; /* Dark white color for the placeholder */
+    text-align: center;
+  }
+  .sign-in-form-input-02-user:focus::placeholder {
+      opacity: 0; 
+  }
+  
+  .sign-in-form-input-02-lable-user {
+    padding: 5%;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    border: 4px solid #18CDCA;
+    display: flex;
+    justify-content: center;
+      align-content: stretch;
+      flex-wrap: wrap;
+      flex-direction: row-reverse;
+      align-items: baseline;
+  }
+  .input-lable-icon-user {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.6rem;
+    color: #18CDCA;
+  }
+  .signin-button-user {
+    width: 18.75rem;
+    height: 2.8125rem;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 0.25rem;
+    background: #18CDCA;
+    color: #fff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+  .sign-in-small-text-user {
+    color: #18CDCA;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.9125rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+  }
+  .logo-pmt-user {
+    width: 10rem;
+    height: 10rem;
+  }
+  .create-account-form-user {
+    padding-left: 20%;
+    padding-top: 15%;
+    padding-right: 20%;
+    padding-bottom: 15%;
+  }
+  .logo-div-user {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center the items */
+    align-items: center;
+  }
+  .form-div-user {
+    justify-content: center; /* Horizontally center the items */
+    align-items: center;
+  }
+  .back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .back-button img {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .back-button:hover {
+    transform: scale(1.1);
+  }
+  .alert-success {
+      background: transparent;
+      color: #18CDCA;
+      border-radius: 10px;
+      border-color: #18CDCA;
+      justify-content: center;
+      align-items: center;
+      text-align: center;   
+  }
+  .alert-message{
+    color: #18CDCA;
+    font-size: 30px;
+  
+  }
+  .alert {
+      width: 30rem;
+      max-width: 90%;
+      border-radius: 12px;
+      padding: 16px 22px 17px 20px;
+      align-items: center;
+      justify-content: space-between; 
+      position: absolute; 
+      top: 20px; 
+      right: 20px; 
+      z-index: 1000; 
+      
+  }
+  .alert .open {
+      margin-left: auto;
+      margin-right: 5px;
+    }
+    .alert .close, .alert .open {
+      color: #fff;
+      transition: transform 1s;
+      font-size: 18px;
+      cursor: pointer;
+      transform: scale(1.3);
+    }
+    .alert .close:hover, .alert .open:hover {
+      transform: scale(1.3);
+    }
+   .alert-icon{
+    width: 100px;
+    height: 100px;
+    
+   }
+   .alert-icon::before {
+    width: 100px;
+    height: 100px;  
+    color: #fff;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  
