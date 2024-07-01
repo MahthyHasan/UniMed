@@ -7,7 +7,8 @@ import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pag
 import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
 import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
 import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
-
+import Button from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Button";
+import Form from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Form";
 import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
@@ -109,6 +110,8 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
+
+        
       </Routes>
     </div>
   );
