@@ -48,6 +48,7 @@ import PatientLayout from "./Components/DashBoards/layout/PatientLayout/PatientL
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 
+
 function App() {
   return (
     <div>
@@ -75,11 +76,12 @@ function App() {
         <Route path="/Services" element={<Services />} />
         <Route path="/Members" element={<Members />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
-        <Route path="/ClinicRecords" element={<ClinicRecords />} />
+        <Route path="/ClinicRecords/:userId" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+        <Route path="/patientLayout" element={<PatientLayout />} />
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
