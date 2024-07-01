@@ -2,23 +2,32 @@ import React from "react";
 import patientIcon from "../../../../assets/icons/patient.svg";
 import "../../../../Css/Patient/Card.css";
 
-export const Card = () => {
+const Card = () => {
   return (
     <div className="card--container">
-      <div className="card card-total">
-        <div className="card--title">
-          <h6>Doctor is Available</h6>
+      {/* Doctor Availability Card */}
+      <div class="card">
+        <div class="card-header">
+          Doctor Availability
+        </div>
+        <div class="card-body">
+          <div class="availability-status available">
+            <span>Available</span>
+          </div>
         </div>
       </div>
-      <div className="card card-hours1">
-        <div className="card--title">
-          <h6>Ongoing Consultation Number</h6>
+
+      {/* Appointment Details Card */}
+      <div class="availability-card">
+        <div class="availability-header">
+          Appointment Details
         </div>
-        <div className="card--icon">
-          <img src={patientIcon} alt="Ongoing Consultation" className="input-label-icon" />
-          <h3>&nbsp;&nbsp;10</h3>
+        <div class="availability-body">
+          <p><strong>Date:</strong> July 15, 2024</p>
+          <p><strong>Time:</strong> 10:00 AM</p>
         </div>
       </div>
+
     </div>
   );
 };
