@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button"; 
 import patientIcon from "../../../../assets/icons/patient.svg";
 import "../../../../Css/Patient/Card.css";
 
@@ -28,6 +29,10 @@ const Card = () => {
         </div>
       </div>
 
+      {/* Integrating Button component */}
+      <div className="button-container">
+        <Button onClick={() => console.log("Button clicked from Card.js")} />
+      </div>
     </div>
   );
 };
