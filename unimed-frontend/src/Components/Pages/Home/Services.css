@@ -1,0 +1,22 @@
+.team-item .team-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  transform: scale(0);
+  transition: 0.5s;
+}
+
+.team-item:hover .team-overlay {
+  transform: scale(1);
+}
+
+.team-item .team-overlay .btn {
+  color: var(--primary);
+  background: #ffffff;
+}
+
+.team-item .team-overlay .btn:hover {
+  color: #000000;
+  background: var(--secondary);
+}

@@ -22,6 +22,9 @@ import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/DrugsDoctorPage";
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
+import Services from "./Components/Pages/Home/Services";
+import Members from "./Components/Pages/Home/Members";
+
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
 import ClinicRecords from "./Components/Pages/ClinicRecords";
@@ -69,6 +72,8 @@ function App() {
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Members" element={<Members />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
         <Route path="/ClinicRecords" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
