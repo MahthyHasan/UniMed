@@ -45,7 +45,7 @@ const AboutUs = () => {
             </h2>
 
             <br></br>
-            <p>
+            <p color="#74828f">
               At Uva Wellassa University of Sri Lanka, we prioritize the health
               and well-being of our students. Our University Medical Center, led
               by the University Medical Officer (UMO), provides comprehensive

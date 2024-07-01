@@ -10,10 +10,10 @@ function NavBar() {
           <a href="./">Home</a>
         </li>
         <li className="link">
-          <a href="/AboutUs">About Us</a>
+          <a href="/Services">Services</a>
         </li>
         <li className="link">
-          <a href="#">Blog</a>
+          <a href="/Members">Staff</a>
         </li>
         <li className="link">
           <a href="/ContactUs">Contact</a>
