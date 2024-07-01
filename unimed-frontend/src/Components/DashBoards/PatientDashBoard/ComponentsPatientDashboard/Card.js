@@ -6,6 +6,11 @@ import "../../../../Css/Patient/Card.css";
 const Card = () => {
   return (
     <div className="card--container">
+
+      {/* Integrating Button component */}
+      <div className="button-container">
+        <Button onClick={() => console.log("Button clicked from Card.js")} />
+      </div>
       {/* Doctor Availability Card */}
       <div class="card">
         <div class="card-header">
@@ -29,10 +34,7 @@ const Card = () => {
         </div>
       </div>
 
-      {/* Integrating Button component */}
-      <div className="button-container">
-        <Button onClick={() => console.log("Button clicked from Card.js")} />
-      </div>
+      
     </div>
   );
 };
