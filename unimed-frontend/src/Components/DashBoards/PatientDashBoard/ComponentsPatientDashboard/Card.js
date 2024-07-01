@@ -1,7 +1,6 @@
 import React from "react";
 import patientIcon from "../../../../assets/icons/patient.svg";
 import "../../../../Css/Patient/Card.css";
-import Appointment from "./Appointment";
 
 const Card = () => {
   return (
