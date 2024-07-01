@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import "./ContactUs.css";
 import axios from "axios";
+import { Alert } from "react-bootstrap";
+import "./ContactUs.css";
+import  footer from "./footer.js";
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
 import NavBar from "./navbar";
 
@@ -8,6 +10,11 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    message: "",
+  });
+  const [alert, setAlert] = useState({
+    show: false,
+    variant: "",
     message: "",
   });
 
@@ -28,19 +35,40 @@ const ContactUs = () => {
         "http://localhost:8088/contactus",
         formData
       );
-      console.log("Form submitted successfully:", response.data);
-      alert("Form successfully submitted. Thank you!");
+
+      setAlert({
+        show: true,
+        variant: "success",
+        message: "Successfully submitted. Thank you!",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
       console.error("There was an error submitting the form:", error.message);
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
-        alert("Error: " + error.response.data.message);
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: error.response.data.message || "An error occurred.",
+        });
       } else if (error.request) {
         console.error("No response received:", error.request);
-        alert("Error: No response received from the server.");
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: "No response received from the server.",
+        });
       } else {
         console.error("Error setting up the request:", error.message);
-        alert("Error: " + error.message);
+        setAlert({
+          show: true,
+          variant: "danger",
+          message: error.message,
+        });
       }
     }
   };
@@ -49,7 +77,9 @@ const ContactUs = () => {
     <>
       <NavBar />
       <section className="contact-form">
-        <h1 className="heading">Get In Touch!</h1>
+        <h1 className="heading" style={{ color: "#18cdca" }}>
+          Get In Touch!
+        </h1>
         <p className="para">
           At our university's medical center, we are committed to providing
           exceptional healthcare services. Our dedicated team of professionals
@@ -58,13 +88,24 @@ const ContactUs = () => {
         </p>
 
         <div className="contactForm">
+          {alert.show && (
+            <Alert
+              variant={alert.variant}
+              onClose={() => setAlert({ ...alert, show: false })}
+              dismissible
+            >
+              {alert.message}
+            </Alert>
+          )}
           <form onSubmit={onSubmit}>
-            <h1 className="sub-heading">Need Support!</h1>
+            <h1 className="sub-heading" style={{ color: "#18cdca" }}>
+              Need Support!
+            </h1>
             <input
               type="text"
               className="input"
               id="name"
-              placeholder="your name"
+              placeholder="Your Name"
               value={formData.name}
               onChange={onInputChange}
               required
@@ -73,7 +114,7 @@ const ContactUs = () => {
               type="email"
               className="input"
               id="email"
-              placeholder="your email"
+              placeholder="Your Email"
               value={formData.email}
               onChange={onInputChange}
               required
@@ -84,7 +125,7 @@ const ContactUs = () => {
               cols="30"
               rows="5"
               id="message"
-              placeholder="Your message..."
+              placeholder="Your Message..."
               value={formData.message}
               onChange={onInputChange}
               required
@@ -109,35 +150,8 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-
-        <div className="contactMethod">
-          <div className="method">
-            <BsGeoAlt className="contactIcon" />
-            <article className="text">
-              <h1 className="sub-heading">Location</h1>
-              <p className="para">
-                The Medical Center of Uva Wellassa University of Sri Lanka
-              </p>
-            </article>
-          </div>
-
-          <div className="method email-method">
-            <BsEnvelope className="contactIcon" />
-            <article className="text">
-              <h1 className="sub-heading">Email</h1>
-              <p className="para">umo@uwu.ac.lk</p>
-            </article>
-          </div>
-
-          <div className="method">
-            <BsPhone className="contactIcon" />
-            <article className="text">
-              <h1 className="sub-heading">Phone</h1>
-              <p className="para">+94 55 2226477</p>
-            </article>
-          </div>
-        </div>
       </section>
+      <footer />
     </>
   );
 };

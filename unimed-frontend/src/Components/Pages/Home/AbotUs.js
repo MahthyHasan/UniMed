@@ -30,46 +30,47 @@ const AboutUs = () => {
 
   return (
     <>
-    <NavBar />
-    <section className="about-us">
-      
-      <div className="about">
-        <br></br>
-        <br></br>
-        <img src={userImage} className="pic" alt="Girl" />{" "}
-        {/* Use the imported image */}
-        <div className="text">
-          {/* Apply animation class conditionally */}
-          <h2 className={animate ? "about-title" : ""}>
-            About <span style={{ color: animate ? "#030303" : "" }}>Us</span>
-          </h2>
+      <NavBar />
+      <section className="about-us">
+        <div className="about">
           <br></br>
-          <p>
-            At Uva Wellassa University of Sri Lanka, we prioritize the health
-            and well-being of our students. Our University Medical Center, led
-            by the University Medical Officer (UMO), provides comprehensive
-            medical care free of charge to all students. With the support of a
-            qualified nurse and pharmacist, we ensure that our students receive
-            the highest standard of healthcare. Medical reports are carefully
-            certified by the UMO before being submitted for approval,
-            demonstrating our commitment to the health and safety of our student
-            community.
-          </p>
-          <div className="data">
-            <a
-              href="https://www.uwu.ac.lk/academic/units/university-medical-center/"
-              className="hire"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              See more
-            </a>
+          <br></br>
+          <img src={userImage} className="pic" alt="Girl" />{" "}
+          {/* Use the imported image */}
+          <div className="text">
+            {/* Apply animation class conditionally */}
+            <h2 className={animate ? "about-title" : ""}>
+              <span style={{ color: animate ? "#18cdca" : "" }}>About</span>{" "}
+              <span style={{ color: animate ? "#18cdca" : "" }}>Us</span>
+            </h2>
+
+            <br></br>
+            <p color="#74828f">
+              At Uva Wellassa University of Sri Lanka, we prioritize the health
+              and well-being of our students. Our University Medical Center, led
+              by the University Medical Officer (UMO), provides comprehensive
+              medical care free of charge to all students. With the support of a
+              qualified nurse and pharmacist, we ensure that our students
+              receive the highest standard of healthcare. Medical reports are
+              carefully certified by the UMO before being submitted for
+              approval, demonstrating our commitment to the health and safety of
+              our student community.
+            </p>
+            <div className="data">
+              <a
+                href="https://www.uwu.ac.lk/academic/units/university-medical-center/"
+                className="hire"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See more
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <footer />
     </>
-    
   );
 };
 

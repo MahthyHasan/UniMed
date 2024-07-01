@@ -1,68 +1,70 @@
-/* Component-card styling */
-.card--container {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-top: 2rem;
-  justify-content: space-around;
-}
+/* Card.css */
 
 .card {
-  flex: 1 0 25%;
-  max-width: 350px;
-  max-height: 200px;
-  padding: 10px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: 0.5s ease-in-out;
-  box-sizing: border-box;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff; /* White background */
 }
 
-.card:hover {
-  transform: scale(1.04);
-  cursor: pointer;
-}
-
-.card--title {
-  text-align: center;
-  padding: 5px 0;
-  font-size: 16px;
-  color: #0d062d;
-  font-weight: 600;
-  width: 100%;
-}
-
-.card--icon {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  margin: 10px 0;
-}
-
-.card--icon img {
-  max-width: 50px;
-  max-height: 50px;
-}
-
-.card--data {
-  text-align: center;
-  font-size: 24px;
-  margin: 2px 0;
+.card-header {
+  font-size: 18px;
   font-weight: bold;
-  width: 100%;
+  margin-bottom: 10px;
+  color: #333; /* Dark text color */
 }
 
-.card-total {
-  background: #6bcb77 !important;
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card-hours1 {
-  background: #ffd93d !important;
+.availability-status {
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.availability-status.available {
+  background-color: #dae3da; /* Lime Green */
+  color: #190606; /* White text */
+}
+
+.availability-status.unavailable {
+  background-color: #FF6347; /* Tomato Red */
+  color: #070404; /* White text */
+}
+
+.availability-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff; /* White background */
+}
+
+.availability-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark text color */
+}
+
+.availability-body {
+  padding: 10px;
+  color: #070404;
+}
+
+.availability-body p {
+  margin: 5px 0;
+  color: #070404;
 }
