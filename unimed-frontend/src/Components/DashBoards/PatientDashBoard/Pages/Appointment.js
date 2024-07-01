@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import Form from "../ComponentsPatientDashboard/Form"; 
-// import Appointment from "../ComponentsPatientDashboard/Appointment_"; 
 
 
 export default function PatientDashboard() {
@@ -23,7 +22,6 @@ export default function PatientDashboard() {
           
          
           <Form /> 
-          {/* <Appointment />  */}
         </Layout>
       </div>
     );
