@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./ContactUs.css";
-import "./footer.js";
+import  footer from "./footer.js";
 import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
 import NavBar from "./navbar";
 
