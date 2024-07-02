@@ -1,9 +1,9 @@
 import React from "react";
 import Layout from "../../layout/DoctorLayout/DoctorLayouts";
-import ProfileCard from "../../../Pages/ProfileCard";
+import ProfileCard from "../ComponentsDoctorDashboard/ProfileCard";
 import { Backbutton } from "../ComponentsDoctorDashboard/Backbutton";
 import MainDescription from "../ComponentsDoctorDashboard/MainDescription";
-import Allergies from "../../../Pages/Allergies";
+import Allergies from "../ComponentsDoctorDashboard/Allergies";
 import LastDiagnosis from "../ComponentsDoctorDashboard/LastDiagnosis";
 import PreviousRecords from "../ComponentsDoctorDashboard/PreviousRecords";
 import NewRecordButton from "../ComponentsDoctorDashboard/NewRecordButton";
