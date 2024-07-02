@@ -1,0 +1,15 @@
+/* Button.css */
+
+.custom-button {
+  background-color: #18cdca;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.custom-button:focus {
+  outline: none; /* Remove default focus outline */
+}

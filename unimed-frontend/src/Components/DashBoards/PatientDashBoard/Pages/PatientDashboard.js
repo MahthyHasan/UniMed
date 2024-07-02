@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import Card from '../ComponentsPatientDashboard/Card';
+import Button from "../ComponentsPatientDashboard/Button";
+
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
 

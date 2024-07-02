@@ -7,7 +7,8 @@ import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pag
 import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
 import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
 import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
-
+import Button from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Button";
+import Form from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Form";
 import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
@@ -22,10 +23,15 @@ import PharmacistLogin from "./Components/Login/Pharmacist/PharmacistLogin";
 import DrugsDoctorPage from "./Components/DashBoards/DoctorDashBoard/Pages/DrugsDoctorPage";
 import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
+import Services from "./Components/Pages/Home/Services";
+import Members from "./Components/Pages/Home/Members";
+
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
 import ClinicRecords from "./Components/DashBoards/DoctorDashBoard/Pages/ClinicRecords";
+
 import Prescription from "./Components/DashBoards/DoctorDashBoard/Pages/Prescription";
+
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
@@ -45,6 +51,7 @@ import PatientLayout from "./Components/DashBoards/layout/PatientLayout/PatientL
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
+
 
 function App() {
   return (
@@ -70,13 +77,15 @@ function App() {
         <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Members" element={<Members />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
-        <Route path="/ClinicRecords" element={<ClinicRecords />} />
+        <Route path="/ClinicRecords/:userId" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/Privacy" element={<Privacy />} />
+
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
@@ -106,6 +115,8 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
+
+        
       </Routes>
     </div>
   );

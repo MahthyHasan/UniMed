@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./ContactUs.css";
-import "./footer.js";
-import { BsGeoAlt, BsEnvelope, BsPhone } from "react-icons/bs";
 import NavBar from "./navbar";
 
 const ContactUs = () => {
@@ -12,6 +10,7 @@ const ContactUs = () => {
     email: "",
     message: "",
   });
+
   const [alert, setAlert] = useState({
     show: false,
     variant: "",
@@ -77,6 +76,22 @@ const ContactUs = () => {
     <>
       <NavBar />
       <section className="contact-form">
+        {/* Alert placed here to appear above the heading */}
+        {alert.show && (
+          <div className="alert-container">
+            <Alert
+              variant={alert.variant}
+              className={`alert-custom-success ${
+                alert.variant === "success" ? "alert-custom-success" : ""
+              }`}
+              onClose={() => setAlert({ ...alert, show: false })}
+              dismissible
+            >
+              {alert.message}
+            </Alert>
+          </div>
+        )}
+
         <h1 className="heading" style={{ color: "#18cdca" }}>
           Get In Touch!
         </h1>
@@ -88,15 +103,6 @@ const ContactUs = () => {
         </p>
 
         <div className="contactForm">
-          {alert.show && (
-            <Alert
-              variant={alert.variant}
-              onClose={() => setAlert({ ...alert, show: false })}
-              dismissible
-            >
-              {alert.message}
-            </Alert>
-          )}
           <form onSubmit={onSubmit}>
             <h1 className="sub-heading" style={{ color: "#18cdca" }}>
               Need Support!
@@ -106,7 +112,7 @@ const ContactUs = () => {
               className="input"
               id="name"
               placeholder="Your Name"
-              value={formData.name}
+              value={name}
               onChange={onInputChange}
               required
             />
@@ -115,7 +121,7 @@ const ContactUs = () => {
               className="input"
               id="email"
               placeholder="Your Email"
-              value={formData.email}
+              value={email}
               onChange={onInputChange}
               required
             />
@@ -126,7 +132,7 @@ const ContactUs = () => {
               rows="5"
               id="message"
               placeholder="Your Message..."
-              value={formData.message}
+              value={message}
               onChange={onInputChange}
               required
             ></textarea>

@@ -1,0 +1,57 @@
+.card {
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  padding: 1.5rem; /* Adjust padding as needed */
+  width: 100%; /* Ensure card spans full width of its container */
+  max-width: 600px; /* Set a maximum width for larger screens */
+  margin: 0 auto; /* Center align the card horizontally */
+}
+
+.dismiss {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  color: black;
+  border: 2px solid #d1d5db;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.dismiss:hover {
+  background-color: #ee0d0d;
+  border: 2px solid #ee0d0d;
+  color: #fff;
+}
+
+.header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.content {
+  text-align: left;
+}
+
+.title {
+  color: #066e29;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.message {
+  color: #595b5f;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 import "../../../../Css/Patient/PersonalDetails.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,9 +9,15 @@ function PersonalDetails() {
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     const onSubmit = data => {
-        console.log(data);
-        setShowSuccessMessage(true); // Show success message on submission
-        reset(); // Reset form fields
+        axios.post('http://localhost:8088/personaldetails', data)
+            .then(response => {
+                console.log(response.data);
+                setShowSuccessMessage(true); // Show success message on submission
+                reset(); // Reset form fields
+            })
+            .catch(error => {
+                console.error('There was an error submitting the form!', error);
+            });
     };
 
     function createFormGroup(labelText, inputType, inputName, placeholder, additionalText = "") {
@@ -47,7 +54,7 @@ function PersonalDetails() {
                     <legend>Personal Details</legend>
                     {createFormGroup('Full Name', 'text', 'name', 'Enter your full name')}
                     {createFormGroup('NIC Number', 'text', 'nic', 'Enter your NIC number')}
-                    {createFormGroup('Enrollment Number', 'text', 'enrollment_number', 'Enter your enrollment number')}
+                    {createFormGroup('Enrollment Number', 'text', 'enrollmentNumber', 'Enter your enrollment number')}
                     <div className="form-group row">
                         <label className="col-md-4 control-label">Gender</label>
                         <div className="col-md-8">
@@ -68,13 +75,13 @@ function PersonalDetails() {
                     <div className="form-group row">
                         <label className="col-md-4 control-label">Blood Group</label>
                         <div className="col-md-8">
-                            <select name="blood_group" className="form-control" {...register('blood_group', { required: 'Please select your blood group' })}>
+                            <select name="blood_group" className="form-control" {...register('bloodGroup', { required: 'Please select your blood group' })}>
                                 <option value="">Select your blood group</option>
                                 {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map(bloodGroup => (
                                     <option key={bloodGroup} value={bloodGroup}>{bloodGroup}</option>
                                 ))}
                             </select>
-                            {errors.blood_group && <span className="text-danger">{errors.blood_group.message}</span>}
+                            {errors.bloodGroup && <span className="text-danger">{errors.bloodGroup.message}</span>}
                         </div>
                     </div>
                     <div className="form-group row">
