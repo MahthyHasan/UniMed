@@ -17,8 +17,8 @@ const QRCodeScanner = ({ setShowQrDiv }) => {
                 const response = await axios.get(`http://localhost:8088/api/v1/user/checkNic/${result.text}`);
                 if (response.status === 200) {
                     const userBio = response.data;
-                    // Redirect to another page (assuming you have a user details page)
-                    window.location.href = `/ClinicRecords/${userBio._id}`;
+                    localStorage.setItem('scannedPID', userBio._id);
+                    window.location.href = `/ClinicRecords`;
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {

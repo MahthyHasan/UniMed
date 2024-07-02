@@ -22,4 +22,10 @@ public class MedicalReportController {
         return ResponseEntity.ok("Medical Record registered successfully.");
     }
 
+    @GetMapping(value = "/latest/{patientId}")
+    private ResponseEntity<MedicalRecords> getLatestMedicalRecord(@PathVariable String patientId){
+        MedicalRecords latestRecord = medicalServices.getLatestMedicalRecord(patientId);
+        return ResponseEntity.ok(latestRecord);
+    }
+
 }

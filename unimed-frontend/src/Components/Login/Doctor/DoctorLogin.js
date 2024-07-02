@@ -49,7 +49,7 @@ function DoctorLogin() {
       localStorage.setItem('token', token);
       localStorage.setItem('username', formData.username);
       localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('user_Id', response?.data?.user?.id);
+      localStorage.setItem('doctor_id', response?.data?.user?.id);
 
       // Clear form fields
       setFormData(initialFormData);

@@ -77,7 +77,7 @@ function App() {
         <Route path="/Services" element={<Services />} />
         <Route path="/Members" element={<Members />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
-        <Route path="/ClinicRecords/:userId" element={<ClinicRecords />} />
+        <Route path="/ClinicRecords" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />

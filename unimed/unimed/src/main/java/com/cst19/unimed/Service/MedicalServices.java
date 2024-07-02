@@ -14,5 +14,8 @@ public class MedicalServices {
     public void saveorupdate(MedicalRecords medicalRecords){
         repo.save(medicalRecords);
     }
+    public MedicalRecords getLatestMedicalRecord(String patientId){
+        return repo.findTopByPatientIdOrderByDateDescTimeDesc(patientId);
+    }
 
 }

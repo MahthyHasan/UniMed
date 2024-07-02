@@ -12,8 +12,11 @@
 
 body {
   background-color: rgb(249, 250, 251) !important;
+  
 }
-
+p {
+  background-color: transparent;
+}
 .bg-default {
   background-color: rgb(249, 250, 251) !important;
 }
@@ -1332,5 +1335,6 @@ channelling-card2 {
     margin-top: 80%;
   }
 }
+
 
 
