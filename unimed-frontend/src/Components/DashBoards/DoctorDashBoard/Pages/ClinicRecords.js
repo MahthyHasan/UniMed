@@ -14,6 +14,7 @@ export default function ClinicRecords() {
 	const { userId } = useParams();
 	const [doctorData, setDoctorData] = useState(null);
 	const [bioData, setBioData] = useState(null);
+
 	const fetchData = async () => {
 		try {
 			const [doctorResponse, bioResponse] = await Promise.all([
@@ -24,11 +25,37 @@ export default function ClinicRecords() {
 			setBioData(bioResponse.data);
 		} catch (error) {
 			console.error("Error fetching data:", error);
+			if (error.response) {
+				// The request was made and the server responded with a status code
+				// that falls out of the range of 2xx
+				console.error("Response data:", error.response.data);
+				console.error("Response status:", error.response.status);
+				console.error("Response headers:", error.response.headers);
+			} else if (error.request) {
+				// The request was made but no response was received
+				console.error("Request data:", error.request);
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				console.error("Error message:", error.message);
+			}
 		}
 	};
+
 	useEffect(() => {
 		fetchData();
 	}, [userId]);
+	const calculateBMI = (weight, height) => {
+		if (!weight || !height) return null;
+		const heightInMeters = height / 100; // assuming height is in cm
+		return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+	  };
+	
+	  const bmi = bioData ? calculateBMI(bioData.weight, bioData.height) : null;
+
+	if (!doctorData || !bioData) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<Layout>
 			<div className="row">
@@ -55,7 +82,7 @@ export default function ClinicRecords() {
 							blood={bioData.bloodGroup}
 							height={bioData.height}
 							weight={bioData.weight}
-							bmi="13"
+							bmi={bmi ? bmi : ""}
 						/>
 					</div>
 				</div>
@@ -63,7 +90,7 @@ export default function ClinicRecords() {
 				{/* Second Section */}
 				<div className="row">
 					<div className="col">
-						{/* Allergieitem component goes here */}
+						{/* Allergies component goes here */}
 						<Allergies item1="Tomato" item2="Amoxiline" />
 					</div>
 				</div>
@@ -71,7 +98,7 @@ export default function ClinicRecords() {
 				{/* Third Section */}
 				<div className="row">
 					<div className="col">
-						{/* Lastdiagnosis component goes here */}
+						{/* LastDiagnosis component goes here */}
 						<LastDiagnosis
 							symptom1="ADFSASDF"
 							symptom2="Runny Nose"
@@ -86,7 +113,7 @@ export default function ClinicRecords() {
 				{/* Fourth Section */}
 				<div className="row">
 					<div className="col">
-						{/* Previous record component goes here */}
+						{/* PreviousRecords component goes here */}
 						<PreviousRecords
 							RecId="RID: 789564"
 							Date="10.42 a.m"

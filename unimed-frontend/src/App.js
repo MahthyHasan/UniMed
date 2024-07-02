@@ -27,7 +27,7 @@ import Members from "./Components/Pages/Home/Members";
 
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
-import ClinicRecords from "./Components/Pages/ClinicRecords";
+import ClinicRecords from "./Components/DashBoards/DoctorDashBoard/Pages/ClinicRecords";
 import Prescription from "./Components/Pages/Prescription";
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
