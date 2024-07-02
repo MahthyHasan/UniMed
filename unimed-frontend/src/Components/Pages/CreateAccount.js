@@ -15,8 +15,8 @@ function CreateAccount() {
   const [formData, setFormData] = useState({
     email: "",
     username: "",
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     password: "",
     rPassword: "",
   });
@@ -24,8 +24,8 @@ function CreateAccount() {
   const [errors, setErrors] = useState({
     email: "",
     username: "",
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     password: "",
     rPassword: "",
   });
@@ -33,8 +33,8 @@ function CreateAccount() {
   const initialFormData = {
     email: "",
     username: "",
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     password: "",
     rPassword: "",
   };
@@ -69,19 +69,19 @@ function CreateAccount() {
     }
 
     // Validate first name
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = "First name is required";
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
       hasErrors = true;
     } else {
-      newErrors.first_name = "";
+      newErrors.firstName = "";
     }
 
     // Validate last name
-    if (!formData.last_name.trim()) {
-      newErrors.last_name = "Last name is required";
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
       hasErrors = true;
     } else {
-      newErrors.last_name = "";
+      newErrors.lastName = "";
     }
 
     // Validate password
@@ -186,46 +186,46 @@ function CreateAccount() {
           </div>
           <div className="row mt-2">
             <div className="col-6">
-              <label htmlFor="first_name" className="sign-in-form-input-lable2">
+              <label htmlFor="firstName" className="sign-in-form-input-lable2">
                 <img
                   src={iconpath4}
                   alt="User Icon"
                   className="input-lable-icon2"
                 />
                 <input
-                  id="first_name"
+                  id="firstName"
                   className="sign-in-form-input"
                   type="text"
                   placeholder="FIRST NAME"
-                  value={formData.first_name}
+                  value={formData.firstName}
                   onChange={handleChange}
                 />
               </label>
-              {errors.first_name && (
+              {errors.firstName && (
                 <p className="error-message" style={{ color: "red" }}>
-                  {errors.first_name}
+                  {errors.firstName}
                 </p>
               )}
             </div>
             <div className="col-6">
-              <label htmlFor="last_name" className="sign-in-form-input-lable2">
+              <label htmlFor="lastName" className="sign-in-form-input-lable2">
                 <img
                   src={iconpath4}
                   alt="User Icon"
                   className="input-lable-icon2"
                 />
                 <input
-                  id="last_name"
+                  id="lastName"
                   className="sign-in-form-input"
                   type="text"
                   placeholder="LAST NAME"
-                  value={formData.last_name}
+                  value={formData.lastName}
                   onChange={handleChange}
                 />
               </label>
-              {errors.last_name && (
+              {errors.lastName && (
                 <p className="error-message" style={{ color: "red" }}>
-                  {errors.last_name}
+                  {errors.lastName}
                 </p>
               )}
             </div>
