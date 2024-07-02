@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, NavLink } from 'react-router-dom';
-import FeatherIcon from 'feather-icons-react';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, NavLink } from "react-router-dom";
+import FeatherIcon from "feather-icons-react";
+import Dropdown from "react-bootstrap/Dropdown";
+import Button from "react-bootstrap/Button";
 import { EditProfile } from "./EditProfile";
 import { changeToggle } from "../../../../redux/actions";
 import home from "../../../../assets/icons2/home-p.svg";
@@ -13,13 +13,13 @@ import medcetificate from "../../../../assets/icons2/med-cetificate.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 import Profile from "../../../../assets/profile-img.svg";
 import logopath from "../../../../assets/logo-white.png";
-import './styles.css';
+import "./styles.css";
 
 export default function PatientLayout({ children }) {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const open = useSelector((state) => state.setting.toggle);
-  const [modalType, setModalType] = useState('view');
+  const [modalType, setModalType] = useState("view");
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(false);
   const [user, setUser] = useState(null);
@@ -37,7 +37,7 @@ export default function PatientLayout({ children }) {
   const navigate = useNavigate();
 
   const handlePersonalDetailsClick = () => {
-    navigate('/personal-details');
+    navigate("/personal-details");
   };
 
   return (
@@ -45,40 +45,40 @@ export default function PatientLayout({ children }) {
       <div className="row flex-nowrap">
         <div
           className={
-            (!open ? ' col-xl-2' : ' w-100px') +
-            (!show ? ' mobile-navbar-hide ' : ' mobile-show ') +
-            ' col-auto col-md-1 px-0 side-bg-color border-right min-vh-100 trans'
+            (!open ? " col-xl-2" : " w-100px") +
+            (!show ? " mobile-navbar-hide " : " mobile-show ") +
+            " col-auto col-md-1 px-0 side-bg-color border-right min-vh-100 trans"
           }
         >
           <div className="row">
             <div className="col">
-              <img src={logopath} className={open ? 'hide-logo' : 'logo-prm'} />
+              <img src={logopath} className={open ? "hide-logo" : "logo-prm"} />
             </div>
             <div className="col">
               <div
-                className={'close-btn-container mobile-hide'}
+                className={"close-btn-container mobile-hide"}
                 onClick={toggleDrawer}
               >
                 <img
                   src={SideClose}
                   alt="SideClose"
-                  className={!!open && 'rotate-180'}
+                  className={!!open && "rotate-180"}
                 />
               </div>
             </div>
           </div>
 
           <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
-            <div className={'w-100 px-sm-2'}>
+            <div className={"w-100 px-sm-2"}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'side-menu-item side-menu-active '
-                    : 'side-menu-item '
+                    ? "side-menu-item side-menu-active "
+                    : "side-menu-item "
                 }
-                to={'/PatientDashboard'}
+                to={"/PatientDashboard"}
               >
-                <div className={'d-flex'}>
+                <div className={"d-flex"}>
                   <img
                     src={home}
                     alt="avatar"
@@ -86,21 +86,21 @@ export default function PatientLayout({ children }) {
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={'trans-1'}>Home</div>}
+                  {!open && <div className={"trans-1"}>Home</div>}
                 </div>
               </NavLink>
             </div>
 
-            <div className={'w-100 px-sm-2'}>
+            <div className={"w-100 px-sm-2"}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
                 }
-                to={'/Myrecords'}
+                to={"/Myrecords"}
               >
-                <div className={'d-flex'}>
+                <div className={"d-flex"}>
                   <img
                     src={Myrecords}
                     alt="avatar"
@@ -108,20 +108,20 @@ export default function PatientLayout({ children }) {
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={''}>My Records</div>}
+                  {!open && <div className={""}>My Records</div>}
                 </div>
               </NavLink>
             </div>
-            <div className={'w-100 px-sm-2'}>
+            <div className={"w-100 px-sm-2"}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
                 }
-                to={'/Appointment'}
+                to={""}
               >
-                <div className={'d-flex'}>
+                <div className={"d-flex"}>
                   <img
                     src={chat}
                     alt="avatar"
@@ -129,20 +129,20 @@ export default function PatientLayout({ children }) {
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={''}>Community Chat</div>}
+                  {!open && <div className={""}>Community Chat</div>}
                 </div>
-              </NavLink>  
+              </NavLink>
             </div>
-            <div className={'w-100 px-sm-2 log-out-button-in-side-navbar'}>
+            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
                 }
-                to={'/Feedback'}
+                to={"/Feedback"}
               >
-                <div className={'d-flex'}>
+                <div className={"d-flex"}>
                   <img
                     src={medcetificate}
                     alt="avatar"
@@ -150,25 +150,25 @@ export default function PatientLayout({ children }) {
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={''}>Feedback</div>}
+                  {!open && <div className={""}>Feedback</div>}
                 </div>
-              </NavLink>  
+              </NavLink>
             </div>
-            <div className={'w-100 px-sm-2 log-out-button-in-side-navbar'}>
+            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? 'side-menu-item side-menu-active'
-                    : 'side-menu-item'
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
                 }
-                to={'/Feedback'}
+                to={"/Feedback"}
               >
-                <div className={'d-flex'}>
+                <div className={"d-flex"}>
                   <FeatherIcon
                     icon="log-out"
-                    className={!open ? 'me-2' : 'ms-1'}
+                    className={!open ? "me-2" : "ms-1"}
                   />
-                  {!open && <div className={''}>log-out</div>}
+                  {!open && <div className={""}>log-out</div>}
                 </div>
               </NavLink>
             </div>
@@ -189,7 +189,7 @@ export default function PatientLayout({ children }) {
                   <button
                     type="button"
                     className={
-                      'btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items'
+                      "btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items"
                     }
                     onClick={handlePersonalDetailsClick} // Navigate to PersonalDetails page
                   >
@@ -222,10 +222,10 @@ export default function PatientLayout({ children }) {
                         <button
                           type="button"
                           className={
-                            'btn btn-primary tasks-dropdown-btn padding-none d-flex align-items'
+                            "btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
                           }
                           onClick={() => {
-                            setModalType('Edit');
+                            setModalType("Edit");
                             setModalShow(true);
                           }}
                         >
