@@ -39,6 +39,21 @@ export default function FeedbackForm() {
   return (
     <div className="flex items-center justify-center p-12">
       <div className="form-container">
+        {showAlert && (
+          <div className="mt-4 mb-4">
+            <Alert
+              className={
+                alertVariant === "success"
+                  ? "custom-alert-success"
+                  : "custom-alert-danger"
+              }
+              onClose={() => setShowAlert(false)}
+              dismissible
+            >
+              {alertMessage}
+            </Alert>
+          </div>
+        )}
         <h2 style={{ color: "#2563EB", fontWeight: "bold" }}>Feedback</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-5">
@@ -82,17 +97,6 @@ export default function FeedbackForm() {
             </button>
           </div>
         </form>
-        {showAlert && (
-          <div className="mt-4">
-            <Alert
-              variant={alertVariant}
-              onClose={() => setShowAlert(false)}
-              dismissible
-            >
-              {alertMessage}
-            </Alert>
-          </div>
-        )}
       </div>
     </div>
   );
