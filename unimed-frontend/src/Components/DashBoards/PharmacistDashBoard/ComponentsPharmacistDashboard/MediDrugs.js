@@ -92,7 +92,7 @@ const MediDrugs = () => {
             <div className="row">
               <div className="col-sm-6">
                 <h2>
-                  Manage <b>Drug Inventory</b>
+                  Manage <b>Drugs Inventory</b>
                 </h2>
               </div>
               <div className="col-sm-6">
