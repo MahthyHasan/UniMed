@@ -18,7 +18,7 @@ const QRCodeScanner = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     // Redirect to another page (assuming you have a user details page)
-                    window.location.href = `/patientClinicProfile/${userBio._id}`;
+                    window.location.href = `/ClinicRecords/${userBio._id}`;
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {

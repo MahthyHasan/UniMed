@@ -84,7 +84,7 @@ public class UserController {
         if (user != null && user.isVerified()) {
             // Redirect to login page if verification is successful
             redirectAttributes.addFlashAttribute("message", "Email verification successful. You can now log in.");
-            redirectView.setUrl("http://localhost:3000/loginUser");
+            redirectView.setUrl("http://localhost:3000/CommonLogin");
         } else {
             // Handle the case where verification fails
             redirectAttributes.addFlashAttribute("error", "Invalid or expired verification token.");

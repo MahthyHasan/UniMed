@@ -63,7 +63,7 @@ function CommonLogin() {
 			// Automatically dismiss the alert after 3 seconds and navigate to home page
 			setTimeout(() => {
 				setAlertVisible(false);
-				navigate("/home");
+				navigate("/PatientDashboard");
 			}, 3000);
 		} catch (error) {
 			console.error("Login failed:", error);
