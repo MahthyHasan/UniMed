@@ -8,7 +8,7 @@ function Footer() {
         <div className="footer__logo">UniMed</div>
         <ul className="footer__links">
           <li className="footer__link">
-            <a href="#">Privacy Policy</a>
+            <a href="/Privacy">Privacy Policy</a>
           </li>
           <li className="footer__link">
             <a href="#">Terms of Service</a>

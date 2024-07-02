@@ -29,7 +29,9 @@ import Members from "./Components/Pages/Home/Members";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
 import ClinicRecords from "./Components/DashBoards/DoctorDashBoard/Pages/ClinicRecords";
-import Prescription from "./Components/Pages/Prescription";
+
+import Prescription from "./Components/DashBoards/DoctorDashBoard/Pages/Prescription";
+
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
@@ -48,6 +50,7 @@ import LoginPageUser from "./Components/Pages/Home/OtherPages/LoginPageUser";
 import PatientLayout from "./Components/DashBoards/layout/PatientLayout/PatientLayout";
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
+import Privacy from "./Components/Pages/Home/Privacy";
 
 
 function App() {
@@ -82,7 +85,7 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/patientLayout" element={<PatientLayout />} />
+
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
