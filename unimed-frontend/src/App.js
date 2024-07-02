@@ -7,7 +7,8 @@ import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pag
 import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
 import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
 import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
-
+import Button from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Button";
+import Form from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Form";
 import Myrecords from "./Components/DashBoards/PatientDashBoard/Pages/Myrecords";
 import ProvideMedicine from "./Components/DashBoards/PharmacistDashBoard/Pages/ProvideMedicine";
 import DrugInventory from "./Components/DashBoards/PharmacistDashBoard/Pages/DrugInventory";
@@ -48,6 +49,7 @@ import PatientLayout from "./Components/DashBoards/layout/PatientLayout/PatientL
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 
+
 function App() {
   return (
     <div>
@@ -75,11 +77,12 @@ function App() {
         <Route path="/Services" element={<Services />} />
         <Route path="/Members" element={<Members />} />
         <Route path="/verifyEmail" element={<VerifyEmail />} />
-        <Route path="/ClinicRecords" element={<ClinicRecords />} />
+        <Route path="/ClinicRecords/:userId" element={<ClinicRecords />} />
         <Route path="/Prescription" element={<Prescription />} />
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+        <Route path="/patientLayout" element={<PatientLayout />} />
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
@@ -109,6 +112,8 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
+
+        
       </Routes>
     </div>
   );
