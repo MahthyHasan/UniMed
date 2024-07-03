@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
@@ -25,13 +26,10 @@ import AboutUs from "./Components/Pages/Home/AbotUs";
 import ContactUs from "./Components/Pages/Home/ContactUs";
 import Services from "./Components/Pages/Home/Services";
 import Members from "./Components/Pages/Home/Members";
-
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
 import ClinicRecords from "./Components/DashBoards/DoctorDashBoard/Pages/ClinicRecords";
-
 import Prescription from "./Components/DashBoards/DoctorDashBoard/Pages/Prescription";
-
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder";
 import SelectUserAdminPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/SelectUserAdminPage";
 import ListAllDoctorsPage from "./Components/DashBoards/AdminDashBoard/Pages/UserTab/Doctor/ListAllDoctorsPage";
@@ -46,14 +44,23 @@ import GenerateQRCode from "./Components/DashBoards/DoctorDashBoard/ComponentsDo
 import QRCodeScanner from "./Components/DashBoards/DoctorDashBoard/ComponentsDoctorDashboard/QRCodeScanner";
 import PatientClinicProfile from "./Components/DashBoards/DoctorDashBoard/Pages/PatientClinicProfile";
 import LoginPageUser from "./Components/Pages/Home/OtherPages/LoginPageUser";
-
 import PatientLayout from "./Components/DashBoards/layout/PatientLayout/PatientLayout";
-import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
+import Personal_Info from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/Personal_Info";
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
-
+import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 
 function App() {
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    // Retrieve the username from localStorage
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+
   return (
     <div>
       <Routes>
@@ -85,38 +92,21 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-
-        <Route
-          path="/showDoctorProfilePage/:userId"
-          element={<ShowDoctorProfilePage />}
-        />
+        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route
-          path="/showPharmacistProfilePage/:userId"
-          element={<ShowPharmacistProfilePage />}
-        />
+        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route
-          path="/showAdminProfilePage/:userId"
-          element={<ShowAdminProfilePage />}
-        />
+        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route
-          path="/showPatientProfilePage/:userId"
-          element={<ShowPatientProfile />}
-        />
+        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
         <Route path="/testqr" element={<GenerateQRCode />} />
         <Route path="/testqr2" element={<QRCodeScanner />} />
-        <Route
-          path="/patientClinicProfile/:userId"
-          element={<PatientClinicProfile />}
-        />
+        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
         <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-
-        
+        <Route path="/personal-info" element={<Personal_Info username={username} />} />
       </Routes>
     </div>
   );
