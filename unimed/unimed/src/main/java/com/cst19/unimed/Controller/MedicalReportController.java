@@ -6,6 +6,7 @@ import com.cst19.unimed.Service.MedicalServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,10 +23,15 @@ public class MedicalReportController {
         return ResponseEntity.ok("Medical Record registered successfully.");
     }
 
-    @GetMapping(value = "/latest/{patientId}")
-    private ResponseEntity<MedicalRecords> getLatestMedicalRecord(@PathVariable String patientId){
-        MedicalRecords latestRecord = medicalServices.getLatestMedicalRecord(patientId);
-        return ResponseEntity.ok(latestRecord);
+    @GetMapping("/latest/{patientId}")
+    public MedicalRecords getLatestMedicalRecord(@PathVariable String patientId) {
+        return medicalServices.getLatestMedicalRecord(patientId);
+    }
+
+    @GetMapping(value = "/all/{patientId}")
+    private ResponseEntity<List<MedicalRecords>> getAllMedicalRecords(@PathVariable String patientId){
+        List<MedicalRecords> allRecords = medicalServices.getAllMedicalRecords(patientId);
+        return ResponseEntity.ok(allRecords);
     }
 
 }

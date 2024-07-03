@@ -20,7 +20,7 @@ export default function Allergies({ item1, item2 }) {
     <AllergiesContainer>
       Allergies:{" "}
       <span className="ms-1 allergieitems">
-        {item1}, {item2}
+        {item1}
       </span>
     </AllergiesContainer>
   );

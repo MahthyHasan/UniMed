@@ -17,8 +17,9 @@ public class MedicalRecords {
     private String date;
     private String time;
     private String doctorId;
+    private Boolean drugIssued;
 
-    public MedicalRecords(String _id, String patientId, String[] symptoms, String[] diaognises, String[] priscripedMedicines, String date, String time, String doctorId) {
+    public MedicalRecords(String _id, String patientId, String[] symptoms, String[] diaognises, String[] priscripedMedicines, String date, String time, String doctorId, Boolean drugIssued) {
         this._id = _id;
         this.patientId = patientId;
         this.symptoms = symptoms;
@@ -27,6 +28,7 @@ public class MedicalRecords {
         this.date = date;
         this.time = time;
         this.doctorId = doctorId;
+        this.drugIssued = drugIssued;
     }
 
     public MedicalRecords() {
@@ -96,6 +98,14 @@ public class MedicalRecords {
         this.doctorId = doctorId;
     }
 
+    public Boolean getDrugIssued() {
+        return drugIssued;
+    }
+
+    public void setDrugIssued(Boolean drugIssued) {
+        this.drugIssued = drugIssued;
+    }
+
     @Override
     public String toString() {
         return "MedicalRecords{" +
@@ -107,6 +117,7 @@ public class MedicalRecords {
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", doctorId='" + doctorId + '\'' +
+                ", drugIssued=" + drugIssued +
                 '}';
     }
 }

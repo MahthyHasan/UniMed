@@ -34,6 +34,7 @@ export default function CurrentRecord({
   diagnoses,
   prescribedDrugs,
 }) {
+  
   return (
     <LastDiagnosisContainer>
       <h4>Record ID: UWUCST20109M004</h4>
