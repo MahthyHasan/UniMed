@@ -11,6 +11,8 @@ const Card = ({ onClose }) => {
         <div className="header">
           <div className="content">
             {/* Replace with Form component */}
+            {/* Replace with Form component */}
+
             <Form />
           </div>
         </div>
