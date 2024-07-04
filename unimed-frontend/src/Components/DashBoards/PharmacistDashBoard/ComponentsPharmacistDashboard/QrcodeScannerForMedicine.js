@@ -3,7 +3,7 @@ import { QrReader } from "react-qr-reader";
 import axios from "axios";
 import "./qrcssforBooking.css";
 
-const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
+const QrcodeScannerForMedicine = ({ setShowQrDiv }) => {
     const [data, setData] = useState("No result");
     const [scanning, setScanning] = useState(true);
     const [alert, setAlert] = useState(null);
@@ -18,7 +18,7 @@ const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     localStorage.setItem('scannedPID', userBio._id);
-                    window.location.href = `/Book a Time Slot`;
+                    window.location.href = `/SupplyMEdicinePharmacist`;
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {
@@ -78,4 +78,4 @@ const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
     );
 };
 
-export default QrcodeScannerForBooking;
+export default QrcodeScannerForMedicine;
