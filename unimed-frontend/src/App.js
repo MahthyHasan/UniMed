@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
@@ -49,17 +49,9 @@ import Personal_Info from "./Components/DashBoards/PatientDashBoard/ComponentsPa
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
+import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
 
 function App() {
-  const [username, setUsername] = useState('');
-
-  useEffect(() => {
-    // Retrieve the username from localStorage
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
 
   return (
     <div>
@@ -106,7 +98,7 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-        <Route path="/personal-info" element={<Personal_Info username={username} />} />
+        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />        
       </Routes>
     </div>
   );
