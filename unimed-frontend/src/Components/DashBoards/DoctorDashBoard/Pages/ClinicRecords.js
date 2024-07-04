@@ -13,6 +13,7 @@ export default function ClinicRecords() {
     const [doctorData, setDoctorData] = useState(null);
     const [bioData, setBioData] = useState(null);
     const [scannedPID, setScannedPID] = useState(null);
+    const [medicalRecords, setMedicalRecords] = useState([]);
 
     useEffect(() => {        
         const patientID = localStorage.getItem('scannedPID');
@@ -25,25 +26,23 @@ export default function ClinicRecords() {
     const fetchData = async () => {
         if (scannedPID) { // Check if scannedPID is not null or undefined
             try {
-                const [doctorResponse, bioResponse] = await Promise.all([
+                const [doctorResponse, bioResponse, medicalRecordsResponse] = await Promise.all([
                     axios.get(`http://localhost:8088/api/v1/user/${scannedPID}`),
                     axios.get(`http://localhost:8088/api/v1/user/bio/${scannedPID}`),
+                    axios.get(`http://localhost:8088/api/v1/medicalRecords/all/${scannedPID}`)
                 ]);
                 setDoctorData(doctorResponse.data);
                 setBioData(bioResponse.data);
+                setMedicalRecords(medicalRecordsResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
                 if (error.response) {
-                    // The request was made and the server responded with a status code
-                    // that falls out of the range of 2xx
                     console.error("Response data:", error.response.data);
                     console.error("Response status:", error.response.status);
                     console.error("Response headers:", error.response.headers);
                 } else if (error.request) {
-                    // The request was made but no response was received
                     console.error("Request data:", error.request);
                 } else {
-                    // Something happened in setting up the request that triggered an Error
                     console.error("Error message:", error.message);
                 }
             }
@@ -101,7 +100,7 @@ export default function ClinicRecords() {
                 <div className="row">
                     <div className="col">
                         {/* Allergies component goes here */}
-                        <Allergies item1="Tomato" item2="Amoxiline" />
+                        <Allergies item1={bioData.allergies}/>
                     </div>
                 </div>
 
@@ -110,7 +109,7 @@ export default function ClinicRecords() {
                     <div className="col">
                         {/* LastDiagnosis component goes here */}
                         <LastDiagnosis
-                           patientId = {scannedPID}
+                            patientId = {scannedPID}
                         />
                     </div>
                 </div>
@@ -119,12 +118,15 @@ export default function ClinicRecords() {
                 <div className="row">
                     <div className="col">
                         {/* PreviousRecords component goes here */}
-                        <PreviousRecords
-                            RecId="RID: 789564"
-                            Date="10.42 a.m"
-                            Time="26/05/2024"
-                            DaySinceLast="4 days ago"
-                        />
+                        {medicalRecords.map(record => (
+                            <PreviousRecords
+                                key={record._id}
+                                RecId={record._id}
+                                Date={record.date}
+                                Time={record.time}
+                                DaySinceLast={`${Math.floor((new Date() - new Date(record.date)) / (1000 * 60 * 60 * 24))} days ago`}
+                            />
+                        ))}
                     </div>
                 </div>
                 {/* Add the new Button component */}
