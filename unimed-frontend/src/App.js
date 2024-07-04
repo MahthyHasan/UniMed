@@ -52,16 +52,6 @@ import PersonalDetails from "./Components/DashBoards/PatientDashBoard/Components
 import TermsOfService from "./Components/Pages/Home/TermsOfService";
 
 function App() {
-  const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    // Retrieve the username from localStorage
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
-
   return (
     <div>
       <Routes>
