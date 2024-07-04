@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  box-sizing: border-box;
 }
+/* Resetting margin and padding, and setting box-sizing */
 
 :root {
   --bodyBg: #303841;
@@ -19,6 +21,13 @@ body {
   color: var(--textColor);
   background: var(--bodyBg);
   padding-bottom: 5em;
+}
+.contactus-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
 }
 
 section {
@@ -173,6 +182,7 @@ form {
 
   .contactForm {
     grid-template-columns: 1fr 1fr;
+    
   }
 
   .contactMethod {

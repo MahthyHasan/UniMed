@@ -92,7 +92,9 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+
         <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
+
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
         <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
@@ -106,7 +108,7 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-        <Route path="/personal-info" element={<Personal_Info username={username} />} />
+
       </Routes>
     </div>
   );
