@@ -50,9 +50,9 @@ import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
 import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
+import TermsOfService from "./Components/Pages/Home/TermsOfService";
 
 function App() {
-
   return (
     <div>
       <Routes>
@@ -84,21 +84,40 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />} />
+
+        <Route
+          path="/showDoctorProfilePage/:userId"
+          element={<ShowDoctorProfilePage />}
+        />
+
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
+        <Route
+          path="/showPharmacistProfilePage/:userId"
+          element={<ShowPharmacistProfilePage />}
+        />
         <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route path="/showAdminProfilePage/:userId" element={<ShowAdminProfilePage />} />
+        <Route
+          path="/showAdminProfilePage/:userId"
+          element={<ShowAdminProfilePage />}
+        />
         <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+        <Route
+          path="/showPatientProfilePage/:userId"
+          element={<ShowPatientProfile />}
+        />
         <Route path="/testqr" element={<GenerateQRCode />} />
         <Route path="/testqr2" element={<QRCodeScanner />} />
-        <Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
+        <Route
+          path="/patientClinicProfile/:userId"
+          element={<PatientClinicProfile />}
+        />
         <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
         <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />        
+        <Route path="/TermsOfService" element={<TermsOfService />} />
+        <Route path="/Privacy" element={<Privacy />} />
       </Routes>
     </div>
   );
