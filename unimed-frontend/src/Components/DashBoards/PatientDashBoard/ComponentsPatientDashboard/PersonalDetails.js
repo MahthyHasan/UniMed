@@ -55,6 +55,7 @@ function PersonalDetails() {
                     {createFormGroup('Full Name', 'text', 'name', 'Enter your full name')}
                     {createFormGroup('NIC Number', 'text', 'nic', 'Enter your NIC number')}
                     {createFormGroup('Enrollment Number', 'text', 'enrollmentNumber', 'Enter your enrollment number')}
+                    {createFormGroup('Email', 'email', 'email', 'Enter your email')}
                     <div className="form-group row">
                         <label className="col-md-4 control-label">Gender</label>
                         <div className="col-md-8">
@@ -96,6 +97,9 @@ function PersonalDetails() {
             {showSuccessMessage && (
                 <div id="success_message" className="alert alert-success text-center" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: '#5cb85c', color: 'white', zIndex: '1000' }}>
                     Success! Your personal details have been saved.
+                    <button type="button" className="close" onClick={() => setShowSuccessMessage(false)}>
+                        <span>&times;</span>
+                    </button>
                 </div>
             )}
         </div>

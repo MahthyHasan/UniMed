@@ -4,13 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
 @Document
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonalDetails {
-
+    @Id
+    private String email;
     private String name;
     private String nic;
     private String enrollmentNumber;

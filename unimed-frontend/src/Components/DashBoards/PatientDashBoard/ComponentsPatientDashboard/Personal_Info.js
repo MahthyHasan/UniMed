@@ -1,24 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "../../../../Css/Patient/Personal_Info.css";
 import ProfileIcon from "../../../../assets/icons/Vector.svg";
-import axios from 'axios';
 
-function Personal_Info({ id }) {
+function Personal_Info({ username }) {
+  const [userInfo, setUserInfo] = useState({
+    id: '',
+    age: '',
+    gender: '',
+    height: '',
+    weight: '',
+    bloodgrp: '',
+    bmi: ''
+  });
   const [isEditing, setIsEditing] = useState(false);
-  const [personalInfo, setPersonalInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/personaldetails/${id}`)
+    // Fetch user details based on the username
+    axios.get(`http://localhost:8088/personaldetails/${username}`)
       .then(response => {
-        setPersonalInfo(response.data);
-        setLoading(false);
+        const data = response.data;
+        const bmi = calculateBMI(data.height, data.weight);
+        setUserInfo({ ...data, bmi });
       })
       .catch(error => {
-        console.error('There was an error fetching the personal details!', error);
-        setLoading(false);
+        console.error('There was an error fetching the user details!', error);
       });
-  }, [id]);
+  }, [username]);
+
+  const calculateBMI = (height, weight) => {
+    if (height && weight) {
+      return (weight / ((height / 100) ** 2)).toFixed(2);
+    }
+    return '';
+  };
 
   const handleEditClick = () => {
     setIsEditing(!isEditing);
@@ -26,21 +41,8 @@ function Personal_Info({ id }) {
 
   const handleInputChange = (event, field) => {
     const { value } = event.target;
-    setPersonalInfo(prevInfo => ({
-      ...prevInfo,
-      [field]: value
-    }));
+    setUserInfo({ ...userInfo, [field]: value, bmi: calculateBMI(userInfo.height, userInfo.weight) });
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!personalInfo) {
-    return <div>No personal information found.</div>;
-  }
-
-  const { name, age, gender, height, weight, bloodGroup, bmi } = personalInfo;
 
   return (
     <div className="profileBioContainer">
@@ -50,8 +52,8 @@ function Personal_Info({ id }) {
           className="profileImage"
           alt="profile"
         />
-        <p className="userID">{id}</p>
-        <p className="userName">{name}</p>
+        <p className="userID">{userInfo.id}</p>
+        <p className="userName">{username}</p>
       </div>
       <div className="bioDataSection">
         <div className="bioDataLine">
@@ -60,11 +62,11 @@ function Personal_Info({ id }) {
             {isEditing ? (
               <input
                 type="text"
-                value={age}
+                value={userInfo.age}
                 onChange={(e) => handleInputChange(e, 'age')}
               />
             ) : (
-              <div className="bioDataValue">{age}</div>
+              <div className="bioDataValue">{userInfo.age}</div>
             )}
           </div>
           <div className="bioDataItem">
@@ -72,11 +74,11 @@ function Personal_Info({ id }) {
             {isEditing ? (
               <input
                 type="text"
-                value={height}
+                value={userInfo.height}
                 onChange={(e) => handleInputChange(e, 'height')}
               />
             ) : (
-              <div className="bioDataValue">{height}</div>
+              <div className="bioDataValue">{userInfo.height}</div>
             )}
           </div>
           <div className="bioDataItem">
@@ -84,34 +86,34 @@ function Personal_Info({ id }) {
             {isEditing ? (
               <input
                 type="text"
-                value={weight}
+                value={userInfo.weight}
                 onChange={(e) => handleInputChange(e, 'weight')}
               />
             ) : (
-              <div className="bioDataValue">{weight}</div>
+              <div className="bioDataValue">{userInfo.weight}</div>
             )}
           </div>
         </div>
         <div className="bioDataLine">
           <div className="bioDataItem">
             <p className="bioDataTitle"><b>Blood Group</b></p>
-            <div className="bioDataValue">{bloodGroup}</div>
+            <div className="bioDataValue">{userInfo.bloodgrp}</div>
           </div>
           <div className="bioDataItem">
             <p className="bioDataTitle"><b>BMI</b></p>
             {isEditing ? (
               <input
                 type="text"
-                value={bmi}
+                value={userInfo.bmi}
                 onChange={(e) => handleInputChange(e, 'bmi')}
               />
             ) : (
-              <div className="bioDataValue">{bmi}</div>
+              <div className="bioDataValue">{userInfo.bmi}</div>
             )}
           </div>
           <div className="bioDataItem">
             <p className="bioDataTitle"><b>Gender</b></p>
-            <div className="bioDataValue">{gender}</div>
+            <div className="bioDataValue">{userInfo.gender}</div>
           </div>
         </div>
       </div>
