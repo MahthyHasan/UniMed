@@ -125,6 +125,7 @@ function App() {
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
         <Route path="/TermsOfService" element={<TermsOfService />} />
+        <Route path="/Privacy" element={<Privacy />} />
       </Routes>
     </div>
   );
