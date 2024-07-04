@@ -1,7 +1,7 @@
 import React from "react";
 import "./Services.css";
 
-import footer from "./footer.js";
+import Footer from "./footer.js";
 import NavBar from "./navbar.js";
 import img1 from "../../../assets/images/doc22.jpg";
 import img2 from "../../../assets/images/medical.jpg";
@@ -10,7 +10,7 @@ import img4 from "../../../assets/images/pharmacist.jpg";
 
 export default function Members() {
   return (
-    <>
+    <div className="member-container">
       <NavBar />
 
       {/*} Team Start */}
@@ -151,7 +151,7 @@ export default function Members() {
       </div>
       {/* Team End*/}
 
-      <footer />
-    </>
+      <Footer />
+    </div>
   );
 }

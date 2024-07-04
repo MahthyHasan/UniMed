@@ -85,6 +85,7 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+        <Route path="/Privacy" element={<Privacy />}/>
 
         <Route
           path="/showDoctorProfilePage/:userId"
@@ -115,8 +116,6 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-
-        
       </Routes>
     </div>
   );
