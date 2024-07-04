@@ -1,7 +1,7 @@
 import React from "react";
 import "./Services.css";
 
-import footer from "./footer.js";
+import Footer from "./footer.js";
 import NavBar from "./navbar.js";
 import img1 from "../../../assets/images/doc22.jpg";
 import img2 from "../../../assets/images/medical.jpg";
@@ -10,7 +10,7 @@ import img4 from "../../../assets/images/pharmacist.jpg";
 
 export default function Members() {
   return (
-    <>
+    <div className="member-container">
       <NavBar />
 
       {/*} Team Start */}
@@ -44,10 +44,10 @@ export default function Members() {
                     </a>
                   </div>
                   <div className="bg-light text-center p-4">
-                    <h5 className="fw-bold mb-0" style={{ color: "black" }}>
-                      Dr.Niluka Weejesinghe
+                    <h5 className="fw-bold mb-0" style={{ color: "#18CDCA" }}>
+                      Dr.N. Weejesinghe
                     </h5>
-                    <small style={{ color: "black" }}>Doctor</small>
+                    <small style={{ color: "blue" }}>Doctor</small>
                   </div>
                 </div>
               </div>
@@ -77,10 +77,10 @@ export default function Members() {
                   </div>
                 </div>
                 <div className="bg-light text-center p-4">
-                  <h5 className="fw-bold mb-0" style={{ color: "black" }}>
-                    Mrs. J. H.Fernando
+                  <h5 className="fw-bold mb-0" style={{ color: "#18CDCA" }}>
+                    Mrs.R.H.Fanado
                   </h5>
-                  <small style={{ color: "black" }}>Pharmacist</small>
+                  <small style={{ color: "blue" }}>Pharmacist</small>
                 </div>
               </div>
             </div>
@@ -109,10 +109,10 @@ export default function Members() {
                   </div>
                 </div>
                 <div className="bg-light text-center p-4">
-                  <h5 className="fw-bold mb-0" style={{ color: "black" }}>
-                    Mr. A. R. Hasanjith
+                  <h5 className="fw-bold mb-0" style={{ color: "#18CDCA" }}>
+                    Mr.A.K.Hasanjith
                   </h5>
-                  <small style={{ color: "black" }}>Nursing Officer</small>
+                  <small style={{ color: "blue" }}>Nursing Officer</small>
                 </div>
               </div>
             </div>
@@ -137,10 +137,10 @@ export default function Members() {
                   </div>
                 </div>
                 <div className="bg-light text-center p-4">
-                  <h5 className="fw-bold mb-1" style={{ color: "black" }}>
-                    Mr. R.A Saara
+                  <h5 className="fw-bold mb-0" style={{ color: "#18CDCA" }}>
+                    Mrs.R.S.Saara
                   </h5>
-                  <small style={{ color: "black" }}>
+                  <small style={{ color: "blue" }}>
                     Health Service Attendant
                   </small>
                 </div>
@@ -151,7 +151,7 @@ export default function Members() {
       </div>
       {/* Team End*/}
 
-      <footer />
-    </>
+      <Footer />
+    </div>
   );
 }

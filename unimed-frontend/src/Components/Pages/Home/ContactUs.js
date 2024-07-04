@@ -3,6 +3,7 @@ import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./ContactUs.css";
 import NavBar from "./navbar";
+import Footer from "./footer";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ const ContactUs = () => {
   };
 
   return (
-    <>
+    <div className="contactus-container">
       <NavBar />
       <section className="contact-form">
         {/* Alert placed here to appear above the heading */}
@@ -157,8 +158,8 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-      <footer />
-    </>
+      <Footer />
+    </div>
   );
 };
 

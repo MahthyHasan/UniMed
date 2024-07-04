@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Services.css";
 
-import footer from "./footer.js";
+import Footer from "./footer.js";
 import NavBar from "./navbar.js";
 import img1 from "../../../assets/images/user1.jpg";
 import img2 from "../../../assets/images/user2.jpg";
@@ -12,7 +12,7 @@ import background from "../../../assets/images//young-handsome-physician-medical
 
 export default function Services() {
   return (
-    <>
+    <div className="service-container">
       <NavBar />
 
       {/*About Start */}
@@ -153,7 +153,7 @@ export default function Services() {
       </div>
       {/*} About End */}
 
-      <footer />
-    </>
+      <Footer />
+    </div>
   );
 }
