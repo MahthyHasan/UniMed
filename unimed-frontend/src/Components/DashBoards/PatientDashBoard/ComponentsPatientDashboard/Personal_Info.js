@@ -16,8 +16,11 @@ function Personal_Info({ username }) {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // Fetch user details based on the username
+
     axios.get(`http://localhost:8088/personaldetails/${username}`)
+
+    axios.get(`http://localhost:8088/api/v1/userbio/username/${username}`)
+
       .then(response => {
         const data = response.data;
         const bmi = calculateBMI(data.height, data.weight);
@@ -45,79 +48,78 @@ function Personal_Info({ username }) {
   };
 
   return (
-    <div className="profileBioContainer">
-      <div className="profileImageSection">
-        <img
-          src={ProfileIcon}
-          className="profileImage"
-          alt="profile"
-        />
-        <p className="userID">{userInfo.id}</p>
-        <p className="userName">{username}</p>
-      </div>
-      <div className="bioDataSection">
-        <div className="bioDataLine">
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>Age</b></p>
-            {isEditing ? (
-              <input
-                type="text"
-                value={userInfo.age}
-                onChange={(e) => handleInputChange(e, 'age')}
-              />
-            ) : (
-              <div className="bioDataValue">{userInfo.age}</div>
-            )}
+    <div className="cardContainer">
+      <div className="cardContent">
+        <div className="headerSection">
+          <h2 className="cardTitle">Personal Information</h2>
+        </div>
+        <div className="profileImageSection">
+          <img src={ProfileIcon} className="profileImage" alt="profile" />
+          <p className="userID">{userInfo.id}</p>
+          <p className="userName">{username}</p>
+        </div>
+        <div className="bioDataSection">
+          <div className="bioDataColumn">
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>Age</b></p>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={userInfo.age}
+                  onChange={(e) => handleInputChange(e, 'age')}
+                />
+              ) : (
+                <div className="bioDataValue">{userInfo.age}</div>
+              )}
+            </div>
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>Height</b></p>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={userInfo.height}
+                  onChange={(e) => handleInputChange(e, 'height')}
+                />
+              ) : (
+                <div className="bioDataValue">{userInfo.height}</div>
+              )}
+            </div>
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>Weight</b></p>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={userInfo.weight}
+                  onChange={(e) => handleInputChange(e, 'weight')}
+                />
+              ) : (
+                <div className="bioDataValue">{userInfo.weight}</div>
+              )}
+            </div>
           </div>
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>Height</b></p>
-            {isEditing ? (
-              <input
-                type="text"
-                value={userInfo.height}
-                onChange={(e) => handleInputChange(e, 'height')}
-              />
-            ) : (
-              <div className="bioDataValue">{userInfo.height}</div>
-            )}
-          </div>
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>Weight</b></p>
-            {isEditing ? (
-              <input
-                type="text"
-                value={userInfo.weight}
-                onChange={(e) => handleInputChange(e, 'weight')}
-              />
-            ) : (
-              <div className="bioDataValue">{userInfo.weight}</div>
-            )}
+          <div className="bioDataColumn">
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>Blood Group</b></p>
+              <div className="bioDataValue">{userInfo.bloodGroup}</div>
+            </div>
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>BMI</b></p>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={userInfo.bmi}
+                  onChange={(e) => handleInputChange(e, 'bmi')}
+                />
+              ) : (
+                <div className="bioDataValue">{userInfo.bmi}</div>
+              )}
+            </div>
+            <div className="bioDataItem">
+              <p className="bioDataTitle"><b>Gender</b></p>
+              <div className="bioDataValue">{userInfo.gender}</div>
+            </div>
           </div>
         </div>
-        <div className="bioDataLine">
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>Blood Group</b></p>
-            <div className="bioDataValue">{userInfo.bloodgrp}</div>
-          </div>
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>BMI</b></p>
-            {isEditing ? (
-              <input
-                type="text"
-                value={userInfo.bmi}
-                onChange={(e) => handleInputChange(e, 'bmi')}
-              />
-            ) : (
-              <div className="bioDataValue">{userInfo.bmi}</div>
-            )}
-          </div>
-          <div className="bioDataItem">
-            <p className="bioDataTitle"><b>Gender</b></p>
-            <div className="bioDataValue">{userInfo.gender}</div>
-          </div>
-        </div>
-      </div>
-      <div style={{ flex: '1 0 100%', display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
         <div className="editButtonSection">
           <button onClick={handleEditClick}>
             {isEditing ? 'Save' : 'Edit'}

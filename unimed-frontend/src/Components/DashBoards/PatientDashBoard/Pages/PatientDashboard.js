@@ -3,6 +3,7 @@ import Personal_Info from "../ComponentsPatientDashboard/Personal_Info";
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import Card from '../ComponentsPatientDashboard/Card';
 import Button from "../ComponentsPatientDashboard/Button";
+import DocAvailability from "../ComponentsPatientDashboard/DocAvailability"; // Import the DocAvailability component
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
@@ -30,6 +31,16 @@ export default function PatientDashboard() {
     <div>
       <Layout>
         <h1>{username}</h1> {/* Replace 'Patient Name' with the retrieved username */}
+        {/* <PersonalInfo {...studentInfo} /> */}
+        <br /><br /><br />
+        {/* Appointment Details Card */}
+        <Card type="appointment" date={appointment?.date} time={appointment?.time} />
+        <br /><br /><br />
+        {/* Button Component */}
+        {/* <Button /> */}
+        <br /><br /><br />
+        {/* Doctor Availability Component */}
+        <DocAvailability doctorName="Dr. John Doe" isAvailable={true} /> {/* Pass appropriate props */}
         <Personal_Info {...studentInfo} />
         <br />
         <Card />
