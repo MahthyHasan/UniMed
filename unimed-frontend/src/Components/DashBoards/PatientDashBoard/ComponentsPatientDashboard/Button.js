@@ -1,28 +1,28 @@
 import React from 'react';
 import "../../../../Css/Patient/Button.css";
+import Form from "./Form";
 
 const Button = () => {
+
+  const handleButtonClick = () => {
+    const baseUrl = window.location.origin; // Get the base URL of the current page
+    window.open(baseUrl + '/ComponentsPatientDashboard/Form.js', '_blank');
+  };
+  
+
   return (
-    <div className="container">
-      <form className="form">
-        <input
-          required
-          className="input"
-          type="datetime-local"
-          name="appointmentDateTime"
-          id="appointmentDateTime"
-        />
-        <button className="form-button request-report" type="button">
-          Request Medical Report
-        </button>
-        <button className="form-button general-checkup" type="button">
-          General Checkup
-        </button>
-      </form>
-    </div>
+    <div>
+      <button className="custom-button" onClick={handleButtonClick}>
+      General Checkup
+      </button>
+    <br></br>
+    <hr></hr>
+    
+    <button className="custom-button" onClick={handleButtonClick}>
+      Request Medical Report
+    </button>
+  </div>
   );
 };
 
 export default Button;
-
-
