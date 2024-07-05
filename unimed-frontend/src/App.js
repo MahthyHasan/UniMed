@@ -52,24 +52,10 @@ import PersonalDetails from "./Components/DashBoards/PatientDashBoard/Components
 
 import SuccessPage from "./Components/DashBoards/DoctorDashBoard/Pages/SuccessPage";
 import RecordDetailsPage from "./Components/DashBoards/DoctorDashBoard/Pages/RecordDetailsPage";
-
-function App() {
-  const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    // Retrieve the username from localStorage
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
-
-
 import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
 import TermsOfService from "./Components/Pages/Home/TermsOfService";
 
 function App() {
-
   return (
     <div>
       <Routes>
@@ -135,7 +121,7 @@ function App() {
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
 
-        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />        
+        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
         <Route path="/TermsOfService" element={<TermsOfService />} />
 
         <Route path="/Privacy" element={<Privacy />} />
