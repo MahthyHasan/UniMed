@@ -18,7 +18,7 @@ const AllergiesContainer = styled.div`
 export default function Allergies({ item1, item2 }) {
   return (
     <AllergiesContainer>
-      Allergiessss:{" "}
+      Allergies:{" "}
       <span className="ms-1 allergieitems">
         {item1}
       </span>
