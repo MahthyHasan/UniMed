@@ -231,6 +231,8 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
 
   return (
     <Modal show={show} onHide={onHide}>
+      {console.log("Modal")}
+      {console.log(onHide)}
       <Modal.Header closeButton>
         <Modal.Title>
           <h1
