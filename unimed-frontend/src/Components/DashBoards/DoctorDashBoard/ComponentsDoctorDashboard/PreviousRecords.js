@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PreviousRecordsContainer = styled.div`
   margin-bottom: 2rem;
@@ -17,6 +18,7 @@ const PreviousRecordsContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
   }
 
   p {
@@ -26,9 +28,14 @@ const PreviousRecordsContainer = styled.div`
 `;
 
 export default function PreviousRecords({ RecId, Date, Time, DaySinceLast }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/record/${RecId}`);
+  };
+
   return (
     <PreviousRecordsContainer>
-      <h4>Previous Record</h4>
       <div className="previous-record-box">
         <p>{RecId}</p>
         <p>
