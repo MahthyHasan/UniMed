@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
@@ -49,6 +49,7 @@ import Personal_Info from "./Components/DashBoards/PatientDashBoard/ComponentsPa
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
+
 import SuccessPage from "./Components/DashBoards/DoctorDashBoard/Pages/SuccessPage";
 import RecordDetailsPage from "./Components/DashBoards/DoctorDashBoard/Pages/RecordDetailsPage";
 
@@ -62,6 +63,12 @@ function App() {
       setUsername(storedUsername);
     }
   }, []);
+
+
+import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
+import TermsOfService from "./Components/Pages/Home/TermsOfService";
+
+function App() {
 
   return (
     <div>
@@ -101,6 +108,7 @@ function App() {
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
         />
+
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
         <Route
           path="/showPharmacistProfilePage/:userId"
@@ -126,6 +134,10 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
+
+        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />        
+        <Route path="/TermsOfService" element={<TermsOfService />} />
+
         <Route path="/Privacy" element={<Privacy />} />
       </Routes>
     </div>

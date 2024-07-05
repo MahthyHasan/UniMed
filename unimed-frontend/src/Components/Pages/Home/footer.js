@@ -12,10 +12,10 @@ function Footer() {
             <a href="/Privacy">Privacy Policy</a>
           </li>
           <li className="footer__link">
-            <a href="#">Terms of Service</a>
+            <a href="/TermsOfService">Terms of Service</a>
           </li>
           <li className="footer__link">
-            <a href="#">Contact Us</a>
+            <a href="/ContactUs">Contact Us</a>
           </li>
         </ul>
         <div className="footer__social-media">
