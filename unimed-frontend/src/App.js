@@ -49,6 +49,9 @@ import Personal_Info from "./Components/DashBoards/PatientDashBoard/ComponentsPa
 import CommonLogin from "./Components/Login/CommonLogin/CommonLogin";
 import Privacy from "./Components/Pages/Home/Privacy";
 import PersonalDetails from "./Components/DashBoards/PatientDashBoard/ComponentsPatientDashboard/PersonalDetails";
+
+import SuccessPage from "./Components/DashBoards/DoctorDashBoard/Pages/SuccessPage";
+import RecordDetailsPage from "./Components/DashBoards/DoctorDashBoard/Pages/RecordDetailsPage";
 import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
 import TermsOfService from "./Components/Pages/Home/TermsOfService";
 
@@ -84,6 +87,8 @@ function App() {
         <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
         <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+        <Route path="/success/:recordId" element={<SuccessPage />} />
+        <Route path="/record/:recordId" element={<RecordDetailsPage />} />
 
         <Route
           path="/showDoctorProfilePage/:userId"
@@ -115,8 +120,10 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />        
+
+        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
         <Route path="/TermsOfService" element={<TermsOfService />} />
+
         <Route path="/Privacy" element={<Privacy />} />
       </Routes>
     </div>
