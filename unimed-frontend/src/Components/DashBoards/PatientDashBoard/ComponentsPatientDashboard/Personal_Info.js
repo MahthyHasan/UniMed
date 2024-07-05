@@ -10,14 +10,14 @@ function Personal_Info({ username }) {
     gender: '',
     height: '',
     weight: '',
-    bloodgrp: '',
+    bloodGroup: '',
     bmi: ''
   });
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // Fetch user details based on the username
-    axios.get(`http://localhost:8088/personaldetails/${username}`)
+    // Fetch user bio details based on the username
+    axios.get(`http://localhost:8088/api/v1/userbio/username/${username}`)
       .then(response => {
         const data = response.data;
         const bmi = calculateBMI(data.height, data.weight);
@@ -97,7 +97,7 @@ function Personal_Info({ username }) {
         <div className="bioDataLine">
           <div className="bioDataItem">
             <p className="bioDataTitle"><b>Blood Group</b></p>
-            <div className="bioDataValue">{userInfo.bloodgrp}</div>
+            <div className="bioDataValue">{userInfo.bloodGroup}</div>
           </div>
           <div className="bioDataItem">
             <p className="bioDataTitle"><b>BMI</b></p>
