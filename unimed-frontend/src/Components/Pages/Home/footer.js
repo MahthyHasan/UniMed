@@ -5,7 +5,7 @@ import "./Privacy";
 function Footer() {
   return (
     <footer>
-      <div className="footer__content">
+      <div className="footer__content" style={{ backgroundColor: "white" }}>
         <div className="footer__logo">UniMed</div>
         <ul className="footer__links">
           <li className="footer__link">
