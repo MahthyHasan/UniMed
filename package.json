@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "input-moment": "^0.4.0"
+  },
+  "devDependencies": {
+    "npm-force-resolutions": "^0.0.10"
+  }
+}
