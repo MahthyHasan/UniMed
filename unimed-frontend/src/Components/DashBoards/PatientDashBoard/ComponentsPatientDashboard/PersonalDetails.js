@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import "../../../../Css/Patient/PersonalDetails.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PersonalDetails() {
@@ -19,53 +20,42 @@ function PersonalDetails() {
             });
     };
 
+    function createFormGroup(labelText, inputType, inputName, placeholder, additionalText = "") {
+        return (
+            <div className="form-group row">
+                <label className="col-md-4 control-label">{labelText}</label>
+                <div className="col-md-8 inputGroupContainer">
+                    <div className="input-group">
+                        <span className="input-group-addon">
+                            <i className={`glyphicon glyphicon-${inputName}`}></i>
+                        </span>
+                        <input
+                            name={inputName}
+                            placeholder={placeholder}
+                            className="form-control"
+                            type={inputType}
+                            {...register(inputName, {
+                                required: `Please supply your ${labelText.toLowerCase()}`,
+                                minLength: inputName === 'name' ? { value: 2, message: "Name must be at least 2 characters" } : null,
+                            })}
+                        />
+                        {additionalText && <span className="input-group-addon">{additionalText}</span>}
+                    </div>
+                    {errors[inputName] && <span className="text-danger">{errors[inputName].message}</span>}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="container">
             <form className="well form-horizontal" id="personal_details_form" onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                     <legend>Personal Details</legend>
-                    <div className="form-group row">
-                        <label className="col-md-4 control-label">NIC</label>
-                        <div className="col-md-8 inputGroupContainer">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-credit-card"></i>
-                                </span>
-                                <input
-                                    name="nic"
-                                    placeholder="Enter your NIC number"
-                                    className="form-control"
-                                    type="text"
-                                    {...register('nic', {
-                                        required: 'Please supply your NIC number',
-                                    })}
-                                />
-                            </div>
-                            {errors.nic && <span className="text-danger">{errors.nic.message}</span>}
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                        <label className="col-md-4 control-label">Age</label>
-                        <div className="col-md-8 inputGroupContainer">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-user"></i>
-                                </span>
-                                <input
-                                    name="age"
-                                    placeholder="Enter your age"
-                                    className="form-control"
-                                    type="number"
-                                    {...register('age', {
-                                        required: 'Please supply your age',
-                                    })}
-                                />
-                            </div>
-                            {errors.age && <span className="text-danger">{errors.age.message}</span>}
-                        </div>
-                    </div>
-
+                    {createFormGroup('Full Name', 'text', 'name', 'Enter your full name')}
+                    {createFormGroup('NIC Number', 'text', 'nic', 'Enter your NIC number')}
+                    {createFormGroup('Enrollment Number', 'text', 'enrollmentNumber', 'Enter your enrollment number')}
+                    {createFormGroup('Email', 'email', 'email', 'Enter your email')}
                     <div className="form-group row">
                         <label className="col-md-4 control-label">Gender</label>
                         <div className="col-md-8">
@@ -80,53 +70,13 @@ function PersonalDetails() {
                             {errors.gender && <span className="text-danger">{errors.gender.message}</span>}
                         </div>
                     </div>
-
-                    <div className="form-group row">
-                        <label className="col-md-4 control-label">Height (cm)</label>
-                        <div className="col-md-8 inputGroupContainer">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-user"></i>
-                                </span>
-                                <input
-                                    name="height"
-                                    placeholder="Enter your height in cm"
-                                    className="form-control"
-                                    type="number"
-                                    {...register('height', {
-                                        required: 'Please supply your height',
-                                    })}
-                                />
-                            </div>
-                            {errors.height && <span className="text-danger">{errors.height.message}</span>}
-                        </div>
-                    </div>
-
-                    <div className="form-group row">
-                        <label className="col-md-4 control-label">Weight (kg)</label>
-                        <div className="col-md-8 inputGroupContainer">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-user"></i>
-                                </span>
-                                <input
-                                    name="weight"
-                                    placeholder="Enter your weight in kg"
-                                    className="form-control"
-                                    type="number"
-                                    {...register('weight', {
-                                        required: 'Please supply your weight',
-                                    })}
-                                />
-                            </div>
-                            {errors.weight && <span className="text-danger">{errors.weight.message}</span>}
-                        </div>
-                    </div>
-
+                    {createFormGroup('Age', 'number', 'age', 'Enter your age')}
+                    {createFormGroup('Height', 'number', 'height', 'Enter your height', 'cm')}
+                    {createFormGroup('Weight', 'number', 'weight', 'Enter your weight', 'kg')}
                     <div className="form-group row">
                         <label className="col-md-4 control-label">Blood Group</label>
                         <div className="col-md-8">
-                            <select name="bloodGroup" className="form-control" {...register('bloodGroup', { required: 'Please select your blood group' })}>
+                            <select name="blood_group" className="form-control" {...register('bloodGroup', { required: 'Please select your blood group' })}>
                                 <option value="">Select your blood group</option>
                                 {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map(bloodGroup => (
                                     <option key={bloodGroup} value={bloodGroup}>{bloodGroup}</option>
@@ -135,28 +85,6 @@ function PersonalDetails() {
                             {errors.bloodGroup && <span className="text-danger">{errors.bloodGroup.message}</span>}
                         </div>
                     </div>
-
-                    <div className="form-group row">
-                        <label className="col-md-4 control-label">Phone Number</label>
-                        <div className="col-md-8 inputGroupContainer">
-                            <div className="input-group">
-                                <span className="input-group-addon">
-                                    <i className="glyphicon glyphicon-earphone"></i>
-                                </span>
-                                <input
-                                    name="phoneNo"
-                                    placeholder="Enter your phone number"
-                                    className="form-control"
-                                    type="text"
-                                    {...register('phoneNo', {
-                                        required: 'Please supply your phone number',
-                                    })}
-                                />
-                            </div>
-                            {errors.phoneNo && <span className="text-danger">{errors.phoneNo.message}</span>}
-                        </div>
-                    </div>
-
                     <div className="form-group row">
                         <div className="col-md-8 col-md-offset-4">
                             <button type="submit" className="btn btn-success">

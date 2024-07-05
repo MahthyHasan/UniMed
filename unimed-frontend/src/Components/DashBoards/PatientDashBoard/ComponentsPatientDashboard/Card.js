@@ -1,39 +1,40 @@
 import React from "react";
+import Button from "./Button"; 
+import patientIcon from "../../../../assets/icons/patient.svg";
 import "../../../../Css/Patient/Card.css";
 
-  
-
-const Card = ({ type, date, time, isDoctorAvailable }) => {
-  const cardStyle = {
-    width: '280px',
-    height: '150px',
-    background: type === 'appointment' ? '#18cdca' : '#18cdca', // Use the same color for both cards
-    borderRadius: '15px',
-    boxShadow: '5px 10px 50px rgba(0, 0, 0, 0.7), -5px 0px 250px rgba(0, 0, 0, 0.7)',
-    display: 'flex',
-    color: 'white',
-    justifyContent: 'center',
-    position: 'relative',
-    flexDirection: 'column',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease-in-out',
-    overflow: 'hidden',
-  };
-
-  const availabilityText = isDoctorAvailable ? 'Doctor Available' : 'Doctor Unavailable';
-
+const Card = () => {
   return (
-    <div className="card" style={cardStyle}>
-      {type === 'appointment' && (
-        <React.Fragment>
-          <p className="card-topic">Appointment Details:</p>
-          <p className="card-text">Date: {date}</p>
-          <p className="card-text">Time: {time}</p>
-        </React.Fragment>
-      )}
-      {type === 'doctorAvailability' && (
-        <p className="card-text">{availabilityText}</p>
-      )}
+    <div className="card--container">
+
+      {/* Integrating Button component */}
+      <div className="button-container">
+        <Button onClick={() => console.log("Button clicked from Card.js")} />
+      </div>
+      {/* Doctor Availability Card */}
+      <div class="card">
+        <div class="card-header">
+          Doctor Availability
+        </div>
+        <div class="card-body">
+          <div class="availability-status available">
+            <span>Available</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Appointment Details Card */}
+      <div class="availability-card">
+        <div class="availability-header">
+          Appointment Details
+        </div>
+        <div class="availability-body">
+          <p><strong>Date:</strong> July 15, 2024</p>
+          <p><strong>Time:</strong> 10:00 AM</p>
+        </div>
+      </div>
+
+      
     </div>
   );
 };
