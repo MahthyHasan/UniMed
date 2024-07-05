@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
+import PersonalInfo from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import Card from '../ComponentsPatientDashboard/Card';
 import Button from "../ComponentsPatientDashboard/Button";
 
-export default function PatientDashboard() {
+const PatientDashboard = () => {
   const [username, setUsername] = useState("");
+  const [appointment, setAppointment] = useState(null);
 
   useEffect(() => {
     // Retrieve the username from localStorage
@@ -13,6 +14,16 @@ export default function PatientDashboard() {
     if (storedUsername) {
       setUsername(storedUsername);
     }
+
+    // Example: Fetch appointment data from API or localStorage
+    const fetchedAppointment = {
+      date: "Wednesday, June 15th",
+      time: "11:11 PM"
+    };
+
+    // Set the appointment state
+    setAppointment(fetchedAppointment);
+
   }, []);
 
   const studentInfo = {
@@ -30,11 +41,16 @@ export default function PatientDashboard() {
     <div>
       <Layout>
         <h1>{username}</h1> {/* Replace 'Patient Name' with the retrieved username */}
-        <Personal_Info {...studentInfo} />
-        <br />
-        <Card />
-        <br />
+        <PersonalInfo {...studentInfo} />
+        <br /><br /><br />
+        {/* Appointment Details Card */}
+        <Card type="appointment" date={appointment?.date} time={appointment?.time} />
+        <br /><br /><br />
+        {/* Button Component */}
+        <Button />
       </Layout>
     </div>
   );
-}
+};
+
+export default PatientDashboard;

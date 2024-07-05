@@ -1,70 +1,37 @@
-/* Card.css */
-
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: 300px;
-  margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff; /* White background */
-}
-
-.card-header {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333; /* Dark text color */
-}
-
-.card-body {
+  width: 280px;
+  height: 150px;
+  background: linear-gradient(to left, rgb(20, 30, 48), rgb(36, 59, 85)); /* Replace with your desired gradient */
+  border-radius: 15px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: white;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the start (left) */
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  box-shadow: none; /* Remove box-shadow */
+  margin: 0 10px; /* Adjust margin for spacing between cards */
+  padding: 15px; /* Add padding for content spacing */
 }
 
-.availability-status {
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  width: 100px;
-  font-weight: bold;
-  text-transform: uppercase;
+.card:hover {
+  /* Adjust hover effects if needed */
 }
 
-.availability-status.available {
-  background-color: #dae3da; /* Lime Green */
-  color: #190606; /* White text */
+.card-topic {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px; /* Added margin bottom for separation */
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.availability-status.unavailable {
-  background-color: #FF6347; /* Tomato Red */
-  color: #070404; /* White text */
-}
-
-.availability-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: 300px;
-  margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff; /* White background */
-}
-
-.availability-header {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333; /* Dark text color */
-}
-
-.availability-body {
-  padding: 10px;
-  color: #070404;
-}
-
-.availability-body p {
-  margin: 5px 0;
-  color: #070404;
+.card-text {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 500;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: left; /* Align text content to the left */
 }
