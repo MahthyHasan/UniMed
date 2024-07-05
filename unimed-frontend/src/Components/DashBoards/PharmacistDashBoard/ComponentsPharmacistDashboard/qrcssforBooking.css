@@ -1,0 +1,36 @@
+.qrCodeScanner {
+	width: 30.75rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.qrCodeScannerIntroduction {
+   	margin-top: 14px;
+	color: #5d13e7;
+	text-align: center;
+	font-family: Inter;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+.qrCodeReader{
+border-radius: 1rem;
+background: #BDF2D5;
+justify-content: center;
+align-items: center;
+}
+.qrCodeResuts {
+    margin-top: 1rem;
+	flex-shrink: 0;
+	color: #5d13e7;
+	text-align: center;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+.ScanerPart{
+    margin-top: -1rem;
+}
