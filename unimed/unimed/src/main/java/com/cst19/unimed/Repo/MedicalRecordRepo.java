@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface MedicalRecordRepo extends MongoRepository<MedicalRecords, String> {
 
     Optional<MedicalRecords> findFirstByPatientIdOrderByDateDescTimeDesc(String patientId);
-
     List<MedicalRecords> findAllByPatientIdOrderByDateDescTimeDesc(String patientId);
+    List<MedicalRecords> findByPatientIdAndDrugIssuedFalse(String patientId);
+
 }

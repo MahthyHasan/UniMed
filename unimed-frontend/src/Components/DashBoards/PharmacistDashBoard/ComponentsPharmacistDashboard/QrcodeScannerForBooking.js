@@ -18,7 +18,10 @@ const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     localStorage.setItem('scannedPID', userBio._id);
-                    window.location.href = `/Book a Time Slot`;
+                    console.log(userBio._id);
+
+                    // Create booking slot
+                    await createBooking(userBio._id);
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {
@@ -28,6 +31,19 @@ const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
                     setAlert("An error occurred while checking the user profile");
                 }
             }
+        }
+    };
+
+    const createBooking = async (patientId) => {
+        try {
+            const response = await axios.post(`http://localhost:8088/api/v1/booking/create/${patientId}`);
+            if (response.status === 200) {
+                console.log("Booking created:", response.data);
+                setAlert("Time slot Booked");
+            }
+        } catch (error) {
+            console.error("Error creating booking:", error);
+            setAlert("An error occurred while creating the booking");
         }
     };
 
@@ -65,9 +81,15 @@ const QrcodeScannerForBooking = ({ setShowQrDiv }) => {
                         </button>
                     </>
                 ) : (
+                    <>
                     <button onClick={startScanning} className="btn btn-success">
                         Start Scan again
                     </button>
+                    <button onClick={stopScanning} className="btn btn-danger">
+                            Cancel Scanning
+                    </button>
+                    </>                    
+                    
                 )}
             </div>
             <div className="qrCodeResults row">

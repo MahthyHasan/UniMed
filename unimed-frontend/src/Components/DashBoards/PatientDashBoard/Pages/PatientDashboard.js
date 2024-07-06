@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
-import Card from '../ComponentsPatientDashboard/Card';
-import Button from "../ComponentsPatientDashboard/Button";
+import DocAvailability from "../ComponentsPatientDashboard/DocAvailability";
+import DayScheduleButton from "../ComponentsPatientDashboard/DayScheduleButton";
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
 
   useEffect(() => {
-    // Retrieve the username from localStorage
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
@@ -26,14 +26,22 @@ export default function PatientDashboard() {
     bmi: "12"
   };
 
+  
   return (
     <div>
       <Layout>
-        <h1>{username}</h1> {/* Replace 'Patient Name' with the retrieved username */}
-        <Personal_Info {...studentInfo} />
-        <br />
-        <Card />
-        <br />
+        <h1>{username}</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <Personal_Info {...studentInfo} />
+            </div>
+            <div className="col-md-6 d-flex flex-column align-items-center">
+              <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
+              <DayScheduleButton />
+            </div>
+          </div>
+        </div>
       </Layout>
     </div>
   );

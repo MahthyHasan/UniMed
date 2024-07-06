@@ -25,4 +25,15 @@ public class MedicalServices {
         return repo.findAllByPatientIdOrderByDateDescTimeDesc(patientId);
     }
 
+    public List<MedicalRecords> getMedicalRecordsWithPendingDrugs(String patientId) {
+        return repo.findByPatientIdAndDrugIssuedFalse(patientId);
+    }
+
+    public void updateDrugIssuedStatus(String recordId, Boolean status) {
+        MedicalRecords record = repo.findById(recordId)
+                .orElseThrow(() -> new RuntimeException("Medical record not found for id: " + recordId));
+        record.setDrugIssued(status);
+        repo.save(record);
+    }
+
 }

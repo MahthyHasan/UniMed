@@ -17,6 +17,12 @@ body {
 p {
   background-color: transparent;
 }
+
+
+.modal-backdrop {
+  z-index: -1 !important;
+}
+
 .bg-default {
   background-color: rgb(249, 250, 251) !important;
 }
@@ -68,7 +74,7 @@ p {
   justify-content: end;
   margin-left: auto;
   display: flex;
-  width: fit-content;
+  /*width: fit-content;*/
   padding: 10px 10px 10px 10px;
   cursor: pointer;
   margin-top: 10px;
@@ -482,7 +488,7 @@ p {
   margin-left: auto;
   opacity: 0;
   transition: visibility 0.1s linear, opacity 0.1s linear;
-  -webkit-tap-highlight-color: transparent;
+ /* -webkit-tap-highlight-color: transparent;*/
   background-color: #181818ab;
   z-index: 9;
 }
@@ -1068,7 +1074,7 @@ p {
   align-items: center;
   background: #bdf2d5;
   margin-top: 50px;
-  margin-left: 9rem;
+  margin-left: 200px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -1148,7 +1154,8 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15%;
+  padding: 10%;
+  margin-top: -1.7rem;
 }
 
 .channelling-card1,
@@ -1249,20 +1256,20 @@ channelling-card2 {
 }
 
 /*Component- booked time slots*/
-.booked-slots {
-  margin-right: 50px;
+.booked-slots {  
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 0px;
-  margin-left: 150px;
-  margin-top: 40px;
+  margin-top: -5rem;  
+}
+.booked-slots-text{
+  margin-top: -2rem;
 }
 
 .text {
-  margin-top: 110px;
+  margin-top: -1.5rem;
   margin-bottom: 10px;
   margin-left: -700px;
   margin-right: 50px;

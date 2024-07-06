@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "dayschedule-widget": "^1.2.0",
+    "input-moment": "^0.4.0"
+  },
+  "devDependencies": {
+    "npm-force-resolutions": "^0.0.10"
+  }
+}

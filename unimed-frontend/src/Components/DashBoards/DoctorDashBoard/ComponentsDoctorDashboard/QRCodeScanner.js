@@ -18,6 +18,12 @@ const QRCodeScanner = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     localStorage.setItem('scannedPID', userBio._id);
+
+                    // Update booking status to 'consulted'
+                    await axios.put(`http://localhost:8088/api/v1/booking/updateByPatientId/${userBio._id}`, null, {
+                        params: { status: 'consulted' }
+                    });
+
                     window.location.href = `/ClinicRecords`;
                 }
             } catch (error) {
@@ -25,7 +31,7 @@ const QRCodeScanner = ({ setShowQrDiv }) => {
                     setAlert("User profile not found");
                 } else {
                     console.error(error);
-                    setAlert("An error occurred while checking the user profile");
+                    setAlert("An error occurred while checking the user profile or updating the booking status");
                 }
             }
         }

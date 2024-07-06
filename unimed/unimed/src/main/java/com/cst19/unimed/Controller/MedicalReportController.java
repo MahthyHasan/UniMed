@@ -34,4 +34,16 @@ public class MedicalReportController {
         return ResponseEntity.ok(allRecords);
     }
 
+    @GetMapping("/pending/{patientId}")
+    public ResponseEntity<List<MedicalRecords>> getMedicalRecordsWithPendingDrugs(@PathVariable String patientId) {
+        List<MedicalRecords> records = medicalServices.getMedicalRecordsWithPendingDrugs(patientId);
+        return ResponseEntity.ok(records);
+    }
+
+    @PutMapping("/updateDrugIssuedStatus/{recordId}")
+    public ResponseEntity<?> updateDrugIssuedStatus(@PathVariable String recordId, @RequestParam Boolean status) {
+        medicalServices.updateDrugIssuedStatus(recordId, status);
+        return ResponseEntity.ok("Drug issued status updated successfully.");
+    }
+
 }
