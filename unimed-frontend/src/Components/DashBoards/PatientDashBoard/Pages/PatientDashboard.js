@@ -44,25 +44,26 @@
 //     <div>
 //       <Layout>
 //         <h1>{username}</h1> 
-//         <Personal_Info {...studentInfo} />
+//         {/* <Personal_Info {...studentInfo} /> */}
 //         <br /><br /><br />
 //         {/* <AppointmentList onViewAppointment={handleViewAppointment} /> */}
 //         <br /><br /><br />
 //         {/* <Button /> */}
 //         <br /><br /><br />
-//         <DocAvailability doctorName="Dr. John Doe" isAvailable={true} /> 
-//          {/* <AddAppointment onAddAppointment={handleAddAppointment} />  */}
-//         {/* <ViewAppointment appointment={selectedAppointment} />   */}
+//         {/* <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />  */}
+//          <AddAppointment onAddAppointment={handleAddAppointment} /> 
+//         <ViewAppointment appointment={selectedAppointment} />  
 //       </Layout> 
 //     </div>
 //   );
 // }
 
-
 import React, { useEffect, useState } from "react";
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import DocAvailability from "../ComponentsPatientDashboard/DocAvailability";
+import DayScheduleButton from "../ComponentsPatientDashboard/DayScheduleButton";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
@@ -97,16 +98,19 @@ export default function PatientDashboard() {
   return (
     <div>
       <Layout>
-        <h1>{username}</h1> 
-        <div style={{ display: 'flex' }}>
-          <div style={{ flex: 1, paddingRight: '10px' }}>
-            <Personal_Info {...studentInfo} />
-          </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'center', paddingLeft: '10px' }}>
-            <DocAvailability doctorName="Dr. John Doe" isAvailable={true} /> 
+        <h1>{username}</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <Personal_Info {...studentInfo} />
+            </div>
+            <div className="col-md-6 d-flex flex-column align-items-center">
+              <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
+              <DayScheduleButton />
+            </div>
           </div>
         </div>
-      </Layout> 
+      </Layout>
     </div>
   );
 }
