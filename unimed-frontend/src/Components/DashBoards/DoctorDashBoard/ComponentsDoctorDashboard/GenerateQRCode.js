@@ -3,20 +3,24 @@ import { Button } from 'react-bootstrap';
 import QRCode from 'qrcode';
 import { QrReader } from 'react-qr-reader';
 
+export const generateQRCodetest = async (text, setImageUrl) => {
+  try {
+    const response = await QRCode.toDataURL(text);
+    setImageUrl(response);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 function GenerateQRCode() {
   const [text, setText] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const qrRef = useRef(null);
   const [scanResultFile, setScanResultFile] = useState('');
 
-  const generateQRCodetest = async () => {
-    try {
-      const response = await QRCode.toDataURL(text);
-      setImageUrl(response);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+  const handleGenerateQRCode = () => {
+    generateQRCodetest(text, setImageUrl);
   };
 
   const handleErrorFile = (error) => {
@@ -41,7 +45,7 @@ function GenerateQRCode() {
     <div>
       <label>Enter Text</label>
       <input type="text" onChange={(e) => setText(e.target.value)} />
-      <Button onClick={generateQRCodetest}>Generate QR Code</Button>
+      <Button onClick={handleGenerateQRCode}>Generate QR Code</Button>
       <br />
       <br />
       {imageUrl ? (
