@@ -17,6 +17,12 @@ body {
 p {
   background-color: transparent;
 }
+
+
+.modal-backdrop {
+  z-index: -1 !important;
+}
+
 .bg-default {
   background-color: rgb(249, 250, 251) !important;
 }
