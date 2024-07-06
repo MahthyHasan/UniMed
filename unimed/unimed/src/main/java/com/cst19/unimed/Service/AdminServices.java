@@ -5,6 +5,7 @@ import com.cst19.unimed.Entity.AdminBio;
 import com.cst19.unimed.Repo.AdminBioRepo;
 import com.cst19.unimed.Repo.AdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,9 @@ public class AdminServices {
     private AdminBioRepo repobio;
 
     public void saveorupdate(Admin admins){
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptPass = bcrypt.encode(admins.getPassword());
+        admins.setPassword(encryptPass);
         repo.save(admins);
     }
     public void saveorupdatebio(AdminBio adminBio){
@@ -34,5 +38,9 @@ public class AdminServices {
     public void deleteAdminByID(String userId){
         repo.deleteById(userId);
         repobio.deleteById(userId);
+    }
+
+    public Admin getUserByUserName(String username){
+        return repo.findByUsername(username);
     }
 }

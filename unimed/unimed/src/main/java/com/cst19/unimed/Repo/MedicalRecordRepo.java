@@ -13,4 +13,5 @@ public interface MedicalRecordRepo extends MongoRepository<MedicalRecords, Strin
     List<MedicalRecords> findAllByPatientIdOrderByDateDescTimeDesc(String patientId);
     List<MedicalRecords> findByPatientIdAndDrugIssuedFalse(String patientId);
 
+
 }

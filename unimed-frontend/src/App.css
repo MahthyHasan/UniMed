@@ -22,7 +22,14 @@ p {
 .modal-backdrop {
   z-index: -1 !important;
 }
-
+.error-message{
+  color: rgb(240, 67, 15) !important;
+  font-size: 15px;
+}
+.sign-in-form-input-02-doctor{
+  font-size: 20px !important;
+  color: #000032 !important;
+}
 .bg-default {
   background-color: rgb(249, 250, 251) !important;
 }

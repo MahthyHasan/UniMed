@@ -6,6 +6,7 @@ import com.cst19.unimed.Service.DoctorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 public class DoctorController {
     @Autowired
     private DoctorServices doctorService;
+
+    private BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+
 
     @PostMapping(value = "/save")
     private ResponseEntity<?> registerDoctor(@RequestBody Doctor doctors) {
@@ -97,10 +101,11 @@ public class DoctorController {
 
     @PostMapping("/login")
     private ResponseEntity<?> login(@RequestBody Doctor loginDoctor) {
-        Doctor doctor = doctorService.getUserByUsernameAndPassword(loginDoctor.getUsername(), loginDoctor.getPassword());
-        if (doctor != null) {
+        Doctor doctor = doctorService.getUserByUserName(loginDoctor.getUsername());
+
+        if(doctor != null && bcrypt.matches(loginDoctor.getPassword(), doctor.getPassword())){
             return ResponseEntity.ok(doctor);
-        } else {
+        }else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
     }

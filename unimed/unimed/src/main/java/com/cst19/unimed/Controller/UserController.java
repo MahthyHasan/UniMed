@@ -6,6 +6,7 @@ import com.cst19.unimed.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
@@ -17,6 +18,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    private BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 
     @PostMapping(value = "/save")
     private ResponseEntity<String> registerUser(@RequestBody User user) {
@@ -66,12 +69,17 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    private ResponseEntity<?> login(@RequestBody User loginUser) {
-        User user = userService.getUserByUsernameAndPassword(loginUser.getUsername(), loginUser.getPassword());
-        if (user != null && user.isVerified()) {
-            return ResponseEntity.ok(user);
-        } else if (user != null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email not verified.");
+    public ResponseEntity<?> login(@RequestBody User loginUser) {
+        // Fetch the user by username
+        User user = userService.getUserByUsername(loginUser.getUsername());
+
+        // If user exists and the password matches
+        if (user != null && bcrypt.matches(loginUser.getPassword(), user.getPassword())) {
+            if (user.isVerified()) {
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email not verified.");
+            }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }

@@ -6,6 +6,7 @@ import com.cst19.unimed.Entity.DoctorBio;
 import com.cst19.unimed.Repo.DoctorBioRepo;
 import com.cst19.unimed.Repo.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,9 @@ public class DoctorServices {
     private DoctorBioRepo repobio;
 
     public void  saveorupdate(Doctor doctors){
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encrtyptPass = bcrypt.encode(doctors.getPassword());
+        doctors.setPassword(encrtyptPass);
         repo.save(doctors);
     }
     public void saveorupdatebio(DoctorBio doctorBio){repobio.save(doctorBio);}
@@ -32,5 +36,8 @@ public class DoctorServices {
     public void deleteDoctorById(String userId) {
         repo.deleteById(userId);
         repobio.deleteById(userId);
+    }
+    public Doctor getUserByUserName(String username){
+        return repo.findByUsername(username);
     }
 }
