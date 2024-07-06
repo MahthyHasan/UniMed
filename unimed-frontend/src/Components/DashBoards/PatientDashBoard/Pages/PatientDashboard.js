@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import DocAvailability from "../ComponentsPatientDashboard/DocAvailability";
 import DayScheduleButton from "../ComponentsPatientDashboard/DayScheduleButton";
-import GenerateQRCode from "../../DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode";
+
 export default function PatientDashboard() {
   const [username, setUsername] = useState("");
   const [selectedAppointment, setSelectedAppointment] = useState(null);
@@ -26,11 +25,10 @@ export default function PatientDashboard() {
     bloodgrp: "O+",
     bmi: "12"
   };
-  
 
+  
   return (
     <div>
-
       <Layout>
         <h1>{username}</h1>
         <div className="container">
@@ -41,12 +39,10 @@ export default function PatientDashboard() {
             <div className="col-md-6 d-flex flex-column align-items-center">
               <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
               <DayScheduleButton />
-              {/* <GenerateQRCode /> */}
             </div>
           </div>
         </div>
       </Layout>
-
     </div>
   );
 }
