@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, NavLink } from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
 import Dropdown from "react-bootstrap/Dropdown";
-import Button from "react-bootstrap/Button";
 import { EditProfile } from "./EditProfile";
 import { changeToggle } from "../../../../redux/actions";
 import home from "../../../../assets/icons2/home-p.svg";
@@ -29,12 +28,6 @@ export default function PatientLayout({ children }) {
     dispatch(changeToggle(!open));
   }
 
-  const [profilePopupShow, setProfilePopupShow] = useState(false);
-
-  const handleProfileClick = () => {
-    setProfilePopupShow(!profilePopupShow);
-  };
-
   const navigate = useNavigate();
 
   const handlePersonalDetailsClick = () => {
@@ -46,8 +39,8 @@ export default function PatientLayout({ children }) {
       <div className="row flex-nowrap">
         <div
           className={
-            (!open ? " col-xl-2" : " w-100px") +
-            (!show ? " mobile-navbar-hide " : " mobile-show ") +
+            (!open ? "col-xl-2" : "w-100px") +
+            (!show ? " mobile-navbar-hide" : " mobile-show") +
             " col-auto col-md-1 px-0 side-bg-color border-right min-vh-100 trans"
           }
         >
@@ -63,113 +56,103 @@ export default function PatientLayout({ children }) {
                 <img
                   src={SideClose}
                   alt="SideClose"
-                  className={!!open && "rotate-180"}
+                  className={open ? "rotate-180" : ""}
                 />
               </div>
             </div>
           </div>
 
           <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
-            <div className={"w-100 px-sm-2"}>
+            <div className="w-100 px-sm-2">
               <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active "
-                    : "side-menu-item "
-                }
+                exact
                 to={"/PatientDashboard"}
+                className="side-menu-item"
+                activeClassName="side-menu-active"
               >
-                <div className={"d-flex"}>
+                <div className="d-flex align-items-center">
                   <img
                     src={home}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
-                    className=" me-2"
+                    className="me-2"
                   />
-                  {!open && <div className={"trans-1"}>Home</div>}
+                  {!open && <div className="trans-1">Home</div>}
                 </div>
               </NavLink>
             </div>
 
-            <div className={"w-100 px-sm-2"}>
+            <div className="w-100 px-sm-2">
               <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
+                exact
                 to={"/Myrecords"}
+                className="side-menu-item"
+                activeClassName="side-menu-active"
               >
-                <div className={"d-flex"}>
+                <div className="d-flex align-items-center">
                   <img
                     src={Myrecords}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
-                    className=" me-2"
+                    className="me-2"
                   />
-                  {!open && <div className={""}>My Records</div>}
+                  {!open && <div>My Records</div>}
                 </div>
               </NavLink>
             </div>
-            <div className={"w-100 px-sm-2"}>
+            <div className="w-100 px-sm-2">
               <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
+                exact
                 to={""}
+                className="side-menu-item"
+                activeClassName="side-menu-active"
               >
-                <div className={"d-flex"}>
+                <div className="d-flex align-items-center">
                   <img
                     src={chat}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
-                    className=" me-2"
+                    className="me-2"
                   />
-                  {!open && <div className={""}>Community Chat</div>}
+                  {!open && <div>Community Chat</div>}
                 </div>
               </NavLink>
             </div>
-            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
+            <div className="w-100 px-sm-2 log-out-button-in-side-navbar">
               <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
+                exact
                 to={"/Feedback"}
+                className="side-menu-item"
+                activeClassName="side-menu-active"
               >
-                <div className={"d-flex"}>
+                <div className="d-flex align-items-center">
                   <img
                     src={medcetificate}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
-                    className=" me-2"
+                    className="me-2"
                   />
-                  {!open && <div className={""}>Feedback</div>}
+                  {!open && <div>Feedback</div>}
                 </div>
               </NavLink>
             </div>
-            <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
+            <div className="w-100 px-sm-2 log-out-button-in-side-navbar">
               <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
+                exact
                 to={"/Feedback"}
+                className="side-menu-item"
+                activeClassName="side-menu-active"
               >
-                <div className={"d-flex"}>
+                <div className="d-flex align-items-center">
                   <FeatherIcon
                     icon="log-out"
                     className={!open ? "me-2" : "ms-1"}
                   />
-                  {!open && <div className={""}>log-out</div>}
+                  {!open && <div>Log-out</div>}
                 </div>
               </NavLink>
             </div>
@@ -179,20 +162,18 @@ export default function PatientLayout({ children }) {
           <nav className="navbar navbar-expand-lg bg-white border-bottom-d1d1d1 px-4">
             <div className="container-fluid nav-iconset flex-nowrap">
               <button
-                className="navbar-toggler "
+                className="navbar-toggler"
                 type="button"
                 onClick={() => setShow(!show)}
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <div className="collapse navbar-collapse " id="">
+              <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
                   <button
                     type="button"
-                    className={
-                      "btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items"
-                    }
-                    onClick={handlePersonalDetailsClick} // Navigate to PersonalDetails page
+                    className="btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items"
+                    onClick={handlePersonalDetailsClick}
                   >
                     Personal Details
                   </button>
@@ -222,9 +203,7 @@ export default function PatientLayout({ children }) {
 
                         <button
                           type="button"
-                          className={
-                            "btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
-                          }
+                          className="btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
                           onClick={() => {
                             setModalType("Edit");
                             setModalShow(true);

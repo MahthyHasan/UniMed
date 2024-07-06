@@ -1,32 +1,41 @@
-import React, { useEffect, useState } from "react";
-import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
-import Layout from "../../layout/PatientLayout/PatientLayout";
-import DocAvailability from "../ComponentsPatientDashboard/DocAvailability";
-import DayScheduleButton from "../ComponentsPatientDashboard/DayScheduleButton";
+import React, { useEffect, useState } from 'react';
+import Personal_Info from '../ComponentsPatientDashboard/Personal_Info';
+import Layout from '../../layout/PatientLayout/PatientLayout';
+import DocAvailability from '../ComponentsPatientDashboard/DocAvailability';
+import DayScheduleButton from '../ComponentsPatientDashboard/DayScheduleButton';
+import QRGenerator from '../ComponentsPatientDashboard/QR';
+import '../../../../Css/Patient/PatientDashboard.css';
 
 export default function PatientDashboard() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [selectedAppointment, setSelectedAppointment] = useState(null);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
+    const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
 
   const studentInfo = {
-    name: "M.J.M.M Hasan",
-    id: "UWU/CST/20/109",
-    age: "25",
-    gender: "Male",
-    height: "160cm",
-    weight: "65kg",
-    bloodgrp: "O+",
-    bmi: "12"
+    name: 'M.J.M.M Hasan',
+    id: 'UWU/CST/20/109',
+    age: '25',
+    gender: 'Male',
+    height: '160cm',
+    weight: '65kg',
+    bloodgrp: 'O+',
+    bmi: '12',
   };
 
-  
+  const handleAddAppointment = (startTime, endTime, name, phone) => {
+    // Add logic to handle adding an appointment
+  };
+
+  const handleViewAppointment = (appointment) => {
+    setSelectedAppointment(appointment);
+  };
+
   return (
     <div>
       <Layout>
@@ -37,8 +46,15 @@ export default function PatientDashboard() {
               <Personal_Info {...studentInfo} />
             </div>
             <div className="col-md-6 d-flex flex-column align-items-center">
-              <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
-              <DayScheduleButton />
+              <div className="card">
+                <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
+              </div>
+              <div className="card">
+                <DayScheduleButton />
+              </div>
+              <div className="qr-container">
+                <QRGenerator />
+              </div>
             </div>
           </div>
         </div>
