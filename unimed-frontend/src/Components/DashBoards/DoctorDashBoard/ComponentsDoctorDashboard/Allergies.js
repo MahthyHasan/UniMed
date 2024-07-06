@@ -15,7 +15,7 @@ const AllergiesContainer = styled.div`
   }
 `;
 
-export default function Allergies({ item1, item2 }) {
+export default function Allergies({ item1 }) {
   return (
     <AllergiesContainer>
       Allergies:{" "}

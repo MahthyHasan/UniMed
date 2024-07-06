@@ -36,7 +36,7 @@ export default function PreviousRecords({ RecId, Date, Time, DaySinceLast }) {
 
   return (
     <PreviousRecordsContainer>
-      <div className="previous-record-box">
+      <div className="previous-record-box" onClick={handleClick}>
         <p>{RecId}</p>
         <p>
           {Date}
