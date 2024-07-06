@@ -6,10 +6,16 @@ import com.cst19.unimed.Repo.BookingRepo;
 import com.cst19.unimed.Repo.TimeSlotRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import java.util.Map;
 
 @Service
 public class BookingService {
@@ -19,6 +25,9 @@ public class BookingService {
 
     @Autowired
     private BookingRepo bookingRepo;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     public BookingSlot createBooking(String patientId) {
         LocalDateTime now = LocalDateTime.now();
@@ -53,4 +62,31 @@ public class BookingService {
         }
     }
 
+    public BookingSlot updateBookingStatusByPatientId(String patientId, String status) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("patient_id").is(patientId));
+        BookingSlot bookingSlot = mongoTemplate.findOne(query, BookingSlot.class);
+        if (bookingSlot != null) {
+            bookingSlot.setStatus(status);
+            return bookingRepo.save(bookingSlot);
+        } else {
+            throw new RuntimeException("BookingSlot not found for patient_id: " + patientId);
+        }
+    }
+
+    public BookingSlot checkOutBookingByPatientId(String patientId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("patient_id").is(patientId).and("status").is("consulted"));
+        BookingSlot bookingSlot = mongoTemplate.findOne(query, BookingSlot.class);
+        if (bookingSlot != null) {
+            bookingSlot.setStatus("check-out");
+            return bookingRepo.save(bookingSlot);
+        } else {
+            throw new RuntimeException("BookingSlot not found with patient_id: " + patientId + " and status: consulted");
+        }
+    }
+
+    public long countByStatus(String status) {
+        return bookingRepo.countByStatus(status);
+    }
 }

@@ -5,7 +5,7 @@ import iconpath1 from '../../../assets/icons/user-icon.svg';
 import iconpath2 from '../../../assets/icons/lock-icon.svg';
 import logopath from '../../../assets/logo.png';
 import backIcon from '../../../assets/icons2/back-buttons-multimedia-svgrepo-com.svg';
-import tickIcon from '../../../assets/Login-icons/tick.svg'
+import tickIcon from '../../../assets/Login-icons/tick.svg';
 import './doctorLogin.css';
 
 function DoctorLogin() {
@@ -43,13 +43,31 @@ function DoctorLogin() {
         formData
       );
       const { token, user } = response.data;
-      console.log(formData);
+
+      if (response.status === 200) {
+        const doctor = response.data; 
+        console.log('Logged in doctor:', doctor); 
+        console.log('Doctor ID:', doctor._id);
+        console.log('Doctor Email:', doctor.email);
+        console.log('Doctor First Name:', doctor.first_name);
+
+        localStorage.setItem('doctor_id', doctor._id);
+
+      const doctorId = doctor._id;      
+      await axios.post(`http://localhost:8088/api/v1/channelledLog/login/${doctorId}`);
+      } else {
+        console.error('Login failed:', response.data);        
+      }
 
       // Store the token in localStorage
       localStorage.setItem('token', token);
       localStorage.setItem('username', formData.username);
       localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('doctor_id', response?.data?.user?.id);
+      
+      
+
+      // Make the second API call
+      
 
       // Clear form fields
       setFormData(initialFormData);
@@ -73,9 +91,8 @@ function DoctorLogin() {
   };
 
   return (
-    
     <div className="sign-in-page-doctor">
-        {alertVisible && (
+      {alertVisible && (
         <div className="alert alert-success" role="alert">            
           <p className='alert-message'>{alertMessage}</p> 
           <img src={tickIcon} alt="User Icon" className="alert-icon" />

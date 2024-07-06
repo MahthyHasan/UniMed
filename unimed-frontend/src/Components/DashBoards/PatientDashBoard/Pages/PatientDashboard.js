@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import Personal_Info from "../ComponentsPatientDashboard/Personal_Info"; 
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import DocAvailability from "../ComponentsPatientDashboard/DocAvailability";
@@ -25,17 +26,11 @@ export default function PatientDashboard() {
     bloodgrp: "O+",
     bmi: "12"
   };
-
-  const handleAddAppointment = (startTime, endTime, name, phone) => {
-    // Add logic to handle adding an appointment
-  };
-
-  const handleViewAppointment = (appointment) => {
-    setSelectedAppointment(appointment);
-  };
+  
 
   return (
     <div>
+
       <Layout>
         <h1>{username}</h1>
         <div className="container">
@@ -51,6 +46,7 @@ export default function PatientDashboard() {
           </div>
         </div>
       </Layout>
+
     </div>
   );
 }

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Layout from "../../layout/DoctorLayout/DoctorLayouts";
 import Card from "../ComponentsDoctorDashboard/Card";
 import { ScancardQr } from "../ComponentsDoctorDashboard/ScancardQr";
-import { Channellingactions } from "../ComponentsDoctorDashboard/Channellingactions";
 import { Bookedslots } from "../ComponentsDoctorDashboard/Bookedslots";
 import QRCodeScanner from "../ComponentsDoctorDashboard/QRCodeScanner";
+import Channellingactions from "../ComponentsDoctorDashboard/Channellingactions";
 
 
 export default function Doctordashboard() {

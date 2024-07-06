@@ -2,9 +2,12 @@ import React from "react";
 
 export const Bookedslots = () => {
   return (
-    <div className="booked-slots">
+    <div >
+      <div className="justify-content-center">
       <div className="text">Booked Time Slots</div>
-      <div className="slotgroup">
+      </div>
+      <div className="justify-content-center gap-4">
+      <div className="gap-4 booked-slots">
         <div className="slot"></div>
         <div className="slot"></div>
         <div className="slot"></div>
@@ -12,6 +15,7 @@ export const Bookedslots = () => {
         <div className="slot"></div>
         <div className="slot"></div>
       </div>
+      </div>  
     </div>
   );
 };
