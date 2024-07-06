@@ -18,14 +18,18 @@ const QrcodeScannerForMedicine = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     localStorage.setItem('scannedPID', userBio._id);
-                    window.location.href = `/SupplyMEdicinePharmacist`;
+
+                    // Update booking status to 'check-out'
+                    await axios.put(`http://localhost:8088/api/v1/booking/checkOutByPatientId/${userBio._id}`);
+
+                    window.location.href = `/SupplyMedicinePharmacist`;
                 }
             } catch (error) {
                 if (error.response && error.response.status === 404) {
                     setAlert("User profile not found");
                 } else {
                     console.error(error);
-                    setAlert("An error occurred while checking the user profile");
+                    setAlert("An error occurred while checking the user profile or updating the booking status");
                 }
             }
         }

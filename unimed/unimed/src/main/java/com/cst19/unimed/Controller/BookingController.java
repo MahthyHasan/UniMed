@@ -23,4 +23,19 @@ public class BookingController {
         return bookingService.updateBookingStatus(bookingId, status);
     }
 
+    @PutMapping("/updateByPatientId/{patientId}")
+    public BookingSlot updateBookingStatusByPatientId(@PathVariable String patientId, @RequestParam String status) {
+        return bookingService.updateBookingStatusByPatientId(patientId, status);
+    }
+
+    @PutMapping("/checkOutByPatientId/{patientId}")
+    public BookingSlot checkOutBookingByPatientId(@PathVariable String patientId) {
+        return bookingService.checkOutBookingByPatientId(patientId);
+    }
+
+    @GetMapping("/countByStatus")
+    public long countByStatus(@RequestParam String status) {
+        return bookingService.countByStatus(status);
+    }
+
 }
