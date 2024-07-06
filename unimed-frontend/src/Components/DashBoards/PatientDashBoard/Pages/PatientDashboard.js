@@ -34,7 +34,7 @@ export default function PatientDashboard() {
         {/* <PersonalInfo {...studentInfo} /> */}
         <br /><br /><br />
         {/* Appointment Details Card */}
-        <Card type="appointment" date={appointment?.date} time={appointment?.time} />
+        <Card type="appointment" />
         <br /><br /><br />
         {/* Button Component */}
         {/* <Button /> */}

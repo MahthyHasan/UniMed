@@ -18,6 +18,10 @@ const QRCodeScanner = ({ setShowQrDiv }) => {
                 if (response.status === 200) {
                     const userBio = response.data;
                     localStorage.setItem('scannedPID', userBio._id);
+
+                    // Update booking slot status
+                    await axios.put(`http://localhost:8088/api/v1/bookingslots/updateStatus/${userBio._id}?status=consulted`);
+
                     window.location.href = `/ClinicRecords`;
                 }
             } catch (error) {

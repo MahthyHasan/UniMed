@@ -41,4 +41,16 @@ public class BookingService {
 
         return bookingRepo.save(bookingSlot);
     }
+
+    public BookingSlot updateBookingStatus(String bookingId, String status) {
+        Optional<BookingSlot> optionalBookingSlot = bookingRepo.findById(bookingId);
+        if (optionalBookingSlot.isPresent()) {
+            BookingSlot bookingSlot = optionalBookingSlot.get();
+            bookingSlot.setStatus(status);
+            return bookingRepo.save(bookingSlot);
+        } else {
+            throw new RuntimeException("BookingSlot not found with id: " + bookingId);
+        }
+    }
+
 }

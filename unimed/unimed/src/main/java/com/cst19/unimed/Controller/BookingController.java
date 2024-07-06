@@ -17,4 +17,10 @@ public class BookingController {
     public BookingSlot createBooking(@PathVariable String patientId) {
         return bookingService.createBooking(patientId);
     }
+
+    @PutMapping("/update/{bookingId}")
+    public BookingSlot updateBookingStatus(@PathVariable String bookingId, @RequestParam String status) {
+        return bookingService.updateBookingStatus(bookingId, status);
+    }
+
 }
