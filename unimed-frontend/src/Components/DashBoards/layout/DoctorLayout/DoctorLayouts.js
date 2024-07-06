@@ -114,7 +114,7 @@ function Layout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/members"}
+                to={""}
               >
                 <div className={"d-flex"}>
                   <img
@@ -135,7 +135,7 @@ function Layout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/members"}
+                to={""}
               >
                 <div className={"d-flex"}>
                   <img
