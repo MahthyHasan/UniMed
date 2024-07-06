@@ -1,8 +1,12 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PatientDemographicsTable from "../ComponentsDoctorDashboard/PatientDemographicsTable";
+import AllergiesTable from "../ComponentsDoctorDashboard/AllergiesTable";
+import MedicalInfoTable from "../ComponentsDoctorDashboard/MedicalInfoTable";
 
-// Styled components for a professional look
+// Styled components
 const Container = styled.div`
   max-width: 800px;
   margin: 2rem auto;
@@ -13,33 +17,47 @@ const Container = styled.div`
   background-color: #fff;
 `;
 
-const Header = styled.h1`
-  text-align: center;
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+`;
+
+const Title = styled.h1`
   color: #2c3e50;
+  margin: 0;
 `;
 
-const Section = styled.div`
-  margin-bottom: 1.5rem;
+const UniversityInfo = styled.div`
+  text-align: right;
 `;
 
-const Label = styled.p`
+const UniversityName = styled.p`
+  margin: 0;
   font-weight: bold;
-  margin-bottom: 0.5rem;
   color: #34495e;
 `;
 
-const Value = styled.p`
-  margin-bottom: 1rem;
+const UniversityLocation = styled.p`
+  margin: 0;
   color: #7f8c8d;
+`;
+
+const Section = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const SectionHeading = styled.h6`
+  color: #2c3e50;
+  margin-bottom: 1rem;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
   justify-content: center;
   gap: 1rem;
+  margin-top: 2rem;
 `;
 
 const Button = styled.button`
@@ -50,8 +68,8 @@ const Button = styled.button`
   color: white;
   background-color: #6bcb77;
   cursor: pointer;
-  align-items: center;
   display: flex;
+  align-items: center;
 
   &:hover {
     background-color: #218838;
@@ -59,20 +77,38 @@ const Button = styled.button`
 `;
 
 const RecordDetailsPage = () => {
-  const { recordId } = useParams();
   const navigate = useNavigate();
+  const [patientData, setPatientData] = useState(null);
+  const [allergies, setAllergies] = useState(null);
+  const [clinicalSummary, setClinicalSummary] = useState(null);
 
-  // Simulated record data
-  const record = {
-    _id: recordId,
-    date: "2024-07-04",
-    time: "10:00 AM",
-    symptoms: ["Fever", "Cough"],
-    diagnoses: ["Common Cold"],
-    prescribedMedicines: ["Paracetamol", "Cough Syrup"],
-    doctorId: "12345",
-    drugIssued: true,
+  // Fetching logic here
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const patientID = localStorage.getItem("scannedPID");
+      if (patientID) {
+        const patientResponse = await axios.get(
+          `http://localhost:8088/api/v1/user/${patientID}`
+        );
+        const allergiesResponse = await axios.get(
+          `http://localhost:8088/api/v1/user/allergies/${patientID}`
+        );
+        const clinicalSummaryResponse = await axios.get(
+          `http://localhost:8088/api/v1/medicalRecords/summary/${patientID}`
+        );
+
+        setPatientData(patientResponse.data);
+        setAllergies(allergiesResponse.data);
+        setClinicalSummary(clinicalSummaryResponse.data);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
+  fetchData();
+}, []);
 
   const handlePrint = () => {
     window.print();
@@ -84,39 +120,31 @@ const RecordDetailsPage = () => {
 
   return (
     <Container>
-      <Header>Medical Record Details</Header>
+      <Header>
+        <Title>Medical Record Details</Title>
+        <UniversityInfo>
+          <UniversityName>University Medical Center</UniversityName>
+          <UniversityLocation>
+            Uva Wellassa University of Sri Lanka
+          </UniversityLocation>
+        </UniversityInfo>
+      </Header>
+
       <Section>
-        <Label>Record ID:</Label>
-        <Value>{record._id}</Value>
+        <SectionHeading>Patient Demographics</SectionHeading>
+        <PatientDemographicsTable {...patientData} />
       </Section>
+
       <Section>
-        <Label>Date:</Label>
-        <Value>{record.date}</Value>
+        <SectionHeading>Allergies</SectionHeading>
+        <AllergiesTable item1={allergies} />
       </Section>
+
       <Section>
-        <Label>Time:</Label>
-        <Value>{record.time}</Value>
+        <SectionHeading>Clinical Summary</SectionHeading>
+        <MedicalInfoTable {...clinicalSummary} />
       </Section>
-      <Section>
-        <Label>Symptoms:</Label>
-        <Value>{record.symptoms.join(", ")}</Value>
-      </Section>
-      <Section>
-        <Label>Diagnoses:</Label>
-        <Value>{record.diagnoses.join(", ")}</Value>
-      </Section>
-      <Section>
-        <Label>Prescribed Medicines:</Label>
-        <Value>{record.prescribedMedicines.join(", ")}</Value>
-      </Section>
-      <Section>
-        <Label>Doctor ID:</Label>
-        <Value>{record.doctorId}</Value>
-      </Section>
-      <Section>
-        <Label>Drug Issued:</Label>
-        <Value>{record.drugIssued ? "Yes" : "No"}</Value>
-      </Section>
+
       <ButtonContainer>
         <Button onClick={handlePrint}>Print</Button>
         <Button onClick={handleBack}>Back</Button>
