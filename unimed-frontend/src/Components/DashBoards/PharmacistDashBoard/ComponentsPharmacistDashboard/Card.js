@@ -6,7 +6,7 @@ import TopInfoCards from "./TopInfoCards";
 
 export const Card = () => {
   const textColor = "black"; // Example color: red
-  const fontSize = { title: "1.5rem", text: "1rem" }; // Example sizes
+  const fontSize = { title: "1.7rem", text: "1.5rem" }; // Example sizes
 
   return (
     <div className="row">

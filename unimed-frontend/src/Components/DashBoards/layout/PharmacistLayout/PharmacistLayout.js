@@ -69,28 +69,6 @@ export default function PharmacistLayout({ children }) {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "side-menu-item side-menu-active "
-                    : "side-menu-item "
-                }
-                to={"/ProvideMedicine"}
-              >
-                <div className={"d-flex"}>
-                  <img
-                    src={QrCode}
-                    alt="avatar"
-                    height="24px"
-                    width="26.4px"
-                    className=" me-2"
-                  />
-                  {!open && <div className={"trans-1"}>Scan Barcode</div>}
-                </div>
-              </NavLink>
-            </div>
-
-            <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
