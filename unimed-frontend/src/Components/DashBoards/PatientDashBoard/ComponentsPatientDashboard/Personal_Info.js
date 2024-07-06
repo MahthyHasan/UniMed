@@ -16,11 +16,7 @@ function Personal_Info({ username }) {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-
-    axios.get(`http://localhost:8088/personaldetails/${username}`)
-
     axios.get(`http://localhost:8088/api/v1/userbio/username/${username}`)
-
       .then(response => {
         const data = response.data;
         const bmi = calculateBMI(data.height, data.weight);
