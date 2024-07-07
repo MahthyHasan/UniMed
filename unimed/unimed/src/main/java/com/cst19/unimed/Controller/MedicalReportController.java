@@ -46,4 +46,10 @@ public class MedicalReportController {
         return ResponseEntity.ok("Drug issued status updated successfully.");
     }
 
+    @GetMapping("/{recordId}")
+    public ResponseEntity<MedicalRecords> getMedicalRecordById(@PathVariable String recordId) {
+        MedicalRecords record = medicalServices.getMedicalRecordById(recordId);
+        return ResponseEntity.ok(record);
+    }
+
 }

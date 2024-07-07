@@ -97,7 +97,7 @@ const ContactUs = () => {
           Get In Touch!
         </h1>
         <p className="para">
-          At our university's medical gjj center, we are committed to providing
+          At our university's medical center, we are committed to providing
           exceptional healthcare services. Our dedicated team of professionals
           is here to support you with comprehensive medical care and innovative
           treatment options.

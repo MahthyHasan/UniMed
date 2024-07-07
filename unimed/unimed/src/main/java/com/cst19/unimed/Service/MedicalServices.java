@@ -36,4 +36,9 @@ public class MedicalServices {
         repo.save(record);
     }
 
+    public MedicalRecords getMedicalRecordById(String recordId) {
+        return repo.findById(recordId)
+                .orElseThrow(() -> new RuntimeException("Medical record not found for id: " + recordId));
+    }
+
 }

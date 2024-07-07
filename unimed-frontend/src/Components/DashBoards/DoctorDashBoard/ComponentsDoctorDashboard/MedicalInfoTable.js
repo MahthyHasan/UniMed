@@ -19,28 +19,43 @@ const TableCell = styled.td`
   color: ${(props) => (props.header ? "#2c3e50" : "#000")};
 `;
 
-const MedicalInfoTable = ({Date, Time,Symptoms,Diagnosis,Doctor }) => {
+const formatSymptomsArray = (data, separator = ', ') => {
+  if (data && (Array.isArray(data) || typeof data === 'string')) {
+    if (Array.isArray(data)) {
+      return data.join(separator);
+    } else {
+      return data.split(/(?=[A-Z])/).join(separator);
+    }
+  }
+  return '';
+};
+
+const MedicalInfoTable = ({date, time, symptoms, diaognises, priscripedMedicines, doctorId }) => {
   return (
     <Table>
       <TableRow>
         <TableCell header>Date</TableCell>
-        <TableCell>{Date}</TableCell>
+        <TableCell>{date}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell header>Time</TableCell>
-        <TableCell>{Time}</TableCell>
+        <TableCell>{time}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell header>Symptoms</TableCell>
-        <TableCell>{Symptoms}</TableCell>
+        <TableCell>{formatSymptomsArray(symptoms)}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell header>Diagnosis</TableCell>
-        <TableCell>{Diagnosis}</TableCell>
+        <TableCell>{diaognises}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell header>Priscribed Medicines</TableCell>
+        <TableCell>{priscripedMedicines}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell header>Diagnosis Done by</TableCell>
-        <TableCell>{Doctor}</TableCell>
+        <TableCell>{doctorId}</TableCell>
       </TableRow>
     </Table>
   );

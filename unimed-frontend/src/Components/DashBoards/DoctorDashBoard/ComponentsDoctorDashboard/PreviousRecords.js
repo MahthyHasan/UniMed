@@ -31,6 +31,7 @@ export default function PreviousRecords({ RecId, Date, Time, DaySinceLast }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    localStorage.setItem("RecordId", RecId);
     navigate(`/record/${RecId}`);
   };
 
