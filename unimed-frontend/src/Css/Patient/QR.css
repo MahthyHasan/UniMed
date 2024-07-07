@@ -3,7 +3,7 @@
   flex-direction: column;
   isolation: isolate;
   position: relative;
-  width: 18rem;
+  width: 32rem;  
   height: auto; /* Adjust height to auto */
   background: #29292c;
   border-radius: 1rem;
@@ -12,6 +12,7 @@
   font-size: 16px;
   --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
   --color: #32a6ff;
+  margin-top: 8rem;
 }
 
 .notification:before {
@@ -153,6 +154,6 @@
 
 .qr-code-image {
   max-width: 100%; /* Ensure the QR code image is responsive */
-  height: auto;
+  height: 20rem;
   border-radius: 8px; /* Add some border radius for better appearance */
 }

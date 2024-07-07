@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../../../../Css/Patient/Personal_Info.css";
 import ProfileIcon from "../../../../assets/icons/Vector.svg";
 
-function Personal_Info({ username }) {
+function Personal_Info({ userBio }) {
   const [userInfo, setUserInfo] = useState({
     id: "",
     age: "",
@@ -16,17 +15,11 @@ function Personal_Info({ username }) {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8088/api/v1/userbio/username/${username}`)
-      .then((response) => {
-        const data = response.data;
-        const bmi = calculateBMI(data.height, data.weight);
-        setUserInfo({ ...data, bmi });
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the user details!", error);
-      });
-  }, [username]);
+    if (userBio) {
+      const bmi = calculateBMI(userBio.height, userBio.weight);
+      setUserInfo({ ...userBio, bmi });
+    }
+  }, [userBio]);
 
   const calculateBMI = (height, weight) => {
     if (height && weight) {
@@ -67,7 +60,7 @@ function Personal_Info({ username }) {
         <div className="profileImageSection">
           <img src={ProfileIcon} className="profileImage" alt="profile" />
           <p className="userID">{userInfo.id}</p>
-          <p className="userName">{username}</p>
+          <p className="userName">{userBio.username}</p> {/* Adjusted to use userBio.username */}
         </div>
         <div className="bioDataSection">
           <div className="bioDataColumn">
