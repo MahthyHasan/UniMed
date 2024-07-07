@@ -1,0 +1,61 @@
+/* DrugReportForm.css */
+.report-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: auto;
+}
+
+.report-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.report-form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.form-row {
+  display: contents;
+}
+
+.form-label {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.form-value {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.download-button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #18cdca;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.download-button:hover {
+  background-color: #18cdca;
+}
