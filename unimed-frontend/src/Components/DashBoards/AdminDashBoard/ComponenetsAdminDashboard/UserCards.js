@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import "./usercards.css"
+import "./usercards.css";
 
-function UserCards({icon,text, cssclass, iconcc}) {
+function UserCards({ icon, text, cssclass, iconcc }) {
   return (
     <div className={cssclass}>
-        <img src={icon} alt="icon" className={iconcc} />
-        <p className='text'>{text}</p>      
+      <img src={icon} alt="icon" className={iconcc} />
+      <p className="text">{text}</p>
     </div>
-  )
+  );
 }
 
-export default UserCards
+export default UserCards;

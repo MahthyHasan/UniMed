@@ -2,57 +2,83 @@
 .user-cards-admin-dashboard-patient,
 .user-cards-admin-dashboard-pharmacist,
 .user-cards-admin-dashboard-admin {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 17.5625rem;
-	height: 6.375rem;
-	flex-shrink: 0;
-	border-radius: 1rem;
-	color: #0d062d;
-	transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17.5625rem;
+  height: 6.375rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  color: #0d062d;
+  transition: transform 0.3s ease-in-out;
 }
+
 .user-cards-admin-dashboard-doctor:hover,
 .user-cards-admin-dashboard-patient:hover,
 .user-cards-admin-dashboard-pharmacist:hover,
 .user-cards-admin-dashboard-admin:hover {
-    transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .user-cards-admin-dashboard-doctor {
-	background: #ff6b6b;
+  background: #ff6b6b;
 }
 
 .user-cards-admin-dashboard-patient {
-	background: #ffd93d;
+  background: #ffd93d;
 }
 
 .user-cards-admin-dashboard-pharmacist {
-	background: #6bcb77;
-}
-.user-cards-admin-dashboard-admin {
-	background: #74a7e9;
+  background: #6bcb77;
 }
 
-.icon {
+.user-cards-admin-dashboard-admin {
+  background: #74a7e9;
+}
+
+.icon{
 	width: 4rem;
-	height: 4rem;
-	flex-shrink: 0;
-	margin-left: 3rem; /* Add some margin to separate icon and text */
+  height: 4rem;
+  flex-shrink: 0;
+  margin-left: 1rem; /* Adjust margin for consistent spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .icon2 {
-	width: 4rem;
-	height: 4rem;
-	flex-shrink: 0;
-	margin-left: 3rem; /* Add some margin to separate icon and text */
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+  margin-left: 1rem; /* Adjust margin for consistent spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text {
-	color: #0d062d;
-	font-family: Inter;
-	font-size: 2.25rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-	margin-top: 0.5rem;
+  color: #0d062d;
+  font-family: Inter, sans-serif; /* Added fallback font */
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 1rem; /* Added margin-left to align text with icons */
+  flex: 1; /* Ensures text takes available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+}
+
+.user-cards-admin-dashboard-doctor .icon,
+.user-cards-admin-dashboard-patient .icon,
+.user-cards-admin-dashboard-pharmacist .icon,
+.user-cards-admin-dashboard-admin .icon {
+  margin-left: 0; /* Reset margin for consistency */
+}
+
+.user-cards-admin-dashboard-doctor .text,
+.user-cards-admin-dashboard-patient .text,
+.user-cards-admin-dashboard-pharmacist .text,
+.user-cards-admin-dashboard-admin .text {
+  margin-top: 0; /* Reset margin-top for consistency */
 }
