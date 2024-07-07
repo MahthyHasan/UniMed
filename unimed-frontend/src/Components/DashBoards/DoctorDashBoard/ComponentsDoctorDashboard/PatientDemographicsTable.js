@@ -31,7 +31,7 @@ const PatientDemographicsTable = ({
       <tbody>
         <tr>
           <TableCell header>Name</TableCell>
-          <TableCell>{name}</TableCell>
+          <TableCell>{}</TableCell>
           <TableCell header>Gender</TableCell>
           <TableCell>{gender}</TableCell>
           <TableCell header>Age</TableCell>
