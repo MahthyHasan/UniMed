@@ -5,4 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface AdminRepo extends MongoRepository <Admin, String> {
     Admin findByUsernameAndPassword(String username, String password);
+    Admin findByUsername(String username);
 }

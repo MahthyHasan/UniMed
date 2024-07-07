@@ -6,6 +6,7 @@ import com.cst19.unimed.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
@@ -17,6 +18,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    private BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 
     @PostMapping(value = "/save")
     private ResponseEntity<String> registerUser(@RequestBody User user) {
@@ -66,12 +69,17 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    private ResponseEntity<?> login(@RequestBody User loginUser) {
-        User user = userService.getUserByUsernameAndPassword(loginUser.getUsername(), loginUser.getPassword());
-        if (user != null && user.isVerified()) {
-            return ResponseEntity.ok(user);
-        } else if (user != null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email not verified.");
+    public ResponseEntity<?> login(@RequestBody User loginUser) {
+        // Fetch the user by username
+        User user = userService.getUserByUsername(loginUser.getUsername());
+
+        // If user exists and the password matches
+        if (user != null && bcrypt.matches(loginUser.getPassword(), user.getPassword())) {
+            if (user.isVerified()) {
+                return ResponseEntity.ok(user);
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email not verified.");
+            }
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
         }
@@ -83,6 +91,9 @@ public class UserController {
         RedirectView redirectView = new RedirectView();
         if (user != null && user.isVerified()) {
             // Redirect to login page if verification is successful
+            UserBio userBio = new UserBio();
+            userBio.set_id(user.getId());
+            userService.saveorupdatebio(userBio);
             redirectAttributes.addFlashAttribute("message", "Email verification successful. You can now log in.");
             redirectView.setUrl("http://localhost:3000/CommonLogin");
         } else {
@@ -137,18 +148,41 @@ public class UserController {
         }
     }
     @PutMapping(value = "/bio/{id}")
-    private ResponseEntity<?> updateUserBio(@PathVariable String id, @RequestBody UserBio userBioDetails) {
+    public ResponseEntity<?> updateUserBio(@PathVariable String id, @RequestBody UserBio userBioDetails) {
         try {
             UserBio existingUserBio = userService.getUserBiobyID(id);
             if (existingUserBio != null) {
-                existingUserBio.setNic(userBioDetails.getNic() != null ? userBioDetails.getNic() : existingUserBio.getNic());
-                existingUserBio.setAge(userBioDetails.getAge() != 0 ? userBioDetails.getAge() : existingUserBio.getAge());
-                existingUserBio.setGender(userBioDetails.getGender() != null ? userBioDetails.getGender() : existingUserBio.getGender());
-                existingUserBio.setHeight(userBioDetails.getHeight() != 0 ? userBioDetails.getHeight() : existingUserBio.getHeight());
-                existingUserBio.setWeight(userBioDetails.getWeight() != 0 ? userBioDetails.getWeight() : existingUserBio.getWeight());
-                existingUserBio.setBloodGroup(userBioDetails.getBloodGroup() != null ? userBioDetails.getBloodGroup() : existingUserBio.getBloodGroup());
-                existingUserBio.setAllergies(userBioDetails.getAllergies() != null ? userBioDetails.getAllergies() : existingUserBio.getAllergies());
-                existingUserBio.setPhoneNo(userBioDetails.getPhoneNo() != null ? userBioDetails.getPhoneNo() : existingUserBio.getPhoneNo());
+                if (userBioDetails.getRegNo() != null) {
+                    existingUserBio.setRegNo(userBioDetails.getRegNo());
+                }
+                if (userBioDetails.getNic() != null) {
+                    existingUserBio.setNic(userBioDetails.getNic());
+                }
+                if (userBioDetails.getAge() != 0) {
+                    existingUserBio.setAge(userBioDetails.getAge());
+                }
+                if (userBioDetails.getGender() != null) {
+                    existingUserBio.setGender(userBioDetails.getGender());
+                }
+                if (userBioDetails.getHeight() != 0) {
+                    existingUserBio.setHeight(userBioDetails.getHeight());
+                }
+                if (userBioDetails.getWeight() != 0) {
+                    existingUserBio.setWeight(userBioDetails.getWeight());
+                }
+                if (userBioDetails.getBloodGroup() != null) {
+                    existingUserBio.setBloodGroup(userBioDetails.getBloodGroup());
+                }
+                if (userBioDetails.getAllergies() != null) {
+                    existingUserBio.setAllergies(userBioDetails.getAllergies());
+                }
+                if (userBioDetails.getPhoneNo() != null) {
+                    existingUserBio.setPhoneNo(userBioDetails.getPhoneNo());
+                }
+                if (userBioDetails.getBioalert() != null) {
+                    existingUserBio.setBioalert(userBioDetails.getBioalert());
+                }
+
                 userService.saveorupdatebio(existingUserBio);
                 return ResponseEntity.ok(existingUserBio);
             } else {

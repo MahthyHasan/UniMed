@@ -7,4 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface DoctorRepo extends MongoRepository <Doctor, String> {
     Doctor findByUsernameAndPassword(String username, String password);
+    Doctor findByUsername(String username);
 }

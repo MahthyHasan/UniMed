@@ -6,6 +6,7 @@ import com.cst19.unimed.Service.AdminServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
     @Autowired
     private AdminServices adminServices;
+
+    private BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 
     @PostMapping(value = "/save")
     private ResponseEntity<?> registerAdmin(@RequestBody Admin admins) {
@@ -93,8 +96,10 @@ public class AdminController {
 
     @PostMapping("/login")
     private ResponseEntity<?> login(@RequestBody Admin loginAdmin) {
-        Admin admin = adminServices.getUserByUsernameAndPassword(loginAdmin.getUsername(), loginAdmin.getPassword());
-        if (admin != null) {
+
+        Admin admin = adminServices.getUserByUserName(loginAdmin.getUsername());
+
+        if(admin != null && bcrypt.matches(loginAdmin.getPassword(), admin.getPassword())) {
             return ResponseEntity.ok(admin);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");

@@ -7,6 +7,7 @@ import com.cst19.unimed.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -35,6 +36,9 @@ public class UserService {
         String verificationToken = generateVerificationToken();
         user.setVerificationToken(verificationToken);
         user.setVerified(false);
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptPass = bcrypt.encode(user.getPassword());
+        user.setPassword(encryptPass);
         repo.save(user);
 
         // Send verification email
@@ -42,6 +46,10 @@ public class UserService {
         sendVerificationEmail(user.getEmail(), verificationLink);
     }
     public void saveorupdatebyadmin(User users){
+        users.setVerified(false);
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String encryptPass = bcrypt.encode(users.getPassword());
+        users.setPassword(encryptPass);
         repo.save(users);
     }
 
@@ -66,6 +74,10 @@ public class UserService {
 
     public User getUserByUsernameAndPassword(String username, String password) {
         return repo.findByUsernameAndPassword(username, password);
+    }
+
+    public User getUserByUsername(String username) {
+        return repo.findByUsername(username);
     }
 
     public User verifyEmail(String token) {
