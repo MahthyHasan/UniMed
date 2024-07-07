@@ -11,7 +11,7 @@ import Myrecords from "../../../../assets/icons2/Myrecords.svg";
 import medcetificate from "../../../../assets/icons2/med-cetificate.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
 import Profile from "../../../../assets/profile-img.svg";
-import logopath from "../../../../assets/logo-white.png";
+import logopath from "../../../../assets/logo.png";
 import Feedback from "../../PatientDashBoard/Pages/Feedback";
 import "./styles.css";
 
@@ -46,7 +46,11 @@ export default function PatientLayout({ children }) {
         >
           <div className="row">
             <div className="col">
-              <img src={logopath} className={open ? "hide-logo" : "logo-prm"} />
+              <img
+                src={logopath}
+                className={open ? "hide-logo" : "logo-prm"}
+                style={{ height: "45px", width: "auto" }}
+              />
             </div>
             <div className="col">
               <div

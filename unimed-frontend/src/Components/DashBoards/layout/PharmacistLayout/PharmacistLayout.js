@@ -8,7 +8,7 @@ import { changeToggle } from "../../../../redux/actions";
 import { EditProfile } from "./EditProfile";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
-import logopath from "../../../../assets/logo-white.png";
+import logopath from "../../../../assets/logo.png";
 
 import QrCode from "../../../../assets/icons2/qr-reader-svgrepo-com.svg";
 import Medicine from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
@@ -48,7 +48,11 @@ export default function PharmacistLayout({ children }) {
         >
           <div className="row">
             <div className="col">
-              <img src={logopath} className={open ? "hide-logo" : "logo-prm"} />
+              <img
+                src={logopath}
+                className={open ? "hide-logo" : "logo-prm"}
+                style={{ height: "45px", width: "auto" }}
+              />
             </div>
             <div className="col">
               <div
@@ -94,7 +98,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/Mali"}
+                to={""}
               >
                 <div className={"d-flex"}>
                   <img

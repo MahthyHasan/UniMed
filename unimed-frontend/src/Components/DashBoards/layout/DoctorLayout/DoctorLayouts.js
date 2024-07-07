@@ -8,7 +8,7 @@ import { changeToggle } from "../../../../redux/actions";
 import { EditProfile } from "./EditProfile";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
-import logopath from "../../../../assets/logo-white.png";
+import logopath from "../../../../assets/logo.png";
 import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
 import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
 import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
@@ -47,7 +47,11 @@ function Layout({ children }) {
         >
           <div className="row">
             <div className="col">
-              <img src={logopath} className={open ? "hide-logo" : "logo-prm"} />
+              <img
+                src={logopath}
+                className={open ? "hide-logo" : "logo-prm"}
+                style={{ height: "45px", width: "auto" }}
+              />
             </div>
             <div className="col">
               <div
