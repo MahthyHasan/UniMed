@@ -118,7 +118,7 @@ function Layout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={""}
+                to={"/Analysis"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -139,7 +139,7 @@ function Layout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={""}
+                to={"/Chat"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -155,22 +155,7 @@ function Layout({ children }) {
             </div>
 
             <div className={"w-100 px-sm-2"}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "side-menu-item side-menu-active"
-                    : "side-menu-item"
-                }
-                to={"/settings"}
-              >
-                <div className={"d-flex"}>
-                  <FeatherIcon
-                    icon="settings"
-                    className={!open ? "me-2" : "ms-1"}
-                  />
-                  {!open && <div className={""}>Settings</div>}
-                </div>
-              </NavLink>
+             
             </div>
             <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
               <NavLink

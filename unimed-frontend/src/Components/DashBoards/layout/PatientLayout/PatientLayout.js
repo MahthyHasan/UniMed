@@ -109,7 +109,7 @@ export default function PatientLayout({ children }) {
             <div className="w-100 px-sm-2">
               <NavLink
                 exact
-                to={""}
+                to={"/Chat"}
                 className="side-menu-item"
                 activeClassName="side-menu-active"
               >
