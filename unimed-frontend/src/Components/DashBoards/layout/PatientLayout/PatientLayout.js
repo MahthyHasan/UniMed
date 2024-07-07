@@ -14,6 +14,7 @@ import Profile from "../../../../assets/profile-img.svg";
 import logopath from "../../../../assets/logo.png";
 import Feedback from "../../PatientDashBoard/Pages/Feedback";
 import "./styles.css";
+import QRGenerator from "../../PatientDashBoard/ComponentsPatientDashboard/QR";
 
 export default function PatientLayout({ children }) {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function PatientLayout({ children }) {
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(false);
   const [user, setUser] = useState(null);
-  
+
   // State to control the disabled state of the "Community Chat" button
   const [isChatDisabled, setIsChatDisabled] = useState(true);
 
@@ -178,43 +179,48 @@ export default function PatientLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
-                  <Dropdown className="bg-white">
-                    <Dropdown.Toggle variant="white" id="dropdown-basic">
-                      <div
-                        className="d-flex align-items-center icon-hover rounded"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <img
-                          src={Profile}
-                          alt="avatar"
-                          height="38px"
-                          width="38px"
-                          className="rounded-circle me-2"
-                        />
-                        <p className="mb-0 text-dark">{user?.username}</p>
-                      </div>
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <div className="p-3 text-left">
-                        <p>{user?.first_name}</p>
-                        <p>{user?.email}</p>
-
-                        <button
+                  <li className="nav-item me-3" style={{ position: 'relative', top: '-19px' }}>
+                    <QRGenerator />
+                  </li>
+                  <li className="nav-item">
+                    <Dropdown className="bg-white">
+                      <Dropdown.Toggle variant="white" id="dropdown-basic">
+                        <div
+                          className="d-flex align-items-center icon-hover rounded"
                           type="button"
-                          className="btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
-                          onClick={() => {
-                            setModalType("Edit");
-                            setModalShow(true);
-                          }}
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
                         >
-                          Profile Edit
-                        </button>
-                      </div>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                          <img
+                            src={Profile}
+                            alt="avatar"
+                            height="38px"
+                            width="38px"
+                            className="rounded-circle me-2"
+                          />
+                          <p className="mb-0 text-dark">{user?.username}</p>
+                        </div>
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <div className="p-3 text-left">
+                          <p>{user?.first_name}</p>
+                          <p>{user?.email}</p>
+
+                          <button
+                            type="button"
+                            className="btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
+                            onClick={() => {
+                              setModalType("Edit");
+                              setModalShow(true);
+                            }}
+                          >
+                            Profile Edit
+                          </button>
+                        </div>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </li>
                 </ul>
               </div>
             </div>
