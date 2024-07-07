@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import CreateAccount from "./Components/Pages/CreateAccount";
 import ProjectSetting from "./Components/Pages/ProjectSetting";
 import Doctordashboard from "./Components/DashBoards/DoctorDashBoard/Pages/Doctordashboard";
-import PharmacistDashboard from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacistDashboard";
+
 import PatientDashboard from "./Components/DashBoards/PatientDashBoard/Pages/PatientDashboard";
 import Appointment from "./Components/DashBoards/PatientDashBoard/Pages/Appointment";
 import Feedback from "./Components/DashBoards/PatientDashBoard/Pages/Feedback";
@@ -66,7 +66,7 @@ function App() {
         <Route path="/signup" element={<CreateAccount />} />
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
-        <Route path="/pharmacyDashboard" element={<PharmacistDashboard />} />
+
         <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/Appointment" element={<Appointment />} />
