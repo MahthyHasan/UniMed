@@ -80,7 +80,7 @@ export default function PharmacistLayout({ children }) {
               >
                 <div className={"d-flex"}>
                   <img
-                    src={Drugs}
+                    src={Medicine}
                     alt="avatar"
                     height="24px"
                     width="26.4px"
@@ -98,7 +98,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={""}
+                to={"/Reports"}
               >
                 <div className={"d-flex"}>
                   <img
@@ -108,7 +108,7 @@ export default function PharmacistLayout({ children }) {
                     width="26.4px"
                     className=" me-2"
                   />
-                  {!open && <div className={""}>Report Genarate</div>}
+                  {!open && <div className={""}>Reports</div>}
                 </div>
               </NavLink>
             </div>
