@@ -33,6 +33,7 @@ const Card = () => {
             cardTitle="Remaining Patients"
             cardIconPath={patient}
             cardData={checkedInCount}
+            titleStyle={{ color: "black" }}
           />
         </div>
       </div>
@@ -43,6 +44,7 @@ const Card = () => {
             cardTitle="Total Patients"
             cardIconPath={totalpatient}
             cardData={checkedOutCount}
+            titleStyle={{ color: "black" }}
           />
         </div>
       </div>
@@ -53,9 +55,10 @@ const Card = () => {
             cardTitle="Chanelled Time"
             cardIconPath={hours}
             cardData="3:32:54 Hrs"
+            titleStyle={{ color: "black" }}
           />
         </div>
-      </div>    
+      </div>
     </>
   );
 };
