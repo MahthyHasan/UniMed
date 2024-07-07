@@ -1,159 +1,88 @@
-.notification {
-  display: flex;
-  flex-direction: column;
-  isolation: isolate;
-  position: relative;
-  width: 32rem;  
-  height: auto; /* Adjust height to auto */
-  background: #29292c;
-  border-radius: 1rem;
-  overflow: hidden;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 16px;
-  --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
-  --color: #32a6ff;
-  margin-top: 8rem;
-}
-
-.notification:before {
-  position: absolute;
-  content: "";
-  inset: 0.0625rem;
-  border-radius: 0.9375rem;
-  background: #18181b;
-  z-index: 2;
-}
-
-.notification:after {
-  position: absolute;
-  content: "";
-  width: 0.25rem;
-  inset: 0.65rem auto 0.65rem 0.5rem;
-  border-radius: 0.125rem;
-  background: var(--gradient);
-  transition: transform 300ms ease;
-  z-index: 4;
-}
-
-.notification:hover:after {
-  transform: translateX(0.15rem);
-}
-
-.notititle {
-  color: var(--color);
-  padding: 0.65rem 0.25rem 0.4rem 1.25rem;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: transform 300ms ease;
-  z-index: 5;
-}
-
-.notification:hover .notititle {
-  transform: translateX(0.15rem);
-}
-
-.notibody {
-  color: #99999d;
-  padding: 0 1.25rem 1.25rem; /* Adjust padding to fit content */
-  transition: transform 300ms ease;
-  z-index: 5;
-}
-
-.notification:hover .notibody {
-  transform: translateX(0.25rem);
-}
-
-.notiglow,
-.notiborderglow {
-  position: absolute;
-  width: 20rem;
-  height: 20rem;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle closest-side at center, white, transparent);
-  opacity: 0;
-  transition: opacity 300ms ease;
-}
-
-.notiglow {
-  z-index: 3;
-}
-
-.notiborderglow {
-  z-index: 1;
-}
-
-.notification:hover .notiglow {
-  opacity: 0.1;
-}
-
-.notification:hover .notiborderglow {
-  opacity: 0.1;
-}
-
-.input-container {
-  position: relative;
-  display: flex;
-  height: 2.8rem;
-  width: 100%;
-  min-width: 200px;
-  max-width: 250px; /* Adjusted max-width for better alignment */
-  background-color: #444; /* Darker background to match the card */
+/* Styles for the QR code button and container */
+.playstore-button {
+  display: inline-block;
+  border: 2px solid #000;
   border-radius: 8px;
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
-  margin: 1rem 0; /* Add margin for spacing */
-}
-
-.input-container input {
-  height: 100%;
-  flex: 1; /* Adjust input to take remaining space */
-  border-radius: 8px 0 0 8px; /* Rounded corners for input */
-  border: 1px solid #555; /* Border color to match the card */
-  background-color: transparent; /* Transparent background */
-  padding: 0.625rem 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  color: #fff; /* White text color for better readability */
-  outline: none;
-  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.input-container input::placeholder {
-  color: #bbb; /* Lighter color for placeholder text */
-}
-
-.input-container input:focus {
-  border: 1px solid rgb(24, 205, 202);
-}
-
-.invite-btn {
-  height: 100%; /* Make button match input height */
-  width: 80px; /* Adjust button width to fit "Generate" */
-  border-radius: 0 8px 8px 0; /* Rounded corners for button */
-  background-color: rgb(24, 205, 202);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 0.5rem 1rem;
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: none;
-  transition: .6s ease;
+  color: rgba(255, 255, 255, 1);
+  outline: 0;
+  transition: all 0.2s ease;
+  text-decoration: none;
   cursor: pointer;
 }
 
-.invite-btn:disabled {
-  background-color: gray;
-  opacity: 0.5;
-  cursor: not-allowed;
+.playstore-button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
 }
 
 .qr-code-container {
-  text-align: center; /* Center the QR code */
-  margin-top: 1rem;
+  width: 300px;
+  height: 220px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
+  border-radius: 8px;
+  margin-top: 20px; /* Add some space between the button and the card */
+  position: relative; /* Ensure positioning for the close button */
 }
 
 .qr-code-image {
-  max-width: 100%; /* Ensure the QR code image is responsive */
-  height: 20rem;
-  border-radius: 8px; /* Add some border radius for better appearance */
+  width: 100%;
+  height: auto;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 1.5rem; /* Adjusted size for the close button */
+  height: 1.5rem; /* Adjusted size for the close button */
+  font-size: 1rem; /* Font size of the 'X' */
+  color: #fff;
+  background-color: #ff0000; /* Red circle background */
+  border: none;
+  border-radius: 50%; /* Make the button round */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  overflow: hidden; /* Hide the 'X' initially */
+}
+
+.btn-close:hover {
+  background-color: #ff0000cc; /* Darker red when hovered */
+}
+
+.btn-close span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  text-align: center;
+  transform: scale(0); /* Scale down to hide 'X' initially */
+  transition: transform 0.2s ease;
+}
+
+.btn-close:hover span {
+  transform: scale(1); /* Scale up to show 'X' when hovered */
+}
+
+.download-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.qr-code-container:hover .btn-close {
+  width: 2rem; /* Increase size when container hovered */
+  height: 2rem; /* Increase size when container hovered */
 }
