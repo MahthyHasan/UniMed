@@ -98,7 +98,7 @@ export default function PharmacistLayout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
-                to={"/Reports"}
+                to={"/PharmacyReport"}
               >
                 <div className={"d-flex"}>
                   <img

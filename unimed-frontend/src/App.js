@@ -28,6 +28,8 @@ import Services from "./Components/Pages/Home/Services";
 import Members from "./Components/Pages/Home/Members";
 import VerifyEmail from "./Components/Pages/VerifyEmail";
 import Mali from "./Components/DashBoards/PharmacistDashBoard/Pages/Mali";
+import PharmacyReport from "./Components/DashBoards/PharmacistDashBoard/Pages/PharmacyReport";
+
 import ClinicRecords from "./Components/DashBoards/DoctorDashBoard/Pages/ClinicRecords";
 import Prescription from "./Components/DashBoards/DoctorDashBoard/Pages/Prescription";
 import DoctorDrugFinder from "./Components/Pages/DoctorDrugFinder";
@@ -71,6 +73,8 @@ function App() {
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/DrugInventory" element={<DrugInventory />} />
         <Route path="/Mali" element={<Mali />} />
+
+        <Route path="/PharmacyReport" element={<PharmacyReport />} />
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/logincat" element={<LoginCategory />} />
@@ -91,12 +95,10 @@ function App() {
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
         <Route path="/success/:recordId" element={<SuccessPage />} />
         <Route path="/record/:recordId" element={<RecordDetailsPage />} />
-
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
         />
-
         <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
         <Route
           path="/showPharmacistProfilePage/:userId"
@@ -122,12 +124,13 @@ function App() {
         <Route path="/personal-details" element={<PersonalDetails />} />
         <Route path="/loginDoctor" element={<DoctorLogin />} />
         <Route path="/CommonLogin" element={<CommonLogin />} />
-
         <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
         <Route path="/TermsOfService" element={<TermsOfService />} />
-
         <Route path="/Privacy" element={<Privacy />} />
-        <Route path="/SupplyMedicinePharmacist" element={<SupplyMedicinePharmacist />} />
+        <Route
+          path="/SupplyMedicinePharmacist"
+          element={<SupplyMedicinePharmacist />}
+        />
         <Route path="/BioFill" element={<BioFill />} />
       </Routes>
     </div>
