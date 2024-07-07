@@ -73,9 +73,11 @@ function BioFill() {
             setErrors(newErrors);
         } else {
             const userId = localStorage.getItem("user_Id");
+            console.log(userId);
+            console.log(formData);
             try {
                 axios
-                    .put(`http://localhost:8088/api/v1/user/save/bio/${userId}`, formData)
+                    .put(`http://localhost:8088/api/v1/user/bio/${userId}`, formData)
                     .then(() => {
                         setFormData(initialFormData);
                         navigate("/patientDashboard");
