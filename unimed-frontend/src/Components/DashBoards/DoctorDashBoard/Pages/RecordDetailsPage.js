@@ -5,6 +5,7 @@ import styled from "styled-components";
 import PatientDemographicsTable from "../ComponentsDoctorDashboard/PatientDemographicsTable";
 import AllergiesTable from "../ComponentsDoctorDashboard/AllergiesTable";
 import MedicalInfoTable from "../ComponentsDoctorDashboard/MedicalInfoTable";
+import logo from "../../../../assets/logo.png"; 
 
 // Styled components
 const Container = styled.div`
@@ -22,11 +23,13 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 1rem;
 `;
 
-const Title = styled.h1`
-  color: #2c3e50;
-  margin: 0;
+const Logo = styled.img`
+  width: 100px;
+  height: auto;
 `;
 
 const UniversityInfo = styled.div`
@@ -42,6 +45,16 @@ const UniversityName = styled.p`
 const UniversityLocation = styled.p`
   margin: 0;
   color: #7f8c8d;
+`;
+
+const TitleContainer = styled.div`
+  text-align: center;
+  margin: 2rem 0;
+`;
+
+const Title = styled.h1`
+  color: #2c3e50;
+  margin: 0;
 `;
 
 const Section = styled.div`
@@ -66,7 +79,7 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   color: white;
-  background-color: #6bcb77;
+  background-color: #18cdca;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -82,33 +95,32 @@ const RecordDetailsPage = () => {
   const [allergies, setAllergies] = useState(null);
   const [clinicalSummary, setClinicalSummary] = useState(null);
 
-  // Fetching logic here
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const patientID = localStorage.getItem("scannedPID");
-      if (patientID) {
-        const patientResponse = await axios.get(
-          `http://localhost:8088/api/v1/user/${patientID}`
-        );
-        const allergiesResponse = await axios.get(
-          `http://localhost:8088/api/v1/user/allergies/${patientID}`
-        );
-        const clinicalSummaryResponse = await axios.get(
-          `http://localhost:8088/api/v1/medicalRecords/summary/${patientID}`
-        );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const patientID = localStorage.getItem("scannedPID");
+        if (patientID) {
+          const patientResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/${patientID}`
+          );
+          const allergiesResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/allergies/${patientID}`
+          );
+          const clinicalSummaryResponse = await axios.get(
+            `http://localhost:8088/api/v1/medicalRecords/summary/${patientID}`
+          );
 
-        setPatientData(patientResponse.data);
-        setAllergies(allergiesResponse.data);
-        setClinicalSummary(clinicalSummaryResponse.data);
+          setPatientData(patientResponse.data);
+          setAllergies(allergiesResponse.data);
+          setClinicalSummary(clinicalSummaryResponse.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+    };
 
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
   const handlePrint = () => {
     window.print();
@@ -121,7 +133,7 @@ useEffect(() => {
   return (
     <Container>
       <Header>
-        <Title>Medical Record Details</Title>
+        <Logo src={logo} alt="University Logo" />
         <UniversityInfo>
           <UniversityName>University Medical Center</UniversityName>
           <UniversityLocation>
@@ -129,6 +141,10 @@ useEffect(() => {
           </UniversityLocation>
         </UniversityInfo>
       </Header>
+
+      <TitleContainer>
+        <Title>Medical Record Details</Title>
+      </TitleContainer>
 
       <Section>
         <SectionHeading>Patient Demographics</SectionHeading>
