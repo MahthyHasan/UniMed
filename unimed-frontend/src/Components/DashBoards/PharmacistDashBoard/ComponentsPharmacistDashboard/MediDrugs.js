@@ -48,7 +48,7 @@ const MediDrugs = () => {
           )
         );
         setShowEditModal(false);
-        console.log("Drug updated successfully!", "success");
+        showAlert("Drug updated successfully!", "success");
       })
       .catch((error) => {
         console.error("Error editing drug:", error);
@@ -92,11 +92,14 @@ const MediDrugs = () => {
             <div className="row">
               <div className="col-sm-6">
                 <h2>
-                  Manage <b>Drugs Inventory</b>
+                  Manage <b>Drug Inventory</b>
                 </h2>
               </div>
               <div className="col-sm-6">
-                <Button variant="success" onClick={() => setShowAddModal(true)}>
+                <Button
+                  className="custom-add-drug-button"
+                  onClick={() => setShowAddModal(true)}
+                >
                   <i className="material-icons">&#xE147;</i>{" "}
                   <span>Add Drug</span>
                 </Button>
@@ -231,8 +234,6 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
 
   return (
     <Modal show={show} onHide={onHide}>
-      {console.log("Modal")}
-      {console.log(onHide)}
       <Modal.Header closeButton>
         <Modal.Title>
           <h1
@@ -329,7 +330,14 @@ const AddDrugsModal = ({ show, onHide, onAdd }) => {
               required
             />
           </Form.Group>
-          <Button type="submit" className="btn btn-success">
+          <Button
+            type="submit"
+            style={{
+              backgroundColor: "#18cdca",
+              borderColor: "#18cdca",
+              color: "white",
+            }}
+          >
             Add
           </Button>
         </Form>
@@ -455,7 +463,15 @@ const EditDrugsModal = ({ show, onHide, drug, onEdit }) => {
               required
             />
           </Form.Group>
-          <Button type="submit" className="btn btn-primary">
+          <Button
+            type="submit"
+            className="btn btn-primary"
+            style={{
+              backgroundColor: "#18cdca",
+              borderColor: "#18cdca",
+              color: "white",
+            }}
+          >
             Save Changes
           </Button>
         </Form>
