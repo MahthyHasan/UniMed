@@ -5,6 +5,7 @@ import FeatherIcon from "feather-icons-react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changeToggle } from "../../../../redux/actions";
+import home from "../../../../assets/icons2/home-p.svg";
 import { EditProfile } from "./EditProfile";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useNavigate } from "react-router-dom";
@@ -69,6 +70,27 @@ export default function PharmacistLayout({ children }) {
           </div>
 
           <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 nav-link-text-color pt-4">
+            <div className={"w-100 px-sm-2"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
+                to={"/ClinicForPharmacist"}
+              >
+                <div className={"d-flex"}>
+                  <img
+                    src={home}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className="me-2"
+                  />
+                  {!open && <div className={""}>Home</div>}
+                </div>
+              </NavLink>
+            </div>
             <div className={"w-100 px-sm-2"}>
               <NavLink
                 className={({ isActive }) =>
