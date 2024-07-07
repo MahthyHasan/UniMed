@@ -43,7 +43,7 @@ export default function ClinicRecords() {
                 ]);
                 setDoctorData(doctorResponse.data);
                 setBioData(bioResponse.data);
-                setMedicalRecords(medicalRecordsResponse.data);
+                setMedicalRecords(medicalRecordsResponse.data);                
             } catch (error) {
                 console.error("Error fetching data:", error);
                 if (error.response) {
@@ -127,7 +127,7 @@ export default function ClinicRecords() {
           <div className="row">
             <div className="col">
               {/* PreviousRecords component goes here */}
-              {medicalRecords.map((record) => (
+              {medicalRecords.map((record) => (                
                 <PreviousRecords
                   key={record._id}
                   RecId={record._id}

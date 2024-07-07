@@ -1,13 +1,143 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import PatientDemographicsTable from "../ComponentsDoctorDashboard/PatientDemographicsTable";
 import AllergiesTable from "../ComponentsDoctorDashboard/AllergiesTable";
 import MedicalInfoTable from "../ComponentsDoctorDashboard/MedicalInfoTable";
-import logo from "../../../../assets/logo.png"; 
+import logo from "../../../../assets/logo.png";
 
-// Styled components
+// Global print styles
+const PrintGlobalStyles = createGlobalStyle`
+  @media print {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .no-print {
+      display: none;
+    }
+
+    .Container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: none;
+      background-color: #fff;
+    }
+
+    .Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: none;
+      padding-bottom: 1rem;
+    }
+
+    .Logo {
+      width: 100px;
+      height: auto;
+    }
+
+    .UniversityInfo {
+      text-align: right;
+    }
+
+    .UniversityName {
+      margin: 0;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    .UniversityLocation {
+      margin: 0;
+      color: #7f8c8d;
+    }
+
+    .TitleContainer {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .Title {
+      color: #2c3e50;
+      margin: 0;
+    }
+
+    .Section {
+      margin-bottom: 2rem;
+    }
+
+    .SectionHeading {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    /* Styles for PatientDemographicsTable */
+    .PatientDemographicsTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .PatientDemographicsTable th,
+    .PatientDemographicsTable td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    .PatientDemographicsTable th {
+      background-color: #f2f2f2;
+    }
+
+    /* Styles for AllergiesTable */
+    .AllergiesTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .AllergiesTable th,
+    .AllergiesTable td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    .AllergiesTable th {
+      background-color: #f2f2f2;
+    }
+
+    /* Styles for MedicalInfoTable */
+    .MedicalInfoTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .MedicalInfoTable th,
+    .MedicalInfoTable td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    .MedicalInfoTable th {
+      background-color: #f2f2f2;
+    }
+
+    /* Additional styles as needed for other components */
+  }
+`;
+
+// Styled components for the page
 const Container = styled.div`
   max-width: 800px;
   margin: 2rem auto;
@@ -92,46 +222,68 @@ const Button = styled.button`
 const RecordDetailsPage = () => {
   const navigate = useNavigate();
   const [patientData, setPatientData] = useState(null);
-  const [allergies, setAllergies] = useState(null);
   const [clinicalSummary, setClinicalSummary] = useState(null);
+  const [retrievedRecId, setRetrievedRecId] = useState(null);
+
+  useEffect(() => {
+    const storedRecId = localStorage.getItem("RecordId");
+    if (storedRecId) {
+      setRetrievedRecId(storedRecId);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const patientID = localStorage.getItem("scannedPID");
-        if (patientID) {
-          const patientResponse = await axios.get(
-            `http://localhost:8088/api/v1/user/${patientID}`
-          );
-          const patientBioResponse = await axios.get(
-            `http://localhost:8088/api/v1/user/bio/${patientID}`
-          );
-          setPatientData({
-            ...patientResponse.data,
-            ...patientBioResponse.data,
-          });
-          const allergiesResponse = await axios.get(
-            `http://localhost:8088/api/v1/user/allergies/${patientID}`
-          );
-          const clinicalSummaryResponse = await axios.get(
-            `http://localhost:8088/api/v1/user/clinicalSummary/${patientID}`
-          );
-
-          setAllergies(allergiesResponse.data);
-          setClinicalSummary(clinicalSummaryResponse.data);
+      if (retrievedRecId) {
+        try {
+          const patientID = localStorage.getItem("scannedPID");
+          if (patientID) {
+            const patientResponse = await axios.get(
+              `http://localhost:8088/api/v1/user/${patientID}`
+            );
+            const patientBioResponse = await axios.get(
+              `http://localhost:8088/api/v1/user/bio/${patientID}`
+            );
+            setPatientData({
+              ...patientResponse.data,
+              ...patientBioResponse.data,
+            });
+            const clinicalSummaryResponse = await axios.get(
+              `http://localhost:8088/api/v1/medicalRecords/${retrievedRecId}`
+            );
+            setClinicalSummary({
+              ...clinicalSummaryResponse.data,
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
-    fetchData();
-  }, []);
+  }, [retrievedRecId]); // Add retrievedRecId as a dependency to the useEffect
 
   const handlePrint = () => {
-    window.print();
+    const printWindow = window.open("Printed Medical Record");
+    printWindow.document.open();
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print</title>
+          <style>
+            ${Array.from(document.getElementsByTagName("style"))
+              .map((style) => style.innerHTML)
+              .join("")}
+          </style>
+        </head>
+        <body>
+          ${document.getElementById("print-container").innerHTML}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
   };
 
   const handleBack = () => {
@@ -139,41 +291,58 @@ const RecordDetailsPage = () => {
   };
 
   return (
-    <Container>
-      <Header>
-        <Logo src={logo} alt="University Logo" />
-        <UniversityInfo>
-          <UniversityName>University Medical Center</UniversityName>
-          <UniversityLocation>
-            Uva Wellassa University of Sri Lanka
-          </UniversityLocation>
-        </UniversityInfo>
-      </Header>
+    <>
+      <PrintGlobalStyles />
+      <Container id="print-container">
+        <Header>
+          <Logo src={logo} alt="University Logo" />
+          <UniversityInfo>
+            <UniversityName>University Medical Center</UniversityName>
+            <UniversityLocation>
+              Uva Wellassa University of Sri Lanka
+            </UniversityLocation>
+          </UniversityInfo>
+        </Header>
 
-      <TitleContainer>
-        <Title>Medical Record Details</Title>
-      </TitleContainer>
+        <TitleContainer>
+          <Title>Medical Record Details</Title>
+        </TitleContainer>
 
-      <Section>
-        <SectionHeading>Patient Demographics</SectionHeading>
-        {patientData && <PatientDemographicsTable {...patientData} />}
-      </Section>
+        <Section>
+          <SectionHeading>Patient Demographics</SectionHeading>
+          {patientData && <PatientDemographicsTable {...patientData} />}
+        </Section>
 
-      <Section>
-        <SectionHeading>Allergies</SectionHeading>
-        <AllergiesTable item1={patientData.allergies} />
-      </Section>
+        <Section>
+          <SectionHeading>Allergies</SectionHeading>
+          {patientData && patientData.allergies ? (
+            <AllergiesTable item1={patientData.allergies} />
+          ) : (
+            <p>Loading...</p>
+          )}
+        </Section>
 
-      <Section>
-        <SectionHeading>Clinical Summary</SectionHeading>
-        <MedicalInfoTable {...clinicalSummary} />
-      </Section>
+        <Section>
+          <SectionHeading>Clinical Summary</SectionHeading>
+          {clinicalSummary ? (
+            <MedicalInfoTable {...clinicalSummary} />
+          ) : (
+            <p>Loading...</p>
+          )}
+        </Section>
+        <Section>
+        <UniversityLocation>
+        ......................................
+            </UniversityLocation>
+          <SectionHeading>Doctor's Signature</SectionHeading>
+        </Section>
+      </Container>
 
-      <ButtonContainer>
+      <ButtonContainer className="no-print">
         <Button onClick={handlePrint}>Print</Button>
         <Button onClick={handleBack}>Back</Button>
       </ButtonContainer>
-    </Container>
+    </>
   );
 };
 

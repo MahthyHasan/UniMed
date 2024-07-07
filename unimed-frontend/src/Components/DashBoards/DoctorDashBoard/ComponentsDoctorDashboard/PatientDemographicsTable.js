@@ -24,7 +24,6 @@ const PatientDemographicsTable = ({
   bloodGroup,
   nic,
   regNo,
-  RecId,
   firstName
 }) => {
   return (
