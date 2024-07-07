@@ -55,7 +55,7 @@ function SuccessPage() {
 
   const consultButtonStyle = {
     ...buttonStyle,
-    backgroundColor: "#6BCB77",
+    backgroundColor: "#18cdca",
     color: "#fff",
   };
 
@@ -77,10 +77,10 @@ function SuccessPage() {
               style={consultButtonStyle}
               onClick={() => navigate("/doctorDashboard")}
             >
-              Consult for a new patient?
+              Consult for a new patient
             </button>
             <button style={cancelButtonStyle} onClick={() => navigate("/")}>
-              Cancel and return to the main page?
+              Cancel and return to the main page
             </button>
           </div>
         </div>
