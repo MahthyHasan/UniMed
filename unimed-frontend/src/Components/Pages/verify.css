@@ -1,11 +1,35 @@
 .centered-badge {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .custom-badge {
-    width: 60%;
-    font-size: 1.5rem;
-    height: 60px; /* Adjust height as needed */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Light background color for the whole container */
+}
+
+.verify-box {
+  width: 60%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.verify-box-top {
+  background-color: #bbf7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.tick-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.verify-box-bottom {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333333; /* Darker color for the text */
+}
