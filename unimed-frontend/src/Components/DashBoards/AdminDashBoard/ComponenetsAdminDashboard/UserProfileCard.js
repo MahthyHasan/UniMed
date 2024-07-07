@@ -1,5 +1,5 @@
 import React from "react";
-import profileImage from "../../../../assets/images/doctor.png";
+import profileImage from "../../../../assets/images/user1.jpg";
 import "./userProfileCard.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
