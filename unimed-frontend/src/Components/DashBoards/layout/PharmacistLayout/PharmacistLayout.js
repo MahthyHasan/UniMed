@@ -87,6 +87,28 @@ export default function PharmacistLayout({ children }) {
               </NavLink>
             </div>
 
+            <div className={"w-100 px-sm-2"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
+                to={"/Mali"}
+              >
+                <div className={"d-flex"}>
+                  <img
+                    src={Drugs}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={""}>Report Genarate</div>}
+                </div>
+              </NavLink>
+            </div>
+
             <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
               <NavLink
                 className={({ isActive }) =>
