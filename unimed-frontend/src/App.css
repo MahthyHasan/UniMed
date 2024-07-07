@@ -12,25 +12,23 @@
 
 body {
   background-color: rgb(249, 250, 251) !important;
-  
 }
 p {
   background-color: transparent;
 }
 
-
 .modal-backdrop {
   z-index: -1 !important;
 }
-.error-message{
+.error-message {
   color: rgb(240, 67, 15) !important;
   font-size: 15px;
 }
-.sign-in-form-input-02-doctor{
+.sign-in-form-input-02-doctor {
   font-size: 20px !important;
   color: #000032 !important;
 }
-.sign-in-form-input-02-user{
+.sign-in-form-input-02-user {
   font-size: 20px !important;
   color: #000032 !important;
 }
@@ -64,7 +62,8 @@ p {
 .side-menu-active {
   /*color: #5030E5 !important;*/
   color: #040720 !important;
-  background-color: #c1b5fa;
+  background-color: #bbf7f6;
+
   /*background-color: #EBF8F2;*/
 }
 .side-bg-color {
@@ -499,7 +498,7 @@ p {
   margin-left: auto;
   opacity: 0;
   transition: visibility 0.1s linear, opacity 0.1s linear;
- /* -webkit-tap-highlight-color: transparent;*/
+  /* -webkit-tap-highlight-color: transparent;*/
   background-color: #181818ab;
   z-index: 9;
 }
@@ -1267,15 +1266,15 @@ channelling-card2 {
 }
 
 /*Component- booked time slots*/
-.booked-slots {  
+.booked-slots {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: -5rem;  
+  margin-top: -5rem;
 }
-.booked-slots-text{
+.booked-slots-text {
   margin-top: -2rem;
 }
 
@@ -1353,6 +1352,3 @@ channelling-card2 {
     margin-top: 80%;
   }
 }
-
-
-
