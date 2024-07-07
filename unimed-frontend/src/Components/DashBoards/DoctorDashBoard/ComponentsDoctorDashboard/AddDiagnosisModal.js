@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  background-color: #6bcb77;
+  background-color: #18cdca;
   color: white;
   border: none;
   padding: 8px 16px;

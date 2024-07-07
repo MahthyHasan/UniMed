@@ -52,7 +52,7 @@ const ModalTitle = styled.h5`
 const buttonWidth = "100px";
 
 const SaveButton = styled.button`
-  background-color: #6bcb77;
+  background-color: #18cdca;
   border: none;
   padding: 10px 20px;
   color: white;
