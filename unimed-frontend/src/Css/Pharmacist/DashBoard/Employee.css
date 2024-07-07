@@ -277,6 +277,20 @@ table.table .avatar {
   color: black; /* Black text color */
 }
 
+/* Add button colour */
+.custom-add-drug-button {
+  background-color: #18cdca !important; /* Replace with your desired color */
+  border-color: #18cdca!important; /* Ensure the border color matches */
+  color: white !important; /* Set the text color to white for contrast */
+}
+
+
+.alert-success {
+  background-color: #28a745 !important; /* Change the background color to green */
+  border-color: #28a745 !important; /* Change the border color to green */
+  color: white !important; /* Change the text color to white */
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
   .table-responsive {
