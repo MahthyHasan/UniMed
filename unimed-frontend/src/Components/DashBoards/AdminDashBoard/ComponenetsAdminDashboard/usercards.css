@@ -36,8 +36,8 @@
   background: #74a7e9;
 }
 
-.icon{
-	width: 4rem;
+.icon {
+  width: 4rem;
   height: 4rem;
   flex-shrink: 0;
   margin-left: 1rem; /* Adjust margin for consistent spacing */
@@ -49,7 +49,7 @@
   width: 4rem;
   height: 4rem;
   flex-shrink: 0;
-  margin-left: 1rem; /* Adjust margin for consistent spacing */
+  margin-left: 3rem; /* Adjust margin for consistent spacing */
   display: flex;
   align-items: center;
   justify-content: center;

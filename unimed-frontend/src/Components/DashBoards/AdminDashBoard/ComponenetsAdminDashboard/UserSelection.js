@@ -19,7 +19,7 @@ function UserSelection() {
                 text="Doctor"
                 icon={doctorIcon}
                 cssclass="user-cards-admin-dashboard-doctor"
-                iconcc="icon"
+                iconcc="icon2"
               />
             </Link>
           </div>
@@ -29,7 +29,7 @@ function UserSelection() {
                 text="Pharmacist"
                 icon={pharmesistIcon}
                 cssclass="user-cards-admin-dashboard-pharmacist"
-                iconcc="icon"
+                iconcc="icon2"
               />
             </Link>
           </div>
@@ -49,7 +49,7 @@ function UserSelection() {
                 text="Admin"
                 icon={adminIcon}
                 cssclass="user-cards-admin-dashboard-admin"
-                iconcc="icon"
+                iconcc="icon2"
               />
             </Link>
           </div>
