@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserBio {
     @Id
     private String _id;
+    private String regNo;
     private String nic;
     private int age;
     private String gender;
@@ -16,9 +17,11 @@ public class UserBio {
     private String bloodGroup;
     private String allergies;
     private String phoneNo;
+    private Boolean bioalert;
 
-    public UserBio(String _id, String nic, int age, String gender, double height, double weight, String bloodGroup, String allergies, String phoneNo) {
+    public UserBio(String _id, String regNo, String nic, int age, String gender, double height, double weight, String bloodGroup, String allergies, String phoneNo, Boolean bioalert) {
         this._id = _id;
+        this.regNo = regNo;
         this.nic = nic;
         this.age = age;
         this.gender = gender;
@@ -27,6 +30,7 @@ public class UserBio {
         this.bloodGroup = bloodGroup;
         this.allergies = allergies;
         this.phoneNo = phoneNo;
+        this.bioalert = bioalert;
     }
 
     public UserBio() {
@@ -38,6 +42,14 @@ public class UserBio {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getRegNo() {
+        return regNo;
+    }
+
+    public void setRegNo(String regNo) {
+        this.regNo = regNo;
     }
 
     public String getNic() {
@@ -104,10 +116,19 @@ public class UserBio {
         this.phoneNo = phoneNo;
     }
 
+    public Boolean getBioalert() {
+        return bioalert;
+    }
+
+    public void setBioalert(Boolean bioalert) {
+        this.bioalert = bioalert;
+    }
+
     @Override
     public String toString() {
         return "UserBio{" +
                 "_id='" + _id + '\'' +
+                ", regNo='" + regNo + '\'' +
                 ", nic='" + nic + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
@@ -116,6 +137,7 @@ public class UserBio {
                 ", bloodGroup='" + bloodGroup + '\'' +
                 ", allergies='" + allergies + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +
+                ", bioalert=" + bioalert +
                 '}';
     }
 }

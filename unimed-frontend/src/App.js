@@ -55,6 +55,7 @@ import RecordDetailsPage from "./Components/DashBoards/DoctorDashBoard/Pages/Rec
 import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/ClinicForPharmacist";
 import TermsOfService from "./Components/Pages/Home/TermsOfService";
 import SupplyMedicinePharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/SupplyMedicinePharmacist";
+import BioFill from "./Components/Pages/BioFill";
 
 function App() {
   return (
@@ -127,6 +128,7 @@ function App() {
 
         <Route path="/Privacy" element={<Privacy />} />
         <Route path="/SupplyMedicinePharmacist" element={<SupplyMedicinePharmacist />} />
+        <Route path="/BioFill" element={<BioFill />} />
       </Routes>
     </div>
   );
