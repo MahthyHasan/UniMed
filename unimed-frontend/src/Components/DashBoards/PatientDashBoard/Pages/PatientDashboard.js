@@ -41,17 +41,28 @@ export default function PatientDashboard() {
       <Layout>
         <h1>{username}</h1>
         <div className="container">
+        <div className='row'>
+          <div className='col-4'>
+          <div className="card">
+                <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
+              </div>
+          </div>
+          <div className='col-4'>
+          <div className="card">
+                <DayScheduleButton />
+              </div>
+          </div>
+          <div className='col-4'>
+          <div className="qr-container">
+                <QRGenerator />
+              </div>
+          </div>
+        </div>
           <div className="row">
             <div className="col-md-6">
               <Personal_Info {...studentInfo} />
             </div>
             <div className="col-md-6 d-flex flex-column align-items-center">
-              <div className="card">
-                <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
-              </div>
-              <div className="card">
-                <DayScheduleButton />
-              </div>
               <div className="qr-container">
                 <QRGenerator />
               </div>

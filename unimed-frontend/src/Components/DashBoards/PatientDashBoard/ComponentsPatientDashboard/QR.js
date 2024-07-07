@@ -18,21 +18,7 @@ export default function QRGenerator() {
       <div className="notiborderglow"></div>
       <div className="notititle">Generate QR Code</div>
       <div className="notibody">
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="NIC Number "
-            onChange={(e) => setText(e.target.value)}
-            className="form-control"
-            required
-          />
-          <button
-            className="invite-btn"
-            onClick={handleGenerateQRCode}
-            disabled={text.trim() === ''}
-          >
-            Generate
-          </button>
+        <div className="input-container">          
         </div>
         {imageUrl && (
           <div className="qr-code-container">

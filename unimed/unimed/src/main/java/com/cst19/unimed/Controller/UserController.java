@@ -93,6 +93,7 @@ public class UserController {
             // Redirect to login page if verification is successful
             UserBio userBio = new UserBio();
             userBio.set_id(user.getId());
+            userBio.setBioalert(false);
             userService.saveorupdatebio(userBio);
             redirectAttributes.addFlashAttribute("message", "Email verification successful. You can now log in.");
             redirectView.setUrl("http://localhost:3000/CommonLogin");
