@@ -23,6 +23,9 @@ export default function PatientLayout({ children }) {
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(false);
   const [user, setUser] = useState(null);
+  
+  // State to control the disabled state of the "Community Chat" button
+  const [isChatDisabled, setIsChatDisabled] = useState(true);
 
   function toggleDrawer() {
     dispatch(changeToggle(!open));
@@ -110,8 +113,9 @@ export default function PatientLayout({ children }) {
               <NavLink
                 exact
                 to={"/Chat"}
-                className="side-menu-item"
+                className={`side-menu-item ${isChatDisabled ? "disabled" : ""}`}
                 activeClassName="side-menu-active"
+                onClick={(e) => isChatDisabled && e.preventDefault()}
               >
                 <div className="d-flex align-items-center">
                   <img
@@ -147,7 +151,7 @@ export default function PatientLayout({ children }) {
             <div className="w-100 px-sm-2 log-out-button-in-side-navbar">
               <NavLink
                 exact
-                to={"/Feedback"}
+                to={""}
                 className="side-menu-item"
                 activeClassName="side-menu-active"
               >
@@ -174,13 +178,6 @@ export default function PatientLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
-                  <button
-                    type="button"
-                    className="btn btn-secondary me-3 tasks-dropdown-btn padding-none d-flex align-items"
-                    onClick={handlePersonalDetailsClick}
-                  >
-                    Personal Details
-                  </button>
                   <Dropdown className="bg-white">
                     <Dropdown.Toggle variant="white" id="dropdown-basic">
                       <div
