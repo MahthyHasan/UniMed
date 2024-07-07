@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { generateQRCodetest } from '../../DoctorDashBoard/ComponentsDoctorDashboard/GenerateQRCode';
 import '../../../../Css/Patient/QR.css';
+import QRModal from './QRModal';
 
 export default function QRGenerator() {
   const [imageUrl, setImageUrl] = useState('');
-  const [showQR, setShowQR] = useState(false);
+  const [showQRModal, setShowQRModal] = useState(false);
   const userID = localStorage.getItem("user_Id");
 
   useEffect(() => {
@@ -28,32 +29,22 @@ export default function QRGenerator() {
     fetchUserBio();
   }, [userID]);
 
-  const handleShowQR = () => {
-    setShowQR(true);
+  const handleShowQRModal = () => {
+    setShowQRModal(true);
   };
 
-  const handleCloseQR = () => {
-    setShowQR(false);
+  const handleCloseQRModal = () => {
+    setShowQRModal(false);
   };
 
   return (
     <div className="notification">
       <div className="notititle justify-content-center">Your QR Code</div>
       <div className="notibody">
-        {!showQR && (
-          <button className="playstore-button" onClick={handleShowQR}>
-            My QR Code
-          </button>
-        )}
-        {showQR && imageUrl && (
-          <div className="qr-code-container">
-            <button className="btn-close" onClick={handleCloseQR}><span></span></button>
-            <div className="download-text">Click to Download</div>
-            <a href={imageUrl} download>
-              <img src={imageUrl} alt="QR Code" className="qr-code-image" />
-            </a>
-          </div>
-        )}
+        <button className="playstore-button" onClick={handleShowQRModal}>
+          My QR Code
+        </button>
+        <QRModal show={showQRModal} onClose={handleCloseQRModal} imageUrl={imageUrl} />
       </div>
     </div>
   );

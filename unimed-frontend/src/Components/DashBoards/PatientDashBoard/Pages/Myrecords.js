@@ -15,7 +15,7 @@ export default function PatientDashboard() {
     return (
       <div>
         <Layout>
-          <h1>{username}</h1>{" "}
+          {/* <h1>{username}</h1>{" "} */}
           {/* Replace 'Patient' Name' with the retrieved username */}
           <Table /> 
         </Layout>
