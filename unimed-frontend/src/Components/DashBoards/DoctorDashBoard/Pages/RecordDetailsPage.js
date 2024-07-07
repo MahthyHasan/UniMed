@@ -82,33 +82,38 @@ const RecordDetailsPage = () => {
   const [allergies, setAllergies] = useState(null);
   const [clinicalSummary, setClinicalSummary] = useState(null);
 
-  // Fetching logic here
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const patientID = localStorage.getItem("scannedPID");
-      if (patientID) {
-        const patientResponse = await axios.get(
-          `http://localhost:8088/api/v1/user/${patientID}`
-        );
-        const allergiesResponse = await axios.get(
-          `http://localhost:8088/api/v1/user/allergies/${patientID}`
-        );
-        const clinicalSummaryResponse = await axios.get(
-          `http://localhost:8088/api/v1/medicalRecords/summary/${patientID}`
-        );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const patientID = localStorage.getItem("scannedPID");
+        if (patientID) {
+          const patientResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/${patientID}`
+          );
+          const patientBioResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/bio/${patientID}`
+          );
+          setPatientData({
+            ...patientResponse.data,
+            ...patientBioResponse.data,
+          });
+          const allergiesResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/allergies/${patientID}`
+          );
+          const clinicalSummaryResponse = await axios.get(
+            `http://localhost:8088/api/v1/user/clinicalSummary/${patientID}`
+          );
 
-        setPatientData(patientResponse.data);
-        setAllergies(allergiesResponse.data);
-        setClinicalSummary(clinicalSummaryResponse.data);
+          setAllergies(allergiesResponse.data);
+          setClinicalSummary(clinicalSummaryResponse.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+    };
 
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
   const handlePrint = () => {
     window.print();
@@ -132,12 +137,12 @@ useEffect(() => {
 
       <Section>
         <SectionHeading>Patient Demographics</SectionHeading>
-        <PatientDemographicsTable {...patientData} />
+        {patientData && <PatientDemographicsTable {...patientData} />}
       </Section>
 
       <Section>
         <SectionHeading>Allergies</SectionHeading>
-        <AllergiesTable item1={allergies} />
+        <AllergiesTable item1={patientData.allergies} />
       </Section>
 
       <Section>

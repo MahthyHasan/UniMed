@@ -21,17 +21,18 @@ const TableCell = styled.td`
 const PatientDemographicsTable = ({
   age,
   gender,
-  name,
+  bloodGroup,
   nic,
-  enrollment,
+  regNo,
   RecId,
+  firstName
 }) => {
   return (
     <Table>
       <tbody>
         <tr>
           <TableCell header>Name</TableCell>
-          <TableCell>{name}</TableCell>
+          <TableCell>{firstName}</TableCell>
           <TableCell header>Gender</TableCell>
           <TableCell>{gender}</TableCell>
           <TableCell header>Age</TableCell>
@@ -41,9 +42,9 @@ const PatientDemographicsTable = ({
           <TableCell header>NIC No</TableCell>
           <TableCell>{nic}</TableCell>
           <TableCell header>Enrollment No</TableCell>
-          <TableCell>{enrollment}</TableCell>
-          <TableCell header>Record No</TableCell>
-          <TableCell>{RecId}</TableCell>
+          <TableCell>{regNo}</TableCell>
+          <TableCell header>Blood Type</TableCell>
+          <TableCell>{bloodGroup}</TableCell>
         </tr>
       </tbody>
     </Table>
