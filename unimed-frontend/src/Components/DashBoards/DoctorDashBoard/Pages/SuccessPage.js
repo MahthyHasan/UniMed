@@ -35,7 +35,7 @@ function SuccessPage() {
   const recordIdStyle = {
     fontSize: "18px",
     marginBottom: "30px",
-    color: "#555",
+    color: "#333",
   };
 
   const buttonContainerStyle = {
@@ -55,14 +55,14 @@ function SuccessPage() {
 
   const consultButtonStyle = {
     ...buttonStyle,
-    backgroundColor: "#18cdca",
-    color: "#fff",
+    backgroundColor: "#bbf7f6",
+    color: "#333",
   };
 
   const cancelButtonStyle = {
     ...buttonStyle,
     backgroundColor: "#FF6961",
-    color: "#fff",
+    ccolor: "#333",
     marginLeft: "10px",
   };
 

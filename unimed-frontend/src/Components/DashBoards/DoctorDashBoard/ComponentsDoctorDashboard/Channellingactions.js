@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import pause from "../../../../assets/icons/pause.svg";
+import logout from "../../../../assets/icons/logout.svg";
 import continueicon from "../../../../assets/icons/continueicon.svg";
 
 function Channellingactions() {
@@ -53,10 +54,10 @@ function Channellingactions() {
           <img src={continueicon} className="input-label-icon" />
         </div>
       </div>
-      <div className="channelling-card2" onClick={handleLogout}>
+      <div className="channelling-card3" onClick={handleLogout}>
         <div className="channel-text">Log out</div>
         <div className="channel-container">
-          <img src={continueicon} className="input-label-icon" />
+          <img src={logout} className="input-label-icon" />
         </div>
       </div>
     </div>
