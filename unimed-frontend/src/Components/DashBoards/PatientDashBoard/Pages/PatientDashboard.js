@@ -5,6 +5,7 @@ import DocAvailability from '../ComponentsPatientDashboard/DocAvailability';
 import DayScheduleButton from '../ComponentsPatientDashboard/DayScheduleButton';
 import QRGenerator from '../ComponentsPatientDashboard/QR';
 import '../../../../Css/Patient/PatientDashboard.css';
+import Card from '../ComponentsPatientDashboard/Card';
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState('');
@@ -66,6 +67,7 @@ export default function PatientDashboard() {
             <div className="col-md-6 d-flex flex-column align-items-center">
               <div className="qr-container">
                 <QRGenerator />
+                <Card />
               </div>
             </div>
           </div>
