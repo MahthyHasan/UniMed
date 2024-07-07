@@ -26,7 +26,7 @@
 }
 
 .form-input:focus {
-  border-color: #6a64f1;
+  border-color: #18cdca;
   box-shadow: 0 0 0 2px rgba(106, 100, 241, 0.2);
 }
 
@@ -36,7 +36,7 @@
   padding: 12px;
   border: none;
   border-radius: 6px;
-  background-color: #6a64f1; /* Change button color */
+  background-color: #18cdca; /* Change button color */
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
@@ -45,7 +45,7 @@
 }
 
 .form-button:hover {
-  background-color: #5539cc; /* Darker shade of the button color on hover */
+  background-color: #18cdca; /* Darker shade of the button color on hover */
 }
 
 /* Custom styling for message input */

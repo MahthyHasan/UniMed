@@ -54,14 +54,14 @@ export default function FeedbackForm() {
             </Alert>
           </div>
         )}
-        <h2 style={{ color: "#2563EB", fontWeight: "bold" }}>Feedback</h2>
+        <h2 style={{ color: "#18cdca", fontWeight: "bold" }}>Feedback</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-5">
             <label
               htmlFor="email"
               className="mb-3 block text-base font-medium text-blue-600"
             >
-              <h5 style={{ color: "#2563EB" }}>Email Address</h5>
+              <h5 style={{ color: "#18cdca" }}>Email Address</h5>
             </label>
             <input
               type="email"
@@ -79,7 +79,7 @@ export default function FeedbackForm() {
               htmlFor="message"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
-              <h5 style={{ color: "#2563EB" }}>Message</h5>
+              <h5 style={{ color: "#18cdca" }}>Message</h5>
             </label>
             <textarea
               name="message"
