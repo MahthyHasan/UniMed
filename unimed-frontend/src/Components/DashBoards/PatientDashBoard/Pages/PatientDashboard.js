@@ -5,6 +5,7 @@ import DocAvailability from '../ComponentsPatientDashboard/DocAvailability';
 import DayScheduleButton from '../ComponentsPatientDashboard/DayScheduleButton';
 import '../../../../Css/Patient/PatientDashboard.css';
 import Card from '../ComponentsPatientDashboard/Card';
+import bgimg from "../../../../assets/icons2/bgimg.jpg";
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState('');
@@ -32,7 +33,12 @@ export default function PatientDashboard() {
   }, [userID]);
 
   return (
-    <div>
+    <div style={{ 
+      backgroundImage: `url(${bgimg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh'
+    }}>
       <Layout>
         <h1>{username}</h1>
         <div className="container">
