@@ -97,7 +97,7 @@ export default function PatientDashboard() {
                 </button>
               </div>
               <div className="modal-body">
-                ggcgcgcgcgcgcgcg
+                
                 <AppointmentForm onSubmit={handleAppointmentSubmit} onCancel={handleCloseModal} />
               </div>
             </div>

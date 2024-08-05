@@ -1,41 +1,29 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCalendarAlt,
-  faClock,
-  faExclamationCircle,
-  faSave,
-  faTimes
-} from "@fortawesome/free-solid-svg-icons";
-import { toast } from "react-toastify";
+import { faCalendarAlt, faClock, faExclamationCircle, faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from 'axios';  // Import axios
 import './AppointmentForm.css'; // Import the CSS file
 
-const AppointmentForm = ({ doctor, onSubmit, onCancel }) => {
+const AppointmentForm = ({ doctor, onCancel }) => {
   const [appointmentData, setAppointmentData] = useState({
     patient: "",
     appointmentDate: "",
     startTime: "",
-    endTime: "",
     status: "scheduled",
     disease: ""
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (
-      name === "appointmentDate" ||
-      name === "startTime" ||
-      name === "endTime"
-    ) {
+    if (name === "appointmentDate") {
       const selectedDate = new Date(value);
-
       if (selectedDate < new Date()) {
         toast.error(`${name} cannot be set to a past date or time.`, {
           position: "top-right",
           autoClose: 3000
         });
-
         setAppointmentData({
           ...appointmentData,
           [name]: appointmentData[name]
@@ -46,13 +34,36 @@ const AppointmentForm = ({ doctor, onSubmit, onCancel }) => {
     setAppointmentData({ ...appointmentData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(appointmentData);
+    try {
+      const response = await axios.post('http://localhost:8088/appointments', appointmentData);
+      if (response.status === 200) {
+        toast.success("Appointment created successfully!", {
+          position: "top-right",
+          autoClose: 3001
+        });
+      }
+    } catch (error) {
+      toast.error("Error creating appointment.", {
+        position: "top-right",
+        autoClose: 3001
+      });
+    }
   };
+
+  const timeOptions = [];
+  for (let i = 8; i <= 16; i++) {
+    if (i < 16) {
+      timeOptions.push(`${String(i).padStart(2, "0")}:00`, `${String(i).padStart(2, "0")}:30`);
+    } else {
+      timeOptions.push(`${String(i).padStart(2, "0")}:00`);
+    }
+  }
 
   return (
     <div className="appoinment">
+      <ToastContainer />
       <div className="appoinment-content">
         <div className="appoinment-header">
           <h2 className="appoinment-title">Book Appointment</h2>
@@ -82,30 +93,22 @@ const AppointmentForm = ({ doctor, onSubmit, onCancel }) => {
           <div className="form-group">
             <label className="form-label">
               <FontAwesomeIcon icon={faClock} className="form-icon" />
-              Start Time
+              Appointment Time
             </label>
-            <input
-              type="time"
+            <select
               name="startTime"
               value={appointmentData.startTime}
               onChange={handleInputChange}
               className="form-input"
               required
-            />
-          </div>
-          <div className="form-group">
-            <label className="form-label">
-              <FontAwesomeIcon icon={faClock} className="form-icon" />
-              End Time
-            </label>
-            <input
-              type="time"
-              name="endTime"
-              value={appointmentData.endTime}
-              onChange={handleInputChange}
-              className="form-input"
-              required
-            />
+            >
+              <option value="">Select Time</option>
+              {timeOptions.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label className="form-label">
