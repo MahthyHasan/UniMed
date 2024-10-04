@@ -15,7 +15,7 @@ public class DrugController {
 
     @PostMapping(value = "/save")
     private String registerDrug(@RequestBody Drug drugs){
-        drugService.saveorupdate(drugs);
+        drugService.saveOrUpdate(drugs);
         return drugs.get_id();
     }
 
@@ -27,7 +27,7 @@ public class DrugController {
     @PutMapping(value = "/edit/{id}")
     private Drug update(@RequestBody Drug drug, @PathVariable(name = "id")String _id){
         drug.set_id(_id);
-        drugService.saveorupdate(drug);
+        drugService.saveOrUpdate(drug);
         return drug;
     }
 

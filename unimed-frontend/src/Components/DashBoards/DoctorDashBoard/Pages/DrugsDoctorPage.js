@@ -67,9 +67,12 @@ export default function DoctorDrugFinder() {
             <tr>
               <th scope="col">Code</th>
               <th scope="col">Name</th>
-              <th scope="col">Dose Strength</th>
+              <th scope="col">Dosage Forms</th>
+              <th scope="col">Strength</th>
               <th scope="col">Quantity</th>
+              <th scope="col">Manufacturer</th>
               <th scope="col">Expiry Date</th>
+              <th scope="col">Availability Status</th>
             </tr>
           </thead>
           <tbody>
@@ -77,9 +80,12 @@ export default function DoctorDrugFinder() {
               <tr key={drug._id}>
                 <th scope="row">{`MED${index + 1}`.padStart(6, "0")}</th>
                 <td>{drug.drug_name}</td>
+                <td>{drug.dosage_forms}</td>
                 <td>{drug.strength}</td>
                 <td>{drug.quantity}</td>
-                <td>{drug.expiry_date}</td>
+                <td>{drug.manufacturer}</td>
+                <td>{drug.exp_date}</td>
+                <td>{drug.availability_status}</td>
               </tr>
             ))}
           </tbody>

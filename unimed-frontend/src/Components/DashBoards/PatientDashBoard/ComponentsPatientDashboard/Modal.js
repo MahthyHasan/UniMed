@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import LastDiagnosis from '../ComponentsPatientDashboard/LastDiagnosis';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import LastDiagnosis from "../ComponentsPatientDashboard/LastDiagnosis";
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -41,20 +42,39 @@ const CloseButton = styled.button`
   }
 `;
 
-const Modal = ({ show, onClose, record }) => {
+const Modal = ({ show, onClose, recordId }) => {
+  const [record, setRecord] = useState(null);
+
+  useEffect(() => {
+    if (show && recordId) {
+      axios
+        .get(`http://localhost:8088/api/v1/medicalRecords/${recordId}`)
+        .then((response) => {
+          setRecord(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching the medical record", error);
+        });
+    }
+  }, [show, recordId]);
+
   if (!show) return null;
 
   return (
     <ModalBackdrop>
       <ModalContent>
-        <LastDiagnosis
-          symptom1={record.symptoms[0]}
-          symptom2={record.symptoms[1]}
-          symptom3={record.symptoms[2]}
-          diagnosis1={record.diagnoses[0]}
-          presmed1={record.medicines[0]}
-          presmed2={record.medicines[1]}
-        />
+        {record ? (
+          <LastDiagnosis
+            symptom1={record.symptoms[0]}
+            symptom2={record.symptoms[1]}
+            symptom3={record.symptoms[2]}
+            diagnosis1={record.diagnoses[0]}
+            presmed1={record.medicines[0]}
+            presmed2={record.medicines[1]}
+          />
+        ) : (
+          <p>Loading...</p>
+        )}
         <CloseButton onClick={onClose}>Close</CloseButton>
       </ModalContent>
     </ModalBackdrop>
