@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import LastDiagnosis from '../ComponentsPatientDashboard/LastDiagnosis';
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -41,24 +40,80 @@ const CloseButton = styled.button`
   }
 `;
 
+// New styled components for text colors
+const Heading = styled.h3`
+  color: #4682b4; /* SteelBlue */
+`;
+
+const SubHeading = styled.h4`
+  color: #ff4500; /* OrangeRed */
+`;
+
+const ListItem = styled.li`
+  color: #000; /* Black for list items */
+`;
+
+// Helper function to format arrays or strings
+const formatArrayOrString = (data, separator = ', ') => {
+  if (data && (Array.isArray(data) || typeof data === 'string')) {
+    if (Array.isArray(data)) {
+      return data.join(separator);
+    } else {
+      return data.split(/(?=[A-Z])/).join(separator);
+    }
+  }
+  return 'No data available';
+};
 const Modal = ({ show, onClose, record }) => {
-  if (!show) return null;
+  if (!show || !record) return null; // Ensure record is available
+
+  console.log("Record in Modal: ", record);
+  console.log("Diagnoses: ", record.diagnoses);
+  console.log("Medicines: ", record.medicines);
 
   return (
     <ModalBackdrop>
       <ModalContent>
-        <LastDiagnosis
-          symptom1={record.symptoms[0]}
-          symptom2={record.symptoms[1]}
-          symptom3={record.symptoms[2]}
-          diagnosis1={record.diagnoses[0]}
-          presmed1={record.medicines[0]}
-          presmed2={record.medicines[1]}
-        />
+        <Heading>Record Details</Heading>
+
+        <SubHeading>Symptoms:</SubHeading>
+        <ul>
+          {record.symptoms && record.symptoms.length > 0 ? (
+            record.symptoms.map((symptom, index) => (
+              <ListItem key={index}>{symptom}</ListItem>
+            ))
+          ) : (
+            <ListItem>No symptoms available</ListItem>
+          )}
+        </ul>
+
+        <SubHeading>Diagnosis:</SubHeading>
+        <ul>
+          {record.diagnoses && record.diagnoses.length > 0 ? (
+            record.diagnoses.map((diagnosis, index) => (
+              <ListItem key={index}>{diagnosis}</ListItem>
+            ))
+          ) : (
+            <ListItem>No diagnoses available</ListItem>
+          )}
+        </ul>
+
+        <SubHeading>Prescribed Medicine:</SubHeading>
+        <ul>
+          {record.medicines && record.medicines.length > 0 ? (
+            record.medicines.map((medicine, index) => (
+              <ListItem key={index}>{medicine}</ListItem>
+            ))
+          ) : (
+            <ListItem>No prescribed medicines available</ListItem>
+          )}
+        </ul>
+
         <CloseButton onClick={onClose}>Close</CloseButton>
       </ModalContent>
     </ModalBackdrop>
   );
 };
+
 
 export default Modal;
