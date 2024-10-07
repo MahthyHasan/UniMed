@@ -15,6 +15,7 @@ import logopath from "../../../../assets/logo.png";
 import Feedback from "../../PatientDashBoard/Pages/Feedback";
 import "./styles.css";
 import QRGenerator from "../../PatientDashBoard/ComponentsPatientDashboard/QR";
+import DocAvailability from "../../PatientDashBoard/ComponentsPatientDashboard/DocAvailability";
 
 export default function PatientLayout({ children }) {
   const dispatch = useDispatch();
@@ -179,6 +180,13 @@ export default function PatientLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
+                  <li className="nav-item me-3 ms-n3" style={{ display: 'flex', alignItems: 'center', position: "relative", top: '-8px' }}>
+                    <div style={{ marginLeft: 'auto' }}>
+                      <DocAvailability doctorName="Dr.John" isAvailable={true} />
+                    </div>
+                  </li>
+
+
                   <li className="nav-item me-3" style={{ position: 'relative', top: '-19px' }}>
                     <QRGenerator />
                   </li>
