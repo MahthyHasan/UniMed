@@ -1,26 +1,24 @@
 .cardCollection {
-    width: 100%;
-    max-width: 290px;
-    height: 80px;
-    background: #353535;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    transition: 0.5s ease-in-out;
-  }
+  width: 120%;
+  max-width: 350px; /* Increased width */
+  height: 45px; /* Height remains the same */
+  background: #353535;
+  border-radius: 12px; /* Slightly smaller radius */
+  display: flex;
+}
   
-  .cardCollection:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-  }
-  
-  .cardCollectiontextBox {
-    width: calc(100% - 50px); /* Adjusted width to accommodate the checkmark on the right */
-    margin-left: 10px;
-    color: white;
-    font-family: "Poppins", sans-serif;
-  }
+
+.cardCollection:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.cardCollectiontextBox {
+  width: calc(100% - 50px); /* Adjusted width to accommodate the checkmark on the right */
+  margin-left: 10px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
   
   .cardCollectiontextContent {
     display: flex;
@@ -60,8 +58,8 @@
   
   .cardCollectioncheckmark {
     position: absolute;
-    top: 0;
-    right: 10px; /* Moved to the right side */
+    top: -7px;
+    right: 5px; /* Moved to the right side */
     height: 25px;
     width: 25px;
     background-color: #eee;
@@ -76,6 +74,7 @@
   
   .cardCollectioncheckmark.not-available {
     background-color: #dc3545; /* Red background for not available */
+    right: -5px;
   }
   
   .cardCollectioncheckmark:after {
@@ -85,7 +84,7 @@
     left: 9px;
     top: 5px;
     width: 5px;
-    height: 10px;
+    height: 9px;
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);

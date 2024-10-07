@@ -6,14 +6,16 @@ import '../../../../Css/Patient/PatientDashboard.css';
 import Card from '../ComponentsPatientDashboard/Card';
 import bgimg from "../../../../assets/icons2/bgimg.jpg";
 import AppointmentForm from '../ComponentsPatientDashboard/AppointmentForm';
+import MedicalReq from "../ComponentsPatientDashboard/MedicalReq";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-toastify/dist/ReactToastify.css'; // Import toastify CSS
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function PatientDashboard() {
   const [username, setUsername] = useState('');
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [userBio, setUserBio] = useState(null);
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
+  const [showMedicalReqModal, setShowMedicalReqModal] = useState(false); // State for MedicalReq modal
 
   const userID = localStorage.getItem("user_Id");
 
@@ -45,12 +47,20 @@ export default function PatientDashboard() {
 
   const handleAppointmentSubmit = (appointmentData) => {
     console.log("Appointment Data:", appointmentData);
-    // Submit the appointment data to your API or handle it as needed
     handleCloseModal();
   };
 
+  // Function to open the MedicalReq modal
+  const handleRequestMedicalReportClick = () => {
+    setShowMedicalReqModal(true);
+  };
+
+  const handleCloseMedicalReqModal = () => {
+    setShowMedicalReqModal(false);
+  };
+
   return (
-    <div style={{ 
+    <div style={{
       backgroundImage: `url(${bgimg})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -67,7 +77,9 @@ export default function PatientDashboard() {
               <div className="row">
                 <div className="col-12">
                   <div className="card">
-                    <DocAvailability doctorName="Dr. John Doe" isAvailable={true} />
+                    <button onClick={handleBookAppointmentClick} className="btn btn-primary">
+                      Book an Appointment
+                    </button>
                   </div>
                 </div>
                 <div className="col-12">
@@ -75,9 +87,7 @@ export default function PatientDashboard() {
                 </div>
                 <div className="col-12">
                   <div className="card">
-                    <button onClick={handleBookAppointmentClick} className="btn btn-primary">
-                      Book an Appointment
-                    </button>
+                  <MedicalReq />
                   </div>
                 </div>
               </div>
@@ -86,6 +96,7 @@ export default function PatientDashboard() {
         </div>
       </Layout>
 
+      {/* Modal for Booking an Appointment */}
       {showAppointmentForm && (
         <div className="modal show d-block" tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
@@ -97,13 +108,18 @@ export default function PatientDashboard() {
                 </button>
               </div>
               <div className="modal-body">
-                
                 <AppointmentForm onSubmit={handleAppointmentSubmit} onCancel={handleCloseModal} />
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Modal for Medical Request */}
+      {showMedicalReqModal && (
+        <MedicalReq onClose={handleCloseMedicalReqModal} />
+      )}
+
     </div>
   );
 }

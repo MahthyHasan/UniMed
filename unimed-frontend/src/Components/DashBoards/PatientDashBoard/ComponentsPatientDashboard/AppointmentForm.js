@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faClock, faExclamationCircle, faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from 'axios';  // Import axios
+import axios from 'axios'; // Import axios
 import "../../../../Css/Patient/AppointmentForm.css";
 
-const AppointmentForm = ({ doctor, onCancel }) => {
+const AppointmentForm = ({ doctor, onCancel, userId }) => { // Add userId prop
   const [appointmentData, setAppointmentData] = useState({
-    patient: "",
+    patient: userId, // Set patient field with userId
     appointmentDate: "",
     startTime: "",
     status: "scheduled",
@@ -24,16 +24,20 @@ const AppointmentForm = ({ doctor, onCancel }) => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting form with data:", appointmentData); // Debugging log
     try {
       const response = await axios.post("http://localhost:8088/addAppointment", appointmentData);
+      console.log("Response:", response); // Debugging log
       if (response.status === 200) {
         toast.success("Appointment created successfully!", {
           position: "top-right",
           autoClose: 3001
         });
+        onCancel(); // Close the form on success
       }
     } catch (error) {
-      toast.error("Error creating appointment.", {
+      console.error("Error creating appointment:", error); // Log any error
+      toast.error("Error creating appointment. Please try again.", {
         position: "top-right",
         autoClose: 3001
       });
@@ -57,7 +61,7 @@ const AppointmentForm = ({ doctor, onCancel }) => {
 
   return (
     <div className="appoinment">
-      <ToastContainer />
+      <ToastContainer /> {/* Ensure ToastContainer is here */}
       <div className="appoinment-content">
         <div className="appoinment-header">
           <h2 className="appoinment-title">Book Appointment</h2>

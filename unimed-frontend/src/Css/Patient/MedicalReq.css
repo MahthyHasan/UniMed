@@ -1,0 +1,73 @@
+/* MedicalReq Button Design */
+.medical-req-button {
+    --primary-color: #645bff;
+    --secondary-color: #ffffff;
+    --hover-color: rgb(12, 222, 218);
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background, 0.2s color; /* Add transition for color */
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+}
+
+.medical-req-button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medical-req-button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+.medical-req-button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+.medical-req-button:hover {
+    background-color: var(--hover-color);
+    color: black; /* Change font color to black on hover */
+}
+
+.medical-req-button:hover .arrow {
+    background: var(--secondary-color);
+}
+
+.medical-req-button:hover .arrow:before {
+    right: 0;
+}
+
+.success-message {
+    color: rgb(24, 205, 202);; ; /* Change this color to your preference */
+    margin-top: 10px; /* Add some space above the message */
+    font-weight: bold; /* Make the message bold */
+}
+
+.alert-custom {
+    background-color: rgb(24, 205, 202) !important; /* Set custom background color */
+    color: rgb(24, 22, 22) !important; /* Set text color to white for better contrast */
+    border-color: rgb(24, 205, 202); /* Set border color to match the background */
+}
