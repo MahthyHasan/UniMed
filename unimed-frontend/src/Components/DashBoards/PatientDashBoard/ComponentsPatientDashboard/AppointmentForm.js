@@ -4,7 +4,7 @@ import { faCalendarAlt, faClock, faExclamationCircle, faSave, faTimes } from "@f
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';  // Import axios
-import './AppointmentForm.css'; // Import the CSS file
+import "../../../../Css/Patient/AppointmentForm.css";
 
 const AppointmentForm = ({ doctor, onCancel }) => {
   const [appointmentData, setAppointmentData] = useState({
@@ -15,29 +15,17 @@ const AppointmentForm = ({ doctor, onCancel }) => {
     disease: ""
   });
 
+  // Handle input changes in the form
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "appointmentDate") {
-      const selectedDate = new Date(value);
-      if (selectedDate < new Date()) {
-        toast.error(`${name} cannot be set to a past date or time.`, {
-          position: "top-right",
-          autoClose: 3000
-        });
-        setAppointmentData({
-          ...appointmentData,
-          [name]: appointmentData[name]
-        });
-        return;
-      }
-    }
     setAppointmentData({ ...appointmentData, [name]: value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8088/appointments', appointmentData);
+      const response = await axios.post("http://localhost:8088/addAppointment", appointmentData);
       if (response.status === 200) {
         toast.success("Appointment created successfully!", {
           position: "top-right",
@@ -52,6 +40,7 @@ const AppointmentForm = ({ doctor, onCancel }) => {
     }
   };
 
+  // Time options for appointment time dropdown
   const timeOptions = [];
   for (let i = 8; i <= 16; i++) {
     if (i < 16) {
@@ -60,6 +49,11 @@ const AppointmentForm = ({ doctor, onCancel }) => {
       timeOptions.push(`${String(i).padStart(2, "0")}:00`);
     }
   }
+
+  // Get tomorrow's date in YYYY-MM-DD format for the min attribute
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1); // Increment date by 1
+  const minDate = tomorrow.toISOString().split("T")[0]; // Format the date
 
   return (
     <div className="appoinment">
@@ -88,6 +82,7 @@ const AppointmentForm = ({ doctor, onCancel }) => {
               onChange={handleInputChange}
               className="form-input"
               required
+              min={minDate} // Set the minimum date to tomorrow
             />
           </div>
           <div className="form-group">

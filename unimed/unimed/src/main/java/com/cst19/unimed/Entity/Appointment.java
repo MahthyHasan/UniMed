@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Appointment {
-
     private String patient;
     private String appointmentDate;
     private String startTime;
