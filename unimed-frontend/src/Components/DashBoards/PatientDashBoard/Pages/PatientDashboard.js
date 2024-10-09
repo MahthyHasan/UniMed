@@ -9,10 +9,10 @@ import AppointmentForm from '../ComponentsPatientDashboard/AppointmentForm';
 import MedicalReq from "../ComponentsPatientDashboard/MedicalReq";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
 
 export default function PatientDashboard() {
-  const [username, setUsername] = useState('');
-  const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [userBio, setUserBio] = useState(null);
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
   const [showMedicalReqModal, setShowMedicalReqModal] = useState(false); // State for MedicalReq modal
@@ -46,8 +46,12 @@ export default function PatientDashboard() {
   };
 
   const handleAppointmentSubmit = (appointmentData) => {
-    console.log("Appointment Data:", appointmentData);
-    handleCloseModal();
+    console.log("Appointment Data:", appointmentData); // Log appointment data for debugging
+    toast.success("Appointment booked successfully!", {
+      position: "top-right",
+      autoClose: 3000
+    });
+    handleCloseModal(); // Close the modal after submission
   };
 
   // Function to open the MedicalReq modal
@@ -67,7 +71,6 @@ export default function PatientDashboard() {
       minHeight: '100vh'
     }}>
       <Layout>
-        <h1>{username}</h1>
         <div className="container">
           <div className="row">
             <div className="col-md-6">
@@ -83,11 +86,10 @@ export default function PatientDashboard() {
                   </div>
                 </div>
                 <div className="col-12">
-                <Card userId={userID} />
+                  <Card userId={userID} />
                 </div>
                 <div className="col-12">
                   <div className="card">
-                    {/* Pass userID as a prop to MedicalReq */}
                     <MedicalReq userId={userID} />
                   </div>
                 </div>
@@ -121,7 +123,6 @@ export default function PatientDashboard() {
       {showMedicalReqModal && (
         <MedicalReq onClose={handleCloseMedicalReqModal} userId={userID} />
       )}
-
     </div>
   );
 }
