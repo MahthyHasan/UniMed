@@ -18,13 +18,20 @@ public class AppointmentController {
 
     @PostMapping("/addAppointment")
     public ResponseEntity<String> addAppointment(@RequestBody Appointment appointment) {
-        appointmentRepo.save(appointment);
-        return ResponseEntity.ok("Appointment added successfully");
+        try {
+            appointmentRepo.save(appointment);
+            return ResponseEntity.ok("Appointment added successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error adding appointment");
+        }
     }
+
 
     @GetMapping("/appointments/{patientId}")
     public ResponseEntity<List<Appointment>> getAppointmentsByPatient(@PathVariable String patientId) {
         List<Appointment> appointments = appointmentRepo.findByPatient(patientId);
+        if (appointments.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(appointments);
+        }
         return ResponseEntity.ok(appointments);
-    }
-}
+    }}
