@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faClock, faExclamationCircle, faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from 'axios'; // Import axios
+import axios from 'axios';
 import "../../../../Css/Patient/AppointmentForm.css";
 
 const AppointmentForm = ({ doctor, onCancel, userId }) => { // Add userId prop
@@ -14,6 +14,9 @@ const AppointmentForm = ({ doctor, onCancel, userId }) => { // Add userId prop
     status: "scheduled",
     disease: ""
   });
+
+  // Log userId to ensure it's being received
+  console.log("userId received in AppointmentForm:", userId);
 
   // Handle input changes in the form
   const handleInputChange = (e) => {
