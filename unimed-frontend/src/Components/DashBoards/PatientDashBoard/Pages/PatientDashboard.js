@@ -17,7 +17,7 @@ export default function PatientDashboard() {
   const [showAppointmentForm, setShowAppointmentForm] = useState(false);
   const [showMedicalReqModal, setShowMedicalReqModal] = useState(false); // State for MedicalReq modal
 
-  const userID = localStorage.getItem("user_Id");
+  const userID = localStorage.getItem("user_Id"); // Get userID from localStorage
 
   useEffect(() => {
     const fetchUserBio = async () => {
@@ -83,11 +83,12 @@ export default function PatientDashboard() {
                   </div>
                 </div>
                 <div className="col-12">
-                  <Card />
+                <Card userId={userID} />
                 </div>
                 <div className="col-12">
                   <div className="card">
-                  <MedicalReq />
+                    {/* Pass userID as a prop to MedicalReq */}
+                    <MedicalReq userId={userID} />
                   </div>
                 </div>
               </div>
@@ -108,7 +109,8 @@ export default function PatientDashboard() {
                 </button>
               </div>
               <div className="modal-body">
-                <AppointmentForm onSubmit={handleAppointmentSubmit} onCancel={handleCloseModal} />
+                {/* Pass userID as a prop to AppointmentForm */}
+                <AppointmentForm userId={userID} onSubmit={handleAppointmentSubmit} onCancel={handleCloseModal} />
               </div>
             </div>
           </div>
@@ -117,7 +119,7 @@ export default function PatientDashboard() {
 
       {/* Modal for Medical Request */}
       {showMedicalReqModal && (
-        <MedicalReq onClose={handleCloseMedicalReqModal} />
+        <MedicalReq onClose={handleCloseMedicalReqModal} userId={userID} />
       )}
 
     </div>

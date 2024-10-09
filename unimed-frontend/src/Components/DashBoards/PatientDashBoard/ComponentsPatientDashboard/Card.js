@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
-import patientIcon from "../../../../assets/icons/patient.svg";
 import "../../../../Css/Patient/Card.css";
 import axios from 'axios';
 
-const Card = ({ userId }) => {
+const Card = ({ userId }) => { // Accept userId as a prop
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get(`http://localhost:8088/appointments/${userId}`);
-        setAppointments(response.data);
+        // Make sure userId is not null before fetching appointments
+        if (userId) {
+          const response = await axios.get(`http://localhost:8088/appointments/${userId}`);
+          setAppointments(response.data); // Set the fetched appointments data
+        }
       } catch (error) {
         console.error("Error fetching appointments:", error);
       }
     };
 
     fetchAppointments();
-  }, [userId]);
+  }, [userId]); // Re-run the effect whenever userId changes
 
   return (
     <div className="card--container">
