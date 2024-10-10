@@ -4,8 +4,8 @@ import "../../../../Css/Patient/Table.css";
 import details from "../../../../assets/icons2/details.svg";
 import Modal from "./Modal";
 
-const Table = () => {
-  const [data, setData] = useState([]);
+
+const Table = ({ data }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(null);
 
@@ -48,38 +48,22 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {data.length > 0 ? (
-            data.map((row, index) => (
-              <tr key={index}>
-                <td>{row._id}</td>
-                <td>{row.date}</td>
-                <td>
-                  <button
-                    className="details-btn"
-                    onClick={() => handleDetailsClick(row)}
-                  >
-                    <img
-                      src={details}
-                      alt="details icon"
-                      className="details-icon"
-                    />
-                    Details
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="3">No records found.</td>
+
+          {data.map((row, index) => (
+            <tr key={index}>
+              <td>{row._id}</td> {/* Adjust this to match the record ID field in your DB */}
+              <td>{row.date}</td>
+              <td>
+                <button className="details-btn" onClick={() => handleDetailsClick(row)}>
+                  <img src={details} alt="details icon" className="details-icon" />
+                  Details
+                </button>
+              </td>
             </tr>
           )}
         </tbody>
       </table>
-      <Modal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        record={selectedRecord}
-      />
+      {selectedRecord && <Modal show={showModal} onClose={() => setShowModal(false)} record={selectedRecord} />}
     </>
   );
 };

@@ -61,6 +61,7 @@ function Personal_Info({ userBio }) {
           <img src={ProfileIcon} className="profileImage" alt="profile" />
           <p className="userID">{userInfo.id}</p>
           <p className="userName">{userBio.username}</p> {/* Adjusted to use userBio.username */}
+          
         </div>
         <div className="bioDataSection">
           <div className="bioDataColumn">

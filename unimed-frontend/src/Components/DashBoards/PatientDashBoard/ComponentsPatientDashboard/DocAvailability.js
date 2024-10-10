@@ -13,7 +13,7 @@ const DocAvailability = ({ doctorName, isAvailable }) => {
             {isAvailable ? (
               <span className="available-text">Available</span>
             ) : (
-              <span className="not-available-text">Not Available</span>
+              <span className="not-available-text">Unavailable</span>
             )}
           </span>
           <span className="cardCollectionspan">
