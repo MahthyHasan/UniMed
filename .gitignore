@@ -6274,3 +6274,10 @@ node_modules/react-dom/umd/react-dom-server-legacy.browser.production.min.js
 node_modules/scheduler/unstable_post_task.js
 node_modules/scheduler/cjs/scheduler-unstable_post_task.development.js
 node_modules/scheduler/cjs/scheduler-unstable_post_task.production.min.js
+*.xml
+*.xml
+unimed/.idea/modules.xml
+.idea/misc.xml
+/.idea
+.idea/misc.xml
+unimed/unimed/.idea/misc.xml
