@@ -4,8 +4,8 @@ import "../../../../Css/Patient/Table.css";
 import details from "../../../../assets/icons2/details.svg";
 import Modal from "./Modal";
 
-
-const Table = ({ data }) => {
+const Table = ({ data: initialData }) => {
+  const [data, setData] = useState(initialData);  // Use initialData as the initial value for data
   const [showModal, setShowModal] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState(null);
 
@@ -20,7 +20,7 @@ const Table = ({ data }) => {
           const response = await axios.get(
             `http://localhost:8088/api/v1/medicalRecords/all/${storedPatientId}`
           );
-          setData(response.data);
+          setData(response.data); // Set the fetched data to the state
         } catch (error) {
           console.error("Error fetching medical records", error);
         }
@@ -48,17 +48,22 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-
-          {data.map((row, index) => (
-            <tr key={index}>
-              <td>{row._id}</td> {/* Adjust this to match the record ID field in your DB */}
-              <td>{row.date}</td>
-              <td>
-                <button className="details-btn" onClick={() => handleDetailsClick(row)}>
-                  <img src={details} alt="details icon" className="details-icon" />
-                  Details
-                </button>
-              </td>
+          {data && data.length > 0 ? (
+            data.map((row, index) => (
+              <tr key={index}>
+                <td>{row._id}</td> {/* Adjust this to match the record ID field in your DB */}
+                <td>{row.date}</td>
+                <td>
+                  <button className="details-btn" onClick={() => handleDetailsClick(row)}>
+                    <img src={details} alt="details icon" className="details-icon" />
+                    Details
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3">No medical records found.</td>
             </tr>
           )}
         </tbody>
