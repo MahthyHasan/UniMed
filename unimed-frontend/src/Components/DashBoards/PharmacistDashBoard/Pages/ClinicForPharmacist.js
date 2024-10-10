@@ -27,7 +27,7 @@ function ClinicForPharmacist() {
           <Card />
         </div>
         {!showMedicineScanner && !showBookingScanner ? (
-          <div className=" row justify-content-center">
+          <div className="row justify-content-center">
             <div className="col-12 col-md-6">
               <div
                 className="p-3"
@@ -49,14 +49,14 @@ function ClinicForPharmacist() {
           <div className="row justify-content-center">
             {showMedicineScanner ? (
               <div className="col-12 col-md-6">
-                <div className="col-12 col-md-6 d-flex justify-content-center">
+                <div>
                   <QrcodeScannerForMedicine
                     setShowQrDiv={() => setShowMedicineScanner(false)}
                   />
                 </div>
               </div>
             ) : (
-              <div className="col-12 col-md-6 d-flex justify-content-center">
+              <div className="col-12 col-md-6">
                 <div>
                   <QrcodeScannerForBooking
                     setShowQrDiv={() => setShowBookingScanner(false)}

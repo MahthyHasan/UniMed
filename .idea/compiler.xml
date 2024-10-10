@@ -10,6 +10,9 @@
         <module name="unimed" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="unimed" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

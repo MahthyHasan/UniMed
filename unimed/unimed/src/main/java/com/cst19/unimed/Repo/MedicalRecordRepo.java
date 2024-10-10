@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.Aggregation;
-import org.springframework.data.mongodb.repository.Query;
 
 
 public interface MedicalRecordRepo extends MongoRepository<MedicalRecords, String> {
@@ -22,7 +21,4 @@ public interface MedicalRecordRepo extends MongoRepository<MedicalRecords, Strin
             "{ '$limit': 1 }"
     })
     List<CommonDiagnosis> findMostCommonDiagnosis();
-
-    @Query("{ 'date': ?0 }")
-    List<MedicalRecords> findByDate(String date);
 }

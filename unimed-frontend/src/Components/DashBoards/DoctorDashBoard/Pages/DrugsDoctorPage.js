@@ -32,7 +32,7 @@ const SearchBox = ({ searchTerm, setSearchTerm }) => {
   );
 };
 
-export default function DrugsDoctorPage() {
+export default function DoctorDrugFinder() {
   const [drugs, setDrugs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredDrugs, setFilteredDrugs] = useState([]);

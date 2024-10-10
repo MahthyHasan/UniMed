@@ -45,9 +45,4 @@ public class MedicalServices {
         List<CommonDiagnosis> commonDiagnosis = repo.findMostCommonDiagnosis();
         return commonDiagnosis.isEmpty() ? null : commonDiagnosis.get(0).get_id();
     }
-
-    public List<MedicalRecords> getMedicalRecordsByDate(String date) {
-        return repo.findByDate(date);
-    }
-
 }
