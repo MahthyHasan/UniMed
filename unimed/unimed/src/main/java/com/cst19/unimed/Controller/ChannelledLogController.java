@@ -37,4 +37,12 @@ public class ChannelledLogController {
         channelledLogService.logOut(doctorId);
         return ResponseEntity.ok("Doctor logged out successfully.");
     }
+
+    @GetMapping("/total-today")
+    public ResponseEntity<Long> getTotalPatientsForToday() {
+        long totalPatients = channelledLogService.getTotalPatientsForToday();
+        return new ResponseEntity<>(totalPatients, HttpStatus.OK);
+    }
+    // New endpoint to get the most common health issue for today
+
 }

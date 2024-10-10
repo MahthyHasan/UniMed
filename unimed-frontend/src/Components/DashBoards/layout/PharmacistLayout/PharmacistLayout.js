@@ -15,6 +15,10 @@ import QrCode from "../../../../assets/icons2/qr-reader-svgrepo-com.svg";
 import Medicine from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
 import Drugs from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
 import Supply from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
+import BellIcon from "../../../../assets/icons2/bell.svg";
+
+// WebSocket setup
+const WEBSOCKET_URL = "http://localhost:8088/websocket-endpoint"; // Update with your actual server URL
 
 export default function PharmacistLayout({ children }) {
   const dispatch = useDispatch();
@@ -25,17 +29,42 @@ export default function PharmacistLayout({ children }) {
   const [modalData, setModalData] = useState(false);
   const [user, setUser] = useState(null);
 
+  const [notifications, setNotifications] = useState([]);
+  const [profilePopupShow, setProfilePopupShow] = useState(false);
+  const navigate = useNavigate();
+
   function toggleDrawer() {
     dispatch(changeToggle(!open));
   }
 
-  const [profilePopupShow, setProfilePopupShow] = useState(false);
+  useEffect(() => {
+    // Establish WebSocket connection
+    const socket = new WebSocket(WEBSOCKET_URL);
+
+    socket.onopen = () => {
+      console.log("Connected to WebSocket");
+    };
+
+    socket.onmessage = (event) => {
+      const notification = JSON.parse(event.data);
+      setNotifications((prevNotifications) => [
+        ...prevNotifications,
+        notification,
+      ]);
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);
 
   const handleProfileClick = () => {
     setProfilePopupShow(!profilePopupShow);
   };
-
-  const navigate = useNavigate();
 
   return (
     <div className="container-fluid">
@@ -167,6 +196,22 @@ export default function PharmacistLayout({ children }) {
               </button>
               <div className="collapse navbar-collapse " id="">
                 <ul className="navbar-nav ms-auto align-items-center flex-row">
+                  {/* Bell icon for notifications */}
+                  <li className="nav-item me-3">
+                    <img
+                      src={BellIcon}
+                      alt="Notifications"
+                      height="24px"
+                      width="24px"
+                      className="icon-hover"
+                      onClick={() => {
+                        // Handle bell icon click
+                        if (notifications.length > 0) {
+                          alert("You have new notifications!");
+                        }
+                      }}
+                    />
+                  </li>
                   <Dropdown className="bg-white">
                     <Dropdown.Toggle variant="white" id="dropdown-basic">
                       <div
@@ -190,18 +235,13 @@ export default function PharmacistLayout({ children }) {
                       <div className="p-3 text-left">
                         <p>{user?.first_name}</p>
                         <p>{user?.email}</p>
-
+                        <p>{user?.mobile}</p>
+                        <p>{user?.gender}</p>
                         <button
-                          type="button"
-                          className={
-                            "btn btn-primary tasks-dropdown-btn padding-none d-flex align-items"
-                          }
-                          onClick={() => {
-                            setModalType("Edit");
-                            setModalShow(true);
-                          }}
+                          className="btn btn-dark w-100 mt-2"
+                          onClick={handleProfileClick}
                         >
-                          Profile Edit
+                          Edit Profile
                         </button>
                       </div>
                     </Dropdown.Menu>
@@ -210,20 +250,9 @@ export default function PharmacistLayout({ children }) {
               </div>
             </div>
           </nav>
-          <div>
-            <div />
-            {children}
-          </div>
+          <main className="pt-4 px-4">{children}</main>
         </div>
       </div>
-      <EditProfile
-        show={modalShow}
-        type={modalType}
-        onHide={() => {
-          setModalShow(false);
-        }}
-        modelData={modalData}
-      />
     </div>
   );
 }

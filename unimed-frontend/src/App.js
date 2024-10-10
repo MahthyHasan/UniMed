@@ -58,6 +58,8 @@ import ClinicForPharmacist from "./Components/DashBoards/PharmacistDashBoard/Pag
 import TermsOfService from "./Components/Pages/Home/TermsOfService";
 import SupplyMedicinePharmacist from "./Components/DashBoards/PharmacistDashBoard/Pages/SupplyMedicinePharmacist";
 import BioFill from "./Components/Pages/BioFill";
+//import Modal from "./Components/Pages/Modal";
+import Analysis from "./Components/DashBoards/DoctorDashBoard/Pages/Analysis";
 
 function App() {
   return (
@@ -66,7 +68,7 @@ function App() {
         <Route path="/signup" element={<CreateAccount />} />
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
-
+        <Route path="/analysis" element={<Analysis />} />
         <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/Appointment" element={<Appointment />} />
