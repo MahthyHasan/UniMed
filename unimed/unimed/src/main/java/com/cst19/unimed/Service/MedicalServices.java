@@ -1,6 +1,6 @@
 package com.cst19.unimed.Service;
 
-
+import com.cst19.unimed.Repo.CommonDiagnosis;
 import com.cst19.unimed.Entity.MedicalRecords;
 import com.cst19.unimed.Repo.MedicalRecordRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +41,8 @@ public class MedicalServices {
                 .orElseThrow(() -> new RuntimeException("Medical record not found for id: " + recordId));
     }
 
+    public String getMostCommonDiagnosis() {
+        List<CommonDiagnosis> commonDiagnosis = repo.findMostCommonDiagnosis();
+        return commonDiagnosis.isEmpty() ? null : commonDiagnosis.get(0).get_id();
+    }
 }

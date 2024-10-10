@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Layout from "../../layout/PatientLayout/PatientLayout";
 import Table from "../ComponentsPatientDashboard/Table";
+
 import styled from "styled-components";
 
 const Heading = styled.h4`
@@ -20,9 +21,11 @@ export default function MyRecords() {
   useEffect(() => {
     // Retrieve the username from localStorage
     const storedUsername = localStorage.getItem("username");
+
     if (storedUsername) {
       setUsername(storedUsername);
     }
+
 
     const patientID = localStorage.getItem("scannedPID");
     if (patientID) {

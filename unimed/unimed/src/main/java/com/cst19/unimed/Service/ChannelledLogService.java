@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.time.LocalDate;
 
 @Service
 public class ChannelledLogService {
@@ -53,6 +54,12 @@ public class ChannelledLogService {
         }
     }
 
+    // total patients for the day
+    public long getTotalPatientsForToday() {
+        String today = LocalDate.now().toString(); // Format: yyyy-MM-dd
+        return channelledLogRepo.countByDate(today);
+    }
+
     private String[] appendTimestamp(String[] timestamps, String newTimestamp) {
         String[] newTimestamps = Arrays.copyOf(timestamps, timestamps.length + 1);
         newTimestamps[timestamps.length] = newTimestamp;
@@ -63,4 +70,9 @@ public class ChannelledLogService {
         // Implementation for calculating total channeled time
         return "0"; // Placeholder for the actual implementation
     }
+
+
+
+
+
 }

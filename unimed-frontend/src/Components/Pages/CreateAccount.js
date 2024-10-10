@@ -10,6 +10,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./Home/navbar";
 import Footer from "./Home/footer";
+//import Modal from "./Modal";
 
 function CreateAccount() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ function CreateAccount() {
     password: "",
     rPassword: "",
   });
+  //const [isModalActive, setIsModalActive] = useState(false); 
 
   const initialFormData = {
     email: "",
@@ -38,7 +40,7 @@ function CreateAccount() {
     password: "",
     rPassword: "",
   };
-  
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -113,8 +115,9 @@ function CreateAccount() {
         axios
           .post("http://localhost:8088/api/v1/user/save", formData)
           .then(() => {
-            setFormData(initialFormData);            
+            setFormData(initialFormData);
             navigate("/verifyEmail");
+            //setIsModalActive(true);
           })
           .catch((error) => {
             if (error.response && error.response.data) {
@@ -131,169 +134,178 @@ function CreateAccount() {
 
   return (
     <>
-    <NavBar />
-    <div className="sign-in-page">      
-      <div className="create-account-form-new">
-        <div className="row logo-div">
-          <img src={logopath} className="logo-pmt" alt="Logo"></img>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="row mt-4">
-            <div className="col-6">
-              <label htmlFor="email" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath3}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="email"
-                  className="sign-in-form-input"
-                  type="text"
-                  placeholder="EMAIL ADDRESS"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.email && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.email}
-                </p>
-              )}
-            </div>
-            <div className="col-6">
-              <label htmlFor="username" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath1}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="username"
-                  className="sign-in-form-input"
-                  type="text"
-                  placeholder="USERNAME"
-                  value={formData.username}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.username && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.username}
-                </p>
-              )}
-            </div>
+      <NavBar />
+      <div className="sign-in-page">
+        <div className="create-account-form-new">
+          <div className="row logo-div">
+            <img src={logopath} className="logo-pmt" alt="Logo"></img>
           </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <label htmlFor="firstName" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath4}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="firstName"
-                  className="sign-in-form-input"
-                  type="text"
-                  placeholder="FIRST NAME"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.firstName && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.firstName}
-                </p>
-              )}
+          <form onSubmit={handleSubmit}>
+            <div className="row mt-4">
+              <div className="col-6">
+                <label htmlFor="email" className="sign-in-form-input-lable2">
+                  <img
+                    src={iconpath3}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="email"
+                    className="sign-in-form-input"
+                    type="text"
+                    placeholder="EMAIL ADDRESS"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.email && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+              <div className="col-6">
+                <label htmlFor="username" className="sign-in-form-input-lable2">
+                  <img
+                    src={iconpath1}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="username"
+                    className="sign-in-form-input"
+                    type="text"
+                    placeholder="USERNAME"
+                    value={formData.username}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.username && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.username}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="col-6">
-              <label htmlFor="lastName" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath4}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="lastName"
-                  className="sign-in-form-input"
-                  type="text"
-                  placeholder="LAST NAME"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.lastName && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.lastName}
-                </p>
-              )}
+            <div className="row mt-2">
+              <div className="col-6">
+                <label
+                  htmlFor="firstName"
+                  className="sign-in-form-input-lable2"
+                >
+                  <img
+                    src={iconpath4}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="firstName"
+                    className="sign-in-form-input"
+                    type="text"
+                    placeholder="FIRST NAME"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.firstName && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.firstName}
+                  </p>
+                )}
+              </div>
+              <div className="col-6">
+                <label htmlFor="lastName" className="sign-in-form-input-lable2">
+                  <img
+                    src={iconpath4}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="lastName"
+                    className="sign-in-form-input"
+                    type="text"
+                    placeholder="LAST NAME"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.lastName && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.lastName}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <label htmlFor="password" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath2}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="password"
-                  className="sign-in-form-input"
-                  type="password"
-                  placeholder="PASSWORD"
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.password && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.password}
-                </p>
-              )}
+            <div className="row mt-2">
+              <div className="col-6">
+                <label htmlFor="password" className="sign-in-form-input-lable2">
+                  <img
+                    src={iconpath2}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="password"
+                    className="sign-in-form-input"
+                    type="password"
+                    placeholder="PASSWORD"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.password && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.password}
+                  </p>
+                )}
+              </div>
+              <div className="col-6">
+                <label
+                  htmlFor="rPassword"
+                  className="sign-in-form-input-lable2"
+                >
+                  <img
+                    src={iconpath2}
+                    alt="User Icon"
+                    className="input-lable-icon2"
+                  />
+                  <input
+                    id="rPassword"
+                    className="sign-in-form-input"
+                    type="password"
+                    placeholder="RE-ENTER PASSWORD"
+                    value={formData.rPassword}
+                    onChange={handleChange}
+                  />
+                </label>
+                {errors.rPassword && (
+                  <p className="error-message" style={{ color: "red" }}>
+                    {errors.rPassword}
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="col-6">
-              <label htmlFor="rPassword" className="sign-in-form-input-lable2">
-                <img
-                  src={iconpath2}
-                  alt="User Icon"
-                  className="input-lable-icon2"
-                />
-                <input
-                  id="rPassword"
-                  className="sign-in-form-input"
-                  type="password"
-                  placeholder="RE-ENTER PASSWORD"
-                  value={formData.rPassword}
-                  onChange={handleChange}
-                />
-              </label>
-              {errors.rPassword && (
-                <p className="error-message" style={{ color: "red" }}>
-                  {errors.rPassword}
-                </p>
-              )}
+            <div className="d-flex justify-content-center mt-4 createButtonDiv">
+              <button type="submit" className="createAccountButton">
+                Create Account
+              </button>
             </div>
-          </div>
-          <div className="d-flex justify-content-center mt-4 createButtonDiv">
-            <button type="submit" className="createAccountButton">
-              Create Account
+          </form>
+          <div className="row mt-2 logo-div">
+            <button
+              type="button"
+              className="signinButtonLinkincreateAccount"
+              onClick={() => navigate("/login")}
+            >
+              Already Have Account ?
             </button>
           </div>
-        </form>
-        <div className="row mt-2 logo-div">
-          <button type="button" className="signinButtonLinkincreateAccount" onClick={() => navigate("/login")}>
-            Already Have Account ?
-          </button>
         </div>
       </div>
-    </div>
-    <div className="footerForCreateAccount">
-    <Footer />
-    </div>    
+      <div className="footerForCreateAccount">
+        <Footer />
+      </div>
     </>
-    
   );
 }
 

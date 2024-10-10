@@ -52,4 +52,9 @@ public class MedicalReportController {
         return ResponseEntity.ok(record);
     }
 
+    @GetMapping("/common-diagnosis")
+    public ResponseEntity<String> getMostCommonDiagnosis() {
+        String commonDiagnosis = medicalServices.getMostCommonDiagnosis();
+        return ResponseEntity.ok(commonDiagnosis);
+    }
 }

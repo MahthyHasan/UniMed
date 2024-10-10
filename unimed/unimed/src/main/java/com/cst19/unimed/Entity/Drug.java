@@ -2,6 +2,7 @@ package com.cst19.unimed.Entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDate;
 
 @Document
 public class Drug {
@@ -14,10 +15,10 @@ public class Drug {
     private String strength;
     private String quantity;
     private String manufacturer;
-    private String exp_date;
+    private LocalDate exp_date;
     private String availability_status;
 
-    public Drug(String availability_status, String exp_date, String manufacturer, String quantity, String strength, String dosage_forms, String drug_name, String srid, String _id) {
+    public Drug(String availability_status, LocalDate exp_date, String manufacturer, String quantity, String strength, String dosage_forms, String drug_name, String srid, String _id) {
         this.availability_status = availability_status;
         this.exp_date = exp_date;
         this.manufacturer = manufacturer;
@@ -88,11 +89,11 @@ public class Drug {
         this.manufacturer = manufacturer;
     }
 
-    public String getExp_date() {
+    public LocalDate getExp_date() {
         return exp_date;
     }
 
-    public void setExp_date(String exp_date) {
+    public void setExp_date(LocalDate exp_date) {
         this.exp_date = exp_date;
     }
 
@@ -114,7 +115,7 @@ public class Drug {
                 ", strength='" + strength + '\'' +
                 ", quantity='" + quantity + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
-                ", exp_date='" + exp_date + '\'' +
+                ", exp_date=" + (exp_date != null ? exp_date.toString() : "null") +
                 ", availability_status='" + availability_status + '\'' +
                 '}';
     }
