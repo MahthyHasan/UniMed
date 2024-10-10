@@ -41,7 +41,7 @@ public class DrugServices {
     public List<Drug> getDrugsExpiringSoon() {
         LocalDate today = LocalDate.now();
         LocalDate thresholdDate = today.plusDays(30);
-        return repo.findByExpDateBetween(today, thresholdDate);
+        return repo.findByExp_dateBetween(today, thresholdDate);
     }
 
     // Scheduled task to check for expiring drugs and send alerts

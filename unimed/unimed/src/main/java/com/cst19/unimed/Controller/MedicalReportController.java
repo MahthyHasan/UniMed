@@ -57,4 +57,12 @@ public class MedicalReportController {
         String commonDiagnosis = medicalServices.getMostCommonDiagnosis();
         return ResponseEntity.ok(commonDiagnosis);
     }
+
+    @GetMapping("/report/{date}")
+    public ResponseEntity<List<MedicalRecords>> getMedicalRecordsByDate(@PathVariable String date) {
+        List<MedicalRecords> records = medicalServices.getMedicalRecordsByDate(date);
+        return ResponseEntity.ok(records);
+    }
+
+
 }

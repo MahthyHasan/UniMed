@@ -93,17 +93,17 @@ const Analysis = () => {
           <AnalysisCards
             title="Most Common Health Issue of the Day"
             icon="common-health-issue"
-            data={"Fever"}//{commonHealthIssue} // Pass the fetched data
+            data={"Fever"} //{commonHealthIssue} // Pass the fetched data
           />
           <AnalysisCards
             title="Emergency Cases of the Day"
             icon="emergency-cases"
-            data={0}//{emergencyCases} // Pass the fetched data
+            data={0} //{emergencyCases} // Pass the fetched data
           />
           <AnalysisCards
             title="Average Consultation Time"
             icon="average-consultation-time"
-            data={"10 mins"}//{averageConsultationTime} // Pass the fetched data
+            data={"10 mins"} //{averageConsultationTime} // Pass the fetched data
           />
         </div>
         <div style={styles.graphsSection}>
@@ -113,6 +113,7 @@ const Analysis = () => {
           <div style={styles.graphItem}>
             <PieChart />
           </div>
+         
         </div>
         <div style={styles.analysisSection}>
           {/* Analysis content will be added here */}

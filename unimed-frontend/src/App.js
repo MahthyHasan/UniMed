@@ -60,6 +60,9 @@ import SupplyMedicinePharmacist from "./Components/DashBoards/PharmacistDashBoar
 import BioFill from "./Components/Pages/BioFill";
 //import Modal from "./Components/Pages/Modal";
 import Analysis from "./Components/DashBoards/DoctorDashBoard/Pages/Analysis";
+import MedicalRequests from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalRequests";
+import DailyReportReport from "./Components/DashBoards/DoctorDashBoard/Pages/DailyReport";
+import MedicalCertificate from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalCertificate";
 
 function App() {
   return (
@@ -75,7 +78,8 @@ function App() {
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/DrugInventory" element={<DrugInventory />} />
         <Route path="/Mali" element={<Mali />} />
-
+        <Route path="/MedicalRequests" element={<MedicalRequests />} />
+        <Route path="/MedicalCertificate" element={<MedicalCertificate />} />
         <Route path="/PharmacyReport" element={<PharmacyReport />} />
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
@@ -97,6 +101,7 @@ function App() {
         <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
         <Route path="/success/:recordId" element={<SuccessPage />} />
         <Route path="/record/:recordId" element={<RecordDetailsPage />} />
+        <Route path="/dailyreport" element={<DailyReportReport />} />
         <Route
           path="/showDoctorProfilePage/:userId"
           element={<ShowDoctorProfilePage />}
