@@ -21,4 +21,7 @@ public interface MedicalRecordRepo extends MongoRepository<MedicalRecords, Strin
             "{ '$limit': 1 }"
     })
     List<CommonDiagnosis> findMostCommonDiagnosis();
+
+    List<MedicalRecords> findByDate(String date);
+
 }

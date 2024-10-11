@@ -60,6 +60,9 @@ import SupplyMedicinePharmacist from "./Components/DashBoards/PharmacistDashBoar
 import BioFill from "./Components/Pages/BioFill";
 //import Modal from "./Components/Pages/Modal";
 import Analysis from "./Components/DashBoards/DoctorDashBoard/Pages/Analysis";
+import DailyReport from "./Components/DashBoards/DoctorDashBoard/Pages/DailyReport";
+import MedicalCertificate from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalCertificate";
+import MedicalRequests from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalRequests";
 
 function App() {
   return (
@@ -69,13 +72,13 @@ function App() {
         <Route path="/ps" element={<ProjectSetting />} />
         <Route path="/doctorDashboard" element={<Doctordashboard />} />
         <Route path="/analysis" element={<Analysis />} />
+        <Route path="/DailyReport" element={<DailyReport />} />
         <Route path="/Myrecords" element={<Myrecords />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/Appointment" element={<Appointment />} />
         <Route path="/Feedback" element={<Feedback />} />
         <Route path="/DrugInventory" element={<DrugInventory />} />
         <Route path="/Mali" element={<Mali />} />
-
         <Route path="/PharmacyReport" element={<PharmacyReport />} />
         <Route path="/provideMedicine" element={<ProvideMedicine />} />
         <Route path="/" element={<LandingPage />} />
@@ -129,6 +132,9 @@ function App() {
         <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
         <Route path="/TermsOfService" element={<TermsOfService />} />
         <Route path="/Privacy" element={<Privacy />} />
+        <Route path="/MedicalCertificate" element={<MedicalCertificate />} />
+        <Route path="/MedicalRequests" element={<MedicalRequests />} />
+
         <Route
           path="/SupplyMedicinePharmacist"
           element={<SupplyMedicinePharmacist />}
