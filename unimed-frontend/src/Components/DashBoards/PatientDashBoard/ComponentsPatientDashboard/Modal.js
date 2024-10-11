@@ -1,9 +1,5 @@
-
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import LastDiagnosis from "../ComponentsPatientDashboard/LastDiagnosis";
-
+import React from 'react';
+import styled from 'styled-components';
 
 const ModalBackdrop = styled.div`
   position: fixed;
@@ -44,7 +40,6 @@ const CloseButton = styled.button`
   }
 `;
 
-
 // New styled components for text colors
 const Heading = styled.h3`
   color: #4682b4; /* SteelBlue */
@@ -76,11 +71,9 @@ const Modal = ({ show, onClose, record }) => {
   console.log("Diagnoses: ", record.diagnoses);
   console.log("Medicines: ", record.medicines);
 
-
   return (
     <ModalBackdrop>
       <ModalContent>
-
         <Heading>Record Details</Heading>
 
         <SubHeading>Symptoms:</SubHeading>
