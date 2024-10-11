@@ -14,8 +14,8 @@ public class DrugServices {
     @Autowired
     private DrugRepo repo;
 
-    @Autowired
-    private AlertService alertService;
+//    @Autowired
+//    private AlertService alertService;
 
     // Save or update a drug
     public void saveOrUpdate(Drug drug) {
@@ -38,21 +38,21 @@ public class DrugServices {
     }
 
     // Get drugs expiring soon (within the next 30 days)
-    public List<Drug> getDrugsExpiringSoon() {
-        LocalDate today = LocalDate.now();
-        LocalDate thresholdDate = today.plusDays(30);
-        return repo.findByExpDateBetween(today, thresholdDate);
-    }
+//    public List<Drug> getDrugsExpiringSoon() {
+//        LocalDate today = LocalDate.now();
+//        LocalDate thresholdDate = today.plusDays(30);
+//        return repo.findByExpDateBetween(today, thresholdDate);
+//    }
 
     // Scheduled task to check for expiring drugs and send alerts
-    @Scheduled(cron = "0 0 0 * * ?") // Runs daily at midnight
-    public void checkDrugExpirations() {
-        List<Drug> expiringDrugs = getDrugsExpiringSoon();
-        if (!expiringDrugs.isEmpty()) {
-            expiringDrugs.forEach(drug -> {
-                // Replace with your alert mechanism, e.g., email, push notification
-                System.out.println("Alert: Drug " + drug.getDrug_name() + " is expiring soon!");
-            });
-        }
-    }
+//    @Scheduled(cron = "0 0 0 * * ?") // Runs daily at midnight
+//    public void checkDrugExpirations() {
+//        List<Drug> expiringDrugs = getDrugsExpiringSoon();
+//        if (!expiringDrugs.isEmpty()) {
+//            expiringDrugs.forEach(drug -> {
+//                // Replace with your alert mechanism, e.g., email, push notification
+//                System.out.println("Alert: Drug " + drug.getDrug_name() + " is expiring soon!");
+//            });
+//        }
+//    }
 }
