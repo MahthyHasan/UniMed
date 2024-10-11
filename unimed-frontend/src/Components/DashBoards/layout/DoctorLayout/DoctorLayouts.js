@@ -13,6 +13,8 @@ import clinicicon from "../../../../assets/icons2/clinic-svgrepo-com.svg";
 import Drugs from "../../../../assets/icons2/drugs-pill-svgrepo-com.svg";
 import History from "../../../../assets/icons2/clinic-history-svgrepo-com.svg";
 import chat from "../../../../assets/icons2/office-discussion-chat-communication-goup-2-svgrepo-com.svg";
+import report from "../../../../assets/icons2/report.svg";
+import medical from "../../../../assets/icons2/medical.svg";
 
 function Layout({ children }) {
   const dispatch = useDispatch();
@@ -118,6 +120,27 @@ function Layout({ children }) {
                     ? "side-menu-item side-menu-active"
                     : "side-menu-item"
                 }
+                to={"/MedicalRequests"}
+              >
+                <div className={"d-flex"}>
+                  <img
+                    src={medical}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={""}>Medical Requests</div>}
+                </div>
+              </NavLink>
+            </div>
+            <div className={"w-100 px-sm-2"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
                 to={"/Analysis"}
               >
                 <div className={"d-flex"}>
@@ -129,6 +152,27 @@ function Layout({ children }) {
                     className=" me-2"
                   />
                   {!open && <div className={""}>Analysis</div>}
+                </div>
+              </NavLink>
+            </div>
+            <div className={"w-100 px-sm-2"}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "side-menu-item side-menu-active"
+                    : "side-menu-item"
+                }
+                to={"/DailyReport"}
+              >
+                <div className={"d-flex"}>
+                  <img
+                    src={report}
+                    alt="avatar"
+                    height="24px"
+                    width="26.4px"
+                    className=" me-2"
+                  />
+                  {!open && <div className={""}>Daily Report</div>}
                 </div>
               </NavLink>
             </div>
@@ -154,9 +198,7 @@ function Layout({ children }) {
               </NavLink>
             </div>
 
-            <div className={"w-100 px-sm-2"}>
-             
-            </div>
+            <div className={"w-100 px-sm-2"}></div>
             <div className={"w-100 px-sm-2 log-out-button-in-side-navbar"}>
               <NavLink
                 className={({ isActive }) =>
