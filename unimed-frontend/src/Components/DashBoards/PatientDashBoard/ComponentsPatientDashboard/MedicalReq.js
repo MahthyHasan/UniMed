@@ -12,7 +12,16 @@ function MedicalReq() {
     const storedUserId = localStorage.getItem("user_Id");
     if (storedUserId) {
       setUserId(storedUserId);
-      fetchMedicalDates(storedUserId); // Fetch dates when userId is available
+      // Temporarily hardcode dates for testing
+      const testDates = [
+        { date: "2024-07-13" },
+        { date: "2024-08-13" },
+        { date: "2024-07-31" }
+      ];
+      setDates(testDates);
+
+      // Uncomment below if you want to test fetching real data from API again
+      // fetchMedicalDates(storedUserId); 
     } else {
       console.error("No userId found in localStorage.");
     }
@@ -57,7 +66,7 @@ function MedicalReq() {
           <option value="">Select a date</option>
           {dates.map((date, index) => (
             <option key={index} value={date.date}>
-              {date.date} {/* Make sure the date field matches your data */}
+              {date.date}
             </option>
           ))}
         </select>
