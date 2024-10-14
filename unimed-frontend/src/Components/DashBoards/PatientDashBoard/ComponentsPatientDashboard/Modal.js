@@ -89,9 +89,9 @@ const Modal = ({ show, onClose, record }) => {
 
         <SubHeading>Diagnosis:</SubHeading>
         <ul>
-          {record.diagnoses && record.diagnoses.length > 0 ? (
-            record.diagnoses.map((diagnosis, index) => (
-              <ListItem key={index}>{diagnosis}</ListItem>
+          {record.diaognises && record.diaognises.length > 0 ? (
+            record.diaognises.map((diaognises, index) => (
+              <ListItem key={index}>{diaognises}</ListItem>
             ))
           ) : (
             <ListItem>No diagnoses available</ListItem>
@@ -100,9 +100,9 @@ const Modal = ({ show, onClose, record }) => {
 
         <SubHeading>Prescribed Medicine:</SubHeading>
         <ul>
-          {record.medicines && record.medicines.length > 0 ? (
-            record.medicines.map((medicine, index) => (
-              <ListItem key={index}>{medicine}</ListItem>
+          {record.priscripedMedicines && record.priscripedMedicines.length > 0 ? (
+            record.priscripedMedicines.map((priscripedMedicines, index) => (
+              <ListItem key={index}>{priscripedMedicines}</ListItem>
             ))
           ) : (
             <ListItem>No prescribed medicines available</ListItem>
