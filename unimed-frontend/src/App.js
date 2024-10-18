@@ -64,85 +64,69 @@ import DailyReport from "./Components/DashBoards/DoctorDashBoard/Pages/DailyRepo
 import MedicalCertificate from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalCertificate";
 import MedicalRequests from "./Components/DashBoards/DoctorDashBoard/Pages/MedicalRequests";
 
-function App() {
-  return (
-    <div>
-      <Routes>
-        <Route path="/signup" element={<CreateAccount />} />
-        <Route path="/ps" element={<ProjectSetting />} />
-        <Route path="/doctorDashboard" element={<Doctordashboard />} />
-        <Route path="/analysis" element={<Analysis />} />
-        <Route path="/DailyReport" element={<DailyReport />} />
-        <Route path="/Myrecords" element={<Myrecords />} />
-        <Route path="/PatientDashboard" element={<PatientDashboard />} />
-        <Route path="/Appointment" element={<Appointment />} />
-        <Route path="/Feedback" element={<Feedback />} />
-        <Route path="/DrugInventory" element={<DrugInventory />} />
-        <Route path="/Mali" element={<Mali />} />
-        <Route path="/PharmacyReport" element={<PharmacyReport />} />
-        <Route path="/provideMedicine" element={<ProvideMedicine />} />
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/logincat" element={<LoginCategory />} />
-        <Route path="/loginDoctor" element={<DoctorLogin />} />
-        <Route path="/loginAdmin" element={<AdminLogin />} />
-        <Route path="/loginUser" element={<UserLogin />} />
-        <Route path="/loginPharmacist" element={<PharmacistLogin />} />
-        <Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/Services" element={<Services />} />
-        <Route path="/Members" element={<Members />} />
-        <Route path="/verifyEmail" element={<VerifyEmail />} />
-        <Route path="/ClinicRecords" element={<ClinicRecords />} />
-        <Route path="/Prescription" element={<Prescription />} />
-        <Route path="/DrugFinder" element={<DoctorDrugFinder />} />
-        <Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
-        <Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
-        <Route path="/success/:recordId" element={<SuccessPage />} />
-        <Route path="/record/:recordId" element={<RecordDetailsPage />} />
-        <Route
-          path="/showDoctorProfilePage/:userId"
-          element={<ShowDoctorProfilePage />}
-        />
-        <Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
-        <Route
-          path="/showPharmacistProfilePage/:userId"
-          element={<ShowPharmacistProfilePage />}
-        />
-        <Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
-        <Route
-          path="/showAdminProfilePage/:userId"
-          element={<ShowAdminProfilePage />}
-        />
-        <Route path="/listAllPatients" element={<ListAllPatientsPage />} />
-        <Route
-          path="/showPatientProfilePage/:userId"
-          element={<ShowPatientProfile />}
-        />
-        <Route path="/testqr" element={<GenerateQRCode />} />
-        <Route path="/testqr2" element={<QRCodeScanner />} />
-        <Route
-          path="/patientClinicProfile/:userId"
-          element={<PatientClinicProfile />}
-        />
-        <Route path="/LoginUserPageNew" element={<LoginPageUser />} />
-        <Route path="/personal-details" element={<PersonalDetails />} />
-        <Route path="/loginDoctor" element={<DoctorLogin />} />
-        <Route path="/CommonLogin" element={<CommonLogin />} />
-        <Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
-        <Route path="/TermsOfService" element={<TermsOfService />} />
-        <Route path="/Privacy" element={<Privacy />} />
-        <Route path="/MedicalCertificate" element={<MedicalCertificate />} />
-        <Route path="/MedicalRequests" element={<MedicalRequests />} />
+import ChatDoctor from "./Components/DashBoards/DoctorDashBoard/Pages/ChatDoctor";
 
-        <Route
-          path="/SupplyMedicinePharmacist"
-          element={<SupplyMedicinePharmacist />}
-        />
-        <Route path="/BioFill" element={<BioFill />} />
-      </Routes>
-    </div>
-  );
+function App() {
+	return (
+		<div>
+			<Routes>
+				<Route path="/signup" element={<CreateAccount />} />
+				<Route path="/ps" element={<ProjectSetting />} />
+				<Route path="/doctorDashboard" element={<Doctordashboard />} />
+        		<Route path="/analysis" element={<Analysis />} />
+        		<Route path="/DailyReport" element={<DailyReport />} />
+				<Route path="/Myrecords" element={<Myrecords />} />
+				<Route path="/PatientDashboard" element={<PatientDashboard />} />
+				<Route path="/Appointment" element={<Appointment />} />
+				<Route path="/Feedback" element={<Feedback />} />
+				<Route path="/DrugInventory" element={<DrugInventory />} />
+				<Route path="/Mali" element={<Mali />} />
+				<Route path="/PharmacyReport" element={<PharmacyReport />} />
+				<Route path="/provideMedicine" element={<ProvideMedicine />} />
+				<Route path="/" element={<LandingPage />} />
+				<Route path="/logincat" element={<LoginCategory />} />
+				<Route path="/loginDoctor" element={<DoctorLogin />} />
+				<Route path="/loginAdmin" element={<AdminLogin />} />
+				<Route path="/loginUser" element={<UserLogin />} />
+				<Route path="/loginPharmacist" element={<PharmacistLogin />} />
+				<Route path="/DrugsDoctorPage" element={<DrugsDoctorPage />} />
+				<Route path="/AboutUs" element={<AboutUs />} />
+				<Route path="/ContactUs" element={<ContactUs />} />
+				<Route path="/Services" element={<Services />} />
+				<Route path="/Members" element={<Members />} />
+				<Route path="/verifyEmail" element={<VerifyEmail />} />
+				<Route path="/ClinicRecords" element={<ClinicRecords />} />
+				<Route path="/Prescription" element={<Prescription />} />
+				<Route path="/DrugFinder" element={<DoctorDrugFinder />} />
+				<Route path="/adminSelectUser" element={<SelectUserAdminPage />} />
+				<Route path="/listAllDoctors" element={<ListAllDoctorsPage />} />
+				<Route path="/success/:recordId" element={<SuccessPage />} />
+				<Route path="/record/:recordId" element={<RecordDetailsPage />} />
+				<Route path="/showDoctorProfilePage/:userId" element={<ShowDoctorProfilePage />}/>
+				<Route path="/listAllPharmacist" element={<ListAllPharmacistPage />} />
+				<Route path="/showPharmacistProfilePage/:userId" element={<ShowPharmacistProfilePage />} />
+				<Route path="/listAllAdmins" element={<ListAllAdminsPage />} />
+				<Route path="/showAdminProfilePage/:userId"	element={<ShowAdminProfilePage />} />
+				<Route path="/listAllPatients" element={<ListAllPatientsPage />} />
+				<Route path="/showPatientProfilePage/:userId" element={<ShowPatientProfile />} />
+				<Route path="/testqr" element={<GenerateQRCode />} />
+				<Route path="/testqr2" element={<QRCodeScanner />} />
+				<Route path="/patientClinicProfile/:userId" element={<PatientClinicProfile />} />
+				<Route path="/LoginUserPageNew" element={<LoginPageUser />} />
+				<Route path="/personal-details" element={<PersonalDetails />} />
+				<Route path="/loginDoctor" element={<DoctorLogin />} />
+				<Route path="/CommonLogin" element={<CommonLogin />} />
+				<Route path="/ClinicForPharmacist" element={<ClinicForPharmacist />} />
+				<Route path="/TermsOfService" element={<TermsOfService />} />
+				<Route path="/Privacy" element={<Privacy />} />
+        		<Route path="/MedicalCertificate" element={<MedicalCertificate />} />
+        		<Route path="/MedicalRequests" element={<MedicalRequests />} />
+				<Route path="/SupplyMedicinePharmacist" element={<SupplyMedicinePharmacist />} />
+				<Route path="/BioFill" element={<BioFill />} />
+				<Route path="/chat" element={<ChatDoctor />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

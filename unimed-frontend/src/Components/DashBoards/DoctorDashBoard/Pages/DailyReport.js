@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Table, Container, Button } from "react-bootstrap";
+import Layout from "../../layout/DoctorLayout/DoctorLayouts";
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -81,7 +82,8 @@ export default function MedicalCenterDailyReport() {
   };
 
   return (
-    <PageContainer>
+    <Layout>
+      <PageContainer>
       <ReportTitle>Medical Center Daily Report</ReportTitle>
       <div className="text-center" style={{ marginBottom: "20px" }}>
         <input
@@ -161,5 +163,6 @@ export default function MedicalCenterDailyReport() {
         </div>
       )}
     </PageContainer>
+    </Layout>
   );
 }
