@@ -60,7 +60,7 @@ function MedicalReq() {
 
   return (
     <div>
-      <div>
+      <div className="select-container">
         <h3>Select a Date for Medical Report:</h3>
         <select onChange={(e) => setSelectedDate(e.target.value)} value={selectedDate}>
           <option value="">Select a date</option>
