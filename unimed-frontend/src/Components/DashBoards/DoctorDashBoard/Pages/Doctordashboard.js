@@ -56,9 +56,7 @@ export default function Doctordashboard() {
 						</div>
 					</div>
 				)}
-				<div className="row justify-content-center">
-					<Bookedslots />
-				</div>
+				
 			</div>
 			</PageContainer>			
 		</Layout>

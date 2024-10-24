@@ -2,9 +2,9 @@
 
 .card {
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: 300px;
+  border-radius: 8px auto;
+  padding: 20px auto;
+  width: 300px auto;
   margin: 20px auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   background-color: #fff; /* White background */
