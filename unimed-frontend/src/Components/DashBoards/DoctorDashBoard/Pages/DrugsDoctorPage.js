@@ -4,11 +4,19 @@ import Layout from "../../layout/DoctorLayout/DoctorLayouts";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 import styled from "styled-components";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { Table, Container, Button } from "react-bootstrap";
+
 
 const StyledInputGroup = styled(InputGroup)`
   margin-bottom: 20px;
 `;
-
+const PageContainer = styled(Container)`
+margin-top: 20px;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
 const SearchBox = ({ searchTerm, setSearchTerm }) => {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -60,6 +68,7 @@ export default function DoctorDrugFinder() {
 
   return (
     <Layout>
+      <PageContainer>
       <div className="container">
         <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <table className="table table-hover">
@@ -91,6 +100,7 @@ export default function DoctorDrugFinder() {
           </tbody>
         </table>
       </div>
+      </PageContainer>      
     </Layout>
   );
 }

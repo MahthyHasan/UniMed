@@ -5,10 +5,18 @@ import { ScancardQr } from "../ComponentsDoctorDashboard/ScancardQr";
 import { Bookedslots } from "../ComponentsDoctorDashboard/Bookedslots";
 import QRCodeScanner from "../ComponentsDoctorDashboard/QRCodeScanner";
 import Channellingactions from "../ComponentsDoctorDashboard/Channellingactions";
-
+import { Table, Container, Button } from "react-bootstrap";
+import styled from "styled-components";
 
 export default function Doctordashboard() {
 	const [showQrDiv, setShowQrDiv] = useState(false);
+	const PageContainer = styled(Container)`
+		margin-top: 20px;
+		padding: 20px;
+		background-color: #ffffff;
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	`;
 
 	const handleScancardClick = () => {
 		setShowQrDiv(true);
@@ -16,6 +24,7 @@ export default function Doctordashboard() {
 
 	return (
 		<Layout>
+			<PageContainer>
 			<div className="container">
 				<div className="row justify-content-center">
 					<Card />
@@ -41,7 +50,7 @@ export default function Doctordashboard() {
 							</div>
 						</div>
 						<div className="col-12 col-md-6">
-							<div >
+							<div>
 								<QRCodeScanner setShowQrDiv={setShowQrDiv} />
 							</div>
 						</div>
@@ -49,6 +58,7 @@ export default function Doctordashboard() {
 				)}
 				
 			</div>
+			</PageContainer>			
 		</Layout>
 	);
 }
