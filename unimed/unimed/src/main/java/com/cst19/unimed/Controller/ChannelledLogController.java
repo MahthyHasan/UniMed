@@ -44,5 +44,15 @@ public class ChannelledLogController {
         return new ResponseEntity<>(totalPatients, HttpStatus.OK);
     }
     // New endpoint to get the most common health issue for today
-
+    @PostMapping(value = "/save-total-time/{doctorId}")
+    public ResponseEntity<?> saveTotalLoggedTime(@PathVariable String doctorId) {
+        try {
+            channelledLogService.saveTotalLoggedTime(doctorId);
+            return ResponseEntity.ok("Total logged time saved successfully.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while saving the total logged time.");
+        }
+    }
 }

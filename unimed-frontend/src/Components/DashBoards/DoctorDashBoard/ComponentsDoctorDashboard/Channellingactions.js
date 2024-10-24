@@ -11,14 +11,21 @@ function Channellingactions() {
   const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
 
+  // Function to calculate and update total time
+  const updateTotalTime = async () => {
+    await axios.post(`http://localhost:8088/api/v1/channelledLog/save-total-time/${doctorId}`);
+  };
+
   const handlePause = async () => {
     await axios.post(`http://localhost:8088/api/v1/channelledLog/pause/${doctorId}`);
+    await updateTotalTime(); // Update the total time when paused
     setStatus('paused');
     setIsPaused(true);
   };
 
   const handleContinue = async () => {
     await axios.post(`http://localhost:8088/api/v1/channelledLog/continue/${doctorId}`);
+    await updateTotalTime(); // Update the total time when continued
     setStatus('available');
     setIsPaused(false);
   };
